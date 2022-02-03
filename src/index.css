@@ -1,0 +1,12 @@
+:root {
+  --bg-main: var(--bs-gray-100);
+  --bg-card: var(--bs-white);
+  --fg-main: var(--bs-gray-900);
+  --fg-acce: lightseagreen;
+}
+[data-theme="dark"] {
+  --bg-main: var(--bs-gray-800);
+  --bg-card: var(--bs-gray-900);
+  --fg-main: var(--bs-gray-100);
+  --fg-acce: lightseagreen;
+}

@@ -1,0 +1,184 @@
+.sidebar {
+  background-color: var(--bg-card);
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 200px;
+
+  .row {
+    --bs-gutter-x: 0;
+  }
+}
+
+.sidebar h2 {
+  padding: 1rem;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+#title::before {
+  content: "Workout Tracker";
+}
+
+.sidebar a {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: var(--fg-main);
+  background-color: var(--bg-card);
+  border-radius: 0.5rem;
+}
+
+.sidebar a:hover {
+  background-color: $hover-accent;
+}
+
+.sidebar a:active {
+  background-color: $active-accent;
+  color: var(--bg-card);
+
+  .sidebar_icon-item {
+    color: var(--bg-card);
+  }
+}
+
+.sidebar_icon-item {
+  width: 30px;
+  height: auto;
+  color: var(--fg-main);
+  background-color: inherit;
+}
+
+.sidebar__icon {
+  display: flex;
+  justify-content: center;
+  width: 30px !important;
+}
+
+@media screen and (min-width: 701px) {
+  .sidebar a:first-child {
+    margin-top: 3rem;
+  }
+
+  .sidebar__header {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-right: 1rem;
+  }
+
+  div.content {
+    margin-left: 200px;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 80px;
+  }
+
+  #title::before {
+    content: "WT";
+  }
+
+  .sidebar a {
+    margin-top: 2rem;
+    padding: 0rem;
+    justify-content: center;
+  }
+
+  .sidebar a:first-child {
+    margin-top: 3rem;
+  }
+  .sidebar__header {
+    display: none;
+  }
+
+  div.content {
+    margin-left: 80px;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #title::before {
+    content: "Workout Tracker";
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    text-align: center;
+  }
+
+  .sidebar__header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .sidebar a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: none;
+    margin: 0.75rem 0 0 0;
+  }
+
+  .sidebar a:nth-last-child(2) {
+    margin-bottom: 1.25rem;
+  }
+
+  .sidebar__icon {
+    display: none;
+  }
+
+  div.content {
+    margin-left: 0px;
+  }
+
+  .sidebar-footer {
+    bottom: none !important;
+    position: relative !important;
+  }
+}
+
+.sidebar-footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--bg-card);
+  padding: 0 1rem 0.5rem 1rem;
+
+  text-align: center;
+}
+
+.sidebar-footer hr {
+  margin-top: 0;
+}
+
+.sidebar-footer__text {
+  color: var(--fg-main);
+  font-size: 0.875rem;
+}
+
+.sidebar-footer__github {
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: var(--fg-main);
+  margin: 0 !important;
+  justify-content: center !important;
+}
+
+.sidebar-footer__github-icon {
+  margin-right: 0.5rem;
+}
+
+.sidebar-footer__github:hover {
+  color: var(--fg-acce);
+}

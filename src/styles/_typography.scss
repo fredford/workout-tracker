@@ -1,0 +1,21 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+body,
+p,
+th,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+.body,
+.p {
+  font-family: $font-family;
+  color: var(--fg-main);
+  margin: 0;
+}

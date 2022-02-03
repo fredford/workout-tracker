@@ -1,0 +1,112 @@
+.sections-card {
+}
+
+.sections-card__title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sections-card__button-group {
+  display: grid;
+  gap: 0.5rem;
+  margin-right: 0;
+}
+
+@media screen and (min-width: 521px) {
+  .sections-card__button-group {
+    justify-content: end;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .sections-card__button-group {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+.sections-card__button-group button {
+  display: inline-flex;
+  width: 70px;
+  border: none;
+  border-radius: $border-radius-button;
+  padding: 0.4rem;
+  font-size: $font-size-button;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding-top: calc(0.4rem + 2px);
+  color: var(--fg-main);
+}
+
+.sections-card__button-group label {
+  display: inline-flex;
+  width: 70px;
+  border: none;
+  border-radius: $border-radius-button;
+  padding: 0.4rem;
+  font-size: $font-size-button;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding-top: calc(0.4rem + 2px);
+  color: var(--fg-main);
+}
+
+.sections-card__button-group input {
+  display: none;
+}
+
+.sections-card__button-group button:last-child {
+  margin-right: 0;
+}
+
+#label-upper {
+  background-color: $upper-light;
+}
+
+#label-upper:hover {
+  background-color: $upper-active;
+}
+
+#button-upper:checked ~ #label-upper {
+  background-color: $upper-active;
+}
+
+#label-lower {
+  background-color: $lower-light;
+}
+
+#label-lower:hover {
+  background-color: $lower-active;
+}
+
+#button-lower:checked ~ #label-lower {
+  background-color: $lower-active;
+}
+
+#label-core {
+  background-color: $core-light;
+}
+
+#label-core:hover {
+  background-color: $core-active;
+}
+
+#button-core:checked ~ #label-core {
+  background-color: $core-active;
+}
+
+#label-cardio {
+  background-color: $cardio-light;
+  margin-right: 0;
+}
+
+#label-cardio:hover {
+  background-color: $cardio-active;
+}
+
+#button-cardio:checked ~ #label-cardio {
+  background-color: $cardio-active;
+}

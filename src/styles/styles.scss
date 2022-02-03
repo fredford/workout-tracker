@@ -1,0 +1,28 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+
+@import "./variables";
+@import "./typography";
+
+@import "./root";
+
+// Layout
+
+// Pages
+@import "./pages/page";
+
+@import "./layout/content";
+
+// Sidebar
+@import "./layout/sidebar/sidebar";
+@import "./layout/sidebar/sidebar-profile";
+@import "./layout/sidebar/footer";
+
+// Cards
+@import "./layout/card/card";
+@import "./layout/card/sections-card";
+
+// Exercises
+@import "./exercises/list-exercises";
