@@ -27,6 +27,19 @@
   background-color: rgba($color: $accent-color, $alpha: 0.6);
 }
 
+.list-exercises__add-button {
+  margin-left: 1rem;
+  background-color: rgba($accent-color, 0.2);
+  border-radius: $border-radius-button;
+  border: none;
+  padding: 0.3rem 0.5rem;
+  color: var(--fg-main);
+}
+
+.list-exercises__add-button:hover {
+  background-color: rgba($accent-color, 0.6);
+}
+
 .list-exercises__search {
   padding-left: 0.5rem;
   color: var(--fg-main) !important;
@@ -72,4 +85,59 @@ th {
 
 td {
   border: none;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 5px;
+}
+
+.list-exercise__table {
+  tr {
+    border-radius: $border-radius-card;
+    margin: 0.25rem;
+  }
+
+  tr td:first-child {
+    border-top-left-radius: $border-radius-card;
+    border-bottom-left-radius: $border-radius-card;
+  }
+
+  tr td:last-child {
+    border-top-right-radius: $border-radius-card;
+    border-bottom-right-radius: $border-radius-card;
+  }
+
+  tr:hover td {
+    color: var(--fg-main);
+  }
+
+  #Upper {
+    background-color: $upper-light;
+    border-radius: $border-radius-card;
+  }
+  #Upper:hover {
+    background-color: $upper-active;
+  }
+
+  #Lower {
+    background-color: $lower-light;
+  }
+  #Lower:hover {
+    background-color: $lower-active;
+  }
+
+  #Core {
+    background-color: $core-light;
+  }
+  #Core:hover {
+    background-color: $core-active;
+  }
+
+  #Cardio {
+    background-color: $cardio-light;
+  }
+  #Cardio:hover {
+    background-color: $cardio-active;
+  }
 }

@@ -1,0 +1,34 @@
+div[role="dialog"].light {
+  .modal-content {
+    background-color: var(--bs-white);
+    color: var(--bs-gray-900);
+  }
+
+  .modal-title {
+    color: var(--bs-gray-900);
+  }
+
+  .modal-header .button-close {
+    color: var(--bs-gray-900);
+  }
+}
+div[role="dialog"].dark {
+  .modal-content {
+    background-color: var(--bs-gray-900);
+    color: var(--bs-gray-100);
+  }
+  .modal-title {
+    color: var(--bs-gray-100);
+  }
+  .close-button {
+    background-color: var(--bs-gray-900);
+    border: none;
+  }
+  .close-button-icon {
+    color: var(--bs-gray-100);
+    transform: rotate(45deg);
+  }
+  .close-button:hover {
+    background-color: rgba($accent-color, 0.6);
+  }
+}

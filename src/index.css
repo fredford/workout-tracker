@@ -10,3 +10,7 @@
   --fg-main: var(--bs-gray-100);
   --fg-acce: lightseagreen;
 }
+
+div[role="dialog"] [data-theme="dark"] {
+  background-color: var(--bs-gray-900);
+}
