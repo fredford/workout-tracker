@@ -90,6 +90,7 @@ td {
 table {
   border-collapse: separate;
   border-spacing: 0 5px;
+  margin-bottom: 0 !important;
 }
 
 .list-exercise__table {
@@ -140,4 +141,28 @@ table {
   #Cardio:hover {
     background-color: $cardio-active;
   }
+}
+
+.list-exercises__button-group {
+  display: flex;
+  justify-content: center;
+}
+
+.button-group__button {
+  background-color: rgba($accent-color, 0.2);
+  border: none;
+  border-radius: $border-radius-button;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  color: var(--fg-main);
+}
+.button-group__button:hover {
+  background-color: rgba($accent-color, 0.6);
+}
+
+#left-button {
+  margin-right: 1rem;
+}
+#right-button {
+  margin-left: 1rem;
 }

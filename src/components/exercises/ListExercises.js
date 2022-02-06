@@ -1,38 +1,52 @@
-import React from "react";
-import { Button, Card, Modal, Table } from "react-bootstrap";
+import React, { useContext } from "react";
+import { Button, Card, Modal, Row, Col, Table } from "react-bootstrap";
 import SectionsCard from "../cards/SectionsCard";
 
 import {
-  FaWindowClose,
   FaChevronUp,
   FaChevronDown,
   FaPlus,
+  FaArrowLeft,
+  FaArrowRight,
 } from "react-icons/fa";
 
 import ExerciseDataService from "../../services/exercise";
+import AddExercise from "./AddExercise";
+import { ActivityContext } from "../../contexts/activityContext";
+import exercise from "../../services/exercise";
 
 export default function ListExercises() {
-  var theme = localStorage.getItem("theme");
-
+  // Context variables
+  const activities = useContext(ActivityContext);
+  // State variables
   const [isAscending, setIsAscending] = React.useState(false);
   const [search, setSearch] = React.useState("");
-
   const [exercises, setExercises] = React.useState([]);
+  const [page, setPage] = React.useState(0);
+  // Theme variable
+  var theme = localStorage.getItem("theme");
+
+  var newExercise = {
+    name: null,
+    area: null,
+    muscles: null,
+    type: null,
+    goalPerSet: null,
+    goalPerWorkout: null,
+    user: "61fcf308fdeae45e8d28e414",
+  };
 
   const [show, setShow] = React.useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   React.useEffect(() => {
-    retrieveExercises();
-  }, []);
+    retrieveExercises(page);
+  }, [page]);
 
   const retrieveExercises = () => {
-    ExerciseDataService.getAll()
+    ExerciseDataService.getPage(page)
       .then((response) => {
-        console.log(response.data);
-        console.log(response.data.exercises);
-
         setExercises(response.data.exercises);
       })
       .catch((e) => {
@@ -57,9 +71,44 @@ export default function ListExercises() {
   };
 
   const addExercise = (e) => {
-    console.log("heello");
+    ExerciseDataService.createExercise(e)
+      .then((response) => {})
+      .catch((e) => {
+        console.log(`Error creating exercise: ${e}`);
+      });
+
+    let newExercises = exercises;
+
+    setExercises(newExercises);
     handleClose();
   };
+
+  const increasePage = () => {
+    var newPage = page;
+
+    if (exercises.length === 10) {
+      setPage(++newPage);
+    }
+  };
+
+  const decreasePage = () => {
+    var newPage = page;
+
+    if (page > 0) {
+      setPage(--newPage);
+    }
+  };
+
+  // Sort the list of exercises
+  var displayList = [];
+  // If ascending order is specified
+  if (isAscending) {
+    displayList = exercises.sort((a, b) => (a.name < b.name ? 1 : -1));
+  }
+  // If descending order is specified
+  else {
+    displayList = exercises.sort((a, b) => (a.name > b.name ? 1 : -1));
+  }
 
   return (
     <Card className="sections-card list-exercises">
@@ -79,18 +128,12 @@ export default function ListExercises() {
             <FaPlus />
           </button>
           <Modal show={show} onHide={handleClose} className={theme}>
-            <Modal.Header>
-              <Modal.Title>Add Exercise</Modal.Title>
-              <Button onClick={handleClose} className="close-button">
-                <FaPlus size="20" className="close-button-icon" />
-              </Button>
-            </Modal.Header>
-            <Modal.Body>Add the form here</Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={addExercise}>
-                Add
-              </Button>
-            </Modal.Footer>
+            <AddExercise
+              newExercise={newExercise}
+              isNull={false}
+              handleClose={handleClose}
+              addExercise={addExercise}
+            />
           </Modal>
         </div>
         <input
@@ -111,17 +154,49 @@ export default function ListExercises() {
           </tr>
         </thead>
         <tbody className="list-exercise__table">
-          {exercises.map((exercise) => {
-            return (
-              <tr id={exercise.area} key={exercise._id}>
-                <td>{exercise.name}</td>
-                <td>{exercise.type}</td>
-                <td>{exercise.muscles}</td>
-              </tr>
+          {displayList.map((exercise) => {
+            var area = exercise.area.toLowerCase();
+            var name = exercise.name.toLowerCase();
+            var lowerSearch = search.toLowerCase();
+
+            var isAllOff = Object.values(activities).every(
+              (x) => x[0] === false
             );
+
+            if (isAllOff || activities[area][0]) {
+              if (
+                search.length === 0 ||
+                (search.length > 0 && name.includes(lowerSearch))
+              ) {
+                return (
+                  <tr id={exercise.area} key={exercise.name}>
+                    <td>{exercise.name}</td>
+                    <td>{exercise.type}</td>
+                    <td>{exercise.muscles}</td>
+                  </tr>
+                );
+              }
+            }
           })}
         </tbody>
       </Table>
+      <div className="list-exercises__button-group">
+        <button
+          className="button-group__button"
+          id="left-button"
+          onClick={decreasePage}
+        >
+          <FaArrowLeft />
+        </button>
+
+        <button
+          className="button-group__button"
+          id="right-button"
+          onClick={increasePage}
+        >
+          <FaArrowRight />
+        </button>
+      </div>
     </Card>
   );
 }

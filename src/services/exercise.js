@@ -2,7 +2,13 @@ import http from "../http-common";
 
 class ExerciseDataService {
   getAll(page = 0) {
-    return http.get(`/exercises/?page${page}`);
+    return http.get(`/exercises/?page=${page}`);
+  }
+
+  getPage(page = 0, exercisesPerPage = 10) {
+    return http.get(
+      `/exercises/?page=${page}&exercisesPerPage=${exercisesPerPage}`
+    );
   }
 
   find(query, by = "name", page = 0) {
