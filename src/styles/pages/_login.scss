@@ -22,13 +22,22 @@
   background-image: linear-gradient(
       60deg,
       rgba(var(--bg-main-rgb), 1) 0%,
-      rgba(var(--bg-main-rgb), 0.95) 100%
+      rgba(var(--bg-main-rgb), 0.9) 100%
     ),
     url("../../../public/gym.jpeg");
   background-size: cover;
 }
 
 .login-page h3 {
+  text-align: center;
+}
+
+.login-page hr {
+  color: var(--fg-acce);
+}
+
+.login-page h4 {
+  margin-top: 1rem;
   text-align: center;
 }
 
@@ -49,4 +58,32 @@
   border-radius: $border-radius-button;
   padding: 0.5rem;
   margin-top: 0.5rem;
+  color: var(--fg-main);
+}
+
+.login-page__form input:focus {
+  outline: none;
+  border: 1px solid $accent-color;
+}
+
+.login-page__form button {
+  margin-top: 1rem;
+  border: none;
+  background-color: rgba(var(--fg-acce-rgb), 0.2);
+  border-radius: $border-radius-button;
+  color: var(--fg-main);
+  padding: 0.5rem 0;
+}
+
+#login-button:hover {
+  background-color: rgba(var(--fg-acce-rgb), 0.6);
+}
+
+.login-page__form p {
+  margin-top: 0.5rem;
+}
+
+.login-page__form a {
+  text-decoration: none;
+  color: var(--fg-acce);
 }

@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Workouts from "./pages/Workouts";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 function App() {
   var tempTheme = localStorage.getItem("theme");
@@ -30,6 +31,7 @@ function App() {
         <Route exact path="/exercises" element={<Exercises />} />
         <Route exact path="/workouts" element={<Workouts />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/register" element={<Register />} />
         <Route exact path="/" element={<Login />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

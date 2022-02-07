@@ -1,13 +1,19 @@
 import React from "react";
-import { Card, Form } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
-export default function Login() {
+import Validator from "email-validator";
+
+export default function Register() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
+  const [name, setName] = React.useState("");
 
   var errorMessage = "";
 
-  const attemptLogin = () => {};
+  const attemptRegister = () => {
+    if (!Validator.validate(email)) {
+    }
+  };
 
   return (
     <div className="login-page" id="login-image">
@@ -15,8 +21,14 @@ export default function Login() {
         <Card.Body>
           <h3>Workout Tracker</h3>
           <hr />
-          <h4>Login</h4>
+          <h4>Register</h4>
           <div className="login-page__form">
+            <label>Name</label>
+            <input
+              placeholder="Enter name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
             <label>Email</label>
             <input
               placeholder="Enter email"
@@ -30,13 +42,14 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
               value={password}
             />
-            <button id="login-button" onClick={attemptLogin}>
-              Login
-            </button>
             <p>{errorMessage}</p>
+
+            <button id="login-button" onClick={attemptRegister}>
+              Register
+            </button>
             <hr />
             <p>
-              Not registered yet? <a href="/register">Create an account</a>
+              Already registered? <a href="/"> Sign in</a>
             </p>
           </div>
         </Card.Body>
