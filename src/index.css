@@ -1,14 +1,22 @@
 :root {
-  --bg-main: var(--bs-gray-100);
-  --bg-card: var(--bs-white);
-  --fg-main: var(--bs-gray-900);
+  --bg-main: #f8f9fa;
+  --bg-card: #fff;
+  --fg-main: #212529;
   --fg-acce: lightseagreen;
+  --bg-main-rgb: 248, 249, 250;
+  --bg-card-rgb: 250, 250, 250;
+  --fg-main-rgb: 33, 37, 41;
+  --fg-acce-rgb: 32, 178, 170;
 }
 [data-theme="dark"] {
-  --bg-main: var(--bs-gray-800);
-  --bg-card: var(--bs-gray-900);
-  --fg-main: var(--bs-gray-100);
+  --bg-main: #343a40;
+  --bg-card: #212529;
+  --fg-main: #f8f9fa;
   --fg-acce: lightseagreen;
+  --bg-main-rgb: 52, 58, 64;
+  --bg-card-rgb: 33, 37, 41;
+  --fg-main-rgb: 248, 249, 250;
+  --fg-acce-rgb: 32, 178, 170;
 }
 
 div[role="dialog"] [data-theme="dark"] {

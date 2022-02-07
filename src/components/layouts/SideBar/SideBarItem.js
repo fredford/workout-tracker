@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function SideBarItem(props) {
-  var hrefTag = `#${props.name.toLowerCase()}`;
+  var hrefTag = `${props.name.toLowerCase()}`;
   return (
     <a href={hrefTag}>
       <div className="sidebar__icon">{props.children}</div>
