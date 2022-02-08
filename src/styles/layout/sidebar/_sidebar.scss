@@ -158,6 +158,20 @@
   text-align: center;
 }
 
+.sidebar button {
+  background-color: rgba($accent-color, 0.2);
+  width: 100%;
+  margin: 1rem 0;
+  color: var(--fg-main);
+  border: none;
+  border-radius: $border-radius-button;
+  padding: 0.5rem;
+}
+
+.sidebar button:hover {
+  background-color: rgba($accent-color, 0.6);
+}
+
 .sidebar-footer hr {
   margin-top: 0;
 }

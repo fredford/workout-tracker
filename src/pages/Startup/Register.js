@@ -1,57 +1,109 @@
-import React from "react";
-import Validator from "email-validator";
+import React, { useState, useEffect } from "react";
 import StartupCard from "../../components/cards/StartupCard";
 
-export default function Register() {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [passwordConfirm, setPasswordConfirm] = React.useState("");
-  const [name, setName] = React.useState("");
+import axios from "axios";
 
-  var errorMessage = "";
+export default function Register({ history }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
 
-  const attemptRegister = () => {
-    if (!Validator.validate(email)) {
+  useEffect(() => {
+    if (localStorage.getItem("authToken")) {
+      history.push("/");
+    }
+  }, [history]);
+
+  const attemptRegister = async (e) => {
+    e.preventDefault();
+
+    const config = {
+      header: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    if (password !== passwordConfirm) {
+      setPassword("");
+      setPasswordConfirm("");
+      setTimeout(() => {
+        setError("");
+      }, 5000);
+      return setError("Passwords do not match");
+    }
+
+    try {
+      const { data } = await axios.post(
+        "/api/v1/register",
+        {
+          name,
+          email,
+          password,
+        },
+        config
+      );
+
+      localStorage.setItem("authToken", data.token);
+      history.push("/");
+    } catch (error) {
+      setError(error.response.data.error);
+      setTimeout(() => {
+        setError("");
+      }, 5000);
     }
   };
 
   return (
     <StartupCard title="Register">
-      <label>Name</label>
-      <input
-        placeholder="Enter name"
-        onChange={(e) => setName(e.target.value)}
-        value={name}
-      />
-      <label>Email</label>
-      <input
-        placeholder="Enter email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
-      <label>Password</label>
-      <input
-        type="password"
-        placeholder="Enter password"
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-      />
-      <label>Confirm Password</label>
-      <input
-        type="password"
-        placeholder="Confirm password"
-        onChange={(e) => setPasswordConfirm(e.target.value)}
-        value={passwordConfirm}
-      />
-      <p>{errorMessage}</p>
+      <form onSubmit={attemptRegister} className="login-page__form">
+        <label>Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter name"
+          onChange={(e) => setName(e.target.value)}
+          required
+          value={name}
+        />
+        <label>Email</label>
+        <input
+          type="email"
+          required
+          id="email"
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          required
+          id="password"
+          placeholder="Enter password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          required
+          id="confirmPassword"
+          placeholder="Confirm password"
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          value={passwordConfirm}
+        />
+        <p>{error}</p>
 
-      <button id="login-button" onClick={attemptRegister}>
-        Register
-      </button>
-      <hr />
-      <p>
-        Already registered? <a href="/"> Sign in</a>
-      </p>
+        <button id="login-button" type="submit">
+          Register
+        </button>
+        <hr />
+        <p>
+          Already registered? <a href="/login"> Sign in</a>
+        </p>
+      </form>
     </StartupCard>
   );
 }

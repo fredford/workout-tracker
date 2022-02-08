@@ -11,21 +11,23 @@ export default function ForgotPassword() {
 
   return (
     <StartupCard title="Forgot Password">
-      <p style={{ textAlign: "center" }}>
-        Please enter the email address registered to your account to reset
-        password!
-      </p>
-      <label>Email</label>
-      <input
-        placeholder="Enter email"
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-      />
+      <form onSubmit={attemptEmail} className="login-page__form">
+        <p style={{ textAlign: "center" }}>
+          Please enter the email address registered to your account to reset
+          password!
+        </p>
+        <label>Email</label>
+        <input
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
 
-      <button id="login-button" onClick={attemptEmail}>
-        Send Email
-      </button>
-      <p>{errorMessage}</p>
+        <button id="login-button" type="submit">
+          Send Email
+        </button>
+        <p>{errorMessage}</p>
+      </form>
     </StartupCard>
   );
 }

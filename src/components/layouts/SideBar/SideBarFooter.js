@@ -2,8 +2,11 @@ import React from "react";
 
 import { FaMoon, FaSun } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 export default function SideBarFooter({ switchTheme }) {
+  let navigate = useNavigate();
+
   var isChecked = false;
 
   if (localStorage.getItem("theme") === "dark") {
@@ -13,6 +16,12 @@ export default function SideBarFooter({ switchTheme }) {
   const changeTheme = () => {
     switchTheme();
   };
+
+  const logoutHandler = () => {
+    localStorage.removeItem("authToken");
+    navigate("/startup");
+  };
+
   return (
     <div className="sidebar-footer">
       <div className="sidebar-footer__theme-toggle">
@@ -29,6 +38,8 @@ export default function SideBarFooter({ switchTheme }) {
           <div className="ball" />
         </label>
       </div>
+
+      <button onClick={logoutHandler}>Logout</button>
 
       <div className="mt-2">
         <h6 className="sidebar-footer__text">Fraser Redford</h6>
