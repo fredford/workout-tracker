@@ -1,0 +1,33 @@
+.profile__user {
+  max-width: 400px;
+}
+
+.profile__user input {
+  @include standard-form;
+}
+
+.profile__user button {
+  @include standard-button;
+  padding: 0.5rem 1rem;
+}
+
+.profile__user p {
+  display: flex;
+  align-items: center;
+}
+
+.profile__user-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile__user label {
+  @include standard-button;
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 1rem;
+}
+#input-name,
+#input-password {
+  display: none;
+}

@@ -7,6 +7,8 @@
 
 @import "./mixins/buttons";
 @import "./mixins/activity";
+@import "./mixins/cards";
+@import "./mixins/forms";
 
 @import "./typography";
 
@@ -18,6 +20,7 @@
 @import "./pages/page";
 @import "./pages/notfound";
 @import "./pages/login";
+@import "./pages/profile";
 
 @import "./layout/content";
 

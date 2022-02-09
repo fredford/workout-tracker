@@ -1,6 +1,4 @@
 import React from "react";
-
-import { Container } from "react-bootstrap";
 import SideBar from "./SideBar/SideBar";
 
 export default function Page(props) {

@@ -1,0 +1,12 @@
+@mixin standard-card {
+  background-color: var(--bg-card);
+  color: var(--fg-card);
+  border: none;
+  border-radius: $border-radius-card;
+  padding: 1rem;
+  margin: 1rem;
+
+  & h4 {
+    margin-bottom: 1rem;
+  }
+}

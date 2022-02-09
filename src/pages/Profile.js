@@ -1,25 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { getData } from "../services/utils";
+import Page from "../components/layouts/Page";
+import ProfileCard from "../components/profile/ProfileCard";
 
 const Profile = () => {
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    retrieveUser();
-  }, []);
-
-  const retrieveUser = () => {
-    getData("api/v1/profile")
-      .then((response) => {
-        setUser(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
-  return <div>{user.name}</div>;
+  return (
+    <Page title="My Profile">
+      <ProfileCard />
+    </Page>
+  );
 };
 
 export default Profile;

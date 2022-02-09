@@ -1,6 +1,9 @@
-.card {
-  background-color: var(--bg-card) !important;
-  padding: 1rem;
-  border: none;
-  border-radius: $border-radius-card;
+.default-card {
+  @include standard-card;
+}
+
+@media screen and (max-width: 400px) {
+  .default-card {
+    margin: 0;
+  }
 }
