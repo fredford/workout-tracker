@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import StartupCard from "../../components/cards/StartupCard";
 
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export default function Register({ history }) {
+export default function Register() {
+  let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -12,9 +14,9 @@ export default function Register({ history }) {
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      history.push("/");
+      navigate("/");
     }
-  }, [history]);
+  }, []);
 
   const attemptRegister = async (e) => {
     e.preventDefault();
@@ -46,7 +48,7 @@ export default function Register({ history }) {
       );
 
       localStorage.setItem("authToken", data.token);
-      history.push("/");
+      navigate("/");
     } catch (error) {
       setError(error.response.data.error);
       setTimeout(() => {

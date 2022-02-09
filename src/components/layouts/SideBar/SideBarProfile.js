@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
+
+import { getData } from "../../../services/utils";
 
 export default function SideBarProfile({ profile }) {
-  var profileLink = `profile/${profile.link}`;
-  var profileImage = `../${profile.image}`;
+  const [user, setUser] = useState({});
+  const [error, setError] = useState("");
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if (!localStorage.getItem("authToken")) {
+      console.log("here?");
+      navigate("/login");
+    }
+
+    retrieveUser();
+  }, []);
+
+  const retrieveUser = () => {
+    getData("api/v1/profile")
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  var userLink = `profile/${user._id}`;
+
   return (
-    <a className="sidebar__profile row" href={profileLink}>
-      <img
-        className="sidebar__profile-image"
-        src={profileImage}
-        alt="profile"
-      />
-      <h4>{profile.name}</h4>
+    <a className="sidebar__profile row" href={userLink}>
+      <h4>{user.name}</h4>
     </a>
   );
 }

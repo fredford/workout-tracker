@@ -26,32 +26,9 @@
   }
 }
 
-.sections-card__button-group button {
-  display: inline-flex;
-  width: 70px;
-  border: none;
-  border-radius: $border-radius-button;
-  padding: 0.4rem;
-  font-size: $font-size-button;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  padding-top: calc(0.4rem + 2px);
-  color: var(--fg-main);
-}
-
 .sections-card__button-group label {
-  display: inline-flex;
+  @include activity-button;
   width: 70px;
-  border: none;
-  border-radius: $border-radius-button;
-  padding: 0.4rem;
-  font-size: $font-size-button;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-  padding-top: calc(0.4rem + 2px);
-  color: var(--fg-main);
 }
 
 .sections-card__button-group input {
@@ -63,11 +40,7 @@
 }
 
 #label-upper {
-  background-color: $upper-light;
-}
-
-#label-upper:hover {
-  background-color: $upper-active;
+  @include activity($upper-color);
 }
 
 #button-upper:checked ~ #label-upper {
@@ -75,11 +48,7 @@
 }
 
 #label-lower {
-  background-color: $lower-light;
-}
-
-#label-lower:hover {
-  background-color: $lower-active;
+  @include activity($lower-color);
 }
 
 #button-lower:checked ~ #label-lower {
@@ -87,11 +56,7 @@
 }
 
 #label-core {
-  background-color: $core-light;
-}
-
-#label-core:hover {
-  background-color: $core-active;
+  @include activity($core-color);
 }
 
 #button-core:checked ~ #label-core {
@@ -99,12 +64,8 @@
 }
 
 #label-cardio {
-  background-color: $cardio-light;
+  @include activity($cardio-color);
   margin-right: 0;
-}
-
-#label-cardio:hover {
-  background-color: $cardio-active;
 }
 
 #button-cardio:checked ~ #label-cardio {

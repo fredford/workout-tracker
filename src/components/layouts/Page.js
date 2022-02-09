@@ -16,7 +16,7 @@ export default function Page(props) {
   };
 
   return (
-    <div fluid className="page-container">
+    <div className="page-container">
       <SideBar switchTheme={switchTheme} theme={theme} />
       <div className="content">
         <h1>{props.title}</h1>
