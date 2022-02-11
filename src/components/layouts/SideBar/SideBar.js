@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Grid1x2 } from "react-bootstrap-icons";
 
 import { FaWalking } from "react-icons/fa";
@@ -7,8 +7,16 @@ import SideBarItem from "./SideBarItem";
 import SideBarProfile from "./SideBarProfile";
 
 import SideBarFooter from "./SideBarFooter";
+import { useDispatch } from "react-redux";
+import { fetchUser } from "../../../redux/reducers/user";
 
 export default function SideBar({ switchTheme, theme }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, [dispatch]);
+
   return (
     <div className="sidebar">
       <h2 id="title">{""}</h2>

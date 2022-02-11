@@ -13,7 +13,6 @@ export default function SideBarProfile({ profile }) {
 
   useEffect(() => {
     if (!localStorage.getItem("authToken")) {
-      console.log("here?");
       navigate("/login");
     }
 

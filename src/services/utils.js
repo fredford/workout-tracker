@@ -1,5 +1,13 @@
 import axios from "axios";
 
+export const config = {
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+  },
+  baseURL: process.env.REACT_APP_BASE_URL,
+};
+
 export const getData = async (path) => {
   const config = {
     headers: {

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import StartupCard from "../../components/cards/StartupCard";
 
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -69,9 +69,10 @@ const Login = () => {
         </button>
         <p>{error}</p>
         <hr />
-        <a href="/forgotpassword">Forgot Password?</a>
+        <Link to={{ pathname: "/forgotpassword" }}>Forgot Password?</Link>
         <p>
-          Not registered yet? <a href="/register">Create an account</a>
+          Not registered yet?{" "}
+          <Link to={{ pathname: "/register" }}>Create an account</Link>
         </p>
       </form>
     </StartupCard>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import StartupCard from "../../components/cards/StartupCard";
 
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Register() {
   let navigate = useNavigate();
@@ -103,7 +103,7 @@ export default function Register() {
         </button>
         <hr />
         <p>
-          Already registered? <a href="/login"> Sign in</a>
+          Already registered? <Link to={{ pathname: "/login" }}> Sign in</Link>
         </p>
       </form>
     </StartupCard>
