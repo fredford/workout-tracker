@@ -1,5 +1,7 @@
+import { Container } from "@mui/material";
 import React from "react";
-import SideBar from "./SideBar/SideBar";
+
+import Navbar from "./Navbar/Navbar";
 
 export default function Page(props) {
   var tempTheme = localStorage.getItem("theme");
@@ -14,12 +16,12 @@ export default function Page(props) {
   };
 
   return (
-    <div className="page-container">
-      <SideBar switchTheme={switchTheme} theme={theme} />
+    <Container>
       <div className="content">
         <h1>{props.title}</h1>
         {props.children}
       </div>
-    </div>
+      <Navbar />
+    </Container>
   );
 }

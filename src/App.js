@@ -2,6 +2,8 @@ import React from "react";
 
 import "./styles/styles.scss";
 
+import { CssBaseline } from "@mui/material";
+
 import { Route, Routes } from "react-router-dom";
 
 import PrivateRoute from "./components/routing/PrivateRoute";
@@ -20,42 +22,44 @@ import Profile from "./pages/Profile";
 
 import Startup from "./pages/Startup/Startup";
 
+import { ThemeProvider } from "@mui/material/styles";
+
+import { lightTheme, darkTheme } from "./services/theme.js";
+
 const App = () => {
   var tempTheme = localStorage.getItem("theme");
 
-  const [theme, setTheme] = React.useState(
-    tempTheme === null ? "light" : tempTheme
-  );
+  var theme =
+    tempTheme === "light" || tempTheme === null ? lightTheme : darkTheme;
 
-  const switchTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
+  var oldtheme = "dark";
 
   return (
-    <div className="App" data-theme={theme}>
-      <Routes>
-        <Route exact path="/" element={<PrivateRoute />}>
-          <Route exact path="/" element={<Dashboard />} />
-          <Route exact path="/profile/:userId" element={<Profile />} />
-          <Route exact path="/private" element={<PrivatePage />} />
-          <Route exact path="/dashboard" element={<Dashboard />} />
-          <Route exact path="/exercises" element={<Exercises />} />
-          <Route exact path="/workouts" element={<Workouts />} />
-        </Route>
+    <div className="App" data-theme={oldtheme}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          <Route exact path="/" element={<PrivateRoute />}>
+            <Route exact path="/" element={<Dashboard />} />
+            <Route exact path="/profile/:userId" element={<Profile />} />
+            <Route exact path="/private" element={<PrivatePage />} />
+            <Route exact path="/dashboard" element={<Dashboard />} />
+            <Route exact path="/exercises" element={<Exercises />} />
+            <Route exact path="/workouts" element={<Workouts />} />
+          </Route>
 
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/forgotpassword" element={<ForgotPassword />} />
-        <Route
-          exact
-          path="/resetpassword/:resetToken"
-          element={<ResetPassword />}
-        />
-        <Route exact path="/login" element={<Login />} />
-        <Route exact path="/startup" element={<Startup />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/forgotpassword" element={<ForgotPassword />} />
+          <Route
+            exact
+            path="/resetpassword/:resetToken"
+            element={<ResetPassword />}
+          />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/startup" element={<Startup />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ThemeProvider>
     </div>
   );
 };

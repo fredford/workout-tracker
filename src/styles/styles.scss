@@ -15,6 +15,7 @@
 @import "./root";
 
 // Layout
+@import "./layout/navbar";
 
 // Pages
 @import "./pages/page";
@@ -23,11 +24,6 @@
 @import "./pages/profile";
 
 @import "./layout/content";
-
-// Sidebar
-@import "./layout/sidebar/sidebar";
-@import "./layout/sidebar/sidebar-profile";
-@import "./layout/sidebar/footer";
 
 // Cards
 @import "./layout/card/card";

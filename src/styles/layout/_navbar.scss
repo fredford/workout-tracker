@@ -1,0 +1,90 @@
+.navbar-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-item {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+  align-items: center;
+  height: 100%;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.navbar-item:last-child {
+  margin-right: 0;
+}
+
+.navbar-items a:hover {
+  background-color: $hover-accent;
+}
+
+.navbar-item__active {
+  background-color: $active-accent !important;
+}
+
+#title {
+  padding: 1rem;
+}
+
+.navbar-item__header {
+  font-family: $font-family;
+  font-weight: 400;
+  margin-top: 1px;
+  margin-left: 0.5rem;
+}
+
+@media screen and (min-width: 766px) {
+  #title::before {
+    content: "Workout Tracker";
+  }
+}
+
+@media screen and (max-width: 765px) {
+  #title::before {
+    content: "WT";
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-item {
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .navbar-item__header {
+    margin: 0;
+    font-size: smaller;
+  }
+}
+
+@media screen and (max-width: 431px) {
+  #title::before {
+    content: "WT";
+  }
+  .navbar-items {
+    height: 100%;
+  }
+
+  .navbar-item__icon-container {
+    padding: 0.75rem;
+  }
+
+  .navbar-item__header {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .navbar-item__icon-container {
+    padding: 0.5rem 0.25rem;
+  }
+  .navbar-item {
+    margin-right: 0.25rem;
+  }
+}
