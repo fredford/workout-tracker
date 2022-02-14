@@ -1,6 +1,14 @@
 .page-container {
+  padding: 0 !important;
 }
 
-.page-container h1 {
-  padding: 0 0.75rem;
+.page-content {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page-content h1 {
+  padding: 1rem 0 1rem 0;
 }

@@ -21,7 +21,7 @@ const userSlice = createSlice({
     _id: "",
     name: "",
     email: "",
-    theme: "light",
+    theme: "",
   },
   reducers: {
     updateName(state, action) {
@@ -46,13 +46,13 @@ const userSlice = createSlice({
       state._id = payload.data._id;
       state.name = payload.data.name;
       state.email = payload.data.email;
-      state.theme = localStorage.getItem("theme");
+      state.theme = payload.data.theme;
     },
     [updateUser.fulfilled]: (state, { payload }) => {
       state._id = payload.data._id;
       state.name = payload.data.name;
       state.email = payload.data.email;
-      state.theme = localStorage.getItem("theme");
+      state.theme = payload.data.theme;
     },
   },
 });

@@ -27,7 +27,8 @@
   background-color: $active-accent !important;
 }
 
-#title {
+.full-text,
+.short-text {
   padding: 1rem;
 }
 
@@ -39,14 +40,14 @@
 }
 
 @media screen and (min-width: 766px) {
-  #title::before {
-    content: "Workout Tracker";
+  .short-text {
+    display: none;
   }
 }
 
 @media screen and (max-width: 765px) {
-  #title::before {
-    content: "WT";
+  .full-text {
+    display: none;
   }
 }
 
@@ -64,8 +65,8 @@
 }
 
 @media screen and (max-width: 431px) {
-  #title::before {
-    content: "WT";
+  .full-text {
+    display: none;
   }
   .navbar-items {
     height: 100%;

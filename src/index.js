@@ -6,14 +6,22 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import store from "./store";
+import { fetchUser } from "./redux/reducers/user";
+import { useDispatch } from "react-redux";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+function start() {
+  store.dispatch(fetchUser());
+
+  ReactDOM.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+}
+
+start();

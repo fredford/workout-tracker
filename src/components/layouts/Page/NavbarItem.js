@@ -2,9 +2,9 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { Box, Grid, Paper } from "@mui/material";
+import { Box } from "@mui/material";
 
-export default function SideBarItem(props) {
+export default function NavbarItem(props) {
   var path = `/${props.name.toLowerCase()}`;
 
   var classes = "navbar-item ";
@@ -19,7 +19,7 @@ export default function SideBarItem(props) {
         sx={{ color: "text.primary" }}
         className="navbar-item__icon-container"
       >
-        {props.children}
+        {props.icon}
       </Box>
       <Box sx={{ color: "text.primary" }} className="navbar-item__header">
         {props.name}

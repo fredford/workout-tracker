@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "./styles/styles.scss";
 
@@ -25,12 +25,13 @@ import Startup from "./pages/Startup/Startup";
 import { ThemeProvider } from "@mui/material/styles";
 
 import { lightTheme, darkTheme } from "./services/theme.js";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  var tempTheme = localStorage.getItem("theme");
+  const user = useSelector((state) => state.user);
 
   var theme =
-    tempTheme === "light" || tempTheme === null ? lightTheme : darkTheme;
+    user.theme === null || user.theme === "light" ? lightTheme : darkTheme;
 
   var oldtheme = "dark";
 
@@ -41,7 +42,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<PrivateRoute />}>
             <Route exact path="/" element={<Dashboard />} />
-            <Route exact path="/profile/:userId" element={<Profile />} />
+            <Route exact path="/profile" element={<Profile />} />
             <Route exact path="/private" element={<PrivatePage />} />
             <Route exact path="/dashboard" element={<Dashboard />} />
             <Route exact path="/exercises" element={<Exercises />} />

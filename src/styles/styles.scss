@@ -12,7 +12,7 @@
 
 @import "./typography";
 
-@import "./root";
+@import "./app";
 
 // Layout
 @import "./layout/navbar";
@@ -22,8 +22,6 @@
 @import "./pages/notfound";
 @import "./pages/login";
 @import "./pages/profile";
-
-@import "./layout/content";
 
 // Cards
 @import "./layout/card/card";

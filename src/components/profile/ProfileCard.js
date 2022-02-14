@@ -1,42 +1,47 @@
+import { useSelect } from "@mui/base";
+import { FormControlLabel } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import Card from "../../components/cards/Card";
+import StandardCard from "../cards/StandardCard";
 
-import { getData, updateData } from "../../services/utils";
+import { updateUser } from "../../redux/reducers/user";
+
+import { MaterialUISwitch } from "../MUIComponents/MaterialUISwitch";
 
 const ProfileCard = () => {
-  const [user, setUser] = useState({});
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const [editName, setEditName] = useState(false);
   const [editPassword, setEditPassword] = useState(false);
 
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  useEffect(() => {
-    retrieveUser();
-  }, []);
+  var checked = user.theme === "light" ? false : true;
 
-  const retrieveUser = () => {
-    getData("api/v1/profile")
-      .then((response) => {
-        setUser(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  const changeUser = (type, change) => {
+    var newUser = Object.assign({}, user);
 
-  const updateUser = () => {
-    updateData("api/v1/profile", { name: newName, password: newPassword }).then(
-      (response) => {
-        setUser(response.data);
-      }
-    );
+    newUser["name"] = newName;
+    newUser["password"] = newPassword;
+
+    if (type === "theme") {
+      newUser["theme"] = change;
+    } else {
+      newUser["theme"] = "";
+    }
+
+    setNewName("");
+    setNewPassword("");
+
+    dispatch(updateUser(newUser));
   };
 
   const buttonName = () => {
     if (editName) {
-      updateUser();
+      changeUser("name");
     } else {
       setNewName(user.name);
     }
@@ -45,13 +50,19 @@ const ProfileCard = () => {
 
   const buttonPassword = () => {
     if (editPassword) {
-      updateUser();
+      changeUser("password");
     }
     setEditPassword(!editPassword);
   };
 
+  const buttonTheme = () => {
+    var changeTheme = user.theme === "light" ? "dark" : "light";
+
+    changeUser("theme", changeTheme);
+  };
+
   return (
-    <Card title="Profile" className="profile__user">
+    <StandardCard title="Profile" className="profile__user">
       <p className="text-muted">Display Name</p>
       <div className="profile__user-form">
         {editName ? (
@@ -78,7 +89,7 @@ const ProfileCard = () => {
       <div className="profile__user-form mb-3">
         <p>{user.email}</p>
       </div>
-      <p className="text-muted">Password</p>
+      <p className="text-muted mt-3">Password</p>
       <div className="profile__user-form">
         {editPassword ? (
           <input
@@ -101,7 +112,20 @@ const ProfileCard = () => {
           Edit
         </label>
       </div>
-    </Card>
+      <p className="text-muted mt-3">Theme</p>
+      <div className="profile__user-form">
+        <FormControlLabel
+          control={<MaterialUISwitch sx={{ m: 1 }} checked={checked} />}
+          sx={{
+            marginLeft: "-1rem",
+            padding: 0,
+            backgroundColor: "theme.palette.background.paper",
+          }}
+          onChange={buttonTheme}
+          label=""
+        />
+      </div>
+    </StandardCard>
   );
 };
 
