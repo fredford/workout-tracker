@@ -45,3 +45,13 @@ export const updateData = async (path, user) => {
     return { success: false, data: "You are not authorized to edit profile" };
   }
 };
+
+export const resolve = async (promise) => {
+  try {
+    const result = await promise;
+    return [result, null];
+  } catch (error) {
+    console.log(error);
+    return [null, error];
+  }
+};

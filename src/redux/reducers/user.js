@@ -6,12 +6,23 @@ import { config } from "../../services/utils";
 import { profilePath } from "../../services/apiPaths";
 
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-  const response = await axios.get(profilePath, config);
+  const response = await axios.get(profilePath, config).catch(function (error) {
+    if (error.response.status === 401) {
+      localStorage.removeItem("authToken");
+    }
+  });
+
   return response.data;
 });
 
 export const updateUser = createAsyncThunk("user/updateUser", async (user) => {
-  const response = await axios.put(profilePath, user, config);
+  const response = await axios
+    .put(profilePath, user, config)
+    .catch(function (error) {
+      if (error.response.status === 401) {
+        localStorage.removeItem("authToken");
+      }
+    });
   return response.data;
 });
 

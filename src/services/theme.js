@@ -1,5 +1,9 @@
 import { createTheme } from "@mui/material/styles";
 
+import "./theme.css";
+
+const font = "'Rubik', sans-serif";
+
 const Colors = {
   dark: {
     bgMain: "#343a40",
@@ -29,6 +33,9 @@ export const darkTheme = createTheme({
       main: "#f8f9fa",
     },
   },
+  typography: {
+    fontFamily: font,
+  },
 });
 
 export const lightTheme = createTheme({
@@ -48,5 +55,8 @@ export const lightTheme = createTheme({
     secondary: {
       main: "#212529",
     },
+  },
+  typography: {
+    fontFamily: font,
   },
 });

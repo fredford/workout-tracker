@@ -1,5 +1,4 @@
 .profile__user {
-  max-width: 400px;
 }
 
 .profile__user input {
@@ -37,4 +36,19 @@
 #input-password,
 #input-theme {
   display: none;
+}
+
+.profile-grid {
+  display: flex;
+  align-items: stretch;
+}
+
+.profile-stretch {
+  align-items: stretch;
+}
+
+.profile-grid__card {
+  flex: 50%;
+  background-color: pink !important;
+  height: 100%;
 }

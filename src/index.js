@@ -8,9 +8,11 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { fetchUser } from "./redux/reducers/user";
 import { useDispatch } from "react-redux";
+import { fetchExercises } from "./redux/reducers/exercises";
 
 function start() {
   store.dispatch(fetchUser());
+  store.dispatch(fetchExercises());
 
   ReactDOM.render(
     <React.StrictMode>

@@ -1,6 +1,5 @@
-import { useSelect } from "@mui/base";
 import { FormControlLabel } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import StandardCard from "../cards/StandardCard";
