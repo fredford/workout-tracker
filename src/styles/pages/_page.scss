@@ -1,5 +1,5 @@
 .page-container {
-  padding: 0 !important;
+  background-color: var(--bg-main);
 }
 
 .page-content {
@@ -7,8 +7,14 @@
   flex-grow: 1;
   flex-direction: column;
   height: 100vh;
+  color: var(--fg-main);
 }
 
 .page-content h1 {
-  padding: 1rem 0 1rem 0;
+  padding: 1rem 0 1rem 1rem;
+  color: var(--fg-main);
+}
+
+.row {
+  --bs-gutter-x: 0;
 }

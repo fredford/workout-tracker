@@ -49,9 +49,22 @@ export const updateData = async (path, user) => {
 export const resolve = async (promise) => {
   try {
     const result = await promise;
-    return [result, null];
+
+    return [result.data.data, null];
   } catch (error) {
     console.log(error);
     return [null, error];
   }
+};
+
+export const retrieveData = async (service) => {
+  service
+    .get()
+    .then((response) => {
+      console.log(response);
+      return response.data.data;
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 };

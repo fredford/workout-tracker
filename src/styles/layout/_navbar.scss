@@ -1,3 +1,20 @@
+.page-navbar {
+  position: fixed;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  border-radius: 0.75rem;
+  background-color: var(--bg-card);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0.5rem;
+  padding: 0 0.5rem 0 0;
+  align-items: center;
+  box-shadow: $box-shadow;
+  color: var(--fg-main);
+}
+
 .navbar-items {
   display: flex;
   flex-direction: row;
@@ -13,6 +30,11 @@
   border-radius: 0.5rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
+  color: var(--fg-main);
+}
+
+.navbar-item:hover {
+  color: var(--fg-main);
 }
 
 .navbar-item:last-child {

@@ -22,13 +22,12 @@ export const fetchExercises = createAsyncThunk(
 const exercisesSlice = createSlice({
   name: "exercises",
   initialState: {
-    posts: [],
+    exercises: [],
   },
   reducers: {},
   extraReducers: {
     [fetchExercises.fulfilled]: (state, { payload }) => {
-      console.log(payload);
-      state.posts = state.posts.concat(payload);
+      state.exercises = state.exercises.concat(payload.data);
     },
   },
 });

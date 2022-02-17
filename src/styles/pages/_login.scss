@@ -17,6 +17,7 @@
   //border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 2rem;
   width: 350px;
+  color: var(--fg-main);
 }
 
 #login-image {
@@ -41,6 +42,7 @@
 
 .login-page h3 {
   text-align: center;
+  color: var(--fg-main);
 }
 
 .login-page hr {

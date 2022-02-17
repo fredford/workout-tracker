@@ -1,12 +1,10 @@
-import { FormControlLabel } from "@mui/material";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import StandardCard from "../cards/StandardCard";
+import Card from "../../components/cards/Card";
 
 import { updateUser } from "../../redux/reducers/user";
-
-import { MaterialUISwitch } from "../MUIComponents/MaterialUISwitch";
+import { ThemeContext } from "../../contexts/themeContext";
 
 const ProfileCard = () => {
   const user = useSelector((state) => state.user);
@@ -18,19 +16,15 @@ const ProfileCard = () => {
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  var checked = user.theme === "light" ? false : true;
+  const [theme, setTheme] = useContext(ThemeContext);
+
+  const [checked, setChecked] = useState(theme === "light" ? false : true);
 
   const changeUser = (type, change) => {
     var newUser = Object.assign({}, user);
 
     newUser["name"] = newName;
     newUser["password"] = newPassword;
-
-    if (type === "theme") {
-      newUser["theme"] = change;
-    } else {
-      newUser["theme"] = "";
-    }
 
     setNewName("");
     setNewPassword("");
@@ -54,14 +48,16 @@ const ProfileCard = () => {
     setEditPassword(!editPassword);
   };
 
-  const buttonTheme = () => {
-    var changeTheme = user.theme === "light" ? "dark" : "light";
-
-    changeUser("theme", changeTheme);
+  const buttonTheme = (e) => {
+    var oldTheme = localStorage.getItem("theme");
+    var newTheme = oldTheme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
+    setTheme(newTheme);
+    setChecked(!checked);
   };
 
   return (
-    <StandardCard title="Profile" className="profile__user">
+    <Card title="Profile" className="profile__user">
       <p className="text-muted">Display Name</p>
       <div className="profile__user-form">
         {editName ? (
@@ -113,18 +109,19 @@ const ProfileCard = () => {
       </div>
       <p className="text-muted mt-3">Theme</p>
       <div className="profile__user-form">
-        <FormControlLabel
-          control={<MaterialUISwitch sx={{ m: 1 }} checked={checked} />}
-          sx={{
-            marginLeft: "-1rem",
-            padding: 0,
-            backgroundColor: "theme.palette.background.paper",
-          }}
+        <input
+          id="input-theme"
+          type="checkbox"
+          checked={checked}
           onChange={buttonTheme}
-          label=""
         />
+        <label htmlFor="input-theme" className="label-theme">
+          <span className="dark-mode" />
+          <span className="light-mode" />
+          <div className="theme-slider"></div>
+        </label>
       </div>
-    </StandardCard>
+    </Card>
   );
 };
 

@@ -52,3 +52,49 @@
   background-color: pink !important;
   height: 100%;
 }
+
+.label-theme {
+  display: flex;
+  height: 40px;
+  width: 150px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 5px;
+  border-radius: $border-radius-button;
+  background-color: var(--bg-main);
+  color: var(--fg-main);
+}
+
+#input-theme:checked + .label-theme .theme-slider {
+  transform: translateX(75px) !important;
+}
+
+.label-theme .theme-slider {
+  transform: translateX(5px);
+  transition: transform 0.2s linear;
+}
+
+.light-mode {
+  margin-right: 15px;
+}
+
+.light-mode::before {
+  content: "Light";
+}
+
+.dark-mode {
+  margin-left: 15px;
+}
+
+.dark-mode::before {
+  content: "Dark";
+}
+
+.theme-slider {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  background-color: $accent-color;
+  border-radius: $border-radius-button;
+}
