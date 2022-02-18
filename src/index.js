@@ -13,7 +13,7 @@ import { ThemeProvider } from "./contexts/themeContext";
 
 function start() {
   store.dispatch(fetchUser());
-  store.dispatch(fetchExercises());
+  //store.dispatch(fetchExercises());
 
   ReactDOM.render(
     <React.StrictMode>

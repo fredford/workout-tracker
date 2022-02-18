@@ -1,6 +1,5 @@
 // Package imports
 import React from "react";
-import { Box, Paper } from "@mui/material";
 // Imported Icons
 import DashboardTwoToneIcon from "@mui/icons-material/Dashboard";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";

@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
+import { useDispatch } from "react-redux";
+
 import ListExercises from "../components/exercises/ListExercises";
+
+import { ActivityProvider } from "../contexts/activityContext";
+
+import { Container } from "react-bootstrap";
 
 import Page from "./Page/Page";
 
@@ -10,38 +16,33 @@ import ExerciseService from "../services/exercises";
 
 import { resolve } from "../services/utils";
 
+import { setExercises } from "../redux/reducers/exercises";
+
 export default function Exercises() {
-  const [exercises, setExercises] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     retrieveAllExercises();
   }, []);
 
   const retrieveAllExercises = async () => {
-    const [data, error] = await resolve(ExerciseService.get("all"));
-    setExercises(data);
+    const [data, error] = await resolve(ExerciseService.getAll());
+    console.log(data);
+    dispatch(setExercises(data));
   };
 
   const retrieveUserExercises = async () => {
-    const [data, error] = await resolve(ExerciseService.get("user"));
-    setExercises(data);
+    const [data, error] = await resolve(ExerciseService.getUser());
+    dispatch(setExercises(data));
   };
 
   return (
     <Page title="Exercises">
-      <Card className="bg-pink">
-        {React.Children.toArray(
-          exercises.map((exercise) => <p>{exercise.name}</p>)
-        )}
-      </Card>
-
-      {/*
       <ActivityProvider>
         <Container>
           <ListExercises />
         </Container>
       </ActivityProvider>
-      */}
     </Page>
   );
 }

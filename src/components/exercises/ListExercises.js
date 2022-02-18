@@ -14,14 +14,19 @@ import ExerciseDataService from "../../services/exercise";
 import AddExercise from "./AddExercise";
 import { ActivityContext } from "../../contexts/activityContext";
 import exercise from "../../services/exercise";
+import { useSelector } from "react-redux";
 
 export default function ListExercises() {
+  const exercises = useSelector((state) => state.exercises.exercises);
+
+  console.log(exercises);
+
   // Context variables
   const activities = useContext(ActivityContext);
   // State variables
   const [isAscending, setIsAscending] = React.useState(false);
   const [search, setSearch] = React.useState("");
-  const [exercises, setExercises] = React.useState([]);
+  //const [exercises, setExercises] = React.useState([]);
   const [page, setPage] = React.useState(0);
   // Theme variable
   var theme = localStorage.getItem("theme");
@@ -40,20 +45,6 @@ export default function ListExercises() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  React.useEffect(() => {
-    retrieveExercises(page);
-  }, [page]);
-
-  const retrieveExercises = () => {
-    ExerciseDataService.getPage(page)
-      .then((response) => {
-        setExercises(response.data.exercises);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
   const directionChange = () => {
     setIsAscending(!isAscending);
   };
@@ -71,6 +62,7 @@ export default function ListExercises() {
   };
 
   const addExercise = (e) => {
+    /*
     ExerciseDataService.createExercise(e)
       .then((response) => {})
       .catch((e) => {
@@ -81,6 +73,7 @@ export default function ListExercises() {
 
     setExercises(newExercises);
     handleClose();
+    */
   };
 
   const increasePage = () => {
@@ -98,17 +91,6 @@ export default function ListExercises() {
       setPage(--newPage);
     }
   };
-
-  // Sort the list of exercises
-  var displayList = [];
-  // If ascending order is specified
-  if (isAscending) {
-    displayList = exercises.sort((a, b) => (a.name < b.name ? 1 : -1));
-  }
-  // If descending order is specified
-  else {
-    displayList = exercises.sort((a, b) => (a.name > b.name ? 1 : -1));
-  }
 
   return (
     <Card className="sections-card list-exercises">
@@ -154,30 +136,32 @@ export default function ListExercises() {
           </tr>
         </thead>
         <tbody className="list-exercise__table">
-          {displayList.map((exercise) => {
-            var area = exercise.area.toLowerCase();
-            var name = exercise.name.toLowerCase();
-            var lowerSearch = search.toLowerCase();
+          {React.Children.toArray(
+            exercises.map((exercise) => {
+              var area = exercise.area.toLowerCase();
+              var name = exercise.name.toLowerCase();
+              var lowerSearch = search.toLowerCase();
 
-            var isAllOff = Object.values(activities).every(
-              (x) => x[0] === false
-            );
+              var isAllOff = Object.values(activities).every(
+                (x) => x[0] === false
+              );
 
-            if (isAllOff || activities[area][0]) {
-              if (
-                search.length === 0 ||
-                (search.length > 0 && name.includes(lowerSearch))
-              ) {
-                return (
-                  <tr id={exercise.area} key={exercise.name}>
-                    <td>{exercise.name}</td>
-                    <td>{exercise.type}</td>
-                    <td>{exercise.muscles}</td>
-                  </tr>
-                );
+              if (isAllOff || activities[area][0]) {
+                if (
+                  search.length === 0 ||
+                  (search.length > 0 && name.includes(lowerSearch))
+                ) {
+                  return (
+                    <tr id={exercise.area} key={exercise.name}>
+                      <td>{exercise.name}</td>
+                      <td>{exercise.type}</td>
+                      <td>{exercise.muscles}</td>
+                    </tr>
+                  );
+                }
               }
-            }
-          })}
+            })
+          )}
         </tbody>
       </Table>
       <div className="list-exercises__button-group">
