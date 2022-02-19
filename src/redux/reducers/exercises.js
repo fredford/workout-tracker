@@ -28,6 +28,9 @@ const exercisesSlice = createSlice({
     setExercises(state, action) {
       state.exercises = action.payload;
     },
+    addExercise(state, action) {
+      state.exercises = state.exercises.concat(action.payload);
+    },
   },
   extraReducers: {
     [fetchExercises.fulfilled]: (state, { payload }) => {
@@ -36,6 +39,6 @@ const exercisesSlice = createSlice({
   },
 });
 
-export const { setExercises } = exercisesSlice.actions;
+export const { setExercises, addExercise } = exercisesSlice.actions;
 
 export default exercisesSlice.reducer;

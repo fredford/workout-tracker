@@ -1,10 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Card from "../../components/cards/Card";
-
 import { updateUser } from "../../redux/reducers/user";
-import { ThemeContext } from "../../contexts/themeContext";
 
 const ProfileCard = () => {
   const user = useSelector((state) => state.user);
@@ -16,11 +14,7 @@ const ProfileCard = () => {
   const [newName, setNewName] = useState("");
   const [newPassword, setNewPassword] = useState("");
 
-  const [theme, setTheme] = useContext(ThemeContext);
-
-  const [checked, setChecked] = useState(theme === "light" ? false : true);
-
-  const changeUser = (type, change) => {
+  const changeUser = () => {
     var newUser = Object.assign({}, user);
 
     newUser["name"] = newName;
@@ -48,16 +42,9 @@ const ProfileCard = () => {
     setEditPassword(!editPassword);
   };
 
-  const buttonTheme = (e) => {
-    var oldTheme = localStorage.getItem("theme");
-    var newTheme = oldTheme === "light" ? "dark" : "light";
-    localStorage.setItem("theme", newTheme);
-    setTheme(newTheme);
-    setChecked(!checked);
-  };
-
   return (
     <Card title="Profile" className="profile__user">
+      <h4>Account Settings</h4>
       <p className="text-muted">Display Name</p>
       <div className="profile__user-form">
         {editName ? (
@@ -105,20 +92,6 @@ const ProfileCard = () => {
         />
         <label id="label-password" htmlFor="input-password">
           Edit
-        </label>
-      </div>
-      <p className="text-muted mt-3">Theme</p>
-      <div className="profile__user-form">
-        <input
-          id="input-theme"
-          type="checkbox"
-          checked={checked}
-          onChange={buttonTheme}
-        />
-        <label htmlFor="input-theme" className="label-theme">
-          <span className="dark-mode" />
-          <span className="light-mode" />
-          <div className="theme-slider"></div>
         </label>
       </div>
     </Card>

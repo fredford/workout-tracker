@@ -36,7 +36,6 @@ export default function AddExercise({
   };
 
   const addNewExercise = () => {
-    console.log("Add", exercise);
     addExercise(exercise);
   };
 

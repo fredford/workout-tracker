@@ -9,7 +9,7 @@ import store from "./store";
 import { fetchUser } from "./redux/reducers/user";
 import { useDispatch } from "react-redux";
 import { fetchExercises } from "./redux/reducers/exercises";
-import { ThemeProvider } from "./contexts/themeContext";
+import { SettingsProvider } from "./contexts/settingsContext";
 
 function start() {
   store.dispatch(fetchUser());
@@ -18,11 +18,11 @@ function start() {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <ThemeProvider>
+        <SettingsProvider>
           <Provider store={store}>
             <App />
           </Provider>
-        </ThemeProvider>
+        </SettingsProvider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

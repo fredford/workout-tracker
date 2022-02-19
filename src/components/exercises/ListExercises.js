@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
-import { Button, Card, Modal, Row, Col, Table } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Modal, Table } from "react-bootstrap";
 import SectionsCard from "../cards/SectionsCard";
+
+import Card from "../cards/Card";
 
 import {
   FaChevronUp,
@@ -10,23 +13,22 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-import ExerciseDataService from "../../services/exercise";
+import ExerciseService from "../../services/exercises";
 import AddExercise from "./AddExercise";
 import { ActivityContext } from "../../contexts/activityContext";
-import exercise from "../../services/exercise";
-import { useSelector } from "react-redux";
+import { resolve } from "../../services/utils";
+import { addExercise } from "../../redux/reducers/exercises";
 
 export default function ListExercises() {
   const exercises = useSelector((state) => state.exercises.exercises);
 
-  console.log(exercises);
+  const dispatch = useDispatch();
 
   // Context variables
   const activities = useContext(ActivityContext);
   // State variables
   const [isAscending, setIsAscending] = React.useState(false);
   const [search, setSearch] = React.useState("");
-  //const [exercises, setExercises] = React.useState([]);
   const [page, setPage] = React.useState(0);
   // Theme variable
   var theme = localStorage.getItem("theme");
@@ -38,12 +40,17 @@ export default function ListExercises() {
     type: null,
     goalPerSet: null,
     goalPerWorkout: null,
-    user: "61fcf308fdeae45e8d28e414",
   };
 
   const [show, setShow] = React.useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  var displayList = [...exercises];
+
+  if (isAscending) {
+    displayList.reverse();
+  }
 
   const directionChange = () => {
     setIsAscending(!isAscending);
@@ -61,19 +68,16 @@ export default function ListExercises() {
     setSearch(e.target.value);
   };
 
-  const addExercise = (e) => {
-    /*
-    ExerciseDataService.createExercise(e)
-      .then((response) => {})
-      .catch((e) => {
-        console.log(`Error creating exercise: ${e}`);
-      });
+  const postExercise = async (e) => {
+    const [data, error] = await resolve(ExerciseService.createExercise(e));
 
-    let newExercises = exercises;
+    if (data) {
+      dispatch(addExercise(e));
+    } else {
+      console.log(error);
+    }
 
-    setExercises(newExercises);
     handleClose();
-    */
   };
 
   const increasePage = () => {
@@ -114,7 +118,7 @@ export default function ListExercises() {
               newExercise={newExercise}
               isNull={false}
               handleClose={handleClose}
-              addExercise={addExercise}
+              addExercise={postExercise}
             />
           </Modal>
         </div>
@@ -137,7 +141,7 @@ export default function ListExercises() {
         </thead>
         <tbody className="list-exercise__table">
           {React.Children.toArray(
-            exercises.map((exercise) => {
+            displayList.map((exercise) => {
               var area = exercise.area.toLowerCase();
               var name = exercise.name.toLowerCase();
               var lowerSearch = search.toLowerCase();

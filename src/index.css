@@ -1,5 +1,5 @@
 :root {
-  --bg-main: #f8f9fa;
+  --bg-main: #eeeeee;
   --bg-card: #fff;
   --fg-main: #212529;
   --fg-acce: lightseagreen;
@@ -11,7 +11,7 @@
 [data-theme="dark"] {
   --bg-main: #343a40;
   --bg-card: #212529;
-  --fg-main: #f8f9fa;
+  --fg-main: #eeeeee;
   --fg-acce: lightseagreen;
   --bg-main-rgb: 52, 58, 64;
   --bg-card-rgb: 33, 37, 41;

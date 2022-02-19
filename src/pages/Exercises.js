@@ -27,7 +27,6 @@ export default function Exercises() {
 
   const retrieveAllExercises = async () => {
     const [data, error] = await resolve(ExerciseService.getAll());
-    console.log(data);
     dispatch(setExercises(data));
   };
 
@@ -39,9 +38,9 @@ export default function Exercises() {
   return (
     <Page title="Exercises">
       <ActivityProvider>
-        <Container>
+        <div className="exercises-container">
           <ListExercises />
-        </Container>
+        </div>
       </ActivityProvider>
     </Page>
   );

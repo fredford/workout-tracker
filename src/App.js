@@ -21,13 +21,13 @@ import PrivatePage from "./pages/PrivatePage";
 import Profile from "./pages/Profile/Profile";
 
 import Startup from "./pages/Startup/Startup";
-import { ThemeContext } from "./contexts/themeContext";
+import { SettingsContext } from "./contexts/settingsContext";
 
 const App = () => {
-  const [theme, setTheme] = useContext(ThemeContext);
+  const { theme } = useContext(SettingsContext);
 
   return (
-    <div className="App" data-theme={theme}>
+    <div className="App" data-theme={theme[0]}>
       <Routes>
         <Route exact path="/" element={<PrivateRoute />}>
           <Route exact path="/" element={<Dashboard />} />
