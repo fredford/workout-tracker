@@ -43,8 +43,7 @@ const ProfileCard = () => {
   };
 
   return (
-    <Card title="Profile" className="profile__user">
-      <h4>Account Settings</h4>
+    <Card title="Account Settings" className="profile__user">
       <p className="text-muted">Display Name</p>
       <div className="profile__user-form">
         {editName ? (

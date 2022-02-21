@@ -26,6 +26,9 @@
 }
 
 .profile__settings-group {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
 }
 
 .profile__settings-form {

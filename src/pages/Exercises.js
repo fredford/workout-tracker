@@ -6,8 +6,6 @@ import ListExercises from "../components/exercises/ListExercises";
 
 import { ActivityProvider } from "../contexts/activityContext";
 
-import { Container } from "react-bootstrap";
-
 import Page from "./Page/Page";
 
 import Card from "../components/cards/Card";

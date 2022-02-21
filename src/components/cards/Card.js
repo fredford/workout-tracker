@@ -3,7 +3,12 @@ import React from "react";
 const Card = (props) => {
   var classes = `default-card ${props.className}`;
 
-  return <div className={classes}>{props.children}</div>;
+  return (
+    <div className={classes}>
+      {props.title ? <h4>{props.title}</h4> : <></>}
+      {props.children}
+    </div>
+  );
 };
 
 export default Card;

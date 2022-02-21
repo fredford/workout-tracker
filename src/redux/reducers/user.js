@@ -1,18 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { config } from "../../services/utils";
+import { config, resolve } from "../../services/utils";
 
 import { profilePath } from "../../services/apiPaths";
 
-export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-  const response = await axios.get(profilePath, config).catch(function (error) {
-    if (error.response.status === 401) {
-      localStorage.removeItem("authToken");
-    }
-  });
+import UserService from "../../services/user";
 
-  return response.data;
+export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
+  const [data, error] = await resolve(UserService.getUser());
+
+  if (error && error.status === 401) {
+    localStorage.removeItem("authToken");
+  }
+  return data;
 });
 
 export const updateUser = createAsyncThunk("user/updateUser", async (user) => {
@@ -54,10 +55,10 @@ const userSlice = createSlice({
   extraReducers: {
     [fetchUser.pending]: (state, action) => {},
     [fetchUser.fulfilled]: (state, { payload }) => {
-      state._id = payload.data._id;
-      state.name = payload.data.name;
-      state.email = payload.data.email;
-      state.theme = payload.data.theme;
+      state._id = payload._id;
+      state.name = payload.name;
+      state.email = payload.email;
+      state.theme = payload.theme;
     },
     [updateUser.fulfilled]: (state, { payload }) => {
       state._id = payload.data._id;

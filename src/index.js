@@ -12,9 +12,6 @@ import { fetchExercises } from "./redux/reducers/exercises";
 import { SettingsProvider } from "./contexts/settingsContext";
 
 function start() {
-  store.dispatch(fetchUser());
-  //store.dispatch(fetchExercises());
-
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>

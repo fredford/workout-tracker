@@ -49,7 +49,6 @@ export const updateData = async (path, user) => {
 export const resolve = async (promise) => {
   try {
     const result = await promise;
-
     return [result.data.data, null];
   } catch (error) {
     console.log(error);
@@ -67,4 +66,8 @@ export const retrieveData = async (service) => {
     .catch((e) => {
       console.log(e);
     });
+};
+
+export const getAuth = () => {
+  return localStorage.getItem("authToken");
 };

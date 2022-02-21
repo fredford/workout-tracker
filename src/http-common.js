@@ -1,9 +1,26 @@
 import axios from "axios";
 
-export default axios.create({
+import { getAuth } from "./services/utils";
+
+const instance = axios.create({
   baseURL: `${process.env.REACT_APP_BACKEND_URL}/api/v1`,
   headers: {
     "Content-type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
   },
 });
+
+instance.interceptors.request.use(
+  (config) => {
+    const token = getAuth();
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${localStorage.getItem(
+        "authToken"
+      )}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
+
+export default instance;

@@ -5,17 +5,18 @@ import { exercisesPath } from "../../services/apiPaths";
 
 import { config } from "../../services/utils";
 
+import { resolve } from "../../services/utils";
+import ExercisesService from "../../services/exercises";
+
 export const fetchExercises = createAsyncThunk(
   "exercises/fetchExercises",
   async () => {
-    const response = await axios
-      .get(exercisesPath, config)
-      .catch(function (error) {
-        if (error.response.status === 401) {
-          localStorage.removeItem("authToken");
-        }
-      });
-    return response.data;
+    const [data, error] = await resolve(ExercisesService.getAll());
+
+    if (error && error.status === 401) {
+      localStorage.removeItem("authToken");
+    }
+    return data;
   }
 );
 
@@ -34,7 +35,7 @@ const exercisesSlice = createSlice({
   },
   extraReducers: {
     [fetchExercises.fulfilled]: (state, { payload }) => {
-      state.exercises = state.exercises.concat(payload.data);
+      state.exercises = state.exercises.concat(payload);
     },
   },
 });
