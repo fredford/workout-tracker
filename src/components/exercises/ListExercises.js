@@ -156,7 +156,7 @@ export default function ListExercises() {
                   (search.length > 0 && name.includes(lowerSearch))
                 ) {
                   return (
-                    <tr id={exercise.area} key={exercise.name}>
+                    <tr id={exercise.area} key={exercise.id}>
                       <td>{exercise.name}</td>
                       <td>{exercise.type}</td>
                       <td>{exercise.muscles}</td>

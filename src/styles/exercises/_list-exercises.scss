@@ -30,6 +30,7 @@
 .list-exercises__add-button {
   @include icon-button;
   margin-left: 1rem;
+  color: var(--fg-main);
 }
 
 .list-exercises__search {
@@ -77,6 +78,7 @@ th {
 
 td {
   border: none;
+  color: var(--fg-main);
 }
 
 table {
@@ -142,6 +144,7 @@ table {
 
 .button-group__button {
   @include icon-button;
+  color: var(--fg-main);
   margin-top: 0.5rem;
 }
 

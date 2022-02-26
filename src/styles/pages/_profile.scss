@@ -148,3 +148,18 @@
   box-shadow: $box-shadow;
   border-radius: $border-radius-button;
 }
+
+.profile-picture {
+  margin-top: 1rem;
+  width: 150px;
+  height: 150px;
+  background-color: var(--bg-card);
+  border-radius: 75px;
+  border: 2px solid $active-accent;
+}
+
+.profile-picture__form {
+  background-color: var(--bg-main);
+  color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}

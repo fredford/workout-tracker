@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import ListExercises from "../components/exercises/ListExercises";
+import BreakdownExercises from "../components/exercises/BreakdownExercises";
+import TopExercises from "../components/exercises/TopExercises";
 
 import { ActivityProvider } from "../contexts/activityContext";
 
@@ -36,8 +38,20 @@ export default function Exercises() {
   return (
     <Page title="Exercises">
       <ActivityProvider>
-        <div className="exercises-container">
-          <ListExercises />
+        <div className="row">
+          <div className="col-xl-4 col-md-6 mb-sm-3 mb-md-0 stretch-card">
+            <ListExercises />
+          </div>
+          <div className="col-xl-8 col-md-6 d-flex align-items-stretch">
+            <div className="row flex-grow-1">
+              <div className="col-xl-6 mb-sm-3 mb-xl-0 stretch-card">
+                <BreakdownExercises />
+              </div>
+              <div className="col-xl-6 stretch-card">
+                <TopExercises />
+              </div>
+            </div>
+          </div>
         </div>
       </ActivityProvider>
     </Page>

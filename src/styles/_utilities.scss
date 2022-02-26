@@ -3,7 +3,8 @@
   align-items: stretch;
   justify-content: stretch;
 
-  > .default-card {
+  > .default-card,
+  .card {
     width: 100%;
     min-width: 100%;
   }
@@ -19,4 +20,8 @@
 
 .row {
   --bs-gutter-x: 12px;
+}
+
+.justify-content-stretch {
+  justify-content: stretch !important;
 }
