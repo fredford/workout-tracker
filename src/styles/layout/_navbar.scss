@@ -1,14 +1,13 @@
 .page-navbar {
   position: fixed;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  right: 0.5rem;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
   border-radius: 0.75rem;
   background-color: var(--bg-card);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 0 0.5rem;
   padding: 0 0.5rem 0 0;
   align-items: center;
   box-shadow: $box-shadow;

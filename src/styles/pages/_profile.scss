@@ -5,11 +5,6 @@
   @include standard-form;
 }
 
-.profile__user button {
-  @include standard-button;
-  padding: 0.5rem 1rem;
-}
-
 .profile__user p {
   display: flex;
   align-items: center;
@@ -28,7 +23,6 @@
 .profile__settings-group {
   display: flex;
   justify-content: center;
-  padding-top: 1rem;
 }
 
 .profile__settings-form {

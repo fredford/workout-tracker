@@ -1,0 +1,22 @@
+.stretch-card {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+
+  > .default-card {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.grid-margin {
+  margin-bottom: 12px;
+}
+
+.grid-top {
+  margin-top: 16px;
+}
+
+.row {
+  --bs-gutter-x: 12px;
+}

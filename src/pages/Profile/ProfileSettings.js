@@ -43,7 +43,7 @@ const ProfileSettings = () => {
       <h6 className="text-muted">Set the units of measurement for the app</h6>
 
       <div className="profile__settings">
-        <div className="profile__settings-group">
+        <div className="flex-column profile__settings-group align-items-center">
           <p className="text-muted mt-3 mb-1">Weight</p>
           <div className="profile__user-form">
             <input
@@ -59,7 +59,7 @@ const ProfileSettings = () => {
             </label>
           </div>
         </div>
-        <div className="profile__settings-group">
+        <div className="flex-column profile__settings-group  align-items-center">
           <p className="text-muted mt-3 mb-1">Distance</p>
           <div className="profile__user-form">
             <input

@@ -16,11 +16,15 @@ import ForgotPassword from "./pages/Startup/ForgotPassword";
 import ResetPassword from "./pages/Startup/ResetPassword";
 import PrivatePage from "./pages/PrivatePage";
 import Loading from "./pages/Loading";
+import ChangePassword from "./pages/Profile/ChangePassword";
+import ChangeUsername from "./pages/Profile/ChangeUsername";
+import DeleteAccount from "./pages/Profile/DeleteAccount";
 
 import Profile from "./pages/Profile/Profile";
 
 import Startup from "./pages/Startup/Startup";
 import { SettingsContext } from "./contexts/settingsContext";
+import MessagePage from "./pages/Page/MessagePage";
 
 const App = () => {
   const { theme } = useContext(SettingsContext);
@@ -35,8 +39,12 @@ const App = () => {
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/exercises" element={<Exercises />} />
           <Route exact path="/workouts" element={<Workouts />} />
+          <Route exact path="/changepassword" element={<ChangePassword />} />
+          <Route exact path="/deleteaccount" element={<DeleteAccount />} />
+          <Route exact path="/changeusername" element={<ChangeUsername />} />
         </Route>
 
+        <Route exact path="/message/:message" element={<MessagePage />} />
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/forgotpassword" element={<ForgotPassword />} />
         <Route
