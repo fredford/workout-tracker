@@ -1,15 +1,28 @@
 .page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
   background-color: var(--bg-main);
-  padding: 1rem;
+}
+
+.page-body-wrapper {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: aquamarine;
 }
 
 .page-content {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   color: var(--fg-main);
-  padding-bottom: 70px;
+  margin-top: 54px;
+  background-color: var(--bg-main);
+  padding: 1rem;
 }
 
 .page-content h1 {

@@ -7,11 +7,11 @@ import Navbar from "./Navbar";
 export default function Page(props) {
   return (
     <div className="page-container">
+      <Navbar />
       <div className="page-content">
         <h1>{props.title}</h1>
         {props.children}
       </div>
-      <Navbar />
     </div>
   );
 }

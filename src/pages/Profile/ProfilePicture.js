@@ -22,7 +22,6 @@ const ProfilePicture = () => {
           id="formFile"
           onChange={uploadFile}
         />
-        {image ? <img src={image} alt="" className="profile-picture" /> : <></>}
       </div>
     </ProfileCard>
   );

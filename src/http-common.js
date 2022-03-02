@@ -9,18 +9,15 @@ const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use(
-  (config) => {
-    const token = getAuth();
+instance.interceptors.request.use((config) => {
+  const token = getAuth();
 
-    if (token) {
-      config.headers.Authorization = `Bearer ${localStorage.getItem(
-        "authToken"
-      )}`;
-    }
-    return config;
-  },
-  (error) => Promise.reject(error)
-);
+  if (token) {
+    config.headers.Authorization = `Bearer ${localStorage.getItem(
+      "authToken"
+    )}`;
+  }
+  return config;
+});
 
 export default instance;

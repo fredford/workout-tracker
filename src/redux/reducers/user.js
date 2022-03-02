@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+import http from "../../http-common";
+
 import { config, resolve } from "../../services/utils";
 
 import { profilePath } from "../../services/apiPaths";
@@ -8,11 +10,19 @@ import { profilePath } from "../../services/apiPaths";
 import UserService from "../../services/user";
 
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-  const [data, error] = await resolve(UserService.getUser());
+  const [data, error] = await UserService.getUser()
+    .then(function (response) {
+      return [response.data.data, null];
+    })
+    .catch(function (error) {
+      let jsonError = error.toJSON();
 
-  if (error && error.status === 401) {
-    localStorage.removeItem("authToken");
-  }
+      if (jsonError.status === 401) {
+        localStorage.removeItem("authToken");
+      }
+
+      return [null, "Fail"];
+    });
   return data;
 });
 

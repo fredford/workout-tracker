@@ -25,3 +25,34 @@
 .justify-content-stretch {
   justify-content: stretch !important;
 }
+
+.pink {
+  background-color: salmon;
+}
+
+.card-gradient {
+  background: linear-gradient(
+    180deg,
+    #20b2aa,
+    #25aaa7,
+    #2e9197,
+    #35707c,
+    #35535f,
+    #2e3c44,
+    #252b31,
+    #212529
+  );
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
+  object-fit: cover;
+  border: 3px solid $accent-color;
+}
+
+.frosted-glass {
+  background-color: rgba(32, 178, 170, 0.15);
+  backdrop-filter: blur(5px);
+}
