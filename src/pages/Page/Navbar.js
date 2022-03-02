@@ -12,8 +12,8 @@ export default function Navbar() {
   return (
     <div className="page-navbar">
       <div className="navbar-title">
-        <h4 className="full-text">Workout Tracker</h4>
-        <h4 className="short-text">WT</h4>
+        <h2 className="full-text">Workout Tracker</h2>
+        <h2 className="short-text">WT</h2>
       </div>
 
       <div className="navbar-items">

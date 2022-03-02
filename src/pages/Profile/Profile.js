@@ -12,30 +12,38 @@ import ProfileHero from "./ProfileHero";
 const Profile = () => {
   return (
     <Page>
-      <ProfileHero />
-      <h3 className="mt-3 mb-2">App Settings</h3>
-      <div className="row">
-        <div className="col-md-6 stretch-card grid-margin">
-          <ProfileSettings />
-        </div>
+      <div className="mb-3">
+        <ProfileHero />
+      </div>
 
-        <div className="col-md-6 stretch-card grid-margin">
-          <ProfileAppearance />
+      <div className="mb-3">
+        <h3 className="mb-2">App Settings</h3>
+        <div className="row">
+          <div className="col-md-6 stretch-card grid-margin">
+            <ProfileSettings />
+          </div>
+
+          <div className="col-md-6 stretch-card grid-margin">
+            <ProfileAppearance />
+          </div>
         </div>
       </div>
-      <h3 className="mb-2">Account Settings</h3>
-      <div className="row">
-        <div className="col-md-6 stretch-card grid-margin">
-          <ProfileAccount />
-        </div>
-        <div className="col-md-6 stretch-card grid-margin">
-          <ProfilePassword />
-        </div>
-        <div className="col-md-6 stretch-card grid-margin">
-          <ProfileDelete />
-        </div>
-        <div className="col-md-6 stretch-card grid-margin">
-          <ProfilePicture />
+
+      <div className="mb-3">
+        <h3 className="mb-2">Account Settings</h3>
+        <div className="row">
+          <div className="col-md-6 stretch-card grid-margin">
+            <ProfileAccount />
+          </div>
+          <div className="col-md-6 stretch-card grid-margin">
+            <ProfilePassword />
+          </div>
+          <div className="col-md-6 stretch-card grid-margin">
+            <ProfileDelete />
+          </div>
+          <div className="col-md-6 stretch-card grid-margin">
+            <ProfilePicture />
+          </div>
         </div>
       </div>
     </Page>
