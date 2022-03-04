@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../cards/Card";
-import SectionsCard from "../cards/SectionsCard";
+import SectionsCard from "../utility/ActivityToggles";
 
 import { ActivityContext } from "../../contexts/activityContext";
 
 import { Table } from "react-bootstrap";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import ActivityToggles from "../utility/ActivityToggles";
 
 const TopExercises = () => {
   const exercises = useSelector((state) => state.exercises.exercises);
@@ -36,7 +37,7 @@ const TopExercises = () => {
 
   return (
     <Card className="sections-card">
-      <SectionsCard name="Top" />
+      <ActivityToggles />
       <hr />
       <Table hover>
         <thead>

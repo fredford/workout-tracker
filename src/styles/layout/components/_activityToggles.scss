@@ -1,41 +1,40 @@
-.sections-card {
-}
-
-.sections-card__title {
+.activity__button-group {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
 }
 
-.sections-card__button-group {
-  display: grid;
-  gap: 0.5rem;
-  margin-right: 0;
+.activity__button-group label {
+  @include activity-button;
+  flex: 1;
 }
 
-@media screen and (min-width: 521px) {
-  .sections-card__button-group {
-    justify-content: end;
-    grid-template-columns: repeat(4, 1fr);
+@media screen and (min-width: 320px) {
+  .activity__button-group label:not(:last-child) {
+    margin-right: 0.5rem;
   }
 }
-
-@media screen and (max-width: 520px) {
-  .sections-card__button-group {
+@media screen and (max-width: 320px) {
+  .activity__button-group {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
   }
+
+  .activity__button-group label:nth-child(odd) {
+    margin-right: 0.25rem;
+  }
+  .activity__button-group label:nth-child(even) {
+    margin-left: 0.25rem;
+  }
 }
 
-.sections-card__button-group label {
-  @include activity-button;
-  width: 70px;
-}
-
-.sections-card__button-group input {
+.activity__button-group input {
   display: none;
 }
 
-.sections-card__button-group button:last-child {
+.activity__button-group button:last-child {
   margin-right: 0;
 }
 

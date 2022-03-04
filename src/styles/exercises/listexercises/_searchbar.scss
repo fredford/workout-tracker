@@ -1,0 +1,50 @@
+.list-exercises__searchbar {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+#direction-toggle {
+  display: none;
+}
+
+#label-direction-toggle {
+  border-radius: $border-radius-button;
+  padding: 0.3rem 0.6rem;
+  background-color: rgba($color: $accent-color, $alpha: 0.2);
+}
+
+#label-direction-toggle:hover {
+  background-color: rgba($color: $accent-color, $alpha: 0.6);
+}
+
+.list-exercises__search {
+  padding-left: 0.5rem;
+  color: var(--fg-main) !important;
+  border-radius: $border-radius-button;
+  background-color: var(--bg-main);
+  border: none !important;
+  margin-left: 0.5rem;
+  width: 100%;
+}
+
+.list-exercises__search::placeholder {
+  color: var(--fg-main);
+  font-family: $font-family;
+}
+
+.list-exercises__add-button {
+  @include icon-button;
+  margin-left: 0.5rem;
+  color: var(--fg-main);
+  display: flex;
+  align-items: center;
+}
+
+.list-exercises__add-button span {
+  padding-top: 2px;
+  margin-left: 0.5rem;
+  font-weight: $font-weight-button;
+}

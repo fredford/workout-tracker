@@ -42,6 +42,7 @@ export default function Exercises() {
           <div className="col-xl-4 col-md-6 mb-sm-3 mb-md-0 stretch-card">
             <ListExercises />
           </div>
+          {/*
           <div className="col-xl-8 col-md-6 d-flex align-items-stretch">
             <div className="row flex-grow-1">
               <div className="col-xl-6 mb-sm-3 mb-xl-0 stretch-card">
@@ -52,6 +53,7 @@ export default function Exercises() {
               </div>
             </div>
           </div>
+          */}
         </div>
       </ActivityProvider>
     </Page>

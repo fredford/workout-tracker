@@ -1,5 +1,6 @@
 @mixin activity($type) {
   background-color: rgba($type, 0.2);
+  font-weight: 500;
 
   &:hover {
     background-color: rgba($type, 0.6);
