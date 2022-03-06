@@ -10,6 +10,18 @@
   }
 }
 
+hr {
+  color: rgba($accent-color, 0.5);
+}
+
+.default-input {
+  @include standard-form;
+}
+
+.time-input {
+  width: 6ch;
+}
+
 .grid-margin {
   margin-bottom: 12px;
 }

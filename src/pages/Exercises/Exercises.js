@@ -1,22 +1,22 @@
+// Imported Modules
 import React, { useEffect, useState } from "react";
-
 import { useDispatch } from "react-redux";
 
-import ListExercises from "../components/exercises/ListExercises";
-import BreakdownExercises from "../components/exercises/BreakdownExercises";
-import TopExercises from "../components/exercises/TopExercises";
+// Page Components
+import ListExercises from "./components/ListExercises";
+import BreakdownExercises from "./components/BreakdownExercises";
+import TopExercises from "./components/TopExercises";
 
-import { ActivityProvider } from "../contexts/activityContext";
+// Contexts
+import { ActivityProvider } from "../../contexts/activityContext";
 
-import Page from "./Page/Page";
+// Helper Components
+import Page from "../Page/Page";
 
-import Card from "../components/cards/Card";
-
-import ExerciseService from "../services/exercises";
-
-import { resolve } from "../services/utils";
-
-import { setExercises } from "../redux/reducers/exercises";
+// Services
+import ExerciseService from "../../services/exercises";
+import { resolve } from "../../services/utils";
+import { setExercises } from "../../redux/reducers/exercises";
 
 export default function Exercises() {
   const dispatch = useDispatch();

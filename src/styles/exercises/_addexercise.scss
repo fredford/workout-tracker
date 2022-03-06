@@ -1,0 +1,53 @@
+.add-exercise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-exercise__title {
+}
+
+.add-exercise__input:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.add-exercise__area-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  width: 100%;
+  gap: 1rem;
+}
+
+.add-exercise__goal-input {
+  width: 90%;
+}
+
+.add-exercise__area-container input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.add-exercise__image {
+  border: 2px solid $hover-accent;
+  border-radius: $border-radius-button;
+  max-width: 75px;
+  padding: 0.5rem;
+  background-color: var(--bg-main);
+}
+
+.add-exercise__area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-exercise__image:hover {
+  background-color: $hover-accent;
+}
+
+.add-exercise__area-container input:checked + .add-exercise__image {
+  border: 2px solid $active-accent;
+  background-color: $hover-accent;
+}

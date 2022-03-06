@@ -1,15 +1,17 @@
+// Imported Modules
 import React, { useContext } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-import Card from "../cards/Card";
-import SectionsCard from "../utility/ActivityToggles";
-
-import { ActivityContext } from "../../contexts/activityContext";
-
+import { useSelector } from "react-redux";
 import { Table } from "react-bootstrap";
-
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import ActivityToggles from "../utility/ActivityToggles";
+
+// Page Components
+import ActivityToggles from "../../../components/utility/ActivityToggles";
+
+// Helper Components
+import Card from "../../../components/cards/Card";
+
+// Contexts
+import { ActivityContext } from "../../../contexts/activityContext";
 
 const TopExercises = () => {
   const exercises = useSelector((state) => state.exercises.exercises);

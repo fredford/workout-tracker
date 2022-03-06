@@ -6,7 +6,7 @@ import { Route, Routes } from "react-router-dom";
 
 import PrivateRoute from "./components/routing/PrivateRoute";
 
-import Exercises from "./pages/Exercises";
+import Exercises from "./pages/Exercises/Exercises";
 import Dashboard from "./pages/Dashboard";
 import Workouts from "./pages/Workouts";
 import NotFound from "./pages/NotFound";
@@ -25,6 +25,7 @@ import Profile from "./pages/Profile/Profile";
 import Startup from "./pages/Startup/Startup";
 import { SettingsContext } from "./contexts/settingsContext";
 import MessagePage from "./pages/Page/MessagePage";
+import AddExercise from "./pages/Exercises/AddExercise";
 
 const App = () => {
   const { theme } = useContext(SettingsContext);
@@ -38,6 +39,7 @@ const App = () => {
           <Route exact path="/private" element={<PrivatePage />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/exercises" element={<Exercises />} />
+          <Route exact path="/addexercise" element={<AddExercise />} />
           <Route exact path="/workouts" element={<Workouts />} />
           <Route exact path="/changepassword" element={<ChangePassword />} />
           <Route exact path="/deleteaccount" element={<DeleteAccount />} />

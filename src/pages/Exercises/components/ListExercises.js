@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Modal, Table } from "react-bootstrap";
 
-import Card from "../cards/Card";
+import Card from "../../../components/cards/Card";
 
 import {
   FaChevronUp,
@@ -12,15 +12,15 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
-import ExerciseService from "../../services/exercises";
-import AddExercise from "./AddExercise";
-import { ActivityContext } from "../../contexts/activityContext";
-import { resolve } from "../../services/utils";
-import { addExercise } from "../../redux/reducers/exercises";
+import ExerciseService from "../../../services/exercises";
+import AddExercise from "../../../components/exercises/AddExercise";
+import { ActivityContext } from "../../../contexts/activityContext";
+import { resolve } from "../../../services/utils";
+import { addExercise } from "../../../redux/reducers/exercises";
 
-import ListExerciseSearchBar from "./List/ListExercisesSearchBar";
-import ListExercisesUserOptions from "./List/ListExercisesUserOptions";
-import ActivityToggles from "../utility/ActivityToggles";
+import ListExerciseSearchBar from "../../../components/exercises/List/ListExercisesSearchBar";
+import ListExercisesUserOptions from "../../../components/exercises/List/ListExercisesUserOptions";
+import ActivityToggles from "../../../components/utility/ActivityToggles";
 import { useNavigate } from "react-router-dom";
 
 export default function ListExercises() {

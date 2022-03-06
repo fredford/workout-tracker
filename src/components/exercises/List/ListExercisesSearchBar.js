@@ -1,8 +1,10 @@
 import React from "react";
 
 import { FaChevronUp, FaChevronDown, FaPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const ListExerciseSearchBar = (props) => {
+  const navigate = useNavigate();
   const [show, setShow] = React.useState(false);
 
   const handleClose = () => setShow(false);
@@ -35,7 +37,10 @@ const ListExerciseSearchBar = (props) => {
       <label id="label-direction-toggle" htmlFor="direction-toggle">
         <ShowDirection />
       </label>
-      <button className="list-exercises__add-button" onClick={handleShow}>
+      <button
+        className="list-exercises__add-button"
+        onClick={() => navigate("/addexercise")}
+      >
         <FaPlus /> <span>Add</span>
       </button>
       <div>

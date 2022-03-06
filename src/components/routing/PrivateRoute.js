@@ -11,8 +11,13 @@ const PrivateRoute = () => {
   let token = localStorage.getItem("authToken");
 
   if (token) {
-    store.dispatch(fetchUser());
-    store.dispatch(fetchExercises());
+    try {
+      store.dispatch(fetchUser());
+      store.dispatch(fetchExercises());
+    } catch (e) {
+      console("here", e);
+      localStorage.removeItem("authToken");
+    }
   }
 
   return localStorage.getItem("authToken") ? (
