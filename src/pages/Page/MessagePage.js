@@ -62,4 +62,14 @@ const messageHandler = {
     button: "/profile",
     icon: <BsFillXCircleFill color="red" size="2rem" />,
   },
+  exerciseadded: {
+    message: "Your exercise has been successfully added!",
+    button: "/exercises",
+    icon: <BsFillCheckCircleFill color="green" size="2rem" />,
+  },
+  exercisefailed: {
+    message: "Your exercise has not been added!",
+    button: "/exercises",
+    icon: <BsFillXCircleFill color="red" size="2rem" />,
+  },
 };

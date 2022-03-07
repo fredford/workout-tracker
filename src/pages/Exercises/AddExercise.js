@@ -1,30 +1,39 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Card from "../../components/cards/Card";
 import Page from "../Page/Page";
 
+import { addExercise } from "../../redux/reducers/exercises";
+
 const AddExercise = () => {
+  const dispatch = useDispatch();
+  const exercises = useSelector((state) => state.exercises.exercises);
+  const user = useSelector((state) => state.user);
+
   const navigate = useNavigate();
   const [name, setName] = useState("");
+
+  var errorName = "";
 
   const [newArea, setNewArea] = useState("");
   const [newType, setNewType] = useState("");
   const [goalPerSet, setGoalPerSet] = useState("");
   const [goalPerWorkout, setGoalPerWorkout] = useState("");
-
   const [goalPerSetDuration, setGoalPerSetDuration] = useState({
-    hh: "00",
-    mm: "00",
-    ss: "00",
+    hh: 0,
+    mm: 0,
+    ss: 0,
   });
   const [goalPerWorkoutDuration, setGoalPerWorkoutDuration] = useState({
-    hh: "00",
-    mm: "00",
-    ss: "00",
+    hh: 0,
+    mm: 0,
+    ss: 0,
   });
 
   var createDisabled = true;
 
+  // Check that all fields have been filled out
   if (name.length !== 0 && newArea.length !== 0 && newType.length !== 0) {
     if (
       newType === "Repetitions" &&
@@ -39,6 +48,13 @@ const AddExercise = () => {
     ) {
       createDisabled = false;
     }
+  }
+  // Check if the name already exists in the system
+  if (exercises.some((obj) => obj.name === name)) {
+    console.log(name);
+
+    createDisabled = false;
+    errorName = "Exercise name already exists";
   }
 
   const clearGoals = () => {
@@ -98,8 +114,36 @@ const AddExercise = () => {
     }
   };
 
-  const createExercise = () => {
-    // TODO send POST request to add a new exercise
+  const createExercise = async () => {
+    let timeInSecondsSet =
+      parseInt(goalPerSetDuration.ss) +
+      parseInt(goalPerSetDuration.mm) * 60 +
+      parseInt(goalPerSetDuration.hh) * 3600;
+
+    let timeInSecondsWorkout =
+      parseInt(goalPerWorkoutDuration.ss) +
+      parseInt(goalPerWorkoutDuration.mm) * 60 +
+      parseInt(goalPerWorkoutDuration.hh) * 3600;
+
+    if (newType === "Duration") {
+    }
+
+    var newExercise = {
+      name,
+      area: newArea,
+      type: newType,
+      goalPerSet: newType === "Repetitions" ? goalPerSet : timeInSecondsSet,
+      goalPerWorkout:
+        newType === "Repetition" ? goalPerWorkout : timeInSecondsWorkout,
+      user: user._id,
+    };
+    try {
+      await dispatch(addExercise(newExercise));
+      navigate("/message/exerciseadded");
+    } catch (err) {
+      navigate("/message/exercisefailed");
+      console.log(err);
+    }
   };
 
   return (
@@ -117,6 +161,7 @@ const AddExercise = () => {
               placeholder="Enter new name"
               onChange={(e) => setName(e.target.value)}
             />
+            <p className="mt-1 text-danger">{errorName}</p>
           </div>
           <div className="add-exercise__input">
             <h5 className="mb-1">Area</h5>
@@ -288,6 +333,7 @@ const AddExercise = () => {
               </div>
             </div>
           </div>
+
           <div className="">
             <button
               className="btn btn-outline-secondary w-100"

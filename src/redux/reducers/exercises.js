@@ -1,9 +1,6 @@
 import axios from "axios";
 
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { exercisesPath } from "../../services/apiPaths";
-
-import { config } from "../../services/utils";
 
 import { resolve } from "../../services/utils";
 import ExercisesService from "../../services/exercises";
@@ -20,6 +17,26 @@ export const fetchExercises = createAsyncThunk(
   }
 );
 
+export const addExercise = createAsyncThunk(
+  "exercises/addExercise",
+  async (exercise) => {
+    const [data, error] = await ExercisesService.createExercise(exercise)
+      .then(function (response) {
+        return [response.data.data, null];
+      })
+      .catch(function (error) {
+        let jsonError = error.toJSON();
+
+        if (jsonError.status === 401) {
+          localStorage.removeItem("authoToken");
+        }
+
+        return [null, "Fail"];
+      });
+    return data;
+  }
+);
+
 const exercisesSlice = createSlice({
   name: "exercises",
   initialState: {
@@ -29,17 +46,17 @@ const exercisesSlice = createSlice({
     setExercises(state, action) {
       state.exercises = action.payload;
     },
-    addExercise(state, action) {
-      state.exercises = state.exercises.concat(action.payload);
-    },
   },
   extraReducers: {
     [fetchExercises.fulfilled]: (state, { payload }) => {
       state.exercises = state.exercises.concat(payload);
     },
+    [addExercise.fulfilled]: (state, { payload }) => {
+      state.exercises = [...state.exercises, payload];
+    },
   },
 });
 
-export const { setExercises, addExercise } = exercisesSlice.actions;
+export const { setExercises } = exercisesSlice.actions;
 
 export default exercisesSlice.reducer;
