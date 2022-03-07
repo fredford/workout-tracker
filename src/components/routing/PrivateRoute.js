@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { Navigate, Outlet } from "react-router-dom";
 
-import store from "../../store";
-
 import { fetchUser } from "../../redux/reducers/user";
-import { fetchExercises } from "../../redux/reducers/exercises";
+
+import { useDispatch } from "react-redux";
 
 const PrivateRoute = () => {
-  let token = localStorage.getItem("authToken");
+  var token = localStorage.getItem("authToken");
 
-  if (token) {
-    try {
-      store.dispatch(fetchUser());
-      store.dispatch(fetchExercises());
-    } catch (e) {
-      console("here", e);
-      localStorage.removeItem("authToken");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (token) {
+      try {
+        dispatch(fetchUser());
+      } catch (e) {
+        localStorage.removeItem("authToken");
+      }
     }
-  }
+  }, []);
 
   return localStorage.getItem("authToken") ? (
     <Outlet />

@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import StartupCard from "../../components/cards/StartupCard";
 
-import store from "../../store";
-
-import { fetchUser } from "../../redux/reducers/user";
-import { fetchExercises } from "../../redux/reducers/exercises";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import ProfileCard from "./ProfileCard";
 
-import { SettingsContext } from "../../contexts/settingsContext";
+import { SettingsContext } from "../../../contexts/settingsContext";
 
 const ProfileAppearance = () => {
   const { theme } = useContext(SettingsContext);

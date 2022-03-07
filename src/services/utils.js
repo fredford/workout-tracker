@@ -49,6 +49,7 @@ export const updateData = async (path, user) => {
 export const resolve = async (promise) => {
   try {
     const result = await promise;
+    console.log(result.data);
     return [result.data.data, null];
   } catch (error) {
     console.log(error);
@@ -70,4 +71,14 @@ export const retrieveData = async (service) => {
 
 export const getAuth = () => {
   return localStorage.getItem("authToken");
+};
+
+export const secondsToDuration = (time) => {
+  let hours = Math.floor(time);
+  let minutes = "";
+  let seconds = "";
+
+  console.log(time, hours, minutes, seconds);
+
+  return { hours, minutes, seconds };
 };

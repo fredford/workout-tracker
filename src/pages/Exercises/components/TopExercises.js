@@ -53,7 +53,6 @@ const TopExercises = () => {
           {React.Children.toArray(
             displayList.map((exercise) => {
               var area = exercise.area.toLowerCase();
-              var name = exercise.name.toLowerCase();
 
               var isAllOff = Object.values(activities).every(
                 (x) => x[0] === false

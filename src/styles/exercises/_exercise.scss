@@ -1,0 +1,46 @@
+.exercise-page__title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 10vw;
+}
+
+.exercise-page__sub {
+  display: flex;
+}
+
+.exercise-page__subtitle {
+  --bs-text-opacity: 1;
+  color: #adb5bd !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.exercise-page__spacer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exercise-page__spacer:first-child > .exercise-page__subtitle {
+  margin-left: auto;
+}
+.exercise-page__spacer:last-child > .exercise-page__subtitle {
+  margin-right: auto;
+}
+.exercise-page__spacer:first-child {
+  flex-grow: 4;
+}
+
+.exercise-page__spacer:last-child {
+  flex-grow: 4;
+}
+
+.exercise-page__subtitle:nth-child(2) {
+  margin: 0 0.5rem;
+}
+
+.exercise-page__change-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

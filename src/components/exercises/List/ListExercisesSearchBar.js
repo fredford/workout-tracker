@@ -5,10 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 const ListExerciseSearchBar = (props) => {
   const navigate = useNavigate();
-  const [show, setShow] = React.useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const ShowDirection = () => {
     if (props.isAscending) {
@@ -43,18 +39,7 @@ const ListExerciseSearchBar = (props) => {
       >
         <FaPlus /> <span>Add</span>
       </button>
-      <div>
-        {/*
-        <Modal show={show} onHide={handleClose} className={theme}>
-          <AddExercise
-            newExercise={newExercise}
-            isNull={false}
-            handleClose={handleClose}
-            addExercise={postExercise}
-          />
-        </Modal>
-        */}
-      </div>
+      <div></div>
       <input
         className="list-exercises__search"
         type="text"

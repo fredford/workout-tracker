@@ -1,15 +1,21 @@
 import React from "react";
 
 import Page from "../Page/Page";
-import ProfileAppearance from "./ProfileAppearance";
-import ProfileAccount from "./ProfileAccount";
-import ProfileDelete from "./ProfileDelete";
-import ProfileSettings from "./ProfileSettings";
-import ProfilePassword from "./ProfilePassword";
-import ProfilePicture from "./ProfilePicture";
-import ProfileHero from "./ProfileHero";
+import ProfileAppearance from "./components/ProfileAppearance";
+import ProfileAccount from "./components/ProfileAccount";
+import ProfileDelete from "./components/ProfileDelete";
+import ProfileSettings from "./components/ProfileSettings";
+import ProfilePassword from "./components/ProfilePassword";
+import ProfilePicture from "./components/ProfilePicture";
+import ProfileHero from "./components/ProfileHero";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("authToken");
+    navigate("/startup");
+  };
   return (
     <Page>
       <div className="mb-3">
@@ -22,7 +28,6 @@ const Profile = () => {
           <div className="col-md-6 stretch-card grid-margin">
             <ProfileSettings />
           </div>
-
           <div className="col-md-6 stretch-card grid-margin">
             <ProfileAppearance />
           </div>
@@ -43,6 +48,16 @@ const Profile = () => {
           </div>
           <div className="col-md-6 stretch-card grid-margin">
             <ProfilePicture />
+          </div>
+          <div className="col-12 stretch-card grid-margin">
+            <div className="default-card">
+              <button
+                className="btn btn-outline-secondary w-100"
+                onClick={logout}
+              >
+                Logout
+              </button>
+            </div>
           </div>
         </div>
       </div>

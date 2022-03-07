@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../components/cards/Card";
+import Card from "../../../components/cards/Card";
 
 // This is the layout style for the cards in the Profile page
 const ProfileCard = (props) => {

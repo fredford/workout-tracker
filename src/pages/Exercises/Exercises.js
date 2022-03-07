@@ -14,7 +14,7 @@ import { ActivityProvider } from "../../contexts/activityContext";
 import Page from "../Page/Page";
 
 // Services
-import ExerciseService from "../../services/exercises";
+import ExercisesService from "../../services/exercises";
 import { resolve } from "../../services/utils";
 import { setExercises } from "../../redux/reducers/exercises";
 
@@ -26,12 +26,7 @@ export default function Exercises() {
   }, []);
 
   const retrieveAllExercises = async () => {
-    const [data, error] = await resolve(ExerciseService.getAll());
-    dispatch(setExercises(data));
-  };
-
-  const retrieveUserExercises = async () => {
-    const [data, error] = await resolve(ExerciseService.getUser());
+    const [data, error] = await resolve(ExercisesService.getAll());
     dispatch(setExercises(data));
   };
 

@@ -49,7 +49,7 @@ const exercisesSlice = createSlice({
   },
   extraReducers: {
     [fetchExercises.fulfilled]: (state, { payload }) => {
-      state.exercises = state.exercises.concat(payload);
+      state.exercises = payload;
     },
     [addExercise.fulfilled]: (state, { payload }) => {
       state.exercises = [...state.exercises, payload];

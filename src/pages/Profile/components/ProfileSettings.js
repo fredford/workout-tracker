@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 
-import { SettingsContext } from "../../contexts/settingsContext";
+import { SettingsContext } from "../../../contexts/settingsContext";
 
-import Card from "../../components/cards/Card";
+import Card from "../../../components/cards/Card";
 
 const ProfileSettings = () => {
   const { theme, weight, distance } = useContext(SettingsContext);

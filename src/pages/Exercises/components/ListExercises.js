@@ -1,22 +1,11 @@
 import React, { useContext, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Modal, Table } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 import Card from "../../../components/cards/Card";
 
-import {
-  FaChevronUp,
-  FaChevronDown,
-  FaPlus,
-  FaArrowLeft,
-  FaArrowRight,
-} from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-import ExerciseService from "../../../services/exercises";
-import AddExercise from "../../../components/exercises/AddExercise";
 import { ActivityContext } from "../../../contexts/activityContext";
-import { resolve } from "../../../services/utils";
-import { addExercise } from "../../../redux/reducers/exercises";
 
 import ListExerciseSearchBar from "../../../components/exercises/List/ListExercisesSearchBar";
 import ListExercisesUserOptions from "../../../components/exercises/List/ListExercisesUserOptions";
@@ -25,35 +14,25 @@ import { useNavigate } from "react-router-dom";
 
 export default function ListExercises() {
   const navigate = useNavigate();
+
+  // Redux State
   const exercises = useSelector((state) => state.exercises.exercises);
-
-  const dispatch = useDispatch();
-
   // Context variables
   const activities = useContext(ActivityContext);
   // State variables
   const [userOnly, setUserOnly] = useState(false);
-
   const [isAscending, setIsAscending] = React.useState(false);
   const [search, setSearch] = React.useState("");
   const [page, setPage] = React.useState(0);
-  // Theme variable
-  var theme = localStorage.getItem("theme");
-
-  var newExercise = {
-    name: null,
-    area: null,
-    muscles: null,
-    type: null,
-    goalPerSet: null,
-    goalPerWorkout: null,
-  };
-
-  const [show, setShow] = React.useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   var displayList = exercises.slice(page * 10, page * 10 + 10);
+
+  // Filter list for User Only
+  displayList = displayList.filter((item) => !userOnly || !item.isAdmin);
+  // Filter current search items
+  displayList = displayList.filter((item) =>
+    item.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   if (isAscending) {
     displayList.reverse();
@@ -61,22 +40,6 @@ export default function ListExercises() {
 
   const changeDirection = () => {
     setIsAscending(!isAscending);
-  };
-
-  const updateSearch = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const postExercise = async (e) => {
-    const [data, error] = await resolve(ExerciseService.createExercise(e));
-
-    if (data) {
-      dispatch(addExercise(e));
-    } else {
-      console.log(error);
-    }
-
-    handleClose();
   };
 
   const increasePage = () => {
@@ -131,42 +94,34 @@ export default function ListExercises() {
         {React.Children.toArray(
           displayList.map((exercise) => {
             var area = exercise.area.toLowerCase();
-            var name = exercise.name.toLowerCase();
-            var lowerSearch = search.toLowerCase();
-
             var isAllOff = Object.values(activities).every(
               (x) => x[0] === false
             );
 
             if (isAllOff || activities[area][0]) {
-              if (
-                search.length === 0 ||
-                (search.length > 0 && name.includes(lowerSearch))
-              ) {
-                return (
+              return (
+                <div
+                  className="col-sm-6 mb-1"
+                  id={exercise.area}
+                  key={exercise._id}
+                >
                   <div
-                    className="col-sm-6 mb-1"
-                    id={exercise.area}
-                    key={exercise._id}
+                    className="list-exercise__card"
+                    onClick={() => navigate(`/exercises/${exercise._id}`)}
                   >
-                    <div
-                      className="list-exercise__card"
-                      onClick={() => navigate(`/exercises/${exercise._id}`)}
-                    >
-                      <img
-                        className="list-exercise__image"
-                        id={`${exercise.area.toLowerCase()}-image`}
-                        alt=""
-                      />
-                      <div className="mt-2">
-                        <h6>{exercise.name}</h6>
-                        <p className="text-muted">{exercise.muscles}</p>
-                        <p className="text-muted">{exercise.type}</p>
-                      </div>
+                    <img
+                      className="list-exercise__image"
+                      id={`${exercise.area.toLowerCase()}-image`}
+                      alt=""
+                    />
+                    <div className="mt-2">
+                      <h6>{exercise.name}</h6>
+                      <p className="text-muted">{exercise.muscles}</p>
+                      <p className="text-muted">{exercise.type}</p>
                     </div>
                   </div>
-                );
-              }
+                </div>
+              );
             }
           })
         )}
