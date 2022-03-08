@@ -129,7 +129,7 @@ export default function ListExercises() {
 
       <div className="list-exercises__button-group">
         <button
-          className="button-group__button"
+          className="button-group__button btn-standard"
           id="left-button"
           onClick={decreasePage}
         >
@@ -137,7 +137,7 @@ export default function ListExercises() {
         </button>
 
         <button
-          className="button-group__button"
+          className="button-group__button btn-standard"
           id="right-button"
           onClick={increasePage}
         >

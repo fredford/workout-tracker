@@ -38,7 +38,7 @@
 .list-exercises__add-button {
   @include icon-button;
   margin-left: 0.5rem;
-  color: var(--fg-main);
+
   display: flex;
   align-items: center;
 }

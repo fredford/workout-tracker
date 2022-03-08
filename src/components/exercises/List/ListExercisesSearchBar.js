@@ -30,11 +30,15 @@ const ListExerciseSearchBar = (props) => {
         onChange={changeDirection}
         checked={props.isAscending}
       />
-      <label id="label-direction-toggle" htmlFor="direction-toggle">
+      <label
+        className="btn-standard"
+        id="label-direction-toggle"
+        htmlFor="direction-toggle"
+      >
         <ShowDirection />
       </label>
       <button
-        className="list-exercises__add-button"
+        className="list-exercises__add-button btn-standard"
         onClick={() => navigate("/addexercise")}
       >
         <FaPlus /> <span>Add</span>

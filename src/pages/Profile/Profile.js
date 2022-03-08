@@ -18,11 +18,11 @@ const Profile = () => {
   };
   return (
     <Page>
-      <div className="mb-3">
+      <div className="mt-3 mb-3 d-flex justify-content-center">
         <ProfileHero />
       </div>
 
-      <div className="mb-3">
+      <div className="m-3">
         <h3 className="mb-2">App Settings</h3>
         <div className="row">
           <div className="col-md-6 stretch-card grid-margin">
@@ -34,7 +34,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="mb-3">
+      <div className="m-3">
         <h3 className="mb-2">Account Settings</h3>
         <div className="row">
           <div className="col-md-6 stretch-card grid-margin">
@@ -51,10 +51,7 @@ const Profile = () => {
           </div>
           <div className="col-12 stretch-card grid-margin">
             <div className="default-card">
-              <button
-                className="btn btn-outline-secondary w-100"
-                onClick={logout}
-              >
+              <button className="btn btn-standard w-100" onClick={logout}>
                 Logout
               </button>
             </div>

@@ -29,7 +29,7 @@
 }
 
 .add-exercise__image {
-  border: 2px solid $hover-accent;
+  border: 2px solid rgba(var(--fg-acce-rgb), 0.4);
   border-radius: $border-radius-button;
   max-width: 75px;
   padding: 0.5rem;
@@ -44,10 +44,10 @@
 }
 
 .add-exercise__image:hover {
-  background-color: $hover-accent;
+  background-color: rgba(var(--fg-acce-rgb), 0.6);
 }
 
 .add-exercise__area-container input:checked + .add-exercise__image {
-  border: 2px solid $active-accent;
-  background-color: $hover-accent;
+  border: 2px solid rgba(var(--fg-acce-rgb), 0.6);
+  background-color: rgba(var(--fg-acce-rgb), 0.4);
 }

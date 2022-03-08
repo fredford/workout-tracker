@@ -12,8 +12,6 @@ const Exercise = () => {
   let { exerciseId } = useParams();
   const [exercise, setExercise] = useState({});
 
-  console.log(exercise);
-
   useEffect(() => {
     getExercise();
   }, []);
@@ -30,8 +28,28 @@ const Exercise = () => {
           <ExerciseTitle exercise={exercise} />
         </div>
         <div className="col-sm-6">
-          <Card>
+          <Card className="m-3 mt-0">
             <h4>Stats</h4>
+          </Card>
+        </div>
+        <div className="col-sm-6">
+          <Card className="m-3 mt-0">
+            <h4>Challenges</h4>
+          </Card>
+        </div>
+        <div className="col-sm-6">
+          <Card className="m-3 mt-0">
+            <h4>Last 30 Days</h4>
+          </Card>
+        </div>
+        <div className="col-sm-6">
+          <Card className="m-3 mt-0">
+            <h4>Set Progression</h4>
+          </Card>
+        </div>
+        <div className="col-sm-6">
+          <Card className="m-3 mt-0">
+            <h4>Workout Progression</h4>
           </Card>
         </div>
       </div>

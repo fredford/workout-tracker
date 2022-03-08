@@ -1,9 +1,6 @@
 import React from "react";
+import Page from "../Page/Page";
 
 export default function Workouts() {
-  return (
-    <div>
-      <h1>Workouts</h1>
-    </div>
-  );
+  return <Page></Page>;
 }

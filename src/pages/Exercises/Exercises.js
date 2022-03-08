@@ -31,10 +31,10 @@ export default function Exercises() {
   };
 
   return (
-    <Page title="Exercises">
+    <Page>
       <ActivityProvider>
-        <div className="row">
-          <div className="col-xl-4 col-md-6 mb-sm-3 mb-md-0 stretch-card">
+        <div className="row m-3">
+          <div className="col-xl-4 col-md-6 stretch-card">
             <ListExercises />
           </div>
           {/*

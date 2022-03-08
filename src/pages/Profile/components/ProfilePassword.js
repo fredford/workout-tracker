@@ -13,7 +13,7 @@ const ProfilePassword = () => {
     >
       <button
         type="button"
-        className="btn btn-outline-secondary"
+        className="btn btn-standard"
         onClick={() => {
           navigate("/changepassword");
         }}

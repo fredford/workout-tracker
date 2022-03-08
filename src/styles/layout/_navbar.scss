@@ -4,7 +4,7 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  background-color: var(--bg-card);
+  background-color: var(--fg-main);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,7 +29,7 @@
   border-radius: 0.5rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-  color: var(--fg-main);
+  color: var(--bg-card);
 }
 
 .navbar-item:hover {
@@ -41,17 +41,26 @@
 }
 
 .navbar-items a:hover {
-  background-color: $hover-accent;
+  background-color: rgba(var(--fg-acce-rgb), 0.4) !important;
+  color: var(--bg-card);
 }
 
 .navbar-item__active {
-  background-color: $active-accent !important;
+  background-color: var(--fg-acce) !important;
+  color: var(--bg-main);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .full-text,
 .short-text {
-  padding: 0.5rem;
-  padding-left: 1rem;
+  background-color: var(--fg-acce);
+  border-radius: $border-radius-button;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  margin: 0.25rem;
+  color: var(--bg-main);
+  padding: 0.25rem 0.5rem;
 }
 
 .navbar-item__header {

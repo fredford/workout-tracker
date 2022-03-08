@@ -8,7 +8,7 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 
 import Exercises from "./pages/Exercises/Exercises";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Workouts from "./pages/Workouts";
+import Workouts from "./pages/Workouts/Workouts";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Startup/Login";
 import Register from "./pages/Startup/Register";

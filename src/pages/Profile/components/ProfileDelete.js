@@ -11,7 +11,7 @@ const ProfileDelete = () => {
     >
       <button
         type="button"
-        className="btn btn-outline-danger"
+        className="btn btn-danger"
         onClick={() => navigate("/deleteaccount")}
       >
         Delete Account

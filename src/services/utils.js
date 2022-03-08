@@ -49,7 +49,6 @@ export const updateData = async (path, user) => {
 export const resolve = async (promise) => {
   try {
     const result = await promise;
-    console.log(result.data);
     return [result.data.data, null];
   } catch (error) {
     console.log(error);

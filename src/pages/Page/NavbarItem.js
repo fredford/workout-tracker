@@ -6,7 +6,7 @@ export default function NavbarItem(props) {
 
   var classes = "navbar-item ";
 
-  if (window.location.pathname === path) {
+  if (window.location.pathname.includes(path)) {
     classes += "navbar-item__active";
   }
 

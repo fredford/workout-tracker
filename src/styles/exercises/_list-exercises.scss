@@ -1,5 +1,5 @@
 input[type="text"]:focus {
-  outline-color: rgba($accent-color, 1);
+  outline-color: rgba(var(--fg-acce-rgb), 1);
   outline-style: solid;
 }
 
@@ -13,13 +13,15 @@ input[type="text"]:focus {
 }
 
 .list-exercise__card:hover {
-  background-color: $hover-accent;
+  background-color: rgba(var(--fg-acce-rgb), 0.2);
   border-radius: $border-radius-button;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .list-exercise__image {
   max-width: 70px;
-  border: 2px solid rgba($accent-color, 0.5);
+  border: 2px solid rgba(var(--fg-acce-rgb), 0.6);
   border-radius: $border-radius-button;
   background-color: var(--bg-main);
   margin-right: 0.5rem;
@@ -27,7 +29,7 @@ input[type="text"]:focus {
 }
 
 .list-exercises hr {
-  color: rgba($accent-color, 0.5);
+  color: rgba(var(--fg-acce-rgb), 0.5);
 }
 
 th {

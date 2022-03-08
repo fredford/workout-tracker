@@ -8,10 +8,7 @@ export default function Page(props) {
   return (
     <div className="page-container">
       <Navbar />
-      <div className="page-content">
-        <h1>{props.title}</h1>
-        {props.children}
-      </div>
+      <div className="page-content container">{props.children}</div>
     </div>
   );
 }
