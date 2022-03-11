@@ -1,26 +1,30 @@
 :root {
-  --bg-main: #e6e3f8;
+  --bg-main: #efefef;
   --bg-card: #ffffff;
-  --fg-text: #5b5b5b;
-  --fg-mute: #929292;
-  --fg-main: #8172de;
-  --fg-acce: #ff8f51;
+  --fg-text: #1c1c1c;
+  --fg-mute: #202020;
+  --fg-main: #111111;
+  --fg-acce: midnightblue;
+  --fg-dang: darkred;
   --bg-main-rgb: 248, 249, 250;
   --bg-card-rgb: 250, 250, 250;
   --fg-main-rgb: 33, 37, 41;
-  --fg-acce-rgb: 255, 143, 81;
+  --fg-acce-rgb: 25, 25, 112;
+  --fg-dang-rgb: 139, 0, 0;
 }
 [data-theme="dark"] {
-  --bg-main: #484656;
-  --bg-card: #5a5867;
-  --fg-text: #ececec;
-  --fg-mute: #929292;
-  --fg-main: #c8bfff;
-  --fg-acce: #ffae82;
+  --bg-main: #202020;
+  --bg-card: #313131;
+  --fg-text: #e3e3e3;
+  --fg-mute: #acacac;
+  --fg-main: #ffffff;
+  --fg-acce: lightskyblue;
+  --fg-dang: firebrick;
   --bg-main-rgb: 52, 58, 64;
   --bg-card-rgb: 33, 37, 41;
   --fg-main-rgb: 248, 249, 250;
-  --fg-acce-rgb: 255, 174, 130;
+  --fg-acce-rgb: 135, 206, 250;
+  --fg-dang-rgb: 178, 34, 34;
 }
 
 div[role="dialog"] [data-theme="dark"] {

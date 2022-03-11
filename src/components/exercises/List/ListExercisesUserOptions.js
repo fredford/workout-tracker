@@ -1,7 +1,7 @@
 import React from "react";
 
 const ListExercisesUserOptions = (props) => {
-  var buttonClass = "btn btn-outline-secondary";
+  var buttonClass = "btn btn-outline-soft";
 
   if (props.userClicked) {
     buttonClass += " user-clicked";

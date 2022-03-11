@@ -34,7 +34,7 @@ export default function Exercises() {
     <Page>
       <ActivityProvider>
         <div className="row m-3">
-          <div className="col-xl-4 col-md-6 stretch-card">
+          <div className="col-lg-6 stretch-card">
             <ListExercises />
           </div>
           {/*

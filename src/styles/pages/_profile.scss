@@ -4,8 +4,6 @@
 .profile-hero {
   border-radius: $border-radius-card;
   padding: 1rem;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 
 .profile-hero__title {
@@ -14,6 +12,7 @@
 }
 .profile-hero__subtitle {
   color: var(--fg-text);
+  font-size: 3vw;
 }
 
 .profile__user input {

@@ -18,7 +18,7 @@ const Profile = () => {
   };
   return (
     <Page>
-      <div className="mt-3 mb-3 d-flex justify-content-center">
+      <div className="mt-3">
         <ProfileHero />
       </div>
 

@@ -8,15 +8,21 @@ const ProfileHero = () => {
   // TODO set up profile picture to show here from database
 
   return (
-    <div className="profile-hero frosted-glass">
-      <div className="d-flex justify-content-center flex-column align-items-center">
-        <img
-          className="profile-image"
-          src="./fraser-redford_profile.jpg"
-          alt="Profile"
-        />
-        <h1 className="profile-hero__title">{user.name}</h1>
-        <h5 className="profile-hero__subtitle">{user.email}</h5>
+    <div className="profile-hero">
+      <div className="row">
+        <div className="col-6 d-flex align-items-center">
+          <div className="">
+            <h1 className="profile-hero__title">{user.name}</h1>
+            <h5 className="profile-hero__subtitle text-muted">{user.email}</h5>
+          </div>
+        </div>
+        <div className="col-6 d-flex justify-content-center">
+          <img
+            className="profile-image"
+            src="./fraser-redford_profile.jpg"
+            alt="Profile"
+          />
+        </div>
       </div>
     </div>
   );

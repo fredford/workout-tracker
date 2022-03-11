@@ -76,9 +76,11 @@ hr {
 .btn-standard {
   background-color: rgba(var(--fg-acce-rgb), 0.2) !important;
   color: var(--fg-acce) !important;
+}
+
+.btn-outline {
   border-color: var(--fg-acce) !important;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  color: var(--fg-acce) !important;
 }
 
 .btn-standard:hover {
@@ -87,10 +89,41 @@ hr {
 }
 
 .btn-danger {
-  background-color: rgba(220, 53, 69, 0.2) !important;
-  color: var(--fg-main) !important;
-  border-color: var(--fg-main) !important;
+  background-color: rgba(var(--fg-dang-rgb), 0.2) !important;
+  color: rgba(var(--fg-dang-rgb), 1) !important;
+  border: none;
 }
 .btn-danger:hover {
-  background-color: rgba(220, 53, 69, 0.8) !important;
+  background-color: rgba(var(--fg-dang-rgb), 0.6) !important;
+  color: var(--fg-text) !important;
+}
+
+.btn-outline-soft {
+  border: 2px solid rgba(var(--fg-acce-rgb), 0.2);
+}
+.btn-outline-soft:hover {
+  background-color: rgba(var(--fg-acce-rgb), 0.2);
+  color: var(--fg-text);
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.card-stretch {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+
+  > .default-card {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.margin-right {
+  margin-right: 0.5rem;
+}
+.margin-left {
+  margin-left: 0.5rem;
 }
