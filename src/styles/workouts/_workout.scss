@@ -1,0 +1,51 @@
+.workout-calendar {
+  .react-calendar__tile:hover {
+    background-color: rgba(var(--fg-acce-rgb), 0.3);
+  }
+  .react-calendar__tile--active {
+    background-color: rgba(var(--fg-acce-rgb), 1);
+    color: var(--bg-main);
+  }
+}
+
+.workout-calendar button {
+  background: none;
+  box-shadow: none;
+  border: none;
+  color: var(--fg-text);
+  text-align: center;
+  border-radius: 0.25rem;
+}
+
+.workout-calendar button:hover {
+  background-color: var(--fg-acce-rgb);
+}
+
+.workout-calendar div {
+  text-align: center;
+}
+
+.workouts__workout-type-group {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.workouts__workout-type-group button {
+  width: 100%;
+  background-color: rgba(var(--fg-acce-rgb), 0.3);
+  border: none;
+  border-radius: $border-radius-button;
+  color: var(--fg-text);
+  padding: 1rem 0;
+}
+
+.workouts__workout-type-group button:hover {
+  background-color: rgba(var(--fg-acce-rgb), 0.6);
+}
+
+.workouts__workout-type-group button:not(:last-child) {
+  margin-right: 0.5rem;
+}
