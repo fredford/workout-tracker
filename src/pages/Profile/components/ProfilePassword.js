@@ -10,6 +10,7 @@ const ProfilePassword = () => {
     <ProfileCard
       title="Change Password"
       subtitle="You can change your account password"
+      image="./password.png"
     >
       <button
         type="button"

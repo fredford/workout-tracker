@@ -22,7 +22,11 @@ const ProfileAppearance = () => {
   };
 
   return (
-    <ProfileCard title="Appearance" subtitle="Set the colour scheme of the app">
+    <ProfileCard
+      title="Appearance"
+      subtitle="Set the colour scheme of the app"
+      image="./mode.png"
+    >
       <input
         id="theme"
         type="checkbox"

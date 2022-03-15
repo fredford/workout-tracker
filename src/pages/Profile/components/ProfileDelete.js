@@ -8,6 +8,7 @@ const ProfileDelete = () => {
     <ProfileCard
       title="Delete Account"
       subtitle="You can permanently delete your account"
+      image="./delete.png"
     >
       <button
         type="button"

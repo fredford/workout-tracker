@@ -50,11 +50,10 @@ const Profile = () => {
             <ProfilePicture />
           </div>
           <div className="col-12 stretch-card grid-margin">
-            <div className="default-card">
-              <button className="btn btn-standard w-100" onClick={logout}>
-                Logout
-              </button>
-            </div>
+            <button className="btn btn-standard w-100" onClick={logout}>
+              <img className="card-icon" src="./logout.png" alt="" />
+              Logout
+            </button>
           </div>
         </div>
       </div>

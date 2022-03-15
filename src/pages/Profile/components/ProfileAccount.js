@@ -8,8 +8,9 @@ const ProfileAccount = () => {
 
   return (
     <ProfileCard
-      title="Change Username"
+      title="Change Display Name"
       subtitle="You can change your user display name"
+      image="./displayname.png"
     >
       <button
         type="button"

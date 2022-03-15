@@ -28,6 +28,7 @@ import MessagePage from "./pages/Page/MessagePage";
 import AddExercise from "./pages/Exercises/AddExercise";
 import Exercise from "./pages/Exercise/Exercise";
 import EditExercise from "./pages/Exercise/EditExercise";
+import Sets from "./pages/Sets/Sets";
 
 const App = () => {
   const { theme } = useContext(SettingsContext);
@@ -48,6 +49,7 @@ const App = () => {
           <Route exact path="/exercises/:exerciseId" element={<Exercise />} />
           <Route exact path="/exercises" element={<Exercises />} />
           <Route exact path="/addexercise" element={<AddExercise />} />
+          <Route exact path="/workouts/:workoutId" element={<Sets />} />
           <Route exact path="/workouts" element={<Workouts />} />
           <Route exact path="/changepassword" element={<ChangePassword />} />
           <Route exact path="/deleteaccount" element={<DeleteAccount />} />

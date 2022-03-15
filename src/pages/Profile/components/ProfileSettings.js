@@ -39,9 +39,16 @@ const ProfileSettings = () => {
   };
 
   return (
-    <Card title="App Settings">
-      <h6 className="text-muted">Set the units of measurement for the app</h6>
-
+    <Card>
+      <div className="d-flex flex-row align-items-center mb-1">
+        <img className="card-icon" src="./scale.png" alt="" />
+        <div className=" d-flex flex-column">
+          <h4 className="mb-2">App Settings</h4>
+          <h6 className="text-muted">
+            Set the units of measurement for the app
+          </h6>
+        </div>
+      </div>
       <div className="profile__settings">
         <div className="flex-column profile__settings-group align-items-center">
           <p className="text-muted mt-3 mb-1">Weight</p>

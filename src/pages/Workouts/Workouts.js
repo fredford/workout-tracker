@@ -28,6 +28,7 @@ export default function Workouts() {
   };
 
   const startNewWorkout = async (e) => {
+    console.log(e.target.id);
     const [data, error] = await resolve(
       WorkoutsService.createWorkout({
         type: e.target.id,
@@ -38,42 +39,62 @@ export default function Workouts() {
       navigate(`/workouts/${data._id}`);
     }
   };
+
   return (
     <Page>
       <div className="row mt-3">
-        <div className="col-md-6 mb-3">
-          <Card>
-            <h4>Start New Workout</h4>
-            <div className="workouts__workout-type-group">
-              <button id="Progression" onClick={startNewWorkout}>
-                Progression
-              </button>
-              <button id="Single Set Max" onClick={startNewWorkout}>
-                Single Set Max
-              </button>
-              <button id="Maintenance" onClick={startNewWorkout}>
-                Maintenance
-              </button>
-            </div>
-          </Card>
+        <div className="col-12 mb-3">
+          <h3 className="mb-3">Start New Workout</h3>
+          <div className="workouts__workout-type-group">
+            <button id="Maintenance" onClick={startNewWorkout}>
+              <img src="./maintenance.png" alt="" />
+              Maintenance
+            </button>
+            <button id="Progression" onClick={startNewWorkout}>
+              <img src="./progression.png" alt="" />
+              Progression
+            </button>
+            <button id="Single Set Max" onClick={startNewWorkout}>
+              <img src="./max.png" alt="" />
+              Single Set Max
+            </button>
+          </div>
         </div>
-        {/*<div className="col-md-6 stretch-card mb-3">
+        {/*<div className="col-12 stretch-card mb-3">
           <Card><Calendar className="workout-calendar" /></Card>
         </div>
         */}
-        <div className="col-md-6">
+        <div className="col-12">
           <Card>
             <h4>Workout History</h4>
-            {React.Children.toArray(
-              workoutsList.map((workout) => {
-                return (
-                  <div className="">
-                    <h3>{workout.type}</h3>
-                    <h4>{workout.date}</h4>
-                  </div>
-                );
-              })
-            )}
+            <div className="row">
+              {React.Children.toArray(
+                workoutsList.map((workout) => {
+                  var date = new Date(workout.date);
+
+                  var image = workout.type;
+
+                  return (
+                    <div
+                      className=" col-sm-6 workout-list__margins"
+                      onClick={() => navigate(`/workouts/${workout._id}`)}
+                    >
+                      <div className="workout-list__item">
+                        <img
+                          className="workout-list__image"
+                          src={workoutTypeImg[workout.type]}
+                          alt=""
+                        />
+                        <div className="workout-list__text">
+                          <h5>{date.toDateString()}</h5>
+                          <h6 className="text-muted">{workout.type}</h6>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })
+              )}
+            </div>
           </Card>
         </div>
       </div>
@@ -98,3 +119,9 @@ const workouts = [
     type: "Light",
   },
 ];
+
+const workoutTypeImg = {
+  Progression: "./progression.png",
+  Maintenance: "./maintenance.png",
+  "Single Set Max": "./max.png",
+};

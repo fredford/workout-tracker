@@ -14,6 +14,7 @@ const ProfilePicture = () => {
     <ProfileCard
       title="Profile Picture"
       subtitle="Add or change your profile picture"
+      image="./profile.png"
     >
       <div className="d-flex flex-column align-items-center">
         <input
