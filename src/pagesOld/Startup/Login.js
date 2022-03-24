@@ -51,42 +51,29 @@ const Login = () => {
   return (
     <StartupCard title="Login">
       <form onSubmit={attemptLogin} className="login-page__form">
-        <div className="mb-3">
-          <label className="form-label">Email</label>
-          <input
-            className="form-control"
-            placeholder="Enter email"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </div>
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            className="form-control"
-            type="password"
-            placeholder="Enter password"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
-        </div>
-
-        <button
-          className="btn btn-primary w-100"
-          id="login-button"
-          type="submit"
-        >
+        <label>Email</label>
+        <input
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          placeholder="Enter password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <button id="login-button" type="submit">
           Login
         </button>
         <p>{error}</p>
         <hr />
-        <div className="d-flex justify-content-between">
-          <Link to={{ pathname: "/forgotpassword" }}>Forgot Password?</Link>
-          <p>
-            Not registered yet?{" "}
-            <Link to={{ pathname: "/register" }}>Create an account</Link>
-          </p>
-        </div>
+        <Link to={{ pathname: "/forgotpassword" }}>Forgot Password?</Link>
+        <p>
+          Not registered yet?{" "}
+          <Link to={{ pathname: "/register" }}>Create an account</Link>
+        </p>
       </form>
     </StartupCard>
   );

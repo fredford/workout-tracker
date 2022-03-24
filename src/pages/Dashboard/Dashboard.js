@@ -1,7 +1,6 @@
 import React from "react";
-
-import Page from "../Page/Page";
+import Page from "../../components/utility/Page";
 
 export default function Dashboard() {
-  return <Page title="Dashboard"></Page>;
+  return <Page>Dashboard</Page>;
 }

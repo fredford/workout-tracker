@@ -25,47 +25,51 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
 
+// Variables
 @import "./variables";
 
-@import "./mixins/buttons";
-@import "./mixins/activity";
-@import "./mixins/cards";
-@import "./mixins/forms";
+// Components
+@import "./components/navbar";
 
-@import "./typography";
+// @import "./mixins/buttons";
+// @import "./mixins/activity";
+// @import "./mixins/cards";
+// @import "./mixins/forms";
 
-@import "./app";
+// @import "./typography";
 
-// Layout
-@import "./layout/navbar";
+// @import "./app";
 
-// Pages
-@import "./pages/page";
-@import "./pages/notfound";
-@import "./pages/login";
-@import "./pages/profile";
-@import "./pages/loading";
+// // Layout
+// @import "./layout/navbar";
 
-// Cards
-@import "./layout/card/card";
+// // Pages
+// @import "./pages/page";
+// @import "./pages/notfound";
+// @import "./pages/login";
+// @import "./pages/profile";
+// @import "./pages/loading";
 
-// Exercises
-@import "./exercises/exercises";
-@import "./exercises/exercise";
-@import "./exercises/list-exercises";
-@import "./exercises/list-exercises-modal";
+// // Cards
+// @import "./layout/card/card";
 
-@import "./exercises/listexercises/searchbar";
-@import "./exercises/listexercises/useroptions";
-@import "./exercises/addexercise";
+// // Exercises
+// @import "./exercises/exercises";
+// @import "./exercises/exercise";
+// @import "./exercises/list-exercises";
+// @import "./exercises/list-exercises-modal";
+
+// @import "./exercises/listexercises/searchbar";
+// @import "./exercises/listexercises/useroptions";
+// @import "./exercises/addexercise";
 
 // Workouts
-@import "./workouts/workout";
+//@import "./workouts/workout";
 
 // Utils
 
-@import "./utilities";
+//@import "./utilities";
 
 // Components
 
-@import "./layout/components/activityToggles";
+//@import "./layout/components/activityToggles";

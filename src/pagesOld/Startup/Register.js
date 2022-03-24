@@ -57,63 +57,48 @@ export default function Register() {
     }
   };
 
-  const items = [
-    {
-      label: "Name",
-      type: "text",
-      placeholder: "Enter name",
-      onChange: (e) => setName(e.target.value),
-      required: true,
-      value: name,
-    },
-    {
-      label: "Email",
-      type: "email",
-      placeholder: "Enter email",
-      onChange: (e) => setEmail(e.target.value),
-      required: true,
-      value: email,
-    },
-    {
-      label: "Password",
-      type: "password",
-      placeholder: " Enter Password",
-      onChange: (e) => setPassword(e.target.value),
-      required: true,
-      value: password,
-    },
-    {
-      label: "Confirm Password",
-      type: "password",
-      placeholder: "Enter Confirm Password",
-      onChange: (e) => setPasswordConfirm(e.target.value),
-      required: true,
-      value: passwordConfirm,
-    },
-  ];
-
   return (
     <StartupCard title="Register">
       <form onSubmit={attemptRegister} className="login-page__form">
-        {items.map((item, index) => {
-          return (
-            <div key={index} className="mb-3">
-              <label className="form-label">{item.label}</label>
-              <input
-                className="form-control"
-                type={item.type}
-                placeholder={item.placeholder}
-                onChange={item.onChange}
-                required={item.required}
-                value={item.value}
-              />
-            </div>
-          );
-        })}
-
+        <label>Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter name"
+          onChange={(e) => setName(e.target.value)}
+          required
+          value={name}
+        />
+        <label>Email</label>
+        <input
+          type="email"
+          required
+          id="email"
+          placeholder="Enter email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
+        <label>Password</label>
+        <input
+          type="password"
+          required
+          id="password"
+          placeholder="Enter password"
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
+        />
+        <label>Confirm Password</label>
+        <input
+          type="password"
+          required
+          id="confirmPassword"
+          placeholder="Confirm password"
+          onChange={(e) => setPasswordConfirm(e.target.value)}
+          value={passwordConfirm}
+        />
         <p>{error}</p>
 
-        <button className="btn btn-primary w-100" type="submit">
+        <button id="login-button" type="submit">
           Register
         </button>
         <hr />
