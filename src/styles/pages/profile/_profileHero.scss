@@ -1,0 +1,24 @@
+.profile-hero {
+  display: flex;
+  align-items: center;
+  box-shadow: $box-shadow;
+  padding: $card-padding;
+}
+
+.profile-hero__image {
+  width: 20vw;
+  height: 20vw;
+  border-radius: calc(20vw / 2);
+  object-fit: cover;
+  border: 3px solid var(--bg-card);
+  box-shadow: $box-shadow;
+}
+
+.profile-hero__title {
+  text-transform: uppercase;
+  font-size: 7.5vw;
+}
+.profile-hero__subtitle {
+  color: var(--fg-text);
+  font-size: 3.5vw;
+}

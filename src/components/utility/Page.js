@@ -5,7 +5,7 @@ const Page = (props) => {
   return (
     <div>
       <Navbar />
-      {props.children}
+      <div className="content-wrapper">{props.children}</div>
     </div>
   );
 };

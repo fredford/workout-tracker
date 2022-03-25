@@ -50,17 +50,18 @@ const Login = () => {
 
   return (
     <StartupCard title="Login">
-      <form onSubmit={attemptLogin} className="login-page__form">
-        <div className="mb-3">
+      <form onSubmit={attemptLogin} className="standard-form">
+        <div className="standard-form__item">
           <label className="form-label">Email</label>
           <input
+            type="email"
             className="form-control"
             placeholder="Enter email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
         </div>
-        <div className="mb-3">
+        <div className="standard-form__item">
           <label className="form-label">Password</label>
           <input
             className="form-control"
@@ -71,11 +72,7 @@ const Login = () => {
           />
         </div>
 
-        <button
-          className="btn btn-primary w-100"
-          id="login-button"
-          type="submit"
-        >
+        <button className="standard-button btn-primary w-100" type="submit">
           Login
         </button>
         <p>{error}</p>

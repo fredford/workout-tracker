@@ -27,16 +27,28 @@
 
 // Variables
 @import "./variables";
+@import "./typography";
+
+// Mixins
+@import "./mixins/forms";
+
+@import "./components/forms";
+@import "./components/buttons";
 
 // Components
 @import "./components/navbar";
+@import "./components/card";
+@import "./pages/page";
+
+// Profile
+
+@import "./pages/profile";
+@import "./pages/profile/profileHero";
+@import "./pages/profile/profileCard";
 
 // @import "./mixins/buttons";
 // @import "./mixins/activity";
 // @import "./mixins/cards";
-// @import "./mixins/forms";
-
-// @import "./typography";
 
 // @import "./app";
 
@@ -68,7 +80,7 @@
 
 // Utils
 
-//@import "./utilities";
+@import "./utilities";
 
 // Components
 

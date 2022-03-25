@@ -1,0 +1,15 @@
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-card__image {
+  width: 6rem;
+  height: 6rem;
+  background-color: rgba(var(--fg-acce-rgb), 0.5);
+  border-radius: $border-radius-card;
+  object-fit: fill;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

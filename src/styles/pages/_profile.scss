@@ -3,16 +3,6 @@
 
 .profile-hero {
   border-radius: $border-radius-card;
-  padding: 1rem;
-}
-
-.profile-hero__title {
-  text-transform: uppercase;
-  font-size: 9vw;
-}
-.profile-hero__subtitle {
-  color: var(--fg-text);
-  font-size: 3vw;
 }
 
 .profile__user input {
@@ -44,7 +34,6 @@
 
 #label-name,
 #label-password {
-  @include standard-button;
   display: flex;
   align-items: center;
   padding: 0.2rem 1rem;

@@ -1,0 +1,14 @@
+.standard-card {
+  box-shadow: $box-shadow;
+  border: none;
+  border-radius: $border-radius-card;
+}
+
+.popout-card {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translate3d(0, -4px, 0);
+    box-shadow: $box-shadow-popout;
+  }
+}

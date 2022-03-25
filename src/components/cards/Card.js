@@ -1,7 +1,7 @@
 import React from "react";
 
 const Card = (props) => {
-  var classes = "default-card ";
+  var classes = "card standard-card ";
 
   if (props.className) {
     classes += props.className;
