@@ -2,7 +2,35 @@
   display: flex;
   align-items: center;
   box-shadow: $box-shadow;
-  padding: $card-padding;
+}
+
+.profile-hero__background-wrapper {
+  width: 100%;
+  position: relative;
+
+  &::before {
+    border-top-left-radius: $border-radius-card;
+    border-top-right-radius: $border-radius-card;
+    background-color: var(--fg-color-400);
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 50%);
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.profile-hero__background-wrapper .profile-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.profile-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-hero__image {
@@ -12,6 +40,7 @@
   object-fit: cover;
   border: 3px solid var(--bg-card);
   box-shadow: $box-shadow;
+  margin-top: 1rem;
 }
 
 .profile-hero__title {
@@ -21,4 +50,5 @@
 .profile-hero__subtitle {
   color: var(--fg-text);
   font-size: 3.5vw;
+  margin-bottom: 1rem;
 }

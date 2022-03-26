@@ -35,20 +35,20 @@ const App = () => {
             );
           })}
           {/*
-        <Route exact path="/profile" element={<Profile />} />
+
         <Route exact path="/private" element={<PrivatePage />} />
-        <Route exact path="/dashboard" element={<Dashboard />} />
+ 
         <Route
           exact
           path="/exercises/:exerciseId/editexercise"
           element={<EditExercise />}
         />
         <Route exact path="/exercises/:exerciseId" element={<Exercise />} />
-        <Route exact path="/exercises" element={<Exercises />} />
+      
         <Route exact path="/addexercise" element={<AddExercise />} />
         <Route exact path="/workouts/:workoutId" element={<Sets />} />
         <Route exact path="/workouts" element={<Workouts />} />
-        <Route exact path="/changepassword" element={<ChangePassword />} />
+     
         <Route exact path="/deleteaccount" element={<DeleteAccount />} />
         <Route exact path="/changeusername" element={<ChangeUsername />} />
 

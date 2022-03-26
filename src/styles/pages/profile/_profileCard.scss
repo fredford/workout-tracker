@@ -7,9 +7,14 @@
 .profile-card__image {
   width: 6rem;
   height: 6rem;
-  background-color: rgba(var(--fg-acce-rgb), 0.5);
+  border: 3px solid var(--fg-color-600);
   border-radius: $border-radius-card;
   object-fit: fill;
   padding: 1rem;
   margin-bottom: 1rem;
+}
+
+.logout-button {
+  height: 100%;
+  width: 190px;
 }

@@ -10,6 +10,11 @@
   }
 }
 
+.divider {
+  height: 3px !important;
+  color: var(--fg-text) !important;
+}
+
 hr {
   color: rgba($accent-color, 0.5);
 }
@@ -71,6 +76,7 @@ hr {
 
 .text-muted {
   color: var(--fg-mute) !important;
+  font-weight: $font-weight-muted;
 }
 
 .btn-standard {

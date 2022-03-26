@@ -1,16 +1,13 @@
 import React from "react";
 import Card from "../../../components/cards/Card";
-import { useNavigate } from "react-router-dom";
 
 // This is the layout style for the cards in the Profile page
 const ProfileCard = (props) => {
   var className = "p-3 " + props.className;
 
-  const navigate = useNavigate();
-
   return (
     <Card className={className}>
-      <div className="profile-card" onClick={() => navigate(props.path)}>
+      <div className="profile-card">
         <img className="profile-card__image" src={props.image} alt="" />
 
         <h4 className="mb-2">{props.title}</h4>

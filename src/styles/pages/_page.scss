@@ -2,6 +2,13 @@
   margin-top: calc(51px + 3rem);
 }
 
+.center-page {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 // .page-container {
 //   display: flex;
 //   flex-direction: column;

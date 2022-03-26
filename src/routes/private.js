@@ -1,5 +1,7 @@
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Profile from "../pages/Profile/Profile";
+import ChangePassword from "../pages/Profile/ChangePassword";
+import Exercises from "../pages/Exercises/Exercises";
 
 const privateRoutes = [
   {
@@ -9,6 +11,15 @@ const privateRoutes = [
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/changepassword",
+    element: <ChangePassword />,
+  },
+
+  {
+    path: "/exercises",
+    element: <Exercises />,
   },
 ];
 

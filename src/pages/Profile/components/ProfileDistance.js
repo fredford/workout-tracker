@@ -33,7 +33,7 @@ const ProfileDistance = () => {
     <ProfileCard
       title="Distance"
       subtitle="Set the units of measurement for distance"
-      image="./scale.png"
+      image="./distance.png"
     >
       <div className="profile__settings">
         <div className="flex-column profile__settings-group  align-items-center">
