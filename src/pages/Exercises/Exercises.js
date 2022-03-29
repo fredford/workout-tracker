@@ -32,12 +32,14 @@ export default function Exercises() {
 
   return (
     <Page>
-      <ActivityProvider>
-        <div className="row m-3">
-          <div className="col-lg-6 stretch-card">
-            <ListExercises />
-          </div>
-          {/*
+      <Page.NavBar />
+      <Page.Body className="navbar-wrapper">
+        <ActivityProvider>
+          <div className="row m-3">
+            <div className="col-lg-6 stretch-card">
+              <ListExercises />
+            </div>
+            {/*
           <div className="col-xl-8 col-md-6 d-flex align-items-stretch">
             <div className="row flex-grow-1">
               <div className="col-xl-6 mb-sm-3 mb-xl-0 stretch-card">
@@ -49,8 +51,9 @@ export default function Exercises() {
             </div>
           </div>
           */}
-        </div>
-      </ActivityProvider>
+          </div>
+        </ActivityProvider>
+      </Page.Body>
     </Page>
   );
 }

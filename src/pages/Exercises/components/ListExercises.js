@@ -67,7 +67,7 @@ export default function ListExercises() {
   };
 
   return (
-    <Card title="All Exercises" className="sections-card list-exercises">
+    <Card title="All Exercises" className="sections-card list-exercises p-3">
       <div className="mb-2">
         <h5 className="d-flex justify-content-center mb-2">Activity Types</h5>
         <ActivityToggles />

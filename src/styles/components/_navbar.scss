@@ -4,13 +4,12 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  background-color: var(--bg-card);
+  background-color: var(--bg-main);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0 0.5rem 0 0;
   align-items: center;
-  box-shadow: $box-shadow;
   color: var(--fg-main);
 }
 
@@ -41,13 +40,11 @@
 }
 
 .navbar-items a:hover {
-  border-bottom: 1px solid rgba(var(--fg-acce-rgb), 0.4) !important;
-  color: var(--fg-acce);
+  color: var(--color-main-500);
 }
 
 .navbar-item__active {
-  border-bottom: 1px solid var(--fg-acce);
-  color: var(--fg-acce);
+  color: var(--color-main-600);
 }
 
 .full-text,

@@ -13,11 +13,11 @@ const Profile = () => {
     <Page>
       <Page.NavBar />
       <Page.Body className="navbar-wrapper">
-        <div className="m-3">
+        <div className="me-3 ms-3 grid-margin">
           <ProfileHero />
         </div>
 
-        <div className="m-3">
+        <div className="me-3 ms-3">
           <h3 className="mb-2">App Settings</h3>
           <div className="row">
             <div className="col-md-4 stretch-card grid-margin">
@@ -32,7 +32,7 @@ const Profile = () => {
           </div>
         </div>
 
-        <div className="m-3">
+        <div className="me-3 ms-3">
           <h3 className="mb-2">Account Settings</h3>
           <div className="row">
             {buttons.map((button) => (
