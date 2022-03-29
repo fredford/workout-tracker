@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Card from "../../components/cards/Card";
-import Page from "../Page/Page";
+import Page from "../../components/utility/Page";
 
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const ChangeUsername = () => {
@@ -22,10 +21,13 @@ const ChangeUsername = () => {
   };
 
   return (
-    <Page title="Change Username">
-      <div className="d-flex h-100 justify-content-center align-items-center">
-        <Card className="d-flex flex-column">
-          <p>Set your new username</p>
+    <Page>
+      <Page.Body className="center-page">
+        <Card
+          title="Change Username"
+          subtitle="Set your new username"
+          className="p-3"
+        >
           <div className="input-group">
             <input
               id="username"
@@ -40,7 +42,7 @@ const ChangeUsername = () => {
               <button
                 type="button"
                 disabled={isDisabled}
-                className="btn btn-outline-success mt-3 w-100"
+                className="btn btn-success mt-3 w-100"
                 onClick={() => changeUsername}
               >
                 Submit
@@ -49,7 +51,7 @@ const ChangeUsername = () => {
             <div className="col-6">
               <button
                 type="button"
-                className="btn btn-outline-danger mt-3 w-100"
+                className="btn btn-danger mt-3 w-100"
                 onClick={() => navigate("/message/usernamecancel")}
               >
                 Cancel
@@ -57,7 +59,7 @@ const ChangeUsername = () => {
             </div>
           </div>
         </Card>
-      </div>
+      </Page.Body>
     </Page>
   );
 };

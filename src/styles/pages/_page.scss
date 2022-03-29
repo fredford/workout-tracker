@@ -1,10 +1,12 @@
-.content-wrapper {
+.navbar-wrapper {
   margin-top: calc(51px + 3rem);
+  background-color: var(--bg-main);
 }
 
 .center-page {
+  background-color: var(--bg-main);
   display: flex;
-  height: 100%;
+  min-height: 100vh;
   justify-content: center;
   align-items: center;
 }

@@ -79,39 +79,6 @@ hr {
   font-weight: $font-weight-muted;
 }
 
-.btn-standard {
-  background-color: rgba(var(--fg-acce-rgb), 0.2) !important;
-  color: var(--fg-acce) !important;
-}
-
-.btn-outline {
-  border-color: var(--fg-acce) !important;
-  color: var(--fg-acce) !important;
-}
-
-.btn-standard:hover {
-  background-color: rgba(var(--fg-acce-rgb), 0.6) !important;
-  color: var(--fg-text) !important;
-}
-
-.btn-danger {
-  background-color: rgba(var(--fg-dang-rgb), 0.2) !important;
-  color: rgba(var(--fg-dang-rgb), 1) !important;
-  border: none;
-}
-.btn-danger:hover {
-  background-color: rgba(var(--fg-dang-rgb), 0.6) !important;
-  color: var(--fg-text) !important;
-}
-
-.btn-outline-soft {
-  border: 2px solid rgba(var(--fg-acce-rgb), 0.2);
-}
-.btn-outline-soft:hover {
-  background-color: rgba(var(--fg-acce-rgb), 0.2);
-  color: var(--fg-text);
-}
-
 .align-items-stretch {
   align-items: stretch;
 }
@@ -138,4 +105,42 @@ hr {
   max-width: 50px;
   max-height: 50px;
   margin-right: 1rem;
+}
+
+.color-main {
+  background-color: var(--color-main-500);
+
+  &:hover {
+    background-color: var(--color-main-600) !important;
+  }
+}
+
+.color-1 {
+  background-color: var(--color-1-500);
+
+  &:hover {
+    background-color: var(--color-1-600) !important;
+  }
+}
+
+.color-2 {
+  background-color: var(--color-2-500);
+
+  &:hover {
+    background-color: var(--color-2-600) !important;
+  }
+}
+.color-3 {
+  background-color: var(--color-3-500);
+
+  &:hover {
+    background-color: var(--color-3-600) !important;
+  }
+}
+.color-4 {
+  background-color: var(--color-4-500);
+
+  &:hover {
+    background-color: var(--color-4-600) !important;
+  }
 }

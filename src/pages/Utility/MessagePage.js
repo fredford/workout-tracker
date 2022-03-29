@@ -1,5 +1,5 @@
 import React from "react";
-import Page from "../../pagesOld/Page/Page";
+import Page from "../../components/utility/Page";
 import Card from "../../components/cards/Card";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -12,19 +12,19 @@ const MessagePage = () => {
 
   return (
     <Page>
-      <div className="d-flex h-100 justify-content-center align-items-center">
-        <Card className="d-flex flex-column align-items-center">
+      <Page.Body className="center-page">
+        <Card className="d-flex flex-column align-items-center p-3">
           <p>{messageHandler[message].message}</p>
           <div className="mt-2 mb-2">{messageHandler[message].icon}</div>
           <button
             type="button"
-            className="btn btn-outline-secondary w-100"
+            className="btn btn-standard w-100"
             onClick={() => navigate(messageHandler[message].button)}
           >
             Continue
           </button>
         </Card>
-      </div>
+      </Page.Body>
     </Page>
   );
 };

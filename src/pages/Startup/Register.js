@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import StartupCard from "../../components/cards/StartupCard";
-
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+
+import StartupCard from "../../components/cards/StartupCard";
+import Page from "../../components/utility/Page";
 
 export default function Register() {
   let navigate = useNavigate();
@@ -93,34 +94,39 @@ export default function Register() {
   ];
 
   return (
-    <StartupCard title="Register">
-      <form onSubmit={attemptRegister} className="login-page__form">
-        {items.map((item, index) => {
-          return (
-            <div key={index} className="mb-3">
-              <label className="form-label">{item.label}</label>
-              <input
-                className="form-control"
-                type={item.type}
-                placeholder={item.placeholder}
-                onChange={item.onChange}
-                required={item.required}
-                value={item.value}
-              />
-            </div>
-          );
-        })}
+    <Page>
+      <Page.Body className="center-page">
+        <StartupCard title="Register">
+          <form onSubmit={attemptRegister} className="login-page__form">
+            {items.map((item, index) => {
+              return (
+                <div key={index} className="mb-3">
+                  <label className="form-label">{item.label}</label>
+                  <input
+                    className="form-control"
+                    type={item.type}
+                    placeholder={item.placeholder}
+                    onChange={item.onChange}
+                    required={item.required}
+                    value={item.value}
+                  />
+                </div>
+              );
+            })}
 
-        <p>{error}</p>
+            <p>{error}</p>
 
-        <button className="btn btn-primary w-100" type="submit">
-          Register
-        </button>
-        <hr />
-        <p>
-          Already registered? <Link to={{ pathname: "/login" }}> Sign in</Link>
-        </p>
-      </form>
-    </StartupCard>
+            <button className="btn btn-primary w-100" type="submit">
+              Register
+            </button>
+            <hr />
+            <p>
+              Already registered?{" "}
+              <Link to={{ pathname: "/login" }}> Sign in</Link>
+            </p>
+          </form>
+        </StartupCard>
+      </Page.Body>
+    </Page>
   );
 }

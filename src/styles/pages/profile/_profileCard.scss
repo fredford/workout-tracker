@@ -7,7 +7,7 @@
 .profile-card__image {
   width: 6rem;
   height: 6rem;
-  border: 3px solid var(--fg-color-600);
+  border: 3px solid var(--color-main-500);
   border-radius: $border-radius-card;
   object-fit: fill;
   padding: 1rem;
@@ -17,4 +17,9 @@
 .logout-button {
   height: 100%;
   width: 190px;
+  background-color: var(--color-main-500);
+
+  &:hover {
+    background-color: var(--color-main-600);
+  }
 }

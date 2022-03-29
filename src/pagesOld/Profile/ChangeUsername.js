@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Card from "../../components/cards/Card";
-import Page from "../Page/Page";
+import Page from "../../components/utility/Page";
 
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -22,42 +22,44 @@ const ChangeUsername = () => {
   };
 
   return (
-    <Page title="Change Username">
-      <div className="d-flex h-100 justify-content-center align-items-center">
-        <Card className="d-flex flex-column">
-          <p>Set your new username</p>
-          <div className="input-group">
-            <input
-              id="username"
-              type="username"
-              className="form-control mt-3"
-              value={newUsername}
-              onChange={(e) => setNewUsername(e.target.value)}
-            />
-          </div>
-          <div className="row">
-            <div className="col-6">
-              <button
-                type="button"
-                disabled={isDisabled}
-                className="btn btn-outline-success mt-3 w-100"
-                onClick={() => changeUsername}
-              >
-                Submit
-              </button>
+    <Page>
+      <Page.Body>
+        <div className="d-flex h-100 justify-content-center align-items-center">
+          <Card className="d-flex flex-column">
+            <p>Set your new username</p>
+            <div className="input-group">
+              <input
+                id="username"
+                type="username"
+                className="form-control mt-3"
+                value={newUsername}
+                onChange={(e) => setNewUsername(e.target.value)}
+              />
             </div>
-            <div className="col-6">
-              <button
-                type="button"
-                className="btn btn-outline-danger mt-3 w-100"
-                onClick={() => navigate("/message/usernamecancel")}
-              >
-                Cancel
-              </button>
+            <div className="row">
+              <div className="col-6">
+                <button
+                  type="button"
+                  disabled={isDisabled}
+                  className="btn btn-outline-success mt-3 w-100"
+                  onClick={() => changeUsername}
+                >
+                  Submit
+                </button>
+              </div>
+              <div className="col-6">
+                <button
+                  type="button"
+                  className="btn btn-outline-danger mt-3 w-100"
+                  onClick={() => navigate("/message/usernamecancel")}
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
-          </div>
-        </Card>
-      </div>
+          </Card>
+        </div>
+      </Page.Body>
     </Page>
   );
 };

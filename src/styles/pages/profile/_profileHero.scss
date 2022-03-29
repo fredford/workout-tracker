@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   box-shadow: $box-shadow;
+  background-color: var(--bg-card);
 }
 
 .profile-hero__background-wrapper {
@@ -11,7 +12,7 @@
   &::before {
     border-top-left-radius: $border-radius-card;
     border-top-right-radius: $border-radius-card;
-    background-color: var(--fg-color-400);
+    background-color: var(--color-main-500);
     clip-path: polygon(0 0, 100% 0, 100% 60%, 0 50%);
     content: "";
     position: absolute;
@@ -46,6 +47,7 @@
 .profile-hero__title {
   text-transform: uppercase;
   font-size: 7.5vw;
+  color: var(--fg-text);
 }
 .profile-hero__subtitle {
   color: var(--fg-text);
