@@ -5,13 +5,13 @@ import { Table } from "react-bootstrap";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 // Page Components
-import ActivityToggles from "../../../components/utility/ActivityToggles";
+import ActivityToggles from "../../../../src/components/utility/ActivityToggles";
 
 // Helper Components
-import Card from "../../../components/cards/Card";
+import Card from "../../../../src/components/cards/Card";
 
 // Contexts
-import { ActivityContext } from "../../../contexts/activityContext";
+import { ActivityContext } from "../../../../src/contexts/activityContext";
 
 const TopExercises = () => {
   const exercises = useSelector((state) => state.exercises.exercises);

@@ -9,8 +9,8 @@ import { SettingsContext } from "./contexts/settingsContext";
 import { Routes, Route } from "react-router-dom";
 
 import Loading from "./pages/Utility/Loading";
+import PrivateRoute from "./pages/Utility/PrivateRoute";
 
-import PrivateRoute from "./components/routing/PrivateRoute";
 import publicRoutes from "./routes/public";
 import privateRoutes from "./routes/private";
 
@@ -24,7 +24,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Loading />} />
         <Route element={<PrivateRoute />}>
-          {privateRoutes.map((route, index) => {
+          {/*{privateRoutes.map((route, index) => {
             return (
               <Route
                 key={index}
@@ -35,7 +35,7 @@ const App = () => {
             );
           })}
           {/*
-
+          
         <Route exact path="/private" element={<PrivatePage />} />
  
         <Route

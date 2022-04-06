@@ -8,15 +8,15 @@ import BreakdownExercises from "./components/BreakdownExercises";
 import TopExercises from "./components/TopExercises";
 
 // Contexts
-import { ActivityProvider } from "../../contexts/activityContext";
+import { ActivityProvider } from "../../../src/contexts/activityContext";
 
 // Helper Components
-import Page from "../../components/utility/Page";
+import Page from "../../../src/components/utility/Page";
 
 // Services
-import ExercisesService from "../../services/exercises";
-import { resolve } from "../../services/utils";
-import { setExercises } from "../../redux/reducers/exercises";
+import ExercisesService from "../../../src/services/exercises";
+import { resolve } from "../../../src/services/utils";
+import { setExercises } from "../../../src/redux/reducers/exercises";
 
 export default function Exercises() {
   const dispatch = useDispatch();

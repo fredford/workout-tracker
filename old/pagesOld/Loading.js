@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { getAuth } from "../services/utils";
+import { getAuth } from "../../src/services/utils";
 
 import { useNavigate } from "react-router-dom";
 

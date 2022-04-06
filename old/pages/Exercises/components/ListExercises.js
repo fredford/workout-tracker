@@ -1,15 +1,15 @@
 import React, { useContext, useState } from "react";
 import { useSelector } from "react-redux";
 
-import Card from "../../../components/cards/Card";
+import Card from "../../../../src/components/cards/Card";
 
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-import { ActivityContext } from "../../../contexts/activityContext";
+import { ActivityContext } from "../../../../src/contexts/activityContext";
 
-import ListExerciseSearchBar from "../../../components/exercises/List/ListExercisesSearchBar";
-import ListExercisesUserOptions from "../../../components/exercises/List/ListExercisesUserOptions";
-import ActivityToggles from "../../../components/utility/ActivityToggles";
+import ListExerciseSearchBar from "../../../../src/components/exercises/List/ListExercisesSearchBar";
+import ListExercisesUserOptions from "../../../../src/components/exercises/List/ListExercisesUserOptions";
+import ActivityToggles from "../../../../src/components/utility/ActivityToggles";
 import { useNavigate } from "react-router-dom";
 
 export default function ListExercises() {
