@@ -1,19 +1,29 @@
-// import Dashboard from "../pages/Dashboard/Dashboard";
-// import Profile from "../pages/Profile/Profile";
+import Dashboard from "../pages/Private/Dashboard/Dashboard";
+import Profile from "../pages/Private/Profile/Profile";
+import Workouts from "../pages/Private/Workouts/Workouts";
+import Exercises from "../pages/Private/Exercises/Exercises";
 // import ChangePassword from "../pages/Profile/ChangePassword";
 // import ChangeUsername from "../pages/Profile/ChangeUsername";
-// import Exercises from "../pages/Exercises/Exercises";
+
 // import DeleteAccount from "../pages/Profile/DeleteAccount";
 
 const privateRoutes = [
-  // {
-  //   path: "/dashboard",
-  //   element: <Dashboard />,
-  // },
-  // {
-  //   path: "/profile",
-  //   element: <Profile />,
-  // },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
+  },
+  {
+    path: "/workouts",
+    element: <Workouts />,
+  },
+  {
+    path: "/exercises",
+    element: <Exercises />,
+  },
   // {
   //   path: "/changepassword",
   //   element: <ChangePassword />,
@@ -25,10 +35,6 @@ const privateRoutes = [
   // {
   //   path: "/deleteaccount",
   //   element: <DeleteAccount />,
-  // },
-  // {
-  //   path: "/exercises",
-  //   element: <Exercises />,
   // },
 ];
 

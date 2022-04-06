@@ -24,7 +24,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Loading />} />
         <Route element={<PrivateRoute />}>
-          {/*{privateRoutes.map((route, index) => {
+          {privateRoutes.map((route, index) => {
             return (
               <Route
                 key={index}

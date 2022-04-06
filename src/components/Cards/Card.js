@@ -22,13 +22,13 @@ const Body = (props) => <div className="card-body">{props.children}</div>;
 Card.Body = Body;
 const Title = (props) => {
   let className = "card-title " + props.className;
-  return <h5 className={className}>{props.children}</h5>;
+  return <h4 className={className}>{props.children}</h4>;
 };
 Card.Title = Title;
 
 const Subtitle = (props) => {
   let className = "card-subtitle " + props.className;
-  return <h6 className={className}>{props.children}</h6>;
+  return <h5 className={className}>{props.children}</h5>;
 };
 Card.Subtitle = Subtitle;
 
