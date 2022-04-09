@@ -1,6 +1,10 @@
 @import "./variables";
+@import "./typography";
 @import "./utility/text";
+@import "./utility/spacing";
 @import "./page";
 @import "./components/cards";
 @import "./components/buttons";
-@import "./components//navbar";
+@import "./components/navbar";
+
+@import "./profile/profile-hero";

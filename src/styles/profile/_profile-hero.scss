@@ -1,0 +1,150 @@
+.profile-hero {
+  //box-shadow: $box-shadow;
+  //background-color: var(--bg-card);
+}
+
+.profile-hero__background-wrapper {
+  width: 100%;
+  position: relative;
+
+  &::before {
+    //border-top-left-radius: $border-radius-card;
+    //border-top-right-radius: $border-radius-card;
+    //background-color: var(--color-main-500);
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 50%);
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.profile-hero__background-wrapper .profile-hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+.profile-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-hero__image {
+  width: 20vw;
+  height: 20vw;
+  border-radius: calc(20vw / 2);
+  object-fit: cover;
+  border: 3px solid var(--fg-acce);
+  //box-shadow: $box-shadow;
+}
+
+.profile-hero__title {
+  text-transform: uppercase;
+  font-size: 7.5vw;
+  color: var(--fg-text);
+}
+.profile-hero__subtitle {
+  color: var(--fg-text);
+  font-size: 3.5vw;
+  margin-bottom: 1rem;
+}
+
+.label-theme {
+  display: flex;
+  height: 40px;
+  width: 125px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding: 5px;
+  border-radius: $border-radius-button;
+  background-color: var(--bg-main);
+  color: var(--fg-main);
+}
+
+#distance:checked + .label-theme .theme-slider {
+  transform: translateX(65px) !important;
+}
+#weight:checked + .label-theme .theme-slider {
+  transform: translateX(65px) !important;
+}
+
+#theme:checked + .label-theme .theme-slider {
+  transform: translateX(65px) !important;
+}
+
+.slider-label-left {
+  position: absolute;
+  font-size: 13px;
+  left: 15px;
+  margin-right: 15px;
+}
+
+.slider-label-right {
+  position: absolute;
+  font-size: 13px;
+  left: 65px;
+  margin-left: 15px;
+}
+
+.label-theme .theme-slider {
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+#input-name,
+#input-password,
+#theme,
+#weight,
+#distance {
+  display: none;
+}
+
+.theme-slider {
+  position: absolute;
+  width: 50px;
+  height: 30px;
+  background-color: var(--bg-card);
+  //box-shadow: $box-shadow;
+  border-radius: $border-radius-button;
+}
+.light-mode::before {
+  content: "Light";
+}
+.dark-mode::before {
+  content: "Dark";
+}
+
+.lbs-mode {
+  left: 22px;
+}
+
+.lbs-mode::before {
+  content: "lbs";
+}
+
+.kg-mode {
+  left: 73px;
+}
+
+.kg-mode::before {
+  content: "kg";
+}
+
+.km-mode {
+  left: 21px;
+}
+
+.km-mode::before {
+  content: "km";
+}
+
+.mi-mode {
+  left: 73px;
+}
+.mi-mode::before {
+  content: "mi";
+}

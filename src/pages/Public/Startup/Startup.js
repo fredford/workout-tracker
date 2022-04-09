@@ -10,10 +10,8 @@ export default function Startup() {
       <Page.Body className="center-page">
         <Card>
           <Card.Body>
-            <Card.Title className="text-center">Workout Tracker</Card.Title>
-            <Card.Subtitle className="text-muted text-center">
-              Welcome
-            </Card.Subtitle>
+            <Card.Header className="text-center">Workout Tracker</Card.Header>
+            <Card.Title className="text-muted text-center">Welcome</Card.Title>
             <Card.Bar />
             <ButtonLink className="mb-3 p-3" path="/login">
               <ButtonLink.Image className="mb-2" src="login.png" />

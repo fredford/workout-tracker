@@ -99,10 +99,8 @@ const Register = () => {
       <Page.Body className="center-page">
         <Card>
           <Card.Body>
-            <Card.Title className="text-center">Workout Tracker</Card.Title>
-            <Card.Subtitle className="text-center text-muted">
-              Register
-            </Card.Subtitle>
+            <Card.Header className="text-center">Workout Tracker</Card.Header>
+            <Card.Title className="text-center text-muted">Register</Card.Title>
             <Card.Bar />
 
             {items.map((item, index) => {
