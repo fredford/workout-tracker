@@ -20,7 +20,12 @@ const Card = (props) => {
 
 const Header = (props) => {
   let className = "card-header " + props.className;
-  return <h3 className={className}>{props.children}</h3>;
+  return (
+    <>
+      <h3 className={className}>{props.children}</h3>
+      <hr className="card-bar" />
+    </>
+  );
 };
 Card.Header = Header;
 

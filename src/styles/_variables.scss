@@ -4,3 +4,26 @@ $border-radius-button: 0.5rem;
 
 // Font
 $font-family: "Rubik", sans-serif;
+
+$accent-color: lightskyblue;
+$upper-color: #f08080;
+$lower-color: lightskyblue;
+$core-color: yellow;
+$cardio-color: rgb(133, 204, 177);
+
+$hover-accent: rgba($accent-color, 0.2);
+$active-accent: rgba($accent-color, 0.9);
+
+// Upper Body
+$upper-light: rgba($upper-color, 0.3);
+$upper-active: rgba($upper-color, 0.6);
+
+// Lower Body
+$lower-light: rgba($lower-color, 0.3);
+$lower-active: rgba($lower-color, 0.6);
+// Core Body
+$core-light: rgba($core-color, 0.3);
+$core-active: rgba($core-color, 0.6);
+// Cardio Body
+$cardio-light: rgba($cardio-color, 0.3);
+$cardio-active: rgba($cardio-color, 0.6);

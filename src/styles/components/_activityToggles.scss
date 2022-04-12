@@ -1,0 +1,77 @@
+.activity__button-group {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+}
+
+.activity__button-group label {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: $border-radius-button;
+  align-items: center;
+  flex: 1;
+}
+
+.activity__button-group p {
+  color: var(--fg-text);
+  font-weight: bold;
+}
+
+@media screen and (min-width: 532px) {
+  .activity__button-group label:not(:last-child) {
+  }
+}
+@media screen and (max-width: 532px) {
+  .activity__button-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
+.activity__button-group input {
+  display: none;
+}
+
+.activity__button-group button:last-child {
+  margin-right: 0;
+}
+
+#label-upper {
+  @include activity($upper-color);
+}
+
+#button-upper:checked ~ #label-upper {
+  background-color: $upper-active;
+}
+
+#label-lower {
+  @include activity($lower-color);
+}
+
+#button-lower:checked ~ #label-lower {
+  background-color: $lower-active;
+}
+
+#label-core {
+  @include activity($core-color);
+}
+
+#button-core:checked ~ #label-core {
+  background-color: $core-active;
+}
+
+#label-cardio {
+  @include activity($cardio-color);
+  margin-right: 0;
+}
+
+#button-cardio:checked ~ #label-cardio {
+  background-color: $cardio-active;
+}
+
+.activity__button-image {
+  width: $image-width;
+}
