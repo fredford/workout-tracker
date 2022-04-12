@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import Button from "../../../../components/Buttons/Button";
+import ButtonImage from "../../../../components/Buttons/ButtonImage";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
@@ -31,9 +32,10 @@ const ChangePassword = () => {
 
   return (
     <>
-      <Button onClick={handleShow} className="pt-5 pb-5">
-        Change Password
-      </Button>
+      <ButtonImage onClick={handleShow}>
+        <ButtonImage.Image src="./password.png" />
+        <ButtonImage.Text>Change Password</ButtonImage.Text>
+      </ButtonImage>
       <Modal show={show} onHide={handleClose}>
         <Card>
           <Card.Body>
@@ -70,7 +72,9 @@ const ChangePassword = () => {
                 </Button>
               </div>
               <div className="col">
-                <Button onClick={handleClose}>Cancel</Button>
+                <Button onClick={handleClose} className="btn-danger">
+                  Cancel
+                </Button>
               </div>
             </div>
           </Card.Body>

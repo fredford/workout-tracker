@@ -1,12 +1,20 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 
 const ProfileHero = () => {
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   // TODO set up profile picture to show here from database
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    navigate("/startup");
+  };
 
   return (
     <div className="section-margin">
@@ -30,6 +38,11 @@ const ProfileHero = () => {
                 />
               </div>
             </div>
+          </div>
+          <div className="">
+            <button className="btn btn-outline-primary" onClick={handleLogout}>
+              Logout
+            </button>
           </div>
         </Card.Body>
       </Card>

@@ -69,7 +69,7 @@ const Login = () => {
                 onChange={updateEmail}
               />
             </Form>
-            <Form>
+            <Form className="mb-3">
               <Form.Label for="login-password">Password</Form.Label>
               <Form.Input
                 id="login-password"
