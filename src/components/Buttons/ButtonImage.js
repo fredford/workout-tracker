@@ -29,7 +29,7 @@ const Image = (props) => {
 ButtonImage.Image = Image;
 
 const Text = (props) => {
-  let className = "mb-0 " + props.className;
+  let className = "button__text mb-0 " + props.className;
   return <p className={className}>{props.children}</p>;
 };
 ButtonImage.Text = Text;

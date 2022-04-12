@@ -16,4 +16,8 @@
   .button__icon {
     width: $image-width;
   }
+
+  .button__text {
+    color: var(--bg-main) !important;
+  }
 }

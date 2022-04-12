@@ -1,9 +1,9 @@
 import React from "react";
 import Section from "../../../../components/Misc/Section";
-import ChangePassword from "./ChangePassword";
-import ChangeUsername from "./ChangeUsername";
-import ChangePicture from "./ChangePicture";
-import DeleteAccount from "./DeleteAccount";
+import ChangePassword from "../components/ChangePassword";
+import ChangeUsername from "../components/ChangeUsername";
+import ChangePicture from "../components/ChangePicture";
+import DeleteAccount from "../components/DeleteAccount";
 
 const ProfileAccount = () => {
   return (

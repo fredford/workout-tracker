@@ -1,8 +1,8 @@
 import React from "react";
 
-import ProfileWeight from "./ProfileWeight";
-import ProfileTheme from "./ProfileTheme";
-import ProfileDistance from "./ProfileDistance";
+import ProfileWeight from "../components/ProfileWeight";
+import ProfileTheme from "../components/ProfileTheme";
+import ProfileDistance from "../components/ProfileDistance";
 import Section from "../../../../components/Misc/Section";
 
 const ProfileSettings = () => {

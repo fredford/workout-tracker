@@ -2,9 +2,9 @@ import React from "react";
 
 import Page from "../../../components/Misc/Page";
 
-import ProfileHero from "./components/ProfileHero";
-import ProfileAccount from "./components/ProfileAccount";
-import ProfileSettings from "./components/ProfileSettings";
+import ProfileHero from "./sections/ProfileHero";
+import ProfileAccount from "./sections/ProfileAccount";
+import ProfileSettings from "./sections/ProfileSettings";
 
 const Profile = () => {
   return (
