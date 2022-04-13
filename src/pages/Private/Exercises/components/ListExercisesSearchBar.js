@@ -1,17 +1,18 @@
+import { FourMpRounded } from "@mui/icons-material";
 import React from "react";
 
 import { FaChevronUp, FaChevronDown, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
+import Form from "../../../../components/Forms/Form";
 import AddExercise from "./AddExercise";
 
 const ListExerciseSearchBar = (props) => {
-  const navigate = useNavigate();
-
   const ShowDirection = () => {
     if (props.isAscending) {
-      return <FaChevronUp className="list-exercises__direction" />;
+      return <FaChevronUp />;
     } else {
-      return <FaChevronDown className="list-exercises__direction" />;
+      return <FaChevronDown />;
     }
   };
 
@@ -20,33 +21,39 @@ const ListExerciseSearchBar = (props) => {
   };
 
   const updateSearch = (e) => {
-    props.updateSearch(e.target.value);
+    props.updateSearch(e);
   };
 
   return (
     <div className="list-exercises__searchbar">
-      <input
-        id="direction-toggle"
-        type="checkbox"
-        onChange={changeDirection}
-        checked={props.isAscending}
-      />
-      <label
-        className="btn-standard"
-        id="label-direction-toggle"
-        htmlFor="direction-toggle"
-      >
-        <ShowDirection />
-      </label>
-      <AddExercise />
-      <div></div>
-      <input
-        className="list-exercises__search"
-        type="text"
-        placeholder="Search"
-        value={props.search}
-        onChange={updateSearch}
-      />
+      <div className="d-flex w-100">
+        <div className="me-3 button-icon">
+          <ButtonToggle
+            id="toggle-direction"
+            checked={props.isAscending}
+            onChange={changeDirection}
+            className="line-height w-100 h-100"
+          >
+            <ShowDirection />
+          </ButtonToggle>
+        </div>
+
+        <div className="me-3">
+          <AddExercise />
+        </div>
+        <div className="flex-fill">
+          <Form className="w-100">
+            <Form.Input
+              id="searchbar"
+              value={props.search}
+              onChange={updateSearch}
+              placeholder="Search"
+              type="text"
+              className="w-100"
+            />
+          </Form>
+        </div>
+      </div>
     </div>
   );
 };

@@ -39,36 +39,36 @@
   margin-right: 0;
 }
 
-#label-upper {
+#label-button-upper {
   @include activity($upper-color);
 }
 
-#button-upper:checked ~ #label-upper {
+#button-upper:checked ~ #label-button-upper {
   background-color: $upper-active;
 }
 
-#label-lower {
+#label-button-lower {
   @include activity($lower-color);
 }
 
-#button-lower:checked ~ #label-lower {
+#button-lower:checked ~ #label-button-lower {
   background-color: $lower-active;
 }
 
-#label-core {
+#label-button-core {
   @include activity($core-color);
 }
 
-#button-core:checked ~ #label-core {
+#button-core:checked ~ #label-button-core {
   background-color: $core-active;
 }
 
-#label-cardio {
+#label-button-cardio {
   @include activity($cardio-color);
   margin-right: 0;
 }
 
-#button-cardio:checked ~ #label-cardio {
+#button-cardio:checked ~ #label-button-cardio {
   background-color: $cardio-active;
 }
 

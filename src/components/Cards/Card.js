@@ -23,7 +23,7 @@ const Header = (props) => {
   return (
     <>
       <h3 className={className}>{props.children}</h3>
-      <hr className="card-bar" />
+      {props.bar ? <hr className="card-bar" /> : <></>}
     </>
   );
 };

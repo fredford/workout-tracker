@@ -1,6 +1,5 @@
 @mixin activity($type) {
   border: 2px solid rgba($type, 0.4);
-  background-color: var(--bg-card);
   font-weight: 500;
 
   &:hover {

@@ -40,7 +40,10 @@ const ProfileHero = () => {
             </div>
           </div>
           <div className="">
-            <button className="btn btn-outline-primary" onClick={handleLogout}>
+            <button
+              className="btn btn-outline-secondary"
+              onClick={handleLogout}
+            >
               Logout
             </button>
           </div>

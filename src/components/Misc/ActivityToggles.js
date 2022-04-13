@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ActivityContext } from "../../contexts/activityContext";
 
+import ButtonToggle from "../Buttons/ButtonToggle";
 export default function ActivityToggles() {
   const activities = useContext(ActivityContext);
   const [upper, setUpper] = activities.upper;
@@ -32,51 +33,47 @@ export default function ActivityToggles() {
       <h4 className="text-center mb-2">Activity Type</h4>
       <div className="activity__button-group">
         <div className="d-flex flex-column align-items-center container">
-          <input
+          <ButtonToggle
             id="button-upper"
-            type="checkbox"
-            onChange={buttonChange}
             checked={upper}
-          />
-          <label id="label-upper" htmlFor="button-upper">
+            onChange={buttonChange}
+            className="w-100"
+          >
             <img className="activity__button-image" src="./upper.png" alt="" />
-          </label>
+          </ButtonToggle>
           <p>Upper</p>
         </div>
         <div className="d-flex flex-column align-items-center container">
-          <input
+          <ButtonToggle
             id="button-lower"
-            type="checkbox"
-            onChange={buttonChange}
             checked={lower}
-          />
-          <label id="label-lower" htmlFor="button-lower">
+            onChange={buttonChange}
+            className="w-100"
+          >
             <img className="activity__button-image" src="./lower.png" alt="" />
-          </label>
+          </ButtonToggle>
           <p>Lower</p>
         </div>
         <div className="d-flex flex-column align-items-center container">
-          <input
+          <ButtonToggle
             id="button-core"
-            type="checkbox"
-            onChange={buttonChange}
             checked={core}
-          />
-          <label id="label-core" htmlFor="button-core">
+            onChange={buttonChange}
+            className="w-100"
+          >
             <img className="activity__button-image" src="./core.png" alt="" />
-          </label>
+          </ButtonToggle>
           <p>Core</p>
         </div>
         <div className="d-flex flex-column align-items-center container">
-          <input
+          <ButtonToggle
             id="button-cardio"
-            type="checkbox"
-            onChange={buttonChange}
             checked={cardio}
-          />
-          <label id="label-cardio" htmlFor="button-cardio">
+            onChange={buttonChange}
+            className="w-100"
+          >
             <img className="activity__button-image" src="./cardio.png" alt="" />
-          </label>
+          </ButtonToggle>
           <p>Cardio</p>
         </div>
       </div>

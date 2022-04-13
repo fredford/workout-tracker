@@ -20,6 +20,8 @@ const SectionExercises = () => {
   const exercises = useSelector((state) => state.exercises.exercises);
   // Context variables
   const activities = useContext(ActivityContext);
+
+  console.log(activities);
   // State variables
   const [userOnly, setUserOnly] = useState(false);
   const [isAscending, setIsAscending] = React.useState(false);
@@ -68,28 +70,62 @@ const SectionExercises = () => {
   };
 
   return (
-    <ActivityProvider>
-      <Section>
-        <Section.Header>Exercises</Section.Header>
-        <Section.Body>
-          <Card>
-            <Card.Body>
-              <ActivityToggles />
-              <ListExercisesUserOptions
-                userClicked={userOnly}
-                changeUserClicked={changeUserOnly}
-              />
-              <ListExerciseSearchBar
-                isAscending={isAscending}
-                updateDirection={changeDirection}
-                search={search}
-                updateSearch={changeSearch}
-              />
-            </Card.Body>
-          </Card>
-        </Section.Body>
-      </Section>
-    </ActivityProvider>
+    <Section>
+      <Section.Header>Exercises</Section.Header>
+      <Section.Body>
+        <Card>
+          <Card.Body>
+            <ActivityToggles />
+            <ListExercisesUserOptions
+              userClicked={userOnly}
+              changeUserClicked={changeUserOnly}
+            />
+            <ListExerciseSearchBar
+              isAscending={isAscending}
+              updateDirection={changeDirection}
+              search={search}
+              updateSearch={changeSearch}
+            />
+            <Card.Bar />
+            <div className="row">
+              {React.Children.toArray(
+                displayList.map((exercise) => {
+                  var area = exercise.area.toLowerCase();
+                  var isAllOff = Object.values(activities).every(
+                    (x) => x[0] === false
+                  );
+                  if (isAllOff || activities[area][0]) {
+                    return (
+                      <div
+                        className="col-sm-6 mb-1"
+                        id={exercise.area}
+                        key={exercise._id}
+                      >
+                        <div
+                          className="list-exercise__card"
+                          onClick={() => navigate(`/exercises/${exercise._id}`)}
+                        >
+                          <img
+                            className="list-exercise__image standard-image"
+                            id={`${exercise.area.toLowerCase()}-image`}
+                            alt=""
+                          />
+                          <div className="mt-2">
+                            <h6>{exercise.name}</h6>
+                            <p className="text-muted">{exercise.muscles}</p>
+                            <p className="text-muted">{exercise.type}</p>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                })
+              )}
+            </div>
+          </Card.Body>
+        </Card>
+      </Section.Body>
+    </Section>
   );
 };
 

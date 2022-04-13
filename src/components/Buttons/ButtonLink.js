@@ -11,9 +11,9 @@ const ButtonLink = (props) => {
     );
   });
 
-  let className = "link-button btn btn-primary w-100 " + props.className;
+  let className = "link-button btn btn-primary " + props.className;
   return (
-    <Link to={props.path}>
+    <Link to={props.path} className="w-100">
       <button className={className}>
         {subComponents.map((component) => component)}
       </button>
