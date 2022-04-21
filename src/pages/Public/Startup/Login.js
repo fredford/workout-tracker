@@ -79,7 +79,9 @@ const Login = () => {
               />
             </Form>
             <Card.Text className="text-error">{error}</Card.Text>
-            <Button onClick={attemptLogin}>Login</Button>
+            <Button onClick={attemptLogin} className="w-100">
+              Login
+            </Button>
             <Card.Bar />
             <div className="d-flex justify-content-between">
               <Link className="me-5" to={{ pathname: "/forgotpassword" }}>

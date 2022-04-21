@@ -14,7 +14,7 @@ const Exercises = () => {
 
   useEffect(() => {
     retrieveAllExercises();
-  });
+  }, []);
 
   const retrieveAllExercises = async () => {
     const [data, error] = await resolve(ExercisesService.getAll());

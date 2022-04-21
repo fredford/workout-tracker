@@ -119,7 +119,9 @@ const Register = () => {
               );
             })}
             <Card.Text className="text-error">{error}</Card.Text>
-            <Button onClick={attemptRegister}>Register</Button>
+            <Button onClick={attemptRegister} className="w-100">
+              Register
+            </Button>
             <Card.Bar />
 
             <p>

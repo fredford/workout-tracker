@@ -20,8 +20,6 @@ const SectionExercises = () => {
   const exercises = useSelector((state) => state.exercises.exercises);
   // Context variables
   const activities = useContext(ActivityContext);
-
-  console.log(activities);
   // State variables
   const [userOnly, setUserOnly] = useState(false);
   const [isAscending, setIsAscending] = React.useState(false);

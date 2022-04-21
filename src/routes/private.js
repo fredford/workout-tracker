@@ -2,6 +2,7 @@ import Dashboard from "../pages/Private/Dashboard/Dashboard";
 import Profile from "../pages/Private/Profile/Profile";
 import Workouts from "../pages/Private/Workouts/Workouts";
 import Exercises from "../pages/Private/Exercises/Exercises";
+import Exercise from "../pages/Private/Exercise/Exercise";
 import MessagePage from "../pages/Utility/MessagePage";
 // import ChangePassword from "../pages/Profile/ChangePassword";
 // import ChangeUsername from "../pages/Profile/ChangeUsername";
@@ -24,6 +25,10 @@ const privateRoutes = [
   {
     path: "/exercises",
     element: <Exercises />,
+  },
+  {
+    path: "/exercises/:exerciseId",
+    element: <Exercise />,
   },
   {
     path: "/message/:message",
