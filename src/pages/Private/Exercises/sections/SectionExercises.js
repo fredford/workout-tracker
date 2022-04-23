@@ -12,6 +12,9 @@ import Section from "../../../../components/Misc/Section";
 import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
+import ButtonImage from "../../../../components/Buttons/ButtonImage";
+import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const SectionExercises = () => {
   const navigate = useNavigate();
@@ -119,6 +122,24 @@ const SectionExercises = () => {
                   }
                 })
               )}
+            </div>
+            <div className="d-flex flex-row justify-content-center">
+              <div className="button-icon me-2">
+                <ButtonToggle
+                  onChange={decreasePage}
+                  className="line-height w-100 h-100"
+                >
+                  <FaArrowLeft />
+                </ButtonToggle>
+              </div>
+              <div className="button-icon ms-2">
+                <ButtonToggle
+                  onChange={increasePage}
+                  className="button-icon w-100 h-100"
+                >
+                  <FaArrowRight />
+                </ButtonToggle>
+              </div>
             </div>
           </Card.Body>
         </Card>

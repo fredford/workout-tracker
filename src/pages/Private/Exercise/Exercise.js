@@ -8,10 +8,12 @@ import ExerciseInfo from "./sections/ExerciseInfo";
 import ButtonLink from "../../../components/Buttons/ButtonLink";
 import Button from "../../../components/Buttons/Button";
 import { resolve } from "../../../services/utils";
+import { useNavigate } from "react-router-dom";
 
 import ExercisesServices from "../../../services/exercises";
 
 const Exercise = () => {
+  const navigate = useNavigate();
   // TODO fill in cards and separate into component files
 
   let { exerciseId } = useParams();
@@ -31,7 +33,11 @@ const Exercise = () => {
       ExercisesServices.deleteExercise(user._id, exerciseId)
     );
 
-    console.log(data);
+    if (data) {
+      navigate("/message/exercisedeletesuccess");
+    } else {
+      navigate("/message/exercisedeletefailed");
+    }
   };
 
   return (

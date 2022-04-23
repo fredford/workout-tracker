@@ -75,4 +75,14 @@ const messageHandler = {
     button: "/exercises",
     icon: <BsFillXCircleFill color="red" size="2rem" />,
   },
+  exercisedeletesuccess: {
+    message: "Your exercise has been successfully deleted!",
+    button: "/exercises",
+    icon: <BsFillCheckCircleFill color="green" size="2rem" />,
+  },
+  exercisedeletefailed: {
+    message: "Your exercise has not been deleted!",
+    button: "/exercises",
+    icon: <BsFillXCircleFill color="red" size="2rem" />,
+  },
 };
