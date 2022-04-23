@@ -1,7 +1,7 @@
 import React from "react";
 
 const ListExercisesUserOptions = (props) => {
-  var buttonClass = "btn ";
+  var buttonClass = "btn w-100 ";
 
   buttonClass += props.userClicked ? "btn-secondary" : "btn-outline-secondary";
 
