@@ -21,7 +21,7 @@ class ExercisesService {
     return http.put("/exercises", data);
   }
   deleteExercise(user, id) {
-    return http.delete(`/exercises?user=${user}&id=${id}`);
+    return http.delete(`/exercises?id=${id}&user=${user}`);
   }
 }
 

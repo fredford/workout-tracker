@@ -6,7 +6,7 @@ const ButtonRadio = ({ id, checked, className, onChange, children }) => {
   let labelClassName = "button-radio__label";
 
   const updateRadio = () => {
-    onChange(id);
+    onChange(id.split("-")[0]);
   };
 
   return (
