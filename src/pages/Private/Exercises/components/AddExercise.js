@@ -60,12 +60,10 @@ const AddExercise = () => {
   };
 
   const changeArea = (id) => {
-    console.log("here");
     setNewArea(id);
   };
 
   const changeType = (id) => {
-    console.log("this", id);
     setNewType(id);
   };
 
@@ -98,8 +96,6 @@ const AddExercise = () => {
               {React.Children.toArray(
                 areas.map((area) => {
                   let id = `${area}-area`;
-
-                  console.log(area, newArea);
 
                   return (
                     <div className="d-flex flex-column align-items-center container">

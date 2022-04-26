@@ -1,12 +1,17 @@
 import React from "react";
 
 import Page from "../../../components/Misc/Page";
+import SectionWorkouts from "./sections/SectionWorkouts";
+import SectionAddWorkout from "./sections/SectionAddWorkout";
 
 const Workouts = () => {
   return (
     <Page>
       <Page.NavBar />
-      <Page.Body className="navbar-page container">Workouts</Page.Body>
+      <Page.Body className="navbar-page container">
+        <SectionAddWorkout />
+        <SectionWorkouts />
+      </Page.Body>
     </Page>
   );
 };

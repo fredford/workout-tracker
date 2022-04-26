@@ -16,6 +16,11 @@ const Page = (props) => {
 
 const NavBar = (props) => <Navbar />;
 Page.NavBar = NavBar;
+const Header = (props) => {
+  let className = "navbar-page " + props.className;
+  return <h1 className={className}>{props.children}</h1>;
+};
+Page.Header = Header;
 const Body = (props) => <div className={props.className}>{props.children}</div>;
 Page.Body = Body;
 
