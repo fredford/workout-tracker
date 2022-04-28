@@ -5,6 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import { fetchUser } from "../../redux/reducers/user";
 
 import { useDispatch } from "react-redux";
+import { fetchExercises } from "../../redux/reducers/exercises";
 
 const PrivateRoute = () => {
   var token = localStorage.getItem("authToken");
@@ -15,6 +16,7 @@ const PrivateRoute = () => {
     if (token) {
       try {
         dispatch(fetchUser());
+        dispatch(fetchExercises());
       } catch (e) {
         localStorage.removeItem("authToken");
       }
