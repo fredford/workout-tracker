@@ -10,6 +10,11 @@ import SectionAddSet from "./sections/SectionAddSet";
 import { useDispatch, useSelector } from "react-redux";
 import { setExercises } from "../../../redux/reducers/exercises";
 import Form from "../../../components/Forms/Form";
+import { FaPlus, FaMinus } from "react-icons/fa";
+
+import Section from "../../../components/Misc/Section";
+
+import Button from "../../../components/Buttons/Button";
 
 const Workout = () => {
   const dispatch = useDispatch();
@@ -29,7 +34,7 @@ const Workout = () => {
 
   useEffect(() => {
     retrieveData();
-  }, []);
+  }, [sets]);
 
   const retrieveData = async () => {
     const [dataWorkout, errorWorkout] = await resolve(
@@ -52,9 +57,60 @@ const Workout = () => {
 
   const [outputExercise, setOutputExercise] = useState("");
   const [outputAmount, setOutputAmount] = useState("");
+  const [outputIndex, setOutputIndex] = useState("");
 
-  const updateOutput = (e) => {
-    setOutputAmount(e);
+  const increaseAmount = (index) => {
+    let amount = outputAmount;
+
+    console.log(outputAmount);
+    if (outputAmount === "" || outputIndex !== index) {
+      setOutputAmount(1);
+    } else {
+      setOutputAmount(++amount);
+    }
+    setOutputIndex(Number(index));
+  };
+
+  const decreaseAmount = (index) => {
+    let amount = outputAmount;
+
+    if (outputAmount === "" || outputIndex !== index) {
+      setOutputAmount(1);
+    } else {
+      setOutputAmount(--amount);
+    }
+
+    setOutputIndex(Number(index));
+  };
+
+  const updateAmount = (e) => {
+    if (e.target.value > 1) {
+      setOutputAmount(Number(e.target.value));
+      setOutputIndex(Number(e.target.id));
+    }
+  };
+
+  const addSet = async (index, item) => {
+    console.log(index, outputIndex, item);
+    if (index === outputIndex) {
+      const exercise = exercises.find((element) => element.name === item);
+
+      console.log(exercise);
+      var newSet = {};
+      newSet["exerciseId"] = exercise._id;
+      newSet["amount"] = outputAmount;
+
+      const [data, error] = await resolve(
+        SetsService.createSet(workoutId, newSet)
+      );
+
+      var newSets = [...sets];
+      if (data) {
+        newSets.push(data);
+      }
+
+      setSets(newSets);
+    }
   };
 
   // ----------------------------
@@ -107,34 +163,61 @@ const Workout = () => {
           newExercise={newExercise}
           setNewExercise={changeNewExercise}
         />
-        <Card>
-          <Card.Body>
+        <Section>
+          <Section.Header>Exercises</Section.Header>
+          <Section.Body>
             {Object.keys(exercisesInSetsObject).map((item, index) => {
               let array = exercisesInSetsObject[item];
+              var value = "";
+
+              if (outputIndex === index) {
+                value = outputAmount;
+              }
 
               return (
-                <div key={index} className="card d-flex flex-row">
-                  <h4>{item}</h4>
-                  <div className="">
+                <div key={index} className="card d-flex flex-row mb-3">
+                  <div className="p-3 d-flex justify-contents-center align-items-center">
+                    <h4>{item}</h4>
+                  </div>
+
+                  <div className="p-3">
                     {React.Children.toArray(
                       array.map((set, index2) => {
                         return (
-                          <div key={index2} className="">
+                          <div key={index2} className="d-flex flex-row">
+                            <h5 className="me-3">Set {index2 + 1}</h5>
                             <h5>{set.amount}</h5>
                           </div>
                         );
                       })
                     )}
                   </div>
-                  <Form>
-                    <Form.Input value={outputAmount} onChange={updateOutput} />
-                  </Form>
-                  <button>Add</button>
+                  <div className="d-flex align-items-center p-3">
+                    <Button onClick={() => increaseAmount(index)}>
+                      <FaPlus />
+                    </Button>
+                  </div>
+
+                  <form className="d-flex align-items-center">
+                    <input
+                      id={index}
+                      value={value}
+                      onChange={(e) => updateAmount(e)}
+                    />
+                  </form>
+                  <div className="d-flex align-items-center p-3">
+                    <Button onClick={() => decreaseAmount(index)}>
+                      <FaMinus />
+                    </Button>
+                  </div>
+                  <div className="d-flex align-items-center p-3">
+                    <Button onClick={() => addSet(index, item)}>Add</Button>
+                  </div>
                 </div>
               );
             })}
-          </Card.Body>
-        </Card>
+          </Section.Body>
+        </Section>
       </Page.Body>
     </Page>
   );

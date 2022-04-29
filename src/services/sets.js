@@ -6,7 +6,7 @@ class SetsService {
   }
 
   createSet(id, data) {
-    return http.post(`/sets/${id}`);
+    return http.post(`/sets/${id}`, data);
   }
 }
 
