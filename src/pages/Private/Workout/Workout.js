@@ -185,14 +185,25 @@ const Workout = () => {
               let array = exercisesInSetsObject[item];
               var value = "";
 
+              const sumSets = array.reduce((n, { amount }) => {
+                return Number(amount) + n;
+              }, 0);
+
+              const avgSets = Math.round((sumSets / array.length) * 10) / 10;
+
+              const maxSet = Math.max(...array.map((o) => Number(o.amount)), 0);
+
               if (outputIndex === index) {
                 value = outputAmount;
               }
 
               return (
                 <div key={index} className="card d-flex flex-row mb-3">
-                  <div className="p-3 d-flex justify-contents-center align-items-center">
-                    <h4>{item}</h4>
+                  <div className="p-3 d-flex flex-column justify-contents-center align-items-center">
+                    <h4 className="mb-2">{item}</h4>
+                    <h6>Total: {sumSets}</h6>
+                    <h6>Avg: {avgSets}</h6>
+                    <h6>Max: {maxSet}</h6>
                   </div>
 
                   <div className="p-3">
