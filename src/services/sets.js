@@ -1,12 +1,11 @@
 import http from "../http-common";
 
 class SetsService {
-  getAll(id) {
-    return http.get(`/sets/${id}`);
+  createSet(data) {
+    return http.post(`/sets/`, data);
   }
-
-  createSet(id, data) {
-    return http.post(`/sets/${id}`, data);
+  removeSet(id) {
+    return http.delete(`/sets/${id}`);
   }
 }
 

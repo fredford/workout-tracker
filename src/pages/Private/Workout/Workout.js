@@ -6,11 +6,12 @@ import { resolve } from "../../../services/utils";
 import WorkoutsService from "../../../services/workouts";
 import ExercisesService from "../../../services/exercises";
 import SetsService from "../../../services/sets";
+import WorkoutService from "../../../services/workout";
 import SectionAddSet from "./sections/SectionAddSet";
 import { useDispatch, useSelector } from "react-redux";
 import { setExercises } from "../../../redux/reducers/exercises";
 import Form from "../../../components/Forms/Form";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus, FaMinus, FaWindowClose } from "react-icons/fa";
 
 import Section from "../../../components/Misc/Section";
 
@@ -34,13 +35,15 @@ const Workout = () => {
 
   useEffect(() => {
     retrieveData();
-  }, [sets]);
+  }, [JSON.stringify(sets)]);
 
   const retrieveData = async () => {
     const [dataWorkout, errorWorkout] = await resolve(
       WorkoutsService.getById(workoutId)
     );
-    const [dataSets, errorSets] = await resolve(SetsService.getAll(workoutId));
+    const [dataSets, errorSets] = await resolve(
+      WorkoutService.getAll(workoutId)
+    );
     setWorkout(dataWorkout[0]);
 
     //const [dataExercises, errorExercises] = await resolve(
@@ -62,7 +65,6 @@ const Workout = () => {
   const increaseAmount = (index) => {
     let amount = outputAmount;
 
-    console.log(outputAmount);
     if (outputAmount === "" || outputIndex !== index) {
       setOutputAmount(1);
     } else {
@@ -74,9 +76,9 @@ const Workout = () => {
   const decreaseAmount = (index) => {
     let amount = outputAmount;
 
-    if (outputAmount === "" || outputIndex !== index) {
-      setOutputAmount(1);
-    } else {
+    if (outputAmount === "" || outputIndex !== index || outputAmount === 1) {
+      setOutputAmount("");
+    } else if (outputAmount > 1) {
       setOutputAmount(--amount);
     }
 
@@ -84,25 +86,28 @@ const Workout = () => {
   };
 
   const updateAmount = (e) => {
-    if (e.target.value > 1) {
+    var index = Number(e.target.id);
+    setOutputIndex(index);
+
+    var value = Number(e.target.value);
+
+    if (e.target.value > 0) {
       setOutputAmount(Number(e.target.value));
-      setOutputIndex(Number(e.target.id));
+    } else if (e.target.value === "" || value === 0) {
+      setOutputAmount("");
     }
   };
 
   const addSet = async (index, item) => {
-    console.log(index, outputIndex, item);
     if (index === outputIndex) {
       const exercise = exercises.find((element) => element.name === item);
 
-      console.log(exercise);
       var newSet = {};
       newSet["exerciseId"] = exercise._id;
+      newSet["workoutId"] = workoutId;
       newSet["amount"] = outputAmount;
 
-      const [data, error] = await resolve(
-        SetsService.createSet(workoutId, newSet)
-      );
+      const [data, error] = await resolve(SetsService.createSet(newSet));
 
       var newSets = [...sets];
       if (data) {
@@ -111,6 +116,16 @@ const Workout = () => {
 
       setSets(newSets);
     }
+  };
+
+  const deleteSet = async (item, index2) => {
+    const set = exercisesInSetsObject[item][index2];
+
+    const [data, error] = await resolve(SetsService.removeSet(set._id));
+
+    var newSets = sets.filter((s) => s._id !== set._id);
+
+    setSets(newSets);
   };
 
   // ----------------------------
@@ -184,9 +199,18 @@ const Workout = () => {
                     {React.Children.toArray(
                       array.map((set, index2) => {
                         return (
-                          <div key={index2} className="d-flex flex-row">
+                          <div
+                            key={index2}
+                            className="d-flex flex-row set align-items-center"
+                          >
                             <h5 className="me-3">Set {index2 + 1}</h5>
                             <h5>{set.amount}</h5>
+                            <button
+                              className="btn set-button"
+                              onClick={() => deleteSet(item, index2)}
+                            >
+                              <FaWindowClose />
+                            </button>
                           </div>
                         );
                       })

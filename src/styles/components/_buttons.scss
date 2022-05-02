@@ -63,3 +63,14 @@
   width: 38px;
   height: 38px;
 }
+
+.set-button {
+  opacity: 0.1;
+  padding: 0;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
+}
+
+.set-button:hover {
+  opacity: 1;
+}
