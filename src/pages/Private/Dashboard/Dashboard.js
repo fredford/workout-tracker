@@ -5,10 +5,8 @@ const Dashboard = () => {
   return (
     <Page>
       <Page.NavBar />
-      <Page.Header navbar container>
-        Dashboard
-      </Page.Header>
-      <Page.Body container>Hello</Page.Body>
+      <Page.Header navbar>Dashboard</Page.Header>
+      <Page.Body>Hello</Page.Body>
     </Page>
   );
 };

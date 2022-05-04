@@ -19,17 +19,17 @@ Page.NavBar = NavBar;
 const Header = ({ className, center, container, navbar, children }) => {
   let headerClassName = `page-header ${className}`;
 
-  headerClassName += container ? " container" : "";
+  headerClassName += container ? " container" : " me-3 ms-3";
   headerClassName += navbar ? " navbar-page" : "";
   headerClassName += center ? " center-page" : "";
 
-  return <h1 className={headerClassName}>{children}</h1>;
+  return <h2 className={headerClassName}>{children}</h2>;
 };
 Page.Header = Header;
 const Body = ({ className, container, navbar, center, children }) => {
-  let bodyClassName = `${className}`;
+  let bodyClassName = `page-body ${className}`;
 
-  bodyClassName += container ? " container" : "";
+  bodyClassName += container ? " container" : " me-3 ms-3";
   bodyClassName += navbar ? " navbar-page" : "";
   bodyClassName += center ? " center-page" : "";
 

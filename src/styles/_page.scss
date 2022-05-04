@@ -6,6 +6,12 @@
   margin-bottom: 1.5rem;
 }
 
+.page-body {
+  & > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
 .center-page {
   display: flex;
   min-height: 100vh;

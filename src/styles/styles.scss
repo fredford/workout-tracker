@@ -6,6 +6,8 @@
 @import "./utility/text";
 @import "./utility/spacing";
 @import "./utility/images";
+@import "./utility/grids";
+
 @import "./page";
 @import "./components/cards";
 @import "./components/buttons";
@@ -13,6 +15,7 @@
 @import "./components/activityToggles";
 
 @import "./profile/profile-hero";
+
 @import "./exercises/exercises";
 @import "./exercises/listexercises/searchbar";
 @import "./exercises/listexercises/useroptions";

@@ -9,7 +9,7 @@ const Section = (props) => {
     );
   });
 
-  var className = "section-margin " + props.className;
+  var className = " " + props.className;
 
   return (
     <div className={className}>
