@@ -25,7 +25,7 @@ const Exercises = () => {
     <ActivityProvider>
       <Page>
         <Page.NavBar />
-        <Page.Body className="navbar-page container">
+        <Page.Body navbar container>
           <SectionExercises />
         </Page.Body>
       </Page>

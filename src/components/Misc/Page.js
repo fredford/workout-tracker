@@ -16,12 +16,25 @@ const Page = (props) => {
 
 const NavBar = (props) => <Navbar />;
 Page.NavBar = NavBar;
-const Header = (props) => {
-  let className = "navbar-page " + props.className;
-  return <h1 className={className}>{props.children}</h1>;
+const Header = ({ className, center, container, navbar, children }) => {
+  let headerClassName = `page-header ${className}`;
+
+  headerClassName += container ? " container" : "";
+  headerClassName += navbar ? " navbar-page" : "";
+  headerClassName += center ? " center-page" : "";
+
+  return <h1 className={headerClassName}>{children}</h1>;
 };
 Page.Header = Header;
-const Body = (props) => <div className={props.className}>{props.children}</div>;
+const Body = ({ className, container, navbar, center, children }) => {
+  let bodyClassName = `${className}`;
+
+  bodyClassName += container ? " container" : "";
+  bodyClassName += navbar ? " navbar-page" : "";
+  bodyClassName += center ? " center-page" : "";
+
+  return <div className={bodyClassName}>{children}</div>;
+};
 Page.Body = Body;
 
 export default Page;

@@ -33,6 +33,9 @@ export default function Exercises() {
   return (
     <Page>
       <Page.NavBar />
+      <Page.Header navbar container>
+        Exercises
+      </Page.Header>
       <Page.Body className="navbar-wrapper">
         <ActivityProvider>
           <div className="row m-3">

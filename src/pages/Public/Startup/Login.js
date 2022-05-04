@@ -54,7 +54,7 @@ const Login = () => {
 
   return (
     <Page>
-      <Page.Body className="center-page">
+      <Page.Body center>
         <Card>
           <Card.Body>
             <Card.Header className="text-center">Workout Tracker</Card.Header>

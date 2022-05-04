@@ -12,7 +12,7 @@ const MessagePage = () => {
   return (
     <Page>
       <Page.NavBar />
-      <Page.Body className="center-page">
+      <Page.Body center>
         <Card>
           <Card.Body>
             <div className="d-flex flex-column align-items-center">

@@ -10,10 +10,12 @@ const Profile = () => {
   return (
     <Page>
       <Page.NavBar />
-      <Page.Body className="navbar-page container">
+      <Page.Body navbar>
         <ProfileHero />
-        <ProfileSettings />
-        <ProfileAccount />
+        <div className="container">
+          <ProfileSettings />
+          <ProfileAccount />
+        </div>
       </Page.Body>
     </Page>
   );

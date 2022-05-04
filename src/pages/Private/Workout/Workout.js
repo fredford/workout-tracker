@@ -171,8 +171,10 @@ const Workout = () => {
   return (
     <Page>
       <Page.NavBar />
-      <Page.Header>{date}</Page.Header>
-      <Page.Body className="navbar-page container">
+      <Page.Header navbar container>
+        {date}
+      </Page.Header>
+      <Page.Body container>
         <SectionAddSet
           exercises={availableExercises}
           newExercise={newExercise}

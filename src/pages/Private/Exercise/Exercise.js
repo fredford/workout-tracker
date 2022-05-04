@@ -43,7 +43,7 @@ const Exercise = () => {
   return (
     <Page>
       <Page.NavBar />
-      <Page.Body className="navbar-page">
+      <Page.Body navbar>
         <div className="mb-3">
           <ExerciseInfo />
         </div>

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaWindowClose } from "react-icons/fa";
 
 import Card from "../../../../components/Cards/Card";
+import Button from "../../../../components/Buttons/Button";
 import Section from "../../../../components/Misc/Section";
 import ListWorkoutOptions from "../components/ListWorkoutOptions";
 import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import { useNavigate } from "react-router-dom";
 import { resolve } from "../../../../services/utils";
 import WorkoutsService from "../../../../services/workouts";
+import WorkoutService from "../../../../services/workout";
 
 const SectionWorkouts = () => {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const SectionWorkouts = () => {
 
   useEffect(() => {
     retrieveAllWorkouts();
-  }, []);
+  }, [JSON.stringify(workouts)]);
 
   const retrieveAllWorkouts = async () => {
     const [data, error] = await resolve(WorkoutsService.getAll());
@@ -53,6 +55,12 @@ const SectionWorkouts = () => {
     }
   };
 
+  const deleteWorkout = async (id) => {
+    const [data, error] = await resolve(WorkoutService.deleteById(id));
+
+    setWorkouts(workouts.filter((workout) => workout._id !== id));
+  };
+
   return (
     <Section>
       <Section.Header>Workout History</Section.Header>
@@ -66,7 +74,10 @@ const SectionWorkouts = () => {
                 displayList.map((workout) => {
                   let date = new Date(workout.date);
                   return (
-                    <div className="col-sm-6 mb-1" key={workout._id}>
+                    <div
+                      className="col-sm-6 mb-1 d-flex flex-row"
+                      key={workout._id}
+                    >
                       <div
                         className="list-exercise__card"
                         onClick={() => navigate(`/workouts/${workout._id}`)}
@@ -83,6 +94,12 @@ const SectionWorkouts = () => {
                           </div>
                         </div>
                       </div>
+                      <button
+                        className="btn set-button ms-5"
+                        onClick={() => deleteWorkout(workout._id)}
+                      >
+                        <FaWindowClose />
+                      </button>
                     </div>
                   );
                 })
