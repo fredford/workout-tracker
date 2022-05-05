@@ -4,7 +4,8 @@
   --fg-text: #1c1c1c;
   --fg-mute: #202020;
   --fg-main: #111111;
-  --fg-acce: #6aa5ff;
+  /*--fg-acce: #6aa5ff;
+  */
   --fg-dang: darkred;
   --bg-main-rgb: 248, 249, 250;
   --bg-card-rgb: 250, 250, 250;
@@ -16,6 +17,11 @@
   --fg-color-500: #6aa5ff;
   --fg-color-600: #5c9dff;
   --fg-color-700: #3385ff;
+
+  --fg-base: #5c9dff;
+  --fg-light: #c2d5f2;
+  --fg-lighter: #e0eaf8;
+  --fg-acce: #ffbe5c;
 }
 [data-theme="dark"] {
   --bg-main: #202020;

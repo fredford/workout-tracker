@@ -4,7 +4,7 @@ import Card from "../../components/Cards/Card";
 import { useParams } from "react-router-dom";
 
 import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
-import ButtonLink from "../../components/Buttons/ButtonLink";
+import Button from "../../components/Buttons/Button";
 
 const MessagePage = () => {
   let { message } = useParams();
@@ -18,12 +18,9 @@ const MessagePage = () => {
             <div className="d-flex flex-column align-items-center">
               <Card.Text>{messageHandler[message].message}</Card.Text>
               <div className="mt-2 mb-3">{messageHandler[message].icon}</div>
-              <ButtonLink
-                className="w-100"
-                path={messageHandler[message].button}
-              >
-                <ButtonLink.Text>Continue</ButtonLink.Text>
-              </ButtonLink>
+              <Button className="w-100" path={messageHandler[message].button}>
+                <Button.Text>Continue</Button.Text>
+              </Button>
             </div>
           </Card.Body>
         </Card>

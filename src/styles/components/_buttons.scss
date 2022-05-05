@@ -9,34 +9,17 @@
 }
 
 .standard-button {
-  background-color: rgba(var(--fg-acce-rgb), 0.3);
-  -webkit-box-shadow: 0px 5px 15px 6px rgba(106, 165, 255, 0.1);
-  box-shadow: 0px 5px 15px 6px rgba(106, 165, 255, 0.1);
-  border: none;
-  border-radius: $border-radius-card;
-  color: var(--fg-text);
-
-  &:hover {
-    background-color: rgba(var(--fg-acce-rgb), 1);
-    color: var(--bg-card);
-  }
-
-  &:active {
-  }
+  @include standard-border;
+  @include standard-padding;
+  @include light-base-color;
 
   & > *:not(:last-child) {
     margin-bottom: 0.5rem;
   }
 
   .button__image {
-    background-color: var(--fg-acce);
-    padding: 0.5rem;
-    border-radius: $border-radius-image;
+    @include standard-image;
     margin-top: 0.5rem;
-    width: $image-width;
-    border: 1px solid rgba(var(--fg-acce-rgb), 0.5);
-    -webkit-box-shadow: 0px 5px 15px 6px rgba(106, 165, 255, 0.25);
-    box-shadow: 0px 5px 15px 6px rgba(106, 165, 255, 0.25);
   }
 
   .button__icon {
@@ -45,7 +28,7 @@
 
   .button__text {
     color: inherit;
-    font-weight: $font-norm;
+    font-weight: $font-bold;
   }
 }
 
@@ -100,4 +83,13 @@
 
 .set-button:hover {
   opacity: 1;
+}
+
+.button-danger {
+  background-color: var(--bs-red);
+  color: var(--bg-card);
+
+  &:hover {
+    background-color: var(--fg-dang);
+  }
 }

@@ -62,7 +62,7 @@ const Text = (props) => {
 Card.Text = Text;
 
 const Bar = (props) => {
-  let className = " " + props.className;
+  let className = "card-bar " + props.className;
   return <hr className={className} />;
 };
 Card.Bar = Bar;

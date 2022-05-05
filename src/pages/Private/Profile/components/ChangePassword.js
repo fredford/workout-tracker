@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import Button from "../../../../components/Buttons/Button";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
@@ -30,12 +29,16 @@ const ChangePassword = () => {
     isDisabled = false;
   }
 
+  const handleUpdatePassword = () => {
+    // TODO update the user password in the database
+  };
+
   return (
     <>
-      <ButtonImage onClick={handleShow}>
-        <ButtonImage.Image src="./password.png" />
-        <ButtonImage.Text>Change Password</ButtonImage.Text>
-      </ButtonImage>
+      <Button onClick={handleShow}>
+        <Button.Image src="./password.png" />
+        <Button.Text>Change Password</Button.Text>
+      </Button>
       <Modal show={show} onHide={handleClose}>
         <Card>
           <Card.Body>
@@ -67,13 +70,17 @@ const ChangePassword = () => {
             </Form>
             <div className="row">
               <div className="col">
-                <Button onClick={() => {}} disabled={isDisabled}>
-                  Update
+                <Button
+                  className="w-100"
+                  onClick={handleUpdatePassword}
+                  disabled={isDisabled}
+                >
+                  <Button.Text>Update</Button.Text>
                 </Button>
               </div>
               <div className="col">
-                <Button onClick={handleClose} className="btn-danger">
-                  Cancel
+                <Button className="w-100 button-danger" onClick={handleClose}>
+                  <Button.Text>Cancel</Button.Text>
                 </Button>
               </div>
             </div>

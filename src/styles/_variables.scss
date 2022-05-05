@@ -2,15 +2,17 @@ $image-width: 75px;
 $line-height: 38px;
 
 // Border
+$border-radius-standard: 0.25rem;
 $border-radius-card: 0.5rem;
-$border-radius-button: 0.5rem;
+$border-radius-button: 0.25rem;
+$border-radius-form: 0.25rem;
 $border-radius-image: 1rem;
 
 // Font
-$font-family: "Rubik", sans-serif;
-$font-slim: 200;
-$font-norm: 400;
-$font-bold: 600;
+$font-family: "Quicksand", sans-serif;
+$font-slim: 300;
+$font-norm: 500;
+$font-bold: 700;
 
 $accent-color: lightskyblue;
 $upper-color: #f08080;

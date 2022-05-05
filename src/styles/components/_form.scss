@@ -1,0 +1,10 @@
+.form {
+}
+
+.form-label {
+}
+
+.form-control {
+  @include standard-border;
+  background-color: var(--fg-lighter) !important;
+}

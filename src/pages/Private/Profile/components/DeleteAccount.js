@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
 import Button from "../../../../components/Buttons/Button";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
@@ -30,10 +29,10 @@ const DeleteAccount = () => {
 
   return (
     <>
-      <ButtonImage onClick={handleShow}>
-        <ButtonImage.Image src="./delete.png" />
-        <ButtonImage.Text>Delete Account</ButtonImage.Text>
-      </ButtonImage>
+      <Button onClick={handleShow}>
+        <Button.Image src="./delete.png" />
+        <Button.Text>Delete Account</Button.Text>
+      </Button>
       <Modal show={show} onHide={handleClose}>
         <Card>
           <Card.Body>
@@ -57,13 +56,17 @@ const DeleteAccount = () => {
             </Form>
             <div className="row">
               <div className="col">
-                <Button onClick={handleSubmit} disabled={isDisabled}>
-                  Delete
+                <Button
+                  onClick={handleSubmit}
+                  disabled={isDisabled}
+                  className="w-100 button-danger"
+                >
+                  <Button.Text>Delete</Button.Text>
                 </Button>
               </div>
               <div className="col">
-                <Button onClick={handleClose} className="btn-danger">
-                  Cancel
+                <Button onClick={handleClose} className="w-100">
+                  <Button.Text>Cancel</Button.Text>
                 </Button>
               </div>
             </div>

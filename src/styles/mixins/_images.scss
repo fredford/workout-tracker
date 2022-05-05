@@ -1,0 +1,7 @@
+@mixin standard-image {
+  @include standard-padding;
+  border-radius: $border-radius-image;
+  width: $image-width;
+
+  background-color: var(--fg-acce);
+}

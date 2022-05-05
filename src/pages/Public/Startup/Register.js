@@ -99,8 +99,10 @@ const Register = () => {
       <Page.Body center>
         <Card>
           <Card.Body>
-            <Card.Header className="text-center">Workout Tracker</Card.Header>
-            <Card.Title className="text-center text-muted">Register</Card.Title>
+            <h1 className="text-center p-3">Workout Tracker</h1>
+            <Card.Header className="text-center text-muted">
+              Register
+            </Card.Header>
             <Card.Bar />
 
             {items.map((item, index) => {
@@ -120,7 +122,7 @@ const Register = () => {
             })}
             <Card.Text className="text-error">{error}</Card.Text>
             <Button onClick={attemptRegister} className="w-100">
-              Register
+              <Button.Text>Register</Button.Text>
             </Button>
             <Card.Bar />
 

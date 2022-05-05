@@ -57,8 +57,8 @@ const Login = () => {
       <Page.Body center>
         <Card>
           <Card.Body>
-            <Card.Header className="text-center">Workout Tracker</Card.Header>
-            <Card.Title className="text-center text-muted">Login</Card.Title>
+            <h1 className="text-center p-3">Workout Tracker</h1>
+            <Card.Header className="text-center text-muted">Login</Card.Header>
             <Card.Bar />
             <Form className="mb-2">
               <Form.Label for="login-email">Email</Form.Label>
@@ -80,7 +80,7 @@ const Login = () => {
             </Form>
             <Card.Text className="text-error">{error}</Card.Text>
             <Button onClick={attemptLogin} className="w-100">
-              Login
+              <Button.Text>Login</Button.Text>
             </Button>
             <Card.Bar />
             <div className="d-flex justify-content-between">

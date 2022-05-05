@@ -1,7 +1,7 @@
 import React from "react";
 
+// Components
 import Page from "../../../components/Misc/Page";
-
 import ProfileHero from "./sections/ProfileHero";
 import ProfileAccount from "./sections/ProfileAccount";
 import ProfileSettings from "./sections/ProfileSettings";

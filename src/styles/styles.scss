@@ -1,7 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
+
 @import "./variables";
 @import "./typography";
 
 @import "./mixins/activity";
+@import "./mixins/border";
+@import "./mixins/spacing";
+@import "./mixins/colors";
+@import "./mixins/images";
 
 @import "./utility/text";
 @import "./utility/spacing";
@@ -13,6 +19,7 @@
 @import "./components/buttons";
 @import "./components/navbar";
 @import "./components/activityToggles";
+@import "./components/form";
 
 @import "./profile/profile-hero";
 

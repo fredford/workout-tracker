@@ -8,7 +8,6 @@ const ProfileWeight = () => {
   const { theme, weight, distance } = useContext(SettingsContext);
 
   const [stateWeight, setStateWeight] = weight;
-
   const [checkedWeight, setCheckedWeight] = useState(
     stateWeight === "lbs" ? false : true
   );

@@ -1,14 +1,17 @@
 .card {
+  @include standard-border;
 }
 
 .card-header {
   background-color: inherit;
   border-bottom: none;
-  padding: 1rem;
 }
 
 .card-bar {
-  margin: 0;
+  margin: 1rem 0;
+  height: 2px !important;
+  color: var(--fg-base);
+  border: none;
 }
 
 .card-title {
@@ -25,8 +28,8 @@
 }
 
 .card-image-body__image {
-  height: 50px;
-  width: 50px;
+  @include standard-image;
+  //height: 50px;
 }
 
 .card-text {

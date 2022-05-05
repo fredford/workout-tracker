@@ -5,7 +5,6 @@ import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Misc/Page";
 import { selectExerciseById } from "../../../redux/reducers/exercises";
 import ExerciseInfo from "./sections/ExerciseInfo";
-import ButtonLink from "../../../components/Buttons/ButtonLink";
 import Button from "../../../components/Buttons/Button";
 import { resolve } from "../../../services/utils";
 import { useNavigate } from "react-router-dom";
@@ -94,9 +93,9 @@ const Exercise = () => {
           </div>
         </div>
         <div className="container">
-          <ButtonLink path="/exercises" className="w-100">
-            <ButtonLink.Text>Back to Exercises</ButtonLink.Text>
-          </ButtonLink>
+          <Button path="/exercises" className="w-100">
+            <Button.Text>Back to Exercises</Button.Text>
+          </Button>
         </div>
       </Page.Body>
     </Page>

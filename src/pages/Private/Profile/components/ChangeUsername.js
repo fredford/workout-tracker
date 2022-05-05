@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
@@ -54,13 +53,17 @@ const ChangeUsername = () => {
             </Form>
             <div className="row">
               <div className="col">
-                <Button onClick={handleUpdateUsername} disabled={isDisabled}>
-                  Update
+                <Button
+                  className="w-100"
+                  onClick={handleUpdateUsername}
+                  disabled={isDisabled}
+                >
+                  <Button.Text>Update</Button.Text>
                 </Button>
               </div>
               <div className="col">
-                <Button onClick={handleClose} className="btn-danger">
-                  Cancel
+                <Button className="w-100 button-danger" onClick={handleClose}>
+                  <Button.Text>Cancel</Button.Text>
                 </Button>
               </div>
             </div>
