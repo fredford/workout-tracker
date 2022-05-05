@@ -1,7 +1,7 @@
 import React from "react";
 
 const ButtonImage = (props) => {
-  let className = "btn btn-primary w-100 button " + props.className;
+  let className = "standard-button " + props.className;
 
   let subComponentList = Object.keys(ButtonImage);
 

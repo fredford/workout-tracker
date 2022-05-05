@@ -30,10 +30,10 @@ const ChangeUsername = () => {
 
   return (
     <>
-      <ButtonImage onClick={handleShow}>
-        <ButtonImage.Image src="./displayname.png" />
-        <ButtonImage.Text>Change Username</ButtonImage.Text>
-      </ButtonImage>
+      <Button onClick={handleShow}>
+        <Button.Image src="./displayname.png" />
+        <Button.Text>Change Username</Button.Text>
+      </Button>
       <Modal show={show} onHide={handleClose}>
         <Card>
           <Card.Body>
