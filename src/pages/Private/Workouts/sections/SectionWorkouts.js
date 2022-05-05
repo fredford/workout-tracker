@@ -69,36 +69,31 @@ const SectionWorkouts = () => {
           <Card.Body>
             <ListWorkoutOptions />
             <Card.Bar />
-            <div className="row">
+            <div className="list-workouts grid-300">
               {React.Children.toArray(
                 displayList.map((workout) => {
                   let date = new Date(workout.date);
                   return (
-                    <div
-                      className="col-sm-6 mb-1 d-flex flex-row"
-                      key={workout._id}
-                    >
+                    <div className="list-workouts__workout" key={workout._id}>
                       <div
-                        className="list-exercise__card"
+                        className="list-workouts__workout-card"
                         onClick={() => navigate(`/workouts/${workout._id}`)}
                       >
-                        <div className="d-flex flex-row">
-                          <img
-                            className="list-exercise__image standard-image me-3"
-                            src={workoutTypeImg[workout.type]}
-                            alt=""
-                          />
-                          <div className="mt-2">
-                            <h6>{date.toDateString()}</h6>
-                            <p>{workout.type}</p>
-                          </div>
+                        <img
+                          className="list-workouts__workout-image"
+                          src={workoutTypeImg[workout.type]}
+                          alt=""
+                        />
+                        <div className="list-workouts__workout-text">
+                          <h5>{date.toDateString()}</h5>
+                          <h6>{workout.type}</h6>
                         </div>
                       </div>
                       <button
                         className="btn set-button ms-5"
                         onClick={() => deleteWorkout(workout._id)}
                       >
-                        <FaWindowClose />
+                        <FaWindowClose size={25} />
                       </button>
                     </div>
                   );

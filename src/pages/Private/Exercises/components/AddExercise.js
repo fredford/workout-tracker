@@ -70,7 +70,9 @@ const AddExercise = () => {
   return (
     <>
       <Button onClick={handleShow}>
-        <FaPlus className="me-1" /> <span>Add</span>
+        <Button.Icon>
+          <FaPlus className="me-1" /> <span>Add</span>
+        </Button.Icon>
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Card>
@@ -149,12 +151,12 @@ const AddExercise = () => {
                   disabled={createDisabled}
                   onClick={createExercise}
                 >
-                  Create
+                  <Button.Text>Add</Button.Text>
                 </Button>
               </div>
               <div className="col-6">
                 <Button className="w-100 btn-danger" onClick={handleClose}>
-                  Cancel
+                  <Button.Text>Cancel</Button.Text>
                 </Button>
               </div>
             </div>

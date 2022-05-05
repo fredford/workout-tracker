@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
+import Button from "../../../../components/Buttons/Button";
 
 const ProfileLogout = () => {
   const navigate = useNavigate();
@@ -10,10 +10,10 @@ const ProfileLogout = () => {
     navigate("/startup");
   };
   return (
-    <ButtonImage onClick={handleLogout}>
-      <ButtonImage.Image src="./logout.png" />
-      <ButtonImage.Text>Logout</ButtonImage.Text>
-    </ButtonImage>
+    <Button onClick={handleLogout}>
+      <Button.Image src="./logout.png" />
+      <Button.Text>Logout</Button.Text>
+    </Button>
   );
 };
 

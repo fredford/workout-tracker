@@ -12,7 +12,6 @@ import Section from "../../../../components/Misc/Section";
 import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
 import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 

@@ -1,0 +1,37 @@
+.list-workouts {
+  margin-bottom: 1rem;
+}
+
+.list-workouts__workout {
+  outline: 2px solid var(--fg-lighter);
+  outline-offset: -2px;
+
+  border-radius: $border-radius-image !important;
+  padding: 0 1rem 0 0;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.25rem;
+  justify-content: space-between;
+
+  &:hover {
+    background-color: var(--fg-light);
+  }
+}
+
+.list-workouts__workout-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.list-workouts__workout-image {
+  @include standard-image;
+  z-index: 2;
+  margin-right: 1rem;
+}
+
+.list-workouts__workout-text {
+  margin-top: 0.5rem;
+  h6 {
+    font-weight: $font-norm;
+  }
+}

@@ -75,14 +75,15 @@
 }
 
 .set-button {
-  opacity: 0.1;
+  opacity: 0.5;
   padding: 0;
-  padding-bottom: 0.25rem;
-  padding-left: 1em;
+  color: var(--fg-acce);
+  @include standard-border;
 }
 
 .set-button:hover {
   opacity: 1;
+  color: var(--bs-red);
 }
 
 .button-danger {

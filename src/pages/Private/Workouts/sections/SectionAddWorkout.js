@@ -5,7 +5,7 @@ import { resolve } from "../../../../services/utils";
 import WorkoutsService from "../../../../services/workouts";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
+import Button from "../../../../components/Buttons/Button";
 
 const SectionAddWorkout = () => {
   const navigate = useNavigate();
@@ -28,22 +28,31 @@ const SectionAddWorkout = () => {
       <Section.Body>
         <div className="row">
           <div className="col">
-            <ButtonImage onClick={() => startNewWorkout("Maintenance")}>
-              <ButtonImage.Image src={"./maintenance.png"} />
-              <ButtonImage.Text>Maintenance</ButtonImage.Text>
-            </ButtonImage>
+            <Button
+              className="w-100"
+              onClick={() => startNewWorkout("Maintenance")}
+            >
+              <Button.Image src={"./maintenance.png"} />
+              <Button.Text>Maintenance</Button.Text>
+            </Button>
           </div>
           <div className="col">
-            <ButtonImage onClick={() => startNewWorkout("Progression")}>
-              <ButtonImage.Image src={"./progression.png"} />
-              <ButtonImage.Text>Progression</ButtonImage.Text>
-            </ButtonImage>
+            <Button
+              className="w-100"
+              onClick={() => startNewWorkout("Progression")}
+            >
+              <Button.Image src={"./progression.png"} />
+              <Button.Text>Progression</Button.Text>
+            </Button>
           </div>
           <div className="col">
-            <ButtonImage onClick={() => startNewWorkout("Single Set Max")}>
-              <ButtonImage.Image src={"./max.png"} />
-              <ButtonImage.Text>Single Set Max</ButtonImage.Text>
-            </ButtonImage>
+            <Button
+              className="w-100"
+              onClick={() => startNewWorkout("Single Set Max")}
+            >
+              <Button.Image src={"./max.png"} />
+              <Button.Text>Single Set Max</Button.Text>
+            </Button>
           </div>
         </div>
       </Section.Body>
