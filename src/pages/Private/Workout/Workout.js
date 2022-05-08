@@ -231,7 +231,9 @@ const Workout = () => {
                   </div>
                   <div className="d-flex align-items-center p-3">
                     <Button onClick={() => increaseAmount(index)}>
-                      <FaPlus />
+                      <Button.Icon>
+                        <FaPlus />
+                      </Button.Icon>
                     </Button>
                   </div>
 
@@ -244,11 +246,15 @@ const Workout = () => {
                   </form>
                   <div className="d-flex align-items-center p-3">
                     <Button onClick={() => decreaseAmount(index)}>
-                      <FaMinus />
+                      <Button.Icon>
+                        <FaMinus />
+                      </Button.Icon>
                     </Button>
                   </div>
                   <div className="d-flex align-items-center p-3">
-                    <Button onClick={() => addSet(index, item)}>Add</Button>
+                    <Button onClick={() => addSet(index, item)}>
+                      <Button.Text>Add</Button.Text>
+                    </Button>
                   </div>
                 </div>
               );

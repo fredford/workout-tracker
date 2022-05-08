@@ -23,13 +23,17 @@
 .card-body {
 }
 
-.card-image-body {
+.card-image-body__header {
   display: flex;
 }
 
 .card-image-body__image {
   @include standard-image;
   //height: 50px;
+}
+
+.card-image-body {
+  box-sizing: border-box;
 }
 
 .card-text {

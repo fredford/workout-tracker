@@ -12,7 +12,7 @@ const Card = (props) => {
   var className = "card " + props.className;
 
   return (
-    <div className={className}>
+    <div className={className} onClick={props.onClick}>
       {subComponents.map((component) => component)}
     </div>
   );
@@ -30,11 +30,11 @@ const Header = (props) => {
 Card.Header = Header;
 
 const ImageHeader = (props) => (
-  <div className="card-image-body">
+  <div className="card-image-body__header">
     <div className="me-3 d-flex align-items-center">
       <img src={props.path} alt="" className="card-image-body__image" />
     </div>
-    <div className="">{props.children}</div>
+    <div className="card-image-body">{props.children}</div>
   </div>
 );
 Card.ImageHeader = ImageHeader;

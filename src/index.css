@@ -10,7 +10,6 @@
   --bg-main-rgb: 248, 249, 250;
   --bg-card-rgb: 250, 250, 250;
   --fg-main-rgb: 33, 37, 41;
-  --fg-acce-rgb: 106, 165, 255;
   --fg-dang-rgb: 139, 0, 0;
 
   --fg-color-400: #99c2ff;
@@ -21,7 +20,9 @@
   --fg-base: #5c9dff;
   --fg-light: #c2d5f2;
   --fg-lighter: #e0eaf8;
-  --fg-acce: #ffbe5c;
+  --fg-acce: #708090;
+
+  --fg-acce-rgb: 112, 128, 144;
 }
 [data-theme="dark"] {
   --bg-main: #202020;

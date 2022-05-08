@@ -13,13 +13,19 @@
   @include standard-padding;
   @include light-base-color;
 
+  .button__image {
+    @include standard-image;
+    margin-top: 0.5rem;
+  }
+
   & > *:not(:last-child) {
     margin-bottom: 0.5rem;
   }
 
-  .button__image {
-    @include standard-image;
-    margin-top: 0.5rem;
+  &:hover {
+    .button__image {
+      background-color: var(--fg-acce);
+    }
   }
 
   .button__icon {

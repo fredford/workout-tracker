@@ -65,62 +65,52 @@ const SectionWorkouts = () => {
     <Section>
       <Section.Header>Workout History</Section.Header>
       <Section.Body>
-        <Card>
-          <Card.Body>
-            <ListWorkoutOptions />
-            <Card.Bar />
-            <div className="list-workouts grid-300">
-              {React.Children.toArray(
-                displayList.map((workout) => {
-                  let date = new Date(workout.date);
-                  return (
-                    <div className="list-workouts__workout" key={workout._id}>
-                      <div
-                        className="list-workouts__workout-card"
-                        onClick={() => navigate(`/workouts/${workout._id}`)}
-                      >
-                        <img
-                          className="list-workouts__workout-image"
-                          src={workoutTypeImg[workout.type]}
-                          alt=""
-                        />
-                        <div className="list-workouts__workout-text">
-                          <h5>{date.toDateString()}</h5>
-                          <h6>{workout.type}</h6>
-                        </div>
+        <div className="list-workouts">
+          {React.Children.toArray(
+            displayList.map((workout) => {
+              let date = new Date(workout.date);
+              return (
+                <div className="list-workouts__workout" key={workout._id}>
+                  <Card
+                    className="list-workouts__workout-card"
+                    onClick={() => navigate(`/workouts/${workout._id}`)}
+                  >
+                    <Card.Body className="list-workouts__workout-body">
+                      <img
+                        className="list-workouts__workout-image"
+                        src={workoutTypeImg[workout.type]}
+                        alt=""
+                      />
+                      <div className="list-workouts__workout-text">
+                        <h5>{date.toDateString()}</h5>
+                        <h6>{workout.type}</h6>
                       </div>
-                      <button
-                        className="btn set-button ms-5"
-                        onClick={() => deleteWorkout(workout._id)}
-                      >
-                        <FaWindowClose size={25} />
-                      </button>
-                    </div>
-                  );
-                })
-              )}
-            </div>
+                    </Card.Body>
+                  </Card>
+                </div>
+              );
+            })
+          )}
+        </div>
 
-            <div className="d-flex flex-row justify-content-center">
-              <div className="button-icon me-2">
-                <ButtonToggle
-                  onChange={decreasePage}
-                  className="line-height w-100 h-100"
-                >
-                  <FaArrowLeft />
-                </ButtonToggle>
-              </div>
-              <div className="button-icon ms-2">
-                <ButtonToggle
-                  onChange={increasePage}
-                  className="button-icon w-100 h-100"
-                >
-                  <FaArrowRight />
-                </ButtonToggle>
-              </div>
-            </div>
-          </Card.Body>
-        </Card>
+        <div className="d-flex flex-row justify-content-center">
+          <div className="button-icon me-2">
+            <ButtonToggle
+              onChange={decreasePage}
+              className="line-height w-100 h-100"
+            >
+              <FaArrowLeft />
+            </ButtonToggle>
+          </div>
+          <div className="button-icon ms-2">
+            <ButtonToggle
+              onChange={increasePage}
+              className="button-icon w-100 h-100"
+            >
+              <FaArrowRight />
+            </ButtonToggle>
+          </div>
+        </div>
       </Section.Body>
     </Section>
   );

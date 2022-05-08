@@ -26,34 +26,30 @@ const SectionAddWorkout = () => {
     <Section>
       <Section.Header>Start New Workout</Section.Header>
       <Section.Body>
-        <div className="row">
-          <div className="col">
-            <Button
-              className="w-100"
-              onClick={() => startNewWorkout("Maintenance")}
-            >
-              <Button.Image src={"./maintenance.png"} />
-              <Button.Text>Maintenance</Button.Text>
-            </Button>
-          </div>
-          <div className="col">
-            <Button
-              className="w-100"
-              onClick={() => startNewWorkout("Progression")}
-            >
-              <Button.Image src={"./progression.png"} />
-              <Button.Text>Progression</Button.Text>
-            </Button>
-          </div>
-          <div className="col">
-            <Button
-              className="w-100"
-              onClick={() => startNewWorkout("Single Set Max")}
-            >
-              <Button.Image src={"./max.png"} />
-              <Button.Text>Single Set Max</Button.Text>
-            </Button>
-          </div>
+        <div className="add-workout__container">
+          <Button
+            className="add-workout__item"
+            onClick={() => startNewWorkout("Maintenance")}
+          >
+            <Button.Image src={"./maintenance.png"} />
+            <Button.Text>Maintenance</Button.Text>
+          </Button>
+
+          <Button
+            className="add-workout__item"
+            onClick={() => startNewWorkout("Progression")}
+          >
+            <Button.Image src={"./progression.png"} />
+            <Button.Text>Progression</Button.Text>
+          </Button>
+
+          <Button
+            className="add-workout__item"
+            onClick={() => startNewWorkout("Single Set Max")}
+          >
+            <Button.Image src={"./max.png"} />
+            <Button.Text>Single Set Max</Button.Text>
+          </Button>
         </div>
       </Section.Body>
     </Section>
