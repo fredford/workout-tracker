@@ -1,5 +1,5 @@
 @mixin light-base-color {
-  background-color: var(--bg-card);
+  background-color: var(--fg-light);
   color: var(--fg-text);
 
   &:hover {

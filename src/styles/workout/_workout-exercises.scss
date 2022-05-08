@@ -1,0 +1,24 @@
+.workout-exercises__group {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
+}
+.workout-exercises__exercise {
+  border: 1px solid var(--fg-light);
+  border-radius: $border-radius-button;
+  padding: 0.5rem;
+
+  &:hover {
+    background-color: var(--fg-base);
+    color: var(--bg-card);
+  }
+
+  h5 {
+    color: inherit;
+  }
+  h6 {
+    color: inherit !important;
+    font-weight: $font-norm;
+  }
+}
