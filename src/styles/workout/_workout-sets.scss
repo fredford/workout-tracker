@@ -1,0 +1,53 @@
+.workout-sets__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.workout-sets__cards {
+  margin-bottom: 1rem;
+}
+
+.workout-sets__body {
+}
+
+.workout-sets__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  .workout-sets__header-text {
+  }
+  .workout-sets__header-title {
+  }
+  .workout-sets__header-type {
+    font-weight: $font-slim;
+  }
+  .workout-sets__header-button {
+  }
+}
+
+.workout-sets-repetitions {
+}
+
+.workout-sets-repetitions__buttons-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column-gap: 1rem;
+}
+
+.workout-sets-repetitions__button-container {
+  padding: 1rem;
+}
+
+.workout-sets-repetitions__form {
+  width: 100%;
+}
+
+.workout-sets-repetitions__form-input {
+  height: 100%;
+  width: 100%;
+  font-size: x-large;
+  font-weight: bolder;
+  text-align: center;
+}

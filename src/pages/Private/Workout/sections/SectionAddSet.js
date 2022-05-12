@@ -1,31 +1,52 @@
 import React from "react";
-import Card from "../../../../components/Cards/Card";
 
-const SectionAddSet = ({ exercises, newExercise, setNewExercise }) => {
+import Section from "../../../../components/Misc/Section";
+import WorkoutCardRepetitions from "../components/WorkoutCardRepetitions";
+//import WorkoutCardRepetitions from "../components/WorkoutCardRepetitions";
+
+const SectionAddSet = ({ workoutObject }) => {
   return (
-    <Card className="flex-grow-1">
-      <Card.Body>
-        <Card.Title>Exercise</Card.Title>
-        <Card.Subtitle className="text-muted">
-          Choose an exercise to add to the workout
-        </Card.Subtitle>
-        <div className="workout-exercises__group">
-          {React.Children.toArray(
-            exercises.map((exercise) => {
-              return (
-                <div
-                  className="workout-exercises__exercise"
-                  onClick={() => setNewExercise(exercise)}
-                >
-                  <h5>{exercise.name}</h5>
-                  <h6>{exercise.type}</h6>
-                </div>
-              );
-            })
+    <Section>
+      <Section.Header>Exercises</Section.Header>
+      <Section.Body>
+        <div className="workout-sets__container">
+          {Object.entries(workoutObject).map(
+            ([workoutExercise, exerciseObject]) => {
+              if (exerciseObject.exercise.type === "Repetitions") {
+                return (
+                  <WorkoutCardRepetitions
+                    key={workoutExercise}
+                    exerciseObject={exerciseObject}
+                  />
+                );
+              } else {
+                return <div key={workoutExercise}></div>;
+              }
+            }
           )}
         </div>
-      </Card.Body>
-    </Card>
+
+        {/*{Object.entries(workoutObject).map((item, index) => {
+          let array = exercisesInSetsObject[item];
+          var value = "";
+
+          const sumSets = array.reduce((n, { amount }) => {
+            return Number(amount) + n;
+          }, 0);
+
+          const avgSets = Math.round((sumSets / array.length) * 10) / 10;
+          const maxSet = Math.max(...array.map((o) => Number(o.amount)), 0);
+
+          if (outputIndex === index) {
+            value = outputAmount;
+          }
+
+          // TODO setup TYPE to select specific component for output
+
+          return <WorkoutCardRepetitions />;
+        })}*/}
+      </Section.Body>
+    </Section>
   );
 };
 

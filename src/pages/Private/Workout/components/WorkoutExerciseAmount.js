@@ -48,30 +48,33 @@ const WorkoutExerciseAmount = ({
   };
 
   return (
-    <div className="d-flex flex-row">
-      <div className="d-flex align-items-center p-3">
-        <Button onClick={() => increaseAmount(index)}>
-          <Button.Icon>
-            <FaPlus />
-          </Button.Icon>
-        </Button>
-      </div>
+    <div className="workout-sets-repetitions__buttons-container">
+      <Button
+        className="workout-sets-repetitions__button-container"
+        onClick={() => increaseAmount(index)}
+      >
+        <Button.Icon>
+          <FaPlus />
+        </Button.Icon>
+      </Button>
 
-      <form className="d-flex align-items-center">
-        <input id={index} value={value} onChange={(e) => updateAmount(e)} />
+      <form className="workout-sets-repetitions__form">
+        <input
+          className="workout-sets-repetitions__form-input"
+          id={index}
+          value={value}
+          onChange={(e) => updateAmount(e)}
+        />
       </form>
-      <div className="d-flex align-items-center p-3">
-        <Button onClick={() => decreaseAmount(index)}>
-          <Button.Icon>
-            <FaMinus />
-          </Button.Icon>
-        </Button>
-      </div>
-      <div className="d-flex align-items-center p-3">
-        <Button className="p-3" onClick={() => addSet(index)}>
-          <Button.Text>Add</Button.Text>
-        </Button>
-      </div>
+
+      <Button
+        className="workout-sets-repetitions__button-container"
+        onClick={() => decreaseAmount(index)}
+      >
+        <Button.Icon>
+          <FaMinus />
+        </Button.Icon>
+      </Button>
     </div>
   );
 };

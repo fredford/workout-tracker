@@ -5,15 +5,11 @@ import { resolve } from "../../../services/utils";
 import WorkoutsService from "../../../services/workouts";
 import SetsService from "../../../services/sets";
 import WorkoutService from "../../../services/workout";
-import SectionAddSet from "./sections/SectionAddSet";
+import SectionAddExercise from "./sections/SectionAddExercise";
 import { useDispatch, useSelector } from "react-redux";
-import Form from "../../../components/Forms/Form";
 
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
-import Section from "../../../components/Misc/Section";
-
-import WorkoutExerciseSet from "./components/WorkoutExerciseSet";
-import WorkoutExerciseAmount from "./components/WorkoutExerciseAmount";
+import SectionAddSet from "./sections/SectionAddSet";
 
 const Workout = () => {
   const { workoutId } = useParams();
@@ -82,39 +78,46 @@ const Workout = () => {
 
   // Variable for the new exercise selected
   const [newExercise, setNewExercise] = useState("");
+
   // List of all exercises
   const exercises = useSelector((state) => state.exercises.exercises);
   // Set the list of available exercises
-  var availableExercises = [...exercises];
-  // Set the list of exercises in progress
-  var workoutExercises = [];
+
+  // List of Exercises used in the Workout
+  var listOfWorkoutExercises = [];
+
   // Set the list of set exercises to be shown
   var exercisesInSetsArray = [];
 
-  var exercisesInSetsObject = {};
+  // Object to store all data on the workout
+  var workoutObject = {};
 
+  // If an Exercise is selected, add it to the list for display
   if (newExercise !== "") {
-    exercisesInSetsObject[newExercise.name] = [];
+    workoutObject[newExercise.name] = {
+      exercise: newExercise,
+      sets: [],
+    };
+    listOfWorkoutExercises.push(newExercise.name);
   }
 
+  // If there are Sets added to the Workout
   if (sets.length > 0) {
-    exercisesInSetsObject = Object.assign(
-      exercisesInSetsObject,
-      groupBy(sets, "name")
-    );
+    var setsGroupedByExercise = groupBy(sets, "name");
 
-    for (const [key, value] of Object.entries(exercisesInSetsObject)) {
-      let obj = {};
-      obj[key] = value;
-
-      workoutExercises.push(key);
-
-      exercisesInSetsArray.push(obj);
+    // Create the workoutObject containing the Exercise and Sets associated
+    for (const [key, value] of Object.entries(setsGroupedByExercise)) {
+      workoutObject[key] = {
+        exercise: value[0].exercise,
+        sets: value,
+      };
+      listOfWorkoutExercises.push(key);
     }
   }
 
-  availableExercises = availableExercises.filter(
-    (exercise) => !workoutExercises.includes(exercise.name)
+  // Filter exercises being performed from the available list
+  var availableExercises = exercises.filter(
+    (exercise) => !listOfWorkoutExercises.includes(exercise.name)
   );
 
   return (
@@ -126,69 +129,12 @@ const Workout = () => {
           totalAmount={totalAmount}
           totalSets={totalSets}
         />
-        <SectionAddSet
+        <SectionAddExercise
           exercises={availableExercises}
           newExercise={newExercise}
           setNewExercise={changeNewExercise}
         />
-
-        <Section>
-          <Section.Header>Exercises</Section.Header>
-          <Section.Body>
-            {Object.keys(exercisesInSetsObject).map((item, index) => {
-              let array = exercisesInSetsObject[item];
-              var value = "";
-
-              const sumSets = array.reduce((n, { amount }) => {
-                return Number(amount) + n;
-              }, 0);
-
-              const avgSets = Math.round((sumSets / array.length) * 10) / 10;
-              const maxSet = Math.max(...array.map((o) => Number(o.amount)), 0);
-
-              if (outputIndex === index) {
-                value = outputAmount;
-              }
-
-              return (
-                <div
-                  key={index}
-                  className="card d-flex flex-row justify-content-between mb-3"
-                >
-                  <div className="p-3 d-flex flex-column align-items-center">
-                    <h4 className="mb-2">{item}</h4>
-                    <h6>Total: {sumSets}</h6>
-                    <h6>Avg: {avgSets}</h6>
-                    <h6>Max: {maxSet}</h6>
-                  </div>
-
-                  <div className="p-3">
-                    {React.Children.toArray(
-                      array.map((set, index2) => {
-                        return (
-                          <WorkoutExerciseSet
-                            set={set}
-                            index={index2}
-                            updateSets={updateSets}
-                          />
-                        );
-                      })
-                    )}
-                  </div>
-                  <WorkoutExerciseAmount
-                    value={value}
-                    index={index}
-                    outputIndex={outputIndex}
-                    setOutputIndex={setOutputIndex}
-                    outputAmount={outputAmount}
-                    setOutputAmount={setOutputAmount}
-                    addSet={addSet}
-                  />
-                </div>
-              );
-            })}
-          </Section.Body>
-        </Section>
+        <SectionAddSet workoutObject={workoutObject} />
       </Page.Body>
     </Page>
   );
