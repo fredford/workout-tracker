@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import Page from "../../../components/Misc/Page";
 import { resolve } from "../../../services/utils";
@@ -10,8 +10,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
 import SectionAddSet from "./sections/SectionAddSet";
+import { SetsContext } from "../../../contexts/setsContext";
 
 const Workout = () => {
+  const [sets, setSets] = useContext(SetsContext);
+
+  console.log(sets);
+
   const { workoutId } = useParams();
   const [workout, setWorkout] = useState({
     date: "...",
@@ -22,7 +27,6 @@ const Workout = () => {
     setNewExercise(exercise);
   };
 
-  const [sets, setSets] = useState([]);
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalSets, setTotalSets] = useState(0);
 

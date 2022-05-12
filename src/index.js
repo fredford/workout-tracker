@@ -8,15 +8,18 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 import { SettingsProvider } from "./contexts/settingsContext";
+import { SetsProvider } from "./contexts/setsContext";
 
 function start() {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
         <SettingsProvider>
-          <Provider store={store}>
-            <App />
-          </Provider>
+          <SetsProvider>
+            <Provider store={store}>
+              <App />
+            </Provider>
+          </SetsProvider>
         </SettingsProvider>
       </BrowserRouter>
     </React.StrictMode>,

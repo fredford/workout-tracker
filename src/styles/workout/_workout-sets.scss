@@ -51,3 +51,12 @@
   font-weight: bolder;
   text-align: center;
 }
+
+.workout-sets-repetitions__sets-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(147px, 1fr));
+  gap: 1rem;
+}
+
+.workout-sets-repetitions__set {
+}

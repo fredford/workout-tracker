@@ -16,6 +16,8 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
   const avgSets = Math.round((sumSets / sets.length) * 10) / 10;
   const maxSet = Math.max(...sets.map((o) => Number(o.amount)), 0);
 
+  const addSet = () => {};
+
   return (
     <Card className="workout-sets__cards">
       <Card.Body className="workout-sets__body">
@@ -25,7 +27,7 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
             <h5 className="workout-sets__header-type">{exercise.type}</h5>
           </div>
           <div className="workout-sets__header-button">
-            <Button className="p-3">
+            <Button className="p-3" onClick={addSet}>
               <Button.Text>Add</Button.Text>
             </Button>
           </div>
@@ -33,33 +35,14 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
         <Card.Bar className="mt-0" />
         <WorkoutExerciseAmount />
         <Card.Bar />
-        {/*
-        
 
-        <div className="p-3">
+        <div className="workout-sets-repetitions__sets-container">
           {React.Children.toArray(
-            array.map((set, index2) => {
-              return (
-                <WorkoutExerciseSet
-                  set={set}
-                  index={index2}
-                  updateSets={updateSets}
-                />
-              );
+            sets.map((set, index) => {
+              return <WorkoutExerciseSet set={set} index={index} />;
             })
           )}
         </div>
-        <WorkoutExerciseAmount
-          value={value}
-          index={index}
-          outputIndex={outputIndex}
-          setOutputIndex={setOutputIndex}
-          outputAmount={outputAmount}
-          setOutputAmount={setOutputAmount}
-          addSet={addSet}
-        />
-      
-        */}
       </Card.Body>
     </Card>
   );
