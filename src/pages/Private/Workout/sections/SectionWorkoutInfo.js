@@ -6,6 +6,7 @@ import { FcEditImage, FcCancel } from "react-icons/fc";
 import { resolve } from "../../../../services/utils";
 import WorkoutService from "../../../../services/workout";
 import { useNavigate } from "react-router-dom";
+import StatsCards from "../../../../components/Stats/StatsCards";
 
 const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
   const navigate = useNavigate();
@@ -17,17 +18,22 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
 
   return (
     <Card className="p-3">
-      <Card.ImageHeader
-        className="mb-3"
-        path={`.././${workout.type.toLowerCase()}.png`}
-      >
-        <Card.Header>{new Date(workout.date).toDateString()}</Card.Header>
-        <Card.Title>{workout.type}</Card.Title>
-      </Card.ImageHeader>
-
       <Card.Body className="p-0">
-        <h3>Reps {totalAmount}</h3>
-        <h3>Sets {totalSets}</h3>
+        <Card.ImageHeader
+          className="mb-3"
+          path={`.././${workout.type.toLowerCase()}.png`}
+        >
+          <Card.Header>{new Date(workout.date).toDateString()}</Card.Header>
+          <Card.Title>{workout.type}</Card.Title>
+        </Card.ImageHeader>
+
+        <StatsCards
+          statsObject={{
+            Total: totalAmount,
+            Sets: totalSets,
+          }}
+        />
+
         <div className="row align-items-center">
           <div className="col mb-3 mb-lg-0">
             <Button className="w-100">

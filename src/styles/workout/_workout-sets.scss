@@ -97,37 +97,3 @@
     color: var(--fg-dang);
   }
 }
-
-.workout-sets-repetitions__stats-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.workout-sets-repetitions__stats {
-  background-color: var(--fg-acce);
-  color: var(--bg-card);
-  border-radius: $border-radius-button;
-  padding: 0.5rem;
-}
-
-.workout-sets-repetitions__stats-number {
-  font-weight: 900;
-  color: inherit;
-}
-
-.workout-sets-repetitions__stats-stat {
-  color: var(--fg-light);
-}
-
-@media screen and (max-width: 400px) {
-  .workout-sets-repetitions__stats-container {
-    gap: 0.5rem;
-  }
-  .workout-sets-repetitions__stats-number {
-    font-weight: 900;
-    color: inherit;
-    font-size: x-large;
-  }
-}
