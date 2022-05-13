@@ -3,27 +3,31 @@ import { FaWindowClose } from "react-icons/fa";
 import { resolve } from "../../../../services/utils";
 
 import SetsService from "../../../../services/sets";
-import { SetsContext } from "../../../../contexts/setsContext";
+import { WorkoutContext } from "../../../../contexts/workoutContext";
 
 const WorkoutExerciseSet = ({ set, index }) => {
-  const [setsList, setSetsList] = useContext(SetsContext);
+  const contextData = useContext(WorkoutContext);
+  const [sets, setSets] = contextData.sets;
 
   const deleteSet = async () => {
     const [data, error] = await resolve(SetsService.removeSet(set._id));
 
     if (data) {
-      var newSets = [...setsList];
+      var newSets = [...sets];
       newSets = newSets.filter((newSet) => newSet._id !== set._id);
-      setSetsList(newSets);
+      setSets(newSets);
     } else {
       console.log(error);
     }
   };
   return (
     <div key={index} className="workout-sets-repetitions__set">
-      <h5 className="me-3">Set {index + 1}</h5>
-      <h5>{set.amount}</h5>
-      <button className="btn set-button" onClick={deleteSet}>
+      <h5 className="workout-sets-repetitions__set-count">Set {index + 1}</h5>
+      <h5 className="workout-sets-repetitions__set-amount">{set.amount}</h5>
+      <button
+        className="workout-sets-repetitions__set-button"
+        onClick={deleteSet}
+      >
         <FaWindowClose />
       </button>
     </div>

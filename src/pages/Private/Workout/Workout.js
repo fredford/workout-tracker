@@ -3,25 +3,21 @@ import { useParams } from "react-router-dom";
 import Page from "../../../components/Misc/Page";
 import { resolve } from "../../../services/utils";
 import WorkoutsService from "../../../services/workouts";
-import SetsService from "../../../services/sets";
 import WorkoutService from "../../../services/workout";
 import SectionAddExercise from "./sections/SectionAddExercise";
 import { useDispatch, useSelector } from "react-redux";
 
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
 import SectionAddSet from "./sections/SectionAddSet";
-import { SetsContext } from "../../../contexts/setsContext";
+import { WorkoutContext } from "../../../contexts/workoutContext";
 
 const Workout = () => {
-  const [sets, setSets] = useContext(SetsContext);
+  const contextData = useContext(WorkoutContext);
 
-  console.log(sets);
+  const [sets, setSets] = contextData.sets;
+  const [workout, setWorkout] = contextData.workout;
 
   const { workoutId } = useParams();
-  const [workout, setWorkout] = useState({
-    date: "...",
-    type: "...",
-  });
 
   const changeNewExercise = (exercise) => {
     setNewExercise(exercise);
@@ -49,37 +45,6 @@ const Workout = () => {
     setTotalSets(dataSets.length);
   };
 
-  const [outputAmount, setOutputAmount] = useState("");
-  const [outputIndex, setOutputIndex] = useState("");
-
-  const addSet = async (index) => {
-    if (index === outputIndex) {
-      const exercise = exercises.find(
-        (element) =>
-          element.name === Object.keys(exercisesInSetsArray[index])[0]
-      );
-
-      var newSet = {};
-      newSet["exerciseId"] = exercise._id;
-      newSet["workoutId"] = workoutId;
-      newSet["amount"] = outputAmount;
-
-      const [data, error] = await resolve(SetsService.createSet(newSet));
-
-      var newSets = [...sets];
-      if (data) {
-        newSets.push(data);
-      }
-
-      setSets(newSets);
-    }
-  };
-
-  const updateSets = (set) => {
-    var newSets = sets.filter((s) => s._id !== set._id);
-    setSets(newSets);
-  };
-
   // Variable for the new exercise selected
   const [newExercise, setNewExercise] = useState("");
 
@@ -89,9 +54,6 @@ const Workout = () => {
 
   // List of Exercises used in the Workout
   var listOfWorkoutExercises = [];
-
-  // Set the list of set exercises to be shown
-  var exercisesInSetsArray = [];
 
   // Object to store all data on the workout
   var workoutObject = {};

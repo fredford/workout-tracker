@@ -8,18 +8,18 @@ import { Provider } from "react-redux";
 
 import store from "./store";
 import { SettingsProvider } from "./contexts/settingsContext";
-import { SetsProvider } from "./contexts/setsContext";
+import { WorkoutProvider } from "./contexts/workoutContext";
 
 function start() {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
         <SettingsProvider>
-          <SetsProvider>
+          <WorkoutProvider>
             <Provider store={store}>
               <App />
             </Provider>
-          </SetsProvider>
+          </WorkoutProvider>
         </SettingsProvider>
       </BrowserRouter>
     </React.StrictMode>,
