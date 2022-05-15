@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
-import Section from "../../../../components/Misc/Section";
 import { FcEditImage, FcCancel } from "react-icons/fc";
 import { resolve } from "../../../../services/utils";
 import WorkoutService from "../../../../services/workout";
 import { useNavigate } from "react-router-dom";
-import StatsCards from "../../../../components/Stats/StatsCards";
+import StatsCard from "../../../../components/Stats/StatsCard";
 
 const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
   const navigate = useNavigate();
@@ -26,31 +25,26 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
           <Card.Header>{new Date(workout.date).toDateString()}</Card.Header>
           <Card.Title>{workout.type}</Card.Title>
         </Card.ImageHeader>
-
-        <StatsCards
-          statsObject={{
-            Total: totalAmount,
-            Sets: totalSets,
-          }}
-        />
+        <div className="mb-3 grid-4-item">
+          <StatsCard data={totalAmount} title={"Total"} />
+          <StatsCard data={totalSets} title={"Sets"} />
+          <Button className="">
+            <Button.Icon>
+              <FcEditImage size={30} />
+            </Button.Icon>
+            <Button.Text>Edit</Button.Text>
+          </Button>
+          <Button className="w-100" onClick={deleteWorkout}>
+            <Button.Icon>
+              <FcCancel size={30} />
+            </Button.Icon>
+            <Button.Text>Delete</Button.Text>
+          </Button>
+        </div>
 
         <div className="row align-items-center">
-          <div className="col mb-3 mb-lg-0">
-            <Button className="w-100">
-              <Button.Icon>
-                <FcEditImage size={30} />
-              </Button.Icon>
-              <Button.Text>Edit</Button.Text>
-            </Button>
-          </div>
-          <div className="col">
-            <Button className="w-100" onClick={deleteWorkout}>
-              <Button.Icon>
-                <FcCancel size={30} />
-              </Button.Icon>
-              <Button.Text>Delete</Button.Text>
-            </Button>
-          </div>
+          <div className="col mb-3 mb-lg-0"></div>
+          <div className="col"></div>
         </div>
       </Card.Body>
     </Card>

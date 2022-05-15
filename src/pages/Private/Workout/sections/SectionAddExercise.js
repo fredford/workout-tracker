@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../../../../components/Cards/Card";
 
-const SectionAddExercise = ({ exercises, newExercise, setNewExercise }) => {
+const SectionAddExercise = ({ exercises, setNewExercise }) => {
   return (
     <Card className="flex-grow-1">
       <Card.Body>

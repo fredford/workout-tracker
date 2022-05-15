@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
 import SectionAddSet from "./sections/SectionAddSet";
 import { WorkoutContext } from "../../../contexts/workoutContext";
+import Button from "../../../components/Buttons/Button";
 
 const Workout = () => {
   const contextData = useContext(WorkoutContext);
@@ -90,6 +91,9 @@ const Workout = () => {
     <Page>
       <Page.NavBar />
       <Page.Body navbar container>
+        <Button path="/workouts" className="w-100">
+          <Button.Text>Back to Workouts</Button.Text>
+        </Button>
         <SectionWorkoutInfo
           workout={workout}
           totalAmount={totalAmount}

@@ -8,7 +8,7 @@ import SetsService from "../../../../services/sets";
 
 import WorkoutExerciseAmount from "./WorkoutExerciseAmount";
 import WorkoutExerciseSet from "./WorkoutExerciseSet";
-import StatsCards from "../../../../components/Stats/StatsCards";
+import StatsCard from "../../../../components/Stats/StatsCard";
 
 const WorkoutCardRepetitions = ({ exerciseObject }) => {
   const contextData = useContext(WorkoutContext);
@@ -28,13 +28,6 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
   const avgSets = Math.round((sumSets / sets.length) * 10) / 10;
   const maxSet = Math.max(...sets.map((o) => Number(o.amount)), 0);
   const numSets = sets.length;
-
-  const statsObject = {
-    Sets: numSets,
-    Avg: avgSets,
-    Max: maxSet,
-    Total: sumSets,
-  };
 
   const addSet = async () => {
     let set = {
@@ -71,7 +64,13 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
         <Card.Bar className="mt-0 mb-2" />
         <WorkoutExerciseAmount amount={amount} setAmount={setAmount} />
         <Card.Bar className="mb-2 mt-2" />
-        <StatsCards statsObject={statsObject} />
+        <div className="mb-3 grid-4-item">
+          <StatsCard data={numSets} title={"Sets"} />
+          <StatsCard data={avgSets} title={"Avg"} />
+          <StatsCard data={maxSet} title={"Max"} />
+          <StatsCard data={sumSets} title={"Total"} />
+        </div>
+
         <div className="workout-sets-repetitions__sets-container">
           {React.Children.toArray(
             sets.map((set, index) => {

@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 import { fetchExercises } from "../../redux/reducers/exercises";
 
 const PrivateRoute = () => {
-  //const [token, setToken] = useState(localStorage.getItem("authToken"))
   var token = localStorage.getItem("authToken");
 
   const dispatch = useDispatch();
