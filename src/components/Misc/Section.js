@@ -20,7 +20,7 @@ const Section = (props) => {
 
 const Header = (props) => {
   let className = "section-header " + props.className;
-  return <h3 className={className}>{props.children}</h3>;
+  return <h2 className={className}>{props.children}</h2>;
 };
 Section.Header = Header;
 

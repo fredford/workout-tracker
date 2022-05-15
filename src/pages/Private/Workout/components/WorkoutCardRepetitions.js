@@ -52,8 +52,10 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
       <Card.Body className="workout-sets__body">
         <div className="workout-sets__header">
           <div className="workout-sets__header-text">
-            <h4 className="workout-sets__header-title">{exercise.name}</h4>
-            <h5 className="workout-sets__header-type">{exercise.type}</h5>
+            <h3 className="workout-sets__header-title">{exercise.name}</h3>
+            <h4 className="workout-sets__header-type text-muted">
+              {exercise.type}
+            </h4>
           </div>
           <div className="workout-sets__header-button">
             <Button className="p-3" onClick={addSet}>

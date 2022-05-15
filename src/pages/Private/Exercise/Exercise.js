@@ -85,7 +85,7 @@ const Exercise = () => {
                 <Card.Header>Settings</Card.Header>
                 <Card.Body>
                   <Button onClick={deleteExercise} className="w-100 btn-danger">
-                    Delete
+                    <Button.Text>Delete</Button.Text>
                   </Button>
                 </Card.Body>
               </Card>

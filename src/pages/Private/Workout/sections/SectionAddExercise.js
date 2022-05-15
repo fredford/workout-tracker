@@ -5,7 +5,7 @@ const SectionAddExercise = ({ exercises, setNewExercise }) => {
   return (
     <Card className="flex-grow-1">
       <Card.Body>
-        <Card.Title>Exercise</Card.Title>
+        <Card.Header>Exercise</Card.Header>
         <Card.Subtitle className="text-muted">
           Choose an exercise to add to the workout
         </Card.Subtitle>
