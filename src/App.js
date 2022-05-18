@@ -18,7 +18,6 @@ const App = () => {
   const { theme } = useContext(SettingsContext);
 
   document.documentElement.setAttribute("data-theme", theme[0]);
-  console.log("Here we are");
 
   return (
     <div className="App" data-theme={theme[0]}>
