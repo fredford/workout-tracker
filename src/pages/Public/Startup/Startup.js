@@ -6,6 +6,7 @@ import Page from "../../../components/Misc/Page";
 
 export default function Startup() {
   console.log("here??");
+
   return (
     <Page>
       <Page.Body center>
