@@ -1,0 +1,51 @@
+.card {
+  @include standard-border;
+  background-color: var(--bg-card);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  word-wrap: break-word;
+  padding: 1rem;
+}
+
+.card-header {
+  background-color: inherit;
+  border-bottom: none;
+  padding: 0rem;
+}
+
+.card-bar {
+  margin: 1rem 0;
+  height: 2px !important;
+  color: var(--fg-base);
+  border: none;
+}
+
+.card-title {
+}
+
+.card-subtitle {
+  margin-top: 0;
+  color: var(--fg-mute);
+}
+
+.card-body {
+  padding: 0rem;
+  box-sizing: border-box;
+}
+
+.card-image-body__header {
+  display: flex;
+}
+
+.card-image-body__image {
+  @include standard-image;
+  //height: 50px;
+}
+
+.card-image-body {
+  box-sizing: border-box;
+}
+
+.card-text {
+}

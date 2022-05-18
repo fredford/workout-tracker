@@ -1,0 +1,146 @@
+.stretch-card {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+
+  > .default-card,
+  .card {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.divider {
+  height: 3px !important;
+  color: var(--fg-text) !important;
+}
+
+hr {
+  color: rgba($accent-color, 0.5);
+}
+
+.default-input {
+  @include standard-form;
+}
+
+.time-input {
+  width: 6ch;
+}
+
+.grid-margin {
+  margin-bottom: 12px;
+}
+
+.grid-top {
+  margin-top: 16px;
+}
+
+.row {
+  --bs-gutter-x: 12px;
+}
+
+.justify-content-stretch {
+  justify-content: stretch !important;
+}
+
+.pink {
+  background-color: salmon;
+}
+
+.card-gradient {
+  background: linear-gradient(
+    180deg,
+    #20b2aa,
+    #25aaa7,
+    #2e9197,
+    #35707c,
+    #35535f,
+    #2e3c44,
+    #252b31,
+    #212529
+  );
+}
+
+.profile-image {
+  width: 25vw;
+  height: 25vw;
+  border-radius: calc(25vw / 2);
+  object-fit: cover;
+  border: 3px solid var(--fg-acce);
+}
+
+.frosted-glass {
+  background-color: rgba(var(--fg-acce-rgb), 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.text-muted {
+  color: var(--fg-mute) !important;
+  font-weight: $font-weight-muted;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.stretch-card {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+
+  > .default-card {
+    width: 100%;
+    min-width: 100%;
+  }
+}
+
+.margin-right {
+  margin-right: 0.5rem;
+}
+.margin-left {
+  margin-left: 0.5rem;
+}
+
+.card-icon {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 1rem;
+}
+
+.color-main {
+  background-color: var(--color-main-500);
+
+  &:hover {
+    background-color: var(--color-main-600) !important;
+  }
+}
+
+.color-1 {
+  background-color: var(--color-1-500);
+
+  &:hover {
+    background-color: var(--color-1-600) !important;
+  }
+}
+
+.color-2 {
+  background-color: var(--color-2-500);
+
+  &:hover {
+    background-color: var(--color-2-600) !important;
+  }
+}
+.color-3 {
+  background-color: var(--color-3-500);
+
+  &:hover {
+    background-color: var(--color-3-600) !important;
+  }
+}
+.color-4 {
+  background-color: var(--color-4-500);
+
+  &:hover {
+    background-color: var(--color-4-600) !important;
+  }
+}

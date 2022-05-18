@@ -1,0 +1,49 @@
+import React from "react";
+
+import { useNavigate } from "react-router-dom";
+
+const Button = (props) => {
+  const navigate = useNavigate();
+
+  let className = "standard-button " + props.className;
+
+  let subComponentList = Object.keys(Button);
+
+  let subComponents = subComponentList.map((key) => {
+    return React.Children.map(props.children, (child) =>
+      child.type.name === key ? child : null
+    );
+  });
+
+  const handlePath = () => {
+    navigate(props.path);
+  };
+
+  const onClick = props.path ? handlePath : props.onClick;
+
+  return (
+    <button className={className} onClick={onClick} disabled={props.disabled}>
+      {subComponents.map((component) => component)}
+    </button>
+  );
+};
+
+const Icon = (props) => {
+  let className = "button__icon " + props.className;
+  return <div className={className}>{props.children}</div>;
+};
+Button.Icon = Icon;
+
+const Image = (props) => {
+  let className = "button__image " + props.className;
+  return <img className={className} src={props.src} alt="" />;
+};
+Button.Image = Image;
+
+const Text = (props) => {
+  let className = "button__text mb-0 " + props.className;
+  return <p className={className}>{props.children}</p>;
+};
+Button.Text = Text;
+
+export default Button;

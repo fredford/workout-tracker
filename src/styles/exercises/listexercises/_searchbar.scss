@@ -1,8 +1,6 @@
 .list-exercises__searchbar {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  width: 100%;
   margin-top: 0.5rem;
 }
 
@@ -36,7 +34,6 @@
 }
 
 .list-exercises__add-button {
-  @include icon-button;
   margin-left: 0.5rem;
 
   display: flex;
@@ -46,5 +43,4 @@
 .list-exercises__add-button span {
   padding-top: 2px;
   margin-left: 0.5rem;
-  font-weight: $font-weight-button;
 }

@@ -1,0 +1,14 @@
+@mixin light-base-color {
+  background-color: var(--fg-light);
+  color: var(--fg-text);
+
+  &:hover {
+    background-color: var(--fg-base);
+    color: var(--bg-card);
+  }
+
+  &:disabled {
+    background-color: var(--fg-lighter);
+    color: var(--bs-gray-500);
+  }
+}

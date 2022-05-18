@@ -1,0 +1,105 @@
+.link-button {
+  .link-button__image {
+    width: $image-width;
+  }
+
+  .link-button__icon {
+    width: $image-width;
+  }
+}
+
+.standard-button {
+  @include standard-border;
+  @include standard-padding;
+  @include light-base-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button__image {
+    @include standard-image;
+    margin-top: 0.5rem;
+  }
+
+  & > *:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  &:hover {
+    .button__image {
+      background-color: var(--fg-acce);
+    }
+  }
+
+  .button__icon {
+    width: $image-width;
+  }
+
+  .button__text {
+    color: inherit;
+    font-weight: $font-bold;
+  }
+}
+
+.button-toggle {
+  .button-toggle__input {
+    display: none;
+  }
+  .button-toggle__label {
+    background-color: rgba(var(--fg-acce-rgb), 0.2);
+    border-radius: $border-radius-button;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.button-radio {
+  .button-radio__input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .button-radio__label {
+    border: 2px solid rgba(var(--fg-acce-rgb), 0.2);
+    background-color: rgba(var(--fg-acce-rgb), 0.1);
+    border-radius: $border-radius-button;
+    padding: 0.25rem;
+  }
+
+  .button-radio__input:hover ~ .button-radio__label {
+    background-color: rgba(var(--fg-acce-rgb), 0.2);
+  }
+
+  .button-radio__input:checked ~ .button-radio__label {
+    background-color: rgba(var(--fg-acce-rgb), 0.6);
+  }
+}
+
+.button-icon {
+  width: 38px;
+  height: 38px;
+}
+
+.set-button {
+  opacity: 0.5;
+  padding: 0;
+  color: var(--fg-acce);
+  @include standard-border;
+}
+
+.set-button:hover {
+  opacity: 1;
+  color: var(--bs-red);
+}
+
+.button-danger {
+  background-color: var(--bs-red);
+  color: var(--bg-card);
+
+  &:hover {
+    background-color: var(--fg-dang);
+  }
+}

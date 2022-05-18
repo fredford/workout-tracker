@@ -1,7 +1,21 @@
-// Colors
+$image-width: 75px;
+$image-small-width: 60px;
+$line-height: 38px;
+
+// Border
+$border-radius-standard: 0.25rem;
+$border-radius-card: 0.5rem;
+$border-radius-button: 0.25rem;
+$border-radius-form: 0.25rem;
+$border-radius-image: 1rem;
+
+// Font
+$font-family: "Quicksand", sans-serif;
+$font-slim: 300;
+$font-norm: 500;
+$font-bold: 700;
 
 $accent-color: lightskyblue;
-
 $upper-color: #f08080;
 $lower-color: lightskyblue;
 $core-color: yellow;
@@ -23,18 +37,3 @@ $core-active: rgba($core-color, 0.6);
 // Cardio Body
 $cardio-light: rgba($cardio-color, 0.3);
 $cardio-active: rgba($cardio-color, 0.6);
-
-// Border
-
-$border-radius-button: 0.5rem;
-$border-radius-card: 0.5rem;
-
-// Box Shadow
-
-$box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
-// Font
-$font-family: "Rubik", sans-serif;
-
-$font-size-button: 0.875rem;
-$font-weight-button: 500;

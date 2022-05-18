@@ -1,0 +1,48 @@
+.standard-card {
+  box-shadow: $box-shadow;
+  border: none;
+  border-radius: $border-radius-card;
+  background-color: var(--bg-card);
+}
+
+.popout-card {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translate3d(0, -4px, 0);
+    box-shadow: $box-shadow-popout;
+  }
+}
+
+.button-card {
+  background-color: var(--fg-color-400);
+  transition: all 0.2s ease-in-out;
+
+  .button-card__contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &:hover {
+    background-color: var(--fg-color-600);
+    transform: translate3d(0, -4px, 0);
+    box-shadow: $box-shadow-popout;
+  }
+
+  img {
+    width: 6rem;
+    height: 6rem;
+    object-fit: fill;
+    margin: 1rem 0;
+  }
+
+  h4 {
+    color: var(--fg-text);
+  }
+
+  h6 {
+    color: var(--fg-mute);
+    font-weight: $font-weight-muted;
+  }
+}

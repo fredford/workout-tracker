@@ -60,3 +60,9 @@ const exercisesSlice = createSlice({
 export const { setExercises } = exercisesSlice.actions;
 
 export default exercisesSlice.reducer;
+
+export const selectExerciseById = (state, exerciseId) => {
+  return state.exercises.exercises.find(
+    (exercise) => exercise._id === exerciseId
+  );
+};

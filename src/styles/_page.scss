@@ -1,0 +1,24 @@
+.page {
+  background-color: var(--bg-main);
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-body {
+  & > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.center-page {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-page {
+  margin-top: calc(51px + 1rem);
+}

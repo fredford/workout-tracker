@@ -17,7 +17,9 @@ td,
 .body,
 .p {
   font-family: $font-family;
+  font-weight: $font-bold;
   margin: 0;
+  color: var(--fg-text);
 }
 
 .h1,
@@ -38,13 +40,11 @@ h3 {
 .h4,
 h4 {
   font-size: 18px;
-  color: var(--fg-text);
 }
 
 .h5,
 h5 {
   font-size: 16px;
-  color: var(--fg-text);
 }
 .h6,
 h6 {
@@ -54,4 +54,10 @@ h6 {
 .p,
 p {
   font-size: 14px;
+  font-weight: $font-norm;
+}
+
+.body,
+body {
+  font-weight: $font-norm;
 }

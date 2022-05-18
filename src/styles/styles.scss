@@ -1,71 +1,36 @@
-@import "bootstrap/dist/css/bootstrap.min.css";
-@import "bootstrap-icons/font/bootstrap-icons.css";
-
-// Custom.scss
-// Option B: Include parts of Bootstrap
-
-// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
-@import "~bootstrap/scss/functions";
-
-// 2. Include any default variable overrides here
-
-// 3. Include remainder of required Bootstrap stylesheets
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-
-// 4. Include any optional Bootstrap components as you like
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/images";
-@import "~bootstrap/scss/containers";
-@import "~bootstrap/scss/grid";
-
-// 5. Add additional custom code here
-
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600&display=swap");
 
 @import "./variables";
-
-@import "./mixins/buttons";
-@import "./mixins/activity";
-@import "./mixins/cards";
-@import "./mixins/forms";
-
 @import "./typography";
 
-@import "./app";
+@import "./mixins/activity";
+@import "./mixins/border";
+@import "./mixins/spacing";
+@import "./mixins/colors";
+@import "./mixins/images";
 
-// Layout
-@import "./layout/navbar";
+@import "./utility/text";
+@import "./utility/spacing";
+@import "./utility/images";
+@import "./utility/grids";
 
-// Pages
-@import "./pages/page";
-@import "./pages/notfound";
-@import "./pages/login";
-@import "./pages/profile";
-@import "./pages/loading";
+@import "./page";
+@import "./components/cards";
+@import "./components/buttons";
+@import "./components/navbar";
+@import "./components/activityToggles";
+@import "./components/form";
+@import "./components/stats";
 
-// Cards
-@import "./layout/card/card";
+@import "./profile/profile-hero";
 
-// Exercises
 @import "./exercises/exercises";
-@import "./exercises/exercise";
-@import "./exercises/list-exercises";
-@import "./exercises/list-exercises-modal";
-
 @import "./exercises/listexercises/searchbar";
 @import "./exercises/listexercises/useroptions";
-@import "./exercises/addexercise";
 
-// Workouts
-@import "./workouts/workout";
+@import "./workouts/list-workouts";
+@import "./workouts/add-workout";
 
-// Utils
-
-@import "./utilities";
-
-// Components
-
-@import "./layout/components/activityToggles";
+@import "./workout/workout-info";
+@import "./workout/workout-exercises";
+@import "./workout/workout-sets";

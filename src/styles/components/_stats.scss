@@ -1,0 +1,33 @@
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stats-card {
+  background-color: var(--fg-acce);
+  color: var(--bg-card);
+  border-radius: $border-radius-button;
+  padding: 0.5rem;
+}
+
+.stats-card__number {
+  font-weight: 900;
+  color: inherit;
+}
+
+.stats-card__name {
+  color: var(--fg-light);
+}
+
+@media screen and (max-width: 400px) {
+  .stats-container {
+    gap: 0.5rem;
+  }
+  .stats-card__number {
+    font-weight: 900;
+    color: inherit;
+    font-size: x-large;
+  }
+}

@@ -1,0 +1,11 @@
+@mixin standard-image {
+  @include standard-padding;
+  border-radius: $border-radius-image;
+  width: $image-width;
+
+  background-color: rgba(var(--fg-acce-rgb), 0.4);
+
+  @media screen and (max-width: 500px) {
+    width: $image-small-width;
+  }
+}
