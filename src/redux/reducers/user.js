@@ -1,9 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import http from "../../http-common";
-
-import { config, resolve } from "../../services/utils";
+import { config } from "../../services/utils";
 
 import { profilePath } from "../../services/apiPaths";
 
@@ -23,6 +21,9 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
 
       return [null, "Fail"];
     });
+  if (error) {
+    console.log(error);
+  }
   return data;
 });
 

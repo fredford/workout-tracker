@@ -118,6 +118,8 @@ const SectionExercises = () => {
                         </div>
                       </div>
                     );
+                  } else {
+                    return <></>;
                   }
                 })
               )}

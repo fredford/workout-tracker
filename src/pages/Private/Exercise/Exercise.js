@@ -35,6 +35,7 @@ const Exercise = () => {
     if (data) {
       navigate("/message/exercisedeletesuccess");
     } else {
+      console.log(error);
       navigate("/message/exercisedeletefailed");
     }
   };

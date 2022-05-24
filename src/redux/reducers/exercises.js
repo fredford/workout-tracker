@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 import { resolve } from "../../services/utils";
@@ -33,6 +31,9 @@ export const addExercise = createAsyncThunk(
 
         return [null, "Fail"];
       });
+    if (error) {
+      console.log(error);
+    }
     return data;
   }
 );

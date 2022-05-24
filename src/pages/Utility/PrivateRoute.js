@@ -21,7 +21,7 @@ const PrivateRoute = () => {
         localStorage.removeItem("authToken");
       }
     }
-  }, []);
+  }, [token, dispatch]);
 
   return localStorage.getItem("authToken") ? (
     <Outlet />

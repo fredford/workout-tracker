@@ -34,25 +34,6 @@ const App = () => {
               />
             );
           })}
-          {/*
-          
-        <Route exact path="/private" element={<PrivatePage />} />
- 
-        <Route
-          exact
-          path="/exercises/:exerciseId/editexercise"
-          element={<EditExercise />}
-        />
-        <Route exact path="/exercises/:exerciseId" element={<Exercise />} />
-      
-        <Route exact path="/addexercise" element={<AddExercise />} />
-        <Route exact path="/workouts/:workoutId" element={<Sets />} />
-        <Route exact path="/workouts" element={<Workouts />} />
-     
-        <Route exact path="/deleteaccount" element={<DeleteAccount />} />
-        <Route exact path="/changeusername" element={<ChangeUsername />} />
-
-        */}
         </Route>
         {publicRoutes.map((route, index) => {
           return (

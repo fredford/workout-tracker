@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FaArrowLeft, FaArrowRight, FaWindowClose } from "react-icons/fa";
 
 import Card from "../../../../components/Cards/Card";
-import Button from "../../../../components/Buttons/Button";
+
 import Section from "../../../../components/Misc/Section";
-import ListWorkoutOptions from "../components/ListWorkoutOptions";
+
 import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import { useNavigate } from "react-router-dom";
 import { resolve } from "../../../../services/utils";
@@ -35,9 +35,9 @@ const SectionWorkouts = () => {
     displayList.reverse();
   }
 
-  const changeDirection = () => {
-    setIsAscending(!isAscending);
-  };
+  // const changeDirection = () => {
+  //   setIsAscending(!isAscending);
+  // };
 
   const increasePage = () => {
     var newPage = page;
@@ -55,11 +55,11 @@ const SectionWorkouts = () => {
     }
   };
 
-  const deleteWorkout = async (id) => {
-    const [data, error] = await resolve(WorkoutService.deleteById(id));
+  // const deleteWorkout = async (id) => {
+  //   const [data, error] = await resolve(WorkoutService.deleteById(id));
 
-    setWorkouts(workouts.filter((workout) => workout._id !== id));
-  };
+  //   setWorkouts(workouts.filter((workout) => workout._id !== id));
+  // };
 
   return (
     <Section>
