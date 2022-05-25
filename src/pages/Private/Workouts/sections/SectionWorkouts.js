@@ -35,9 +35,9 @@ const SectionWorkouts = () => {
     displayList.reverse();
   }
 
-  // const changeDirection = () => {
-  //   setIsAscending(!isAscending);
-  // };
+  const changeDirection = () => {
+    setIsAscending(!isAscending);
+  };
 
   const increasePage = () => {
     var newPage = page;
@@ -55,11 +55,11 @@ const SectionWorkouts = () => {
     }
   };
 
-  // const deleteWorkout = async (id) => {
-  //   const [data, error] = await resolve(WorkoutService.deleteById(id));
+  const deleteWorkout = async (id) => {
+    const [data, error] = await resolve(WorkoutService.deleteById(id));
 
-  //   setWorkouts(workouts.filter((workout) => workout._id !== id));
-  // };
+    setWorkouts(workouts.filter((workout) => workout._id !== id));
+  };
 
   return (
     <Section>

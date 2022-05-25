@@ -5,7 +5,7 @@ const Form = (props) => {
 
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) =>
-      child.type.name === key ? child : null
+      child.type.displayName === key ? child : null
     );
   });
 
@@ -26,6 +26,7 @@ const Label = (props) => {
     </label>
   );
 };
+Label.displayName = "Label";
 Form.Label = Label;
 
 const Input = (props) => {
@@ -43,6 +44,7 @@ const Input = (props) => {
     />
   );
 };
+Input.displayName = "Input";
 Form.Input = Input;
 
 export default Form;

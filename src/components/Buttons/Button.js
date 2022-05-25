@@ -11,7 +11,7 @@ const Button = (props) => {
 
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) =>
-      child.type.name === key ? child : null
+      child.type.displayName === key ? child : null
     );
   });
 
@@ -32,18 +32,21 @@ const Icon = (props) => {
   let className = "button__icon " + props.className;
   return <div className={className}>{props.children}</div>;
 };
+Icon.displayName = "Icon";
 Button.Icon = Icon;
 
 const Image = (props) => {
   let className = "button__image " + props.className;
   return <img className={className} src={props.src} alt="" />;
 };
+Image.displayName = "Image";
 Button.Image = Image;
 
 const Text = (props) => {
   let className = "button__text mb-0 " + props.className;
   return <p className={className}>{props.children}</p>;
 };
+Text.displayName = "Text";
 Button.Text = Text;
 
 export default Button;
