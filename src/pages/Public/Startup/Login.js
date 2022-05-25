@@ -26,6 +26,7 @@ const Login = () => {
     e.preventDefault();
 
     const config = {
+      baseURL: `${process.env.REACT_APP_BACKEND_URL}/api/v1`,
       header: {
         "Content-Type": "application/json",
       },
@@ -33,7 +34,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        "/api/v1/login",
+        "/login",
         {
           email,
           password,
