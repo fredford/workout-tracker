@@ -10,8 +10,6 @@ import Button from "../../../components/Buttons/Button";
 const Login = () => {
   let navigate = useNavigate();
 
-  console.log("please show");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");

@@ -10,8 +10,6 @@ import MessagePage from "../pages/Utility/MessagePage";
 
 // import DeleteAccount from "../pages/Profile/DeleteAccount";
 
-console.log("private routes");
-
 const privateRoutes = [
   {
     path: "/dashboard",

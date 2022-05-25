@@ -8,8 +8,6 @@ import Startup from "../pages/Public/Startup/Startup";
 import NotFound from "../pages/Utility/NotFound";
 // import MessagePage from "../pages/Utility/MessagePage";
 
-console.log("show public routes");
-
 const publicRoutes = [
   // {
   //   path: "/message/:message",

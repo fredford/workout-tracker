@@ -12,6 +12,8 @@ const instance = axios.create({
 instance.interceptors.request.use((config) => {
   const token = getAuth();
 
+  console.log(`${process.env.REACT_APP_BACKEND_URL}/api/v1`);
+
   if (token) {
     config.headers.Authorization = `Bearer ${localStorage.getItem(
       "authToken"
