@@ -1,14 +1,14 @@
 import React from "react";
 import Navbar from "./Navbar";
 
+// Main parent component handling all Page presentations
 const Page = (props) => {
-  console.log("page");
-  console.log(props.children);
-
+  // Get a list of all Page subcomponents
   let subComponentList = Object.keys(Page);
+
+  // Get the child components for Page and display them in the order designated
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) => {
-      console.log(child.type.displayName === key ? child : null);
       return child.type.displayName === key ? child : null;
     });
   });
@@ -16,7 +16,6 @@ const Page = (props) => {
   return (
     <div className="page">
       {subComponents.map((component) => {
-        console.log(component);
         return component;
       })}
     </div>

@@ -5,7 +5,7 @@ const Card = (props) => {
 
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) =>
-      child.type.name === key ? child : null
+      child.type.displayName === key ? child : null
     );
   });
 
@@ -18,6 +18,7 @@ const Card = (props) => {
   );
 };
 
+// Header component as a replacement to Section header text
 const Header = (props) => {
   let className = "card-header " + props.className;
   return (
@@ -27,8 +28,10 @@ const Header = (props) => {
     </>
   );
 };
+Header.displayName = "Header";
 Card.Header = Header;
 
+// Container to display an image with text beside
 const ImageHeader = (props) => {
   let className = `card-image-body__header ${props.className}`;
   return (
@@ -40,37 +43,47 @@ const ImageHeader = (props) => {
     </div>
   );
 };
+ImageHeader.displayName = "ImageHeader";
 Card.ImageHeader = ImageHeader;
 
+// Title component displaying the primary title or text
 const Title = (props) => {
   let className = "card-title " + props.className;
   return <h4 className={className}>{props.children}</h4>;
 };
+Title.displayName = "Title";
 Card.Title = Title;
+
+// Subtitle component displaying the secondary title or text
 const Subtitle = (props) => {
   let className = "card-subtitle " + props.className;
   return <h5 className={className}>{props.children}</h5>;
 };
+Subtitle.displayName = "Subtitle";
 Card.Subtitle = Subtitle;
+
+// Body container displaying the remaining components in the Card
 const Body = (props) => {
   let className = "card-body " + props.className;
   return <div className={className}>{props.children}</div>;
 };
+Body.displayName = "Body";
 Card.Body = Body;
 
+// Base sized text
 const Text = (props) => {
   let className = "card-text " + props.className;
   return <p className={className}>{props.children}</p>;
 };
+Text.displayName = "Text";
 Card.Text = Text;
 
+// Bar separator for separating different components in the Card
 const Bar = (props) => {
   let className = "card-bar " + props.className;
   return <hr className={className} />;
 };
+Bar.displayName = "Bar";
 Card.Bar = Bar;
-
-//const Image = (props) => <img src={props.children} alt="" />;
-//Card.Image = Image;
 
 export default Card;
