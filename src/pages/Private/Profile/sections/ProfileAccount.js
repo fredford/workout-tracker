@@ -10,7 +10,7 @@ const ProfileAccount = () => {
     <Section>
       <Section.Header>User Settings</Section.Header>
       <Section.Body>
-        <div className="grid-4-item">
+        <div className="grid-2-item">
           <ChangeUsername />
           <ChangePassword />
           <DeleteAccount />
