@@ -59,6 +59,7 @@ const Register = () => {
     e.preventDefault();
 
     const config = {
+      baseURL: `${process.env.REACT_APP_BACKEND_URL}/api/v1`,
       header: {
         "Content-Type": "application/json",
       },
@@ -75,7 +76,7 @@ const Register = () => {
 
     try {
       const { data } = await axios.post(
-        "/api/v1/register",
+        "/register",
         {
           name,
           email,
