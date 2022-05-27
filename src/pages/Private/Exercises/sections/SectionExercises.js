@@ -71,7 +71,6 @@ const SectionExercises = () => {
 
   return (
     <Section>
-      <Section.Header>Exercises</Section.Header>
       <Section.Body>
         <Card>
           <Card.Body>

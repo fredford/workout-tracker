@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 
 import { Accordion } from "react-bootstrap";
@@ -10,8 +10,6 @@ import ProfileSettings from "./sections/ProfileSettings";
 
 const Profile = () => {
   const user = useSelector((state) => state.user);
-
-  const [showAppSettings, setShowAppSettings] = useState(false);
 
   return (
     <Page>
