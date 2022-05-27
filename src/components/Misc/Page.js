@@ -30,14 +30,27 @@ NavBar.displayName = "NavBar";
 Page.NavBar = NavBar;
 
 // Header Componeent shown at the top of the page when requested
-const Header = ({ className, center, container, navbar, children }) => {
+const Header = ({
+  className,
+  center,
+  container,
+  navbar,
+  header,
+  subheader,
+}) => {
   let headerClassName = `page-header ${className}`;
 
   headerClassName += container ? " container" : " me-3 ms-3";
   headerClassName += navbar ? " navbar-page" : "";
   headerClassName += center ? " center-page" : "";
 
-  return <h2 className={headerClassName}>{children}</h2>;
+  return (
+    <div className={headerClassName}>
+      <h1 className="page-header__header">{header}</h1>
+      <h2 className="page-header__subheader">{subheader}</h2>
+      <hr className="page-header__bar" />
+    </div>
+  );
 };
 Header.displayName = "Header";
 Page.Header = Header;

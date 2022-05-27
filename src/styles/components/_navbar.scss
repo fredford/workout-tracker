@@ -1,10 +1,9 @@
 .page-navbar {
   z-index: 1;
   position: fixed;
-  top: 0px;
   left: 0px;
   right: 0px;
-  background-color: var(--bg-main);
+  background-color: var(--bg-card);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -87,7 +86,17 @@
   }
 }
 
+@media screen and (min-width: 432px) {
+  .page-navbar {
+    top: 0px;
+  }
+}
+
 @media screen and (max-width: 431px) {
+  .page-navbar {
+    bottom: 0px;
+  }
+
   .full-text {
     display: none;
   }

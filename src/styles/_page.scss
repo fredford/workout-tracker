@@ -1,9 +1,23 @@
 .page {
   background-color: var(--bg-main);
+  margin-bottom: 4rem;
 }
 
-.page-header {
+.page-header__header {
+  font-size: 2rem;
+  font-weight: $font-bold;
+}
+
+.page-header__subheader {
+  font-size: 1.5rem;
+  font-weight: $font-norm;
+  color: var(--fg-mute);
+}
+
+.page-header__bar {
+  margin-top: 0.5rem;
   margin-bottom: 1.5rem;
+  border-top: 1px solid !important ;
 }
 
 .page-body {
@@ -21,4 +35,10 @@
 
 .navbar-page {
   margin-top: calc(51px + 1rem);
+}
+
+@media screen and (max-width: 431px) {
+  .navbar-page {
+    margin-top: 1rem;
+  }
 }

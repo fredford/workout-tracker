@@ -8,9 +8,9 @@ import Section from "../../../../components/Misc/Section";
 const ProfileSettings = () => {
   return (
     <Section>
-      <Section.Header>Settings</Section.Header>
+      <Section.Header>App Settings</Section.Header>
       <Section.Body>
-        <div className="grid-150">
+        <div className="grid-300">
           <ProfileWeight />
           <ProfileDistance />
           <ProfileTheme />
