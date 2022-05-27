@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <Page>
       <Page.NavBar />
-      <Page.Header navbar>Dashboard</Page.Header>
+      <Page.Header navbar header="Dashboard" />
       <Page.Body>Hello</Page.Body>
     </Page>
   );

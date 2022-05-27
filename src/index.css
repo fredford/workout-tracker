@@ -1,5 +1,6 @@
 :root {
-  --bg-main: #efefef;
+  --bg-main: #dddddd;
+  --bg-button: #eeeeee;
   --bg-card: #ffffff;
   --fg-text: #1c1c1c;
   --fg-mute: #6b6b6b;
@@ -23,9 +24,12 @@
   --fg-acce: #708090;
 
   --fg-acce-rgb: 112, 128, 144;
+
+  --fg-filter-text: none;
 }
 [data-theme="dark"] {
   --bg-main: #202020;
+  --bg-button: #212121;
   --bg-card: #313131;
   --fg-text: #e3e3e3;
   --fg-mute: #acacac;
@@ -37,6 +41,13 @@
   --fg-main-rgb: 248, 249, 250;
   --fg-acce-rgb: 135, 206, 250;
   --fg-dang-rgb: 178, 34, 34;
+
+  --fg-filter-text: invert(99%) sepia(0%) saturate(4806%) hue-rotate(217deg)
+    brightness(118%) contrast(78%);
+
+  --fg-base: #3385ff;
+  --fg-light: #5c9dff;
+  --fg-lighter: darkslateblue;
 }
 
 div[role="dialog"] [data-theme="dark"] {

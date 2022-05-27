@@ -28,49 +28,34 @@ const ChangeUsername = () => {
   };
 
   return (
-    <>
-      <Button onClick={handleShow}>
-        <Button.Image src="./displayname.png" />
-        <Button.Text>Change Username</Button.Text>
-      </Button>
-      <Modal show={show} onHide={handleClose}>
-        <Card>
-          <Card.Body>
-            <Card.Title>Change Username</Card.Title>
-            <Card.Subtitle className="text-muted mb-2">
-              Set your new username
-            </Card.Subtitle>
-            <Form className="mb-3">
-              <Form.Label>New Username</Form.Label>
-              <Form.Input
-                type="text"
-                id="username"
-                placeholder={user.name}
-                value={username}
-                onChange={updateUsername}
-                required
-              ></Form.Input>
-            </Form>
-            <div className="row">
-              <div className="col">
-                <Button
-                  className="w-100"
-                  onClick={handleUpdateUsername}
-                  disabled={isDisabled}
-                >
-                  <Button.Text>Update</Button.Text>
-                </Button>
-              </div>
-              <div className="col">
-                <Button className="w-100 button-danger" onClick={handleClose}>
-                  <Button.Text>Cancel</Button.Text>
-                </Button>
-              </div>
-            </div>
-          </Card.Body>
-        </Card>
-      </Modal>
-    </>
+    <Card className="card-padding h-100">
+      <Card.ImageHeader path="./scale.png">
+        <Card.Title>Change Username</Card.Title>
+        <Card.Text className="text-muted">Set your new username</Card.Text>
+      </Card.ImageHeader>
+      <Card.Body className="pb-0 mt-3">
+        <div calssName="profile-settings-card">
+          <Form className="mb-3">
+            <Form.Input
+              type="text"
+              id="username"
+              placeholder={user.name}
+              value={username}
+              onChange={updateUsername}
+              required
+            ></Form.Input>
+          </Form>
+
+          <Button
+            className="w-100"
+            onClick={handleUpdateUsername}
+            disabled={isDisabled}
+          >
+            <Button.Text>Update</Button.Text>
+          </Button>
+        </div>
+      </Card.Body>
+    </Card>
   );
 };
 
