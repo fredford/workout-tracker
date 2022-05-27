@@ -11,7 +11,7 @@
 .standard-button {
   @include standard-border;
   @include standard-padding;
-  @include light-base-color;
+  @include empty-base-color;
   display: flex;
   flex-direction: column;
   align-items: center;

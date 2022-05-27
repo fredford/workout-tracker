@@ -6,3 +6,32 @@
   justify-content: flex-end;
   align-items: center;
 }
+
+.accordion {
+  @include standard-border;
+}
+
+.accordion-button {
+  background-color: var(--bg-button);
+  font-size: 1.25rem;
+  font-weight: $font-bold;
+  box-shadow: none !important;
+  color: var(--fg-text);
+
+  &:not(.collapsed) {
+    color: var(--fg-text);
+    background-color: var(--bg-button);
+  }
+  &::after {
+    filter: var(--fg-filter-text) !important;
+  }
+}
+
+.accordion-item {
+  background-color: var(--bg-button) !important;
+  border: none !important;
+  color: var(--fg-text);
+}
+
+.accordion-body {
+}

@@ -12,3 +12,18 @@
     color: var(--bs-gray-500);
   }
 }
+
+@mixin empty-base-color {
+  background-color: var(--bg-button);
+  color: var(--fg-text);
+
+  &:hover {
+    background-color: var(--fg-base);
+    color: var(--bg-card);
+  }
+
+  &:disabled {
+    background-color: var(--fg-lighter);
+    color: var(--bs-gray-500);
+  }
+}
