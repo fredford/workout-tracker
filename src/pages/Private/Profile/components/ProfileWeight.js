@@ -26,12 +26,12 @@ const ProfileWeight = () => {
     <Card className="card-padding h-100">
       <Card.ImageHeader path="./scale.png">
         <Card.Title>Weight</Card.Title>
-        <Card.Subtitle className="text-muted">
+        <Card.Text className="text-muted">
           Set the units for measuring weight
-        </Card.Subtitle>
+        </Card.Text>
       </Card.ImageHeader>
-      <Card.Body className="pb-0">
-        <div className="d-flex justify-content-center">
+      <Card.Body className="pb-0 mt-3">
+        <div className="profile-settings-card">
           <input
             id="weight"
             type="checkbox"

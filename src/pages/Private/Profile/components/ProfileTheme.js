@@ -24,15 +24,13 @@ const ProfileTheme = () => {
   };
 
   return (
-    <Card className="card-padding h-100">
+    <Card className="card-padding h-100 ">
       <Card.ImageHeader path="./mode.png">
         <Card.Title>Color Theme</Card.Title>
-        <Card.Subtitle className="text-muted">
-          Set light or dark theme
-        </Card.Subtitle>
+        <Card.Text className="text-muted">Set light or dark theme</Card.Text>
       </Card.ImageHeader>
-      <Card.Body className="pb-0">
-        <div className="d-flex justify-content-center">
+      <Card.Body className="pb-0 mt-3">
+        <div className="profile-settings-card">
           <input
             id="theme"
             type="checkbox"

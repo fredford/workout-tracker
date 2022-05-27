@@ -9,11 +9,17 @@ $border-radius-button: 0.25rem;
 $border-radius-form: 0.25rem;
 $border-radius-image: 1rem;
 
+// Box Shadow
+
+$box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
 // Font
-$font-family: "Quicksand", sans-serif;
-$font-slim: 300;
+//$font-family: "Quicksand", sans-serif;
+$font-family: "Montserrat", sans-serif;
+$font-slim: 400;
 $font-norm: 500;
-$font-bold: 700;
+$font-bold: 600;
 
 $accent-color: lightskyblue;
 $upper-color: #f08080;

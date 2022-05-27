@@ -11,8 +11,8 @@ const Navbar = () => {
   return (
     <div className="page-navbar">
       <div className="navbar-title">
-        <h1 className="full-text">Workout Tracker</h1>
-        <h1 className="short-text">WT</h1>
+        <h1 className="full-text">Workout Wise</h1>
+        <h1 className="short-text">WW</h1>
       </div>
 
       <div className="navbar-items">

@@ -8,9 +8,9 @@ import ProfileLogout from "../components/ProfileLogout";
 const ProfileAccount = () => {
   return (
     <Section>
-      <Section.Header>Account</Section.Header>
+      <Section.Header>User Settings</Section.Header>
       <Section.Body>
-        <div className="grid-150">
+        <div className="grid-4-item">
           <ChangeUsername />
           <ChangePassword />
           <DeleteAccount />

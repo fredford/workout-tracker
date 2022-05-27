@@ -7,6 +7,7 @@
   text-transform: uppercase;
   font-size: 7.5vw;
   color: var(--fg-text);
+  font-weight: 500;
 }
 
 .profile-hero__subtitle {
@@ -34,7 +35,7 @@
   position: relative;
   padding: 5px;
   border-radius: $border-radius-button;
-  background-color: var(--fg-light);
+  background-color: var(--bg-main);
   color: var(--fg-main);
 }
 
@@ -80,9 +81,11 @@
   position: absolute;
   width: 50px;
   height: 30px;
-  background-color: var(--fg-acce);
+  background-color: var(--fg-light);
+  color: var(--bg-card) !important;
   //box-shadow: $box-shadow;
   border-radius: $border-radius-button;
+  box-shadow: $box-shadow;
 }
 .light-mode::before {
   content: "Light";

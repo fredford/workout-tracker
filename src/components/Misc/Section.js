@@ -9,7 +9,7 @@ const Section = (props) => {
     );
   });
 
-  var className = " " + props.className;
+  var className = "section " + props.className;
 
   return (
     <div className={className}>
