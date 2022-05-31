@@ -37,7 +37,7 @@ const ChangePassword = () => {
         </Card.Text>
       </Card.ImageHeader>
       <Card.Body className="pb-0 mt-3">
-        <div calssName="profile-settings-card">
+        <div className="profile-settings-card">
           <Form className="mb-3">
             <Form.Label>New Password</Form.Label>
             <Form.Input
@@ -46,6 +46,7 @@ const ChangePassword = () => {
               placeholder="******"
               value={password}
               onChange={updatePassword}
+              autoComplete="false"
               required
             ></Form.Input>
           </Form>
@@ -57,6 +58,7 @@ const ChangePassword = () => {
               placeholder="******"
               value={confirmPassword}
               onChange={updateConfirmPassword}
+              autoComplete="false"
               required
             ></Form.Input>
           </Form>

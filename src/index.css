@@ -1,4 +1,19 @@
 :root {
+  /* new color scheme starts*/
+  --bg-level-0: #d8d8d8;
+  --bg-level-1: #e5e5e5;
+  --bg-level-2: #f2f2f2;
+  --bg-level-card: #ffffff;
+
+  --fg-level-0: #0c0c0c;
+  --fg-level-1: #191919;
+  --fg-level-mute: #666666;
+
+  --ac-button-hover: #cce0fe;
+  --ac-button-active: #4791ff;
+
+  /* new color scheme end */
+
   --bg-main: #dddddd;
   --bg-button: #eeeeee;
   --bg-card: #ffffff;
@@ -28,6 +43,21 @@
   --fg-filter-text: none;
 }
 [data-theme="dark"] {
+  /* new color scheme starts */
+  --bg-level-0: #121212;
+  --bg-level-1: #292929;
+  --bg-level-2: #333333;
+  --bg-level-card: #353535;
+
+  --fg-level-0: #f2f2f2;
+  --fg-level-1: #e5e5e5;
+  --fg-level-mute: #919191;
+
+  --ac-button-hover: #0041a3;
+  --ac-button-active: #0049b7;
+
+  /* new color scheme ends */
+
   --bg-main: #202020;
   --bg-button: #212121;
   --bg-card: #313131;
