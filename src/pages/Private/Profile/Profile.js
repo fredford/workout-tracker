@@ -16,7 +16,7 @@ const Profile = () => {
       <Page.NavBar />
       <Page.Header container navbar header={user.name} subheader={user.email} />
       <Page.Body container>
-        <Accordion defaultActiveKey="0">
+        <Accordion className="profile-accordion">
           <Accordion.Item eventKey="0">
             <Accordion.Header>App Settings</Accordion.Header>
             <Accordion.Body>
@@ -24,7 +24,7 @@ const Profile = () => {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        <Accordion defaultActiveKey="0">
+        <Accordion className="profile-accordion">
           <Accordion.Item eventKey="0">
             <Accordion.Header>User Settings</Accordion.Header>
             <Accordion.Body>

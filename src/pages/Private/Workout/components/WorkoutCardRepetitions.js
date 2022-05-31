@@ -9,6 +9,7 @@ import SetsService from "../../../../services/sets";
 import WorkoutExerciseAmount from "./WorkoutExerciseAmount";
 import WorkoutExerciseSet from "./WorkoutExerciseSet";
 import StatsCard from "../../../../components/Stats/StatsCard";
+import AccordionCard from "../../../../components/Cards/AccordionCard";
 
 const WorkoutCardRepetitions = ({ exerciseObject }) => {
   const contextData = useContext(WorkoutContext);
@@ -48,23 +49,20 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
   };
 
   return (
-    <Card className="workout-sets__cards">
-      <Card.Body className="workout-sets__body">
-        <div className="workout-sets__header">
-          <div className="workout-sets__header-text">
-            <h3 className="workout-sets__header-title">{exercise.name}</h3>
-            <h4 className="workout-sets__header-type text-muted">
-              {exercise.type}
-            </h4>
-          </div>
-          <div className="workout-sets__header-button">
-            <Button className="p-3" onClick={addSet}>
-              <Button.Text>Add Set</Button.Text>
-            </Button>
-          </div>
-        </div>
+    <AccordionCard className="workout-sets__cards">
+      <AccordionCard.Header
+        name={exercise.name}
+        type={exercise.type}
+        addSet={addSet}
+      />
+      <AccordionCard.Body className="workout-sets__body">
         <Card.Bar className="mt-0 mb-2" />
         <WorkoutExerciseAmount amount={amount} setAmount={setAmount} />
+        <div className="workout-sets__header-button">
+          <Button className="p-3 w-100" onClick={addSet}>
+            <Button.Text>Add Set</Button.Text>
+          </Button>
+        </div>
         <Card.Bar className="mb-2 mt-2" />
         <div className="mb-3 grid-4-item">
           <StatsCard data={numSets} title={"Sets"} />
@@ -80,8 +78,8 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
             })
           )}
         </div>
-      </Card.Body>
-    </Card>
+      </AccordionCard.Body>
+    </AccordionCard>
   );
 };
 

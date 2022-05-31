@@ -1,0 +1,31 @@
+.accordion-card {
+  @include standard-border;
+
+  .accordion-header {
+    background-color: var(--bg-level-card);
+    @include standard-border;
+  }
+
+  .accordion-button {
+    background-color: var(--bg-level-card);
+    @include standard-border;
+
+    &:not(.collapsed) {
+      color: var(--fg-text);
+      background-color: var(--bg-level-card);
+
+      &:hover {
+        background-color: var(--ac-button-hover);
+      }
+    }
+  }
+
+  .accordion-body {
+    background-color: var(--bg-level-card);
+    @include standard-border;
+  }
+
+  .accordion-item {
+    @include standard-border;
+  }
+}

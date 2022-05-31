@@ -10,6 +10,7 @@ const ChangeUsername = () => {
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState("");
 
+  console.log(username);
   const updateUsername = (e) => {
     setUsername(e);
   };
@@ -34,7 +35,7 @@ const ChangeUsername = () => {
         <Card.Text className="text-muted">Set your new username</Card.Text>
       </Card.ImageHeader>
       <Card.Body className="pb-0 mt-3">
-        <div calssName="profile-settings-card">
+        <div className="profile-settings-card">
           <Form className="mb-3">
             <Form.Input
               type="text"
@@ -42,6 +43,7 @@ const ChangeUsername = () => {
               placeholder={user.name}
               value={username}
               onChange={updateUsername}
+              autoComplete="off"
               required
             ></Form.Input>
           </Form>

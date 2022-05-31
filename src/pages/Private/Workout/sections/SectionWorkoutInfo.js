@@ -25,7 +25,7 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
           <Card.Header>{new Date(workout.date).toDateString()}</Card.Header>
           <Card.Title>{workout.type}</Card.Title>
         </Card.ImageHeader>
-        <div className="mb-3 grid-4-item">
+        <div className="grid-4-item">
           <StatsCard data={totalAmount} title={"Total"} />
           <StatsCard data={totalSets} title={"Sets"} />
           <Button className="">
@@ -40,11 +40,6 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
             </Button.Icon>
             <Button.Text>Delete</Button.Text>
           </Button>
-        </div>
-
-        <div className="row align-items-center">
-          <div className="col mb-3 mb-lg-0"></div>
-          <div className="col"></div>
         </div>
       </Card.Body>
     </Card>

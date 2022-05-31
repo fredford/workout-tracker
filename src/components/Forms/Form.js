@@ -12,9 +12,9 @@ const Form = (props) => {
   var className = " " + props.className;
 
   return (
-    <div className={className}>
+    <form className={className}>
       {subComponents.map((component) => component)}
-    </div>
+    </form>
   );
 };
 

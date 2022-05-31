@@ -35,7 +35,7 @@
   position: relative;
   padding: 5px;
   border-radius: $border-radius-button;
-  background-color: var(--bg-main);
+  background-color: var(--bg-level-1);
   color: var(--fg-main);
 }
 
@@ -81,7 +81,7 @@
   position: absolute;
   width: 50px;
   height: 30px;
-  background-color: var(--fg-light);
+  background-color: var(--bg-level-card);
   color: var(--bg-card) !important;
   //box-shadow: $box-shadow;
   border-radius: $border-radius-button;

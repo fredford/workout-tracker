@@ -23,8 +23,10 @@
   .workout-sets__header-type {
     font-weight: $font-slim;
   }
-  .workout-sets__header-button {
-  }
+}
+.workout-sets__header-button {
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .workout-sets-repetitions {
@@ -64,14 +66,15 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: var(--fg-lighter);
+  background-color: var(--bg-level-card);
   padding: 0.25rem;
   border-radius: $border-radius-button;
+  @include standard-border;
 }
 
 .workout-sets-repetitions__set-count {
   font-weight: $font-norm;
-  color: var(--fg-mute);
+  color: var(--fg-level-1);
 }
 
 .workout-sets-repetitions__set-amount {
@@ -86,12 +89,9 @@
 }
 
 .workout-sets-repetitions__set-button {
-  @include standard-border;
   background-color: var(--fg-lighter);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: var(--fg-base);
+
+  color: var(--ac-button-active);
 
   &:hover {
     color: var(--fg-dang);

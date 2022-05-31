@@ -2,11 +2,6 @@
   border: none;
   box-shadow: $box-shadow;
   border-radius: $border-radius-standard;
-
-  &:focus {
-    border: none;
-    box-shadow: none;
-  }
 }
 
 @mixin standard-shadow {
