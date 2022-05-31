@@ -1,15 +1,8 @@
 .accordion-card {
-  background-color: var(--bg-level-card);
-  @include standard-border;
-
   .accordion {
-    background-color: var(--bg-level-card);
-    @include standard-border;
   }
 
   .accordion-header {
-    background-color: var(--bg-level-card);
-    @include standard-border;
   }
 
   .accordion-button {
@@ -27,8 +20,6 @@
   }
 
   .accordion-body {
-    background-color: var(--bg-level-card);
-    @include standard-border;
   }
 
   .accordion-item {
