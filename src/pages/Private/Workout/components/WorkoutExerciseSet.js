@@ -24,12 +24,11 @@ const WorkoutExerciseSet = ({ set, index }) => {
     <div key={index} className="workout-sets-repetitions__set">
       <h5 className="workout-sets-repetitions__set-count">Set {index + 1}</h5>
       <h5 className="workout-sets-repetitions__set-amount">{set.amount}</h5>
-      <button
+
+      <FaWindowClose
         className="workout-sets-repetitions__set-button"
         onClick={deleteSet}
-      >
-        <FaWindowClose />
-      </button>
+      />
     </div>
   );
 };

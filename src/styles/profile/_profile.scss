@@ -7,56 +7,55 @@
   align-items: center;
 }
 
-.accordion {
+.profile-accordion {
   //@include standard-border;
-}
 
-.accordion-button {
-  border-bottom: 1px solid var(--fg-level-mute);
-  @include standard-border;
-  background-color: var(--bg-level-1);
-  font-size: 1.25rem;
-  font-weight: $font-bold;
-  color: var(--fg-text);
-
-  &:focus {
+  .accordion-button {
     @include standard-border;
-  }
-
-  &:hover {
-    background-color: var(--ac-button-hover);
-  }
-
-  &:active {
-    background-color: var(--ac-button-active);
-  }
-
-  &.collapsed {
-  }
-
-  &:not(.collapsed) {
-    color: var(--fg-text);
     background-color: var(--bg-level-1);
-    border-radius: 0;
-    @include standard-border;
+    font-size: 1.25rem;
+    font-weight: $font-bold;
+    color: var(--fg-text);
+
+    &:focus {
+      @include standard-border;
+    }
 
     &:hover {
       background-color: var(--ac-button-hover);
     }
-  }
-  &::after {
-    filter: var(--fg-filter-text) !important;
-    border-radius: 0;
-  }
-}
 
-.accordion-item {
-  background-color: var(--bg-button) !important;
-  border: none !important;
-  color: var(--fg-text);
-}
+    &:active {
+      background-color: var(--ac-button-active);
+    }
 
-.accordion-body {
-  background-color: var(--bg-level-0);
-  padding: 1rem 0.5rem;
+    &.collapsed {
+    }
+
+    &:not(.collapsed) {
+      color: var(--fg-text);
+      background-color: var(--bg-level-1);
+      border-radius: 0;
+      @include standard-border;
+
+      &:hover {
+        background-color: var(--ac-button-hover);
+      }
+    }
+    &::after {
+      filter: var(--fg-filter-text) !important;
+      border-radius: 0;
+    }
+  }
+
+  .accordion-item {
+    background-color: var(--bg-button) !important;
+    border: none !important;
+    color: var(--fg-text);
+  }
+
+  .accordion-body {
+    background-color: var(--bg-level-0);
+    padding: 1rem 0.5rem;
+  }
 }
