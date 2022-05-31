@@ -8,9 +8,12 @@
   --fg-level-0: #0c0c0c;
   --fg-level-1: #191919;
   --fg-level-mute: #666666;
+  --fg-text-acce: #20405f;
 
   --ac-button-hover: #cce0fe;
   --ac-button-active: #4791ff;
+  --ac-level-0: #708090;
+  --ac-level-1: #4080bf;
 
   /* new color scheme end */
 
@@ -52,9 +55,13 @@
   --fg-level-0: #f2f2f2;
   --fg-level-1: #e5e5e5;
   --fg-level-mute: #919191;
+  --fg-text-acce: #9fbfdf;
 
   --ac-button-hover: #0041a3;
   --ac-button-active: #0049b7;
+
+  --ac-level-0: #708090;
+  --ac-level-1: #4080bf;
 
   /* new color scheme ends */
 
@@ -64,7 +71,7 @@
   --fg-text: #e3e3e3;
   --fg-mute: #acacac;
   --fg-main: #ffffff;
-  --fg-acce: lightskyblue;
+
   --fg-dang: firebrick;
   --bg-main-rgb: 52, 58, 64;
   --bg-card-rgb: 33, 37, 41;

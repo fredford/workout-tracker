@@ -14,11 +14,11 @@
 
 .stats-card__number {
   font-weight: 700;
-  color: inherit;
+  color: #e5e5e5;
 }
 
 .stats-card__name {
-  color: var(--fg-light);
+  color: #9fbfdf;
 }
 
 @media screen and (max-width: 400px) {
@@ -27,7 +27,6 @@
   }
   .stats-card__number {
     font-weight: 900;
-    color: inherit;
     font-size: x-large;
   }
 }
