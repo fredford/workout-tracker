@@ -13,13 +13,15 @@ const SectionAddSet = ({ workoutObject }) => {
             ([workoutExercise, exerciseObject]) => {
               if (exerciseObject.exercise.type === "Repetitions") {
                 return (
-                  <WorkoutCardRepetitions
-                    key={workoutExercise}
-                    exerciseObject={exerciseObject}
-                  />
+                  <div>
+                    <WorkoutCardRepetitions
+                      key={workoutExercise}
+                      exerciseObject={exerciseObject}
+                    />
+                  </div>
                 );
               } else {
-                return <div key={workoutExercise}></div>;
+                return <div key={workoutExercise}>Feature in progress</div>;
               }
             }
           )}
