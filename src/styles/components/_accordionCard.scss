@@ -4,6 +4,7 @@
 
   .accordion {
     background-color: var(--bg-level-card);
+    @include standard-border;
   }
 
   .accordion-header {
