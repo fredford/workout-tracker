@@ -69,7 +69,7 @@ const AddExercise = () => {
 
   return (
     <>
-      <Button onClick={handleShow}>
+      <Button onClick={handleShow} className="h-100 p-0 ps-1 pe-1 ">
         <Button.Icon>
           <FaPlus className="me-1" /> <span>Add</span>
         </Button.Icon>

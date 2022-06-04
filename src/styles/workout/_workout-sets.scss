@@ -46,6 +46,9 @@
 }
 
 .workout-sets-repetitions__form-input {
+  @include standard-border;
+  background-color: var(--bg-level-2) !important;
+  color: var(--fg-level-1) !important;
   height: 100%;
   width: 100%;
   font-size: x-large;

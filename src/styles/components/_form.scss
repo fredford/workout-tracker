@@ -7,4 +7,5 @@
 .form-control {
   @include standard-border;
   background-color: var(--bg-level-1) !important;
+  color: var(--fg-level-0) !important;
 }

@@ -1,11 +1,8 @@
-import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+
 import { useSelector } from "react-redux";
 
-import {
-  ActivityProvider,
-  ActivityContext,
-} from "../../../../contexts/activityContext";
+import { ActivityContext } from "../../../../contexts/activityContext";
 
 import Card from "../../../../components/Cards/Card";
 import Section from "../../../../components/Misc/Section";
@@ -14,10 +11,9 @@ import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
 import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import ListExercisesExercise from "../components/ListExercisesExercise";
 
 const SectionExercises = () => {
-  const navigate = useNavigate();
-
   // Redux State
   const exercises = useSelector((state) => state.exercises.exercises);
   // Context variables
@@ -28,7 +24,15 @@ const SectionExercises = () => {
   const [search, setSearch] = React.useState("");
   const [page, setPage] = React.useState(0);
 
-  var displayList = exercises.slice(page * 10, page * 10 + 10);
+  useEffect(() => {
+    setPage(0);
+  }, [activities]);
+
+  var displayList = [...exercises];
+
+  //var displayList = exercises.slice(page * 10, page * 10 + 10);
+
+  var isAllOff = Object.values(activities).every((x) => x[0] === false);
 
   // Filter list for User Only
   displayList = displayList.filter((item) => !userOnly || !item.isAdmin);
@@ -36,6 +40,16 @@ const SectionExercises = () => {
   displayList = displayList.filter((item) =>
     item.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  if (!isAllOff) {
+    displayList = displayList.filter(
+      (item) => activities[item.area.toLowerCase()][0]
+    );
+  }
+
+  if (displayList.length > 10) {
+    displayList = displayList.slice(page * 10, page * 10 + 10);
+  }
 
   if (isAscending) {
     displayList.reverse();
@@ -86,7 +100,7 @@ const SectionExercises = () => {
               updateSearch={changeSearch}
             />
             <Card.Bar />
-            <div className="row">
+            <div className="list-exercises__container">
               {React.Children.toArray(
                 displayList.map((exercise) => {
                   var area = exercise.area.toLowerCase();
@@ -94,29 +108,7 @@ const SectionExercises = () => {
                     (x) => x[0] === false
                   );
                   if (isAllOff || activities[area][0]) {
-                    return (
-                      <div
-                        className="col-sm-6 mb-1"
-                        id={exercise.area}
-                        key={exercise._id}
-                      >
-                        <div
-                          className="list-exercise__card"
-                          onClick={() => navigate(`/exercises/${exercise._id}`)}
-                        >
-                          <img
-                            className="list-exercise__image standard-image"
-                            id={`${exercise.area.toLowerCase()}-image`}
-                            alt=""
-                          />
-                          <div className="mt-2">
-                            <h6>{exercise.name}</h6>
-                            <p className="text-muted">{exercise.muscles}</p>
-                            <p className="text-muted">{exercise.type}</p>
-                          </div>
-                        </div>
-                      </div>
-                    );
+                    return <ListExercisesExercise exercise={exercise} />;
                   } else {
                     return <></>;
                   }
@@ -126,7 +118,7 @@ const SectionExercises = () => {
             <div className="d-flex flex-row justify-content-center">
               <div className="button-icon me-2">
                 <ButtonToggle
-                  onChange={decreasePage}
+                  onClick={decreasePage}
                   className="line-height w-100 h-100"
                 >
                   <FaArrowLeft />
@@ -134,7 +126,7 @@ const SectionExercises = () => {
               </div>
               <div className="button-icon ms-2">
                 <ButtonToggle
-                  onChange={increasePage}
+                  onClick={increasePage}
                   className="button-icon w-100 h-100"
                 >
                   <FaArrowRight />

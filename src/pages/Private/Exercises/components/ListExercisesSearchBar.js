@@ -2,7 +2,6 @@ import { FourMpRounded } from "@mui/icons-material";
 import React from "react";
 
 import { FaChevronUp, FaChevronDown, FaPlus } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
 import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import Form from "../../../../components/Forms/Form";
 import AddExercise from "./AddExercise";
@@ -32,13 +31,13 @@ const ListExerciseSearchBar = (props) => {
             id="toggle-direction"
             checked={props.isAscending}
             onChange={changeDirection}
-            className="line-height w-100 h-100"
+            className="button-icon"
           >
             <ShowDirection />
           </ButtonToggle>
         </div>
 
-        <div className="me-3">
+        <div className="me-3 button-icon-height">
           <AddExercise />
         </div>
         <div className="flex-fill">

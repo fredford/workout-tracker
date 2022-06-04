@@ -1,9 +1,10 @@
 import React from "react";
+import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 
 const ListExercisesUserOptions = (props) => {
-  var buttonClass = "btn w-100 ";
+  var buttonClass = "button-icon-height";
 
-  buttonClass += props.userClicked ? "btn-secondary" : "btn-outline-secondary";
+  buttonClass += props.userClicked ? " button-toggle-active" : "";
 
   const buttonChange = () => {
     props.changeUserClicked();
@@ -12,11 +13,9 @@ const ListExercisesUserOptions = (props) => {
   return (
     <div className="mb-3">
       <h4 className="text-center mb-2">User Options</h4>
-      <div className="d-flex justify-content-center">
-        <button className={buttonClass} onClick={buttonChange}>
-          User Only
-        </button>
-      </div>
+      <ButtonToggle className={buttonClass} onClick={buttonChange}>
+        User Only
+      </ButtonToggle>
     </div>
   );
 };
