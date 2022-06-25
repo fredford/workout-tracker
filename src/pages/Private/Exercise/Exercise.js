@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Card from "../../../components/Cards/Card";
@@ -10,6 +10,10 @@ import { resolve } from "../../../services/utils";
 import { useNavigate } from "react-router-dom";
 
 import ExercisesServices from "../../../services/exercises";
+import StatsCard from "../../../components/Stats/StatsCard";
+
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
 
 const Exercise = () => {
   const navigate = useNavigate();
@@ -40,6 +44,100 @@ const Exercise = () => {
     }
   };
 
+  const tempData = {
+    stats: {
+      Total: 100,
+      Avg: 20,
+      Max: 25,
+    },
+    cumulative: {
+      "2022-6-21": 40,
+      "2022-6-22": 60,
+      "2022-6-24": 90,
+    },
+    workoutProgression: {
+      "2022-6-21": 40,
+      "2022-6-22": 20,
+      "2022-6-24": 30,
+    },
+    setProgression: {
+      "2022-6-21 Set 1": 15,
+      "2022-6-21 Set 2": 25,
+      "2022-6-22 Set 1": 20,
+      "2022-6-22 Set 2": 30,
+      "2022-6-24 Set 1": 20,
+      "2022-6-24 Set 2": 35,
+    },
+  };
+
+  const dataCumulative = {
+    labels: Object.keys(tempData.cumulative),
+    datasets: [
+      {
+        label: "Cumulative Reps",
+        data: Object.values(tempData.cumulative),
+        backgroundColor: "slategrey",
+        borderColor: "skyblue",
+        fill: false,
+      },
+    ],
+  };
+
+  const dataWorkout = {
+    labels: Object.keys(tempData.workoutProgression),
+    datasets: [
+      {
+        label: "Cumulative Reps",
+        data: Object.values(tempData.workoutProgression),
+        backgroundColor: "slategrey",
+        borderColor: "skyblue",
+        fill: false,
+      },
+    ],
+  };
+
+  const dataSet = {
+    labels: Object.keys(tempData.setProgression),
+    datasets: [
+      {
+        label: "Cumulative Reps",
+        data: Object.values(tempData.setProgression),
+        backgroundColor: "slategrey",
+        borderColor: "skyblue",
+        fill: false,
+      },
+    ],
+  };
+
+  const options = {
+    responsive: true,
+    scales: {
+      y: {
+        display: true,
+        beginAtZero: true,
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+
+  const optionsSet = {
+    responsive: true,
+    scales: {
+      x: {
+        display: false,
+      },
+      y: {
+        display: true,
+        beginAtZero: true,
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+
   return (
     <Page>
       <Page.NavBar />
@@ -52,8 +150,18 @@ const Exercise = () => {
           <div className="row">
             <div className="col-6 card-margin">
               <Card>
-                <Card.Header>Stats</Card.Header>
-                <Card.Body></Card.Body>
+                <Card.Header className="mb-3">Stats</Card.Header>
+                <Card.Body>
+                  <div className="grid-3-item">
+                    {Object.keys(tempData.stats).map((key) => (
+                      <StatsCard
+                        key={key}
+                        data={tempData.stats[key]}
+                        title={key}
+                      />
+                    ))}
+                  </div>
+                </Card.Body>
               </Card>
             </div>
             <div className="col-6 card-margin">
@@ -64,21 +172,27 @@ const Exercise = () => {
             </div>
             <div className="col-6 card-margin">
               <Card>
-                <Card.Header>Last 30 Days</Card.Header>
-                <Card.Body></Card.Body>
+                <Card.Header>Cumulative</Card.Header>
+                <Card.Body>
+                  <Line data={dataCumulative} options={options} />
+                </Card.Body>
               </Card>
             </div>
 
             <div className="col-6 card-margin">
               <Card>
                 <Card.Header>Set Progression</Card.Header>
-                <Card.Body></Card.Body>
+                <Card.Body>
+                  <Line data={dataSet} options={optionsSet} />
+                </Card.Body>
               </Card>
             </div>
             <div className="col-6 card-margin">
               <Card>
                 <Card.Header>Workout Progression</Card.Header>
-                <Card.Body></Card.Body>
+                <Card.Body>
+                  <Line data={dataWorkout} options={options} />
+                </Card.Body>
               </Card>
             </div>
             <div className="col-6 card-margin">
