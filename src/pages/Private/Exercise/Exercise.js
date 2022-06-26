@@ -1,54 +1,29 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Misc/Page";
-import { selectExerciseById } from "../../../redux/reducers/exercises";
+import NoStatsOverlay from "../../../components/Misc/NoStatsOverlay";
+import {
+  selectExerciseById,
+  setExercises,
+} from "../../../redux/reducers/exercises";
 import ExerciseInfo from "./sections/ExerciseInfo";
 import Button from "../../../components/Buttons/Button";
 import { resolve } from "../../../services/utils";
 import { useNavigate } from "react-router-dom";
 
 import ExercisesServices from "../../../services/exercises";
+import StatsService from "../../../services/stats";
 import StatsCard from "../../../components/Stats/StatsCard";
-
-import { Line } from "react-chartjs-2";
-import { Chart as ChartJS } from "chart.js/auto";
+import StatsLineChart from "../../../components/Stats/StatsLineChart";
 
 const Exercise = () => {
-  const navigate = useNavigate();
-  // TODO fill in cards and separate into component files
-
-  let { exerciseId } = useParams();
-
-  const exercise = useSelector((state) =>
-    selectExerciseById(state, exerciseId)
-  );
-
-  const user = useSelector((state) => state.user);
-
-  if (exercise) {
-    localStorage.setItem("exercise", JSON.stringify(exercise));
-  }
-
-  const deleteExercise = async () => {
-    const [data, error] = await resolve(
-      ExercisesServices.deleteExercise(user._id, exerciseId)
-    );
-
-    if (data) {
-      navigate("/message/exercisedeletesuccess");
-    } else {
-      console.log(error);
-      navigate("/message/exercisedeletefailed");
-    }
-  };
-
-  const tempData = {
+  const [exerciseStats, setExerciseStats] = useState({
     stats: {
-      Total: 100,
-      Avg: 20,
-      Max: 25,
+      Total: "-",
+      Avg: "-",
+      Max: "-",
     },
     cumulative: {
       "2022-6-21": 40,
@@ -68,14 +43,59 @@ const Exercise = () => {
       "2022-6-24 Set 1": 20,
       "2022-6-24 Set 2": 35,
     },
+  });
+
+  const [showStats, setShowStats] = useState(false);
+  const navigate = useNavigate();
+
+  let { exerciseId } = useParams();
+
+  const exercise = useSelector((state) =>
+    selectExerciseById(state, exerciseId)
+  );
+
+  const user = useSelector((state) => state.user);
+
+  if (exercise) {
+    localStorage.setItem("exercise", JSON.stringify(exercise));
+  }
+
+  useEffect(() => {
+    retrieveData();
+  }, []);
+
+  const retrieveData = async () => {
+    const [data, error] = await resolve(
+      StatsService.getExerciseData(exerciseId)
+    );
+
+    if (data) {
+      setExerciseStats(data);
+      setShowStats(true);
+    } else {
+      console.log(error);
+    }
+  };
+
+  const deleteExercise = async () => {
+    const [data, error] = await resolve(
+      ExercisesServices.deleteExercise(user._id, exerciseId)
+    );
+
+    if (data) {
+      navigate("/message/exercisedeletesuccess");
+    } else {
+      console.log(error);
+      navigate("/message/exercisedeletefailed");
+    }
   };
 
   const dataCumulative = {
-    labels: Object.keys(tempData.cumulative),
+    labels: Object.keys(exerciseStats.cumulative),
     datasets: [
       {
         label: "Cumulative Reps",
-        data: Object.values(tempData.cumulative),
+        data: Object.values(exerciseStats.cumulative),
         backgroundColor: "slategrey",
         borderColor: "skyblue",
         fill: false,
@@ -84,11 +104,11 @@ const Exercise = () => {
   };
 
   const dataWorkout = {
-    labels: Object.keys(tempData.workoutProgression),
+    labels: Object.keys(exerciseStats.workoutProgression),
     datasets: [
       {
         label: "Cumulative Reps",
-        data: Object.values(tempData.workoutProgression),
+        data: Object.values(exerciseStats.workoutProgression),
         backgroundColor: "slategrey",
         borderColor: "skyblue",
         fill: false,
@@ -97,45 +117,16 @@ const Exercise = () => {
   };
 
   const dataSet = {
-    labels: Object.keys(tempData.setProgression),
+    labels: Object.keys(exerciseStats.setProgression),
     datasets: [
       {
         label: "Cumulative Reps",
-        data: Object.values(tempData.setProgression),
+        data: Object.values(exerciseStats.setProgression),
         backgroundColor: "slategrey",
         borderColor: "skyblue",
         fill: false,
       },
     ],
-  };
-
-  const options = {
-    responsive: true,
-    scales: {
-      y: {
-        display: true,
-        beginAtZero: true,
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    },
-  };
-
-  const optionsSet = {
-    responsive: true,
-    scales: {
-      x: {
-        display: false,
-      },
-      y: {
-        display: true,
-        beginAtZero: true,
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    },
   };
 
   return (
@@ -153,10 +144,10 @@ const Exercise = () => {
                 <Card.Header className="mb-3">Stats</Card.Header>
                 <Card.Body>
                   <div className="grid-3-item">
-                    {Object.keys(tempData.stats).map((key) => (
+                    {Object.keys(exerciseStats.stats).map((key) => (
                       <StatsCard
                         key={key}
-                        data={tempData.stats[key]}
+                        data={exerciseStats.stats[key]}
                         title={key}
                       />
                     ))}
@@ -173,8 +164,12 @@ const Exercise = () => {
             <div className="col-6 card-margin">
               <Card>
                 <Card.Header>Cumulative</Card.Header>
-                <Card.Body>
-                  <Line data={dataCumulative} options={options} />
+                <Card.Body className="mt-3">
+                  <StatsLineChart
+                    data={dataCumulative}
+                    options={"standard"}
+                    show={showStats}
+                  />
                 </Card.Body>
               </Card>
             </div>
@@ -182,23 +177,31 @@ const Exercise = () => {
             <div className="col-6 card-margin">
               <Card>
                 <Card.Header>Set Progression</Card.Header>
-                <Card.Body>
-                  <Line data={dataSet} options={optionsSet} />
+                <Card.Body className="mt-3">
+                  <StatsLineChart
+                    data={dataSet}
+                    options={"no-x"}
+                    show={showStats}
+                  />
                 </Card.Body>
               </Card>
             </div>
             <div className="col-6 card-margin">
               <Card>
                 <Card.Header>Workout Progression</Card.Header>
-                <Card.Body>
-                  <Line data={dataWorkout} options={options} />
+                <Card.Body className="mt-3">
+                  <StatsLineChart
+                    data={dataWorkout}
+                    options={"standard"}
+                    show={showStats}
+                  />
                 </Card.Body>
               </Card>
             </div>
             <div className="col-6 card-margin">
               <Card>
                 <Card.Header>Settings</Card.Header>
-                <Card.Body>
+                <Card.Body className="mt-3">
                   <Button onClick={deleteExercise} className="w-100 btn-danger">
                     <Button.Text>Delete</Button.Text>
                   </Button>
