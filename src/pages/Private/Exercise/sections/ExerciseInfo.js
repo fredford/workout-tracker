@@ -1,7 +1,8 @@
 import React from "react";
 import Card from "../../../../components/Cards/Card";
+import StatsCard from "../../../../components/Stats/StatsCard";
 
-const ExerciseInfo = React.memo(() => {
+const ExerciseInfo = React.memo(({ stats }) => {
   const exercise = JSON.parse(localStorage.getItem("exercise"));
 
   return (
@@ -20,6 +21,11 @@ const ExerciseInfo = React.memo(() => {
             </div>
             <div className="col-5 d-flex justify-content-start">
               <h3>{exercise.area}</h3>
+            </div>
+            <div className="mt-3 grid-3-item">
+              {Object.keys(stats).map((key) => (
+                <StatsCard key={key} data={stats[key]} title={key} />
+              ))}
             </div>
           </div>
         </div>

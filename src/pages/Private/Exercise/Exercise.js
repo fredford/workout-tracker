@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Misc/Page";
-import NoStatsOverlay from "../../../components/Misc/NoStatsOverlay";
 import {
   selectExerciseById,
   setExercises,
@@ -15,8 +14,11 @@ import { useNavigate } from "react-router-dom";
 
 import ExercisesServices from "../../../services/exercises";
 import StatsService from "../../../services/stats";
-import StatsCard from "../../../components/Stats/StatsCard";
-import StatsLineChart from "../../../components/Stats/StatsLineChart";
+
+import CumulativeChart from "./components/CumulativeChart";
+import SetProgressionChart from "./components/SetProgressionChart";
+import WorkoutProgressionChart from "./components/WorkoutProgressionChart";
+import ChallengesCard from "./components/ChallengesCard";
 
 const Exercise = () => {
   const [exerciseStats, setExerciseStats] = useState({
@@ -90,130 +92,50 @@ const Exercise = () => {
     }
   };
 
-  const dataCumulative = {
-    labels: Object.keys(exerciseStats.cumulative),
-    datasets: [
-      {
-        label: "Cumulative Reps",
-        data: Object.values(exerciseStats.cumulative),
-        backgroundColor: "slategrey",
-        borderColor: "skyblue",
-        fill: false,
-      },
-    ],
-  };
-
-  const dataWorkout = {
-    labels: Object.keys(exerciseStats.workoutProgression),
-    datasets: [
-      {
-        label: "Cumulative Reps",
-        data: Object.values(exerciseStats.workoutProgression),
-        backgroundColor: "slategrey",
-        borderColor: "skyblue",
-        fill: false,
-      },
-    ],
-  };
-
-  const dataSet = {
-    labels: Object.keys(exerciseStats.setProgression),
-    datasets: [
-      {
-        label: "Cumulative Reps",
-        data: Object.values(exerciseStats.setProgression),
-        backgroundColor: "slategrey",
-        borderColor: "skyblue",
-        fill: false,
-      },
-    ],
-  };
-
   return (
     <Page>
       <Page.NavBar />
       <Page.Body navbar>
-        <div className="mb-3">
-          <ExerciseInfo />
-        </div>
-
-        <div className="container">
-          <div className="row">
-            <div className="col-6 card-margin">
-              <Card>
-                <Card.Header className="mb-3">Stats</Card.Header>
-                <Card.Body>
-                  <div className="grid-3-item">
-                    {Object.keys(exerciseStats.stats).map((key) => (
-                      <StatsCard
-                        key={key}
-                        data={exerciseStats.stats[key]}
-                        title={key}
-                      />
-                    ))}
-                  </div>
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-6 card-margin">
-              <Card>
-                <Card.Header>Challenges</Card.Header>
-                <Card.Body></Card.Body>
-              </Card>
-            </div>
-            <div className="col-6 card-margin">
-              <Card>
-                <Card.Header>Cumulative</Card.Header>
-                <Card.Body className="mt-3">
-                  <StatsLineChart
-                    data={dataCumulative}
-                    options={"standard"}
-                    show={showStats}
-                  />
-                </Card.Body>
-              </Card>
-            </div>
-
-            <div className="col-6 card-margin">
-              <Card>
-                <Card.Header>Set Progression</Card.Header>
-                <Card.Body className="mt-3">
-                  <StatsLineChart
-                    data={dataSet}
-                    options={"no-x"}
-                    show={showStats}
-                  />
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-6 card-margin">
-              <Card>
-                <Card.Header>Workout Progression</Card.Header>
-                <Card.Body className="mt-3">
-                  <StatsLineChart
-                    data={dataWorkout}
-                    options={"standard"}
-                    show={showStats}
-                  />
-                </Card.Body>
-              </Card>
-            </div>
-            <div className="col-6 card-margin">
-              <Card>
-                <Card.Header>Settings</Card.Header>
-                <Card.Body className="mt-3">
-                  <Button onClick={deleteExercise} className="w-100 btn-danger">
-                    <Button.Text>Delete</Button.Text>
-                  </Button>
-                </Card.Body>
-              </Card>
-            </div>
-          </div>
-        </div>
         <div className="container">
           <Button path="/exercises" className="w-100">
             <Button.Text>Back to Exercises</Button.Text>
           </Button>
+        </div>
+        <div className="mb-3">
+          <ExerciseInfo stats={exerciseStats.stats} />
+        </div>
+        <div className="row">
+          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+            <CumulativeChart
+              stats={exerciseStats.cumulative}
+              showStats={showStats}
+            />
+          </div>
+          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+            <SetProgressionChart
+              stats={exerciseStats.setProgression}
+              showStats={showStats}
+            />
+          </div>
+          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+            <WorkoutProgressionChart
+              stats={exerciseStats.workoutProgression}
+              showStats={showStats}
+            />
+          </div>
+          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+            <ChallengesCard />
+          </div>
+          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+            <Card>
+              <Card.Header>Settings</Card.Header>
+              <Card.Body className="mt-3">
+                <Button onClick={deleteExercise} className="w-100 btn-danger">
+                  <Button.Text>Delete</Button.Text>
+                </Button>
+              </Card.Body>
+            </Card>
+          </div>
         </div>
       </Page.Body>
     </Page>

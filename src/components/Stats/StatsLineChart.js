@@ -15,6 +15,12 @@ const StatsLineChart = ({ data, options, show }) => {
 
 const optionsObj = {
   standard: {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+
     responsive: true,
     scales: {
       y: {
@@ -27,6 +33,11 @@ const optionsObj = {
     },
   },
   "no-x": {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
     responsive: true,
     scales: {
       x: {
