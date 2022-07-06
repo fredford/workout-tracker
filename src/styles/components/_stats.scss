@@ -12,6 +12,10 @@
   padding: 0.5rem;
 }
 
+.stats-border {
+  @include standard-border;
+}
+
 .stats-card__number {
   font-weight: 700;
   color: #e5e5e5;

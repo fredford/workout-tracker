@@ -1,0 +1,17 @@
+.upper-bg {
+  background-color: $upper-active !important;
+  @include standard-border;
+}
+
+.lower-bg {
+  background-color: $lower-active !important;
+  @include standard-border;
+}
+.core-bg {
+  background-color: $core-active !important;
+  @include standard-border;
+}
+.cardio-bg {
+  background-color: $cardio-active !important;
+  @include standard-border;
+}
