@@ -1,8 +1,4 @@
 .standard-button {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-
   @include empty-base-color;
   padding: 0.5rem 1rem;
   border-radius: $border-radius-button;
@@ -17,6 +13,26 @@
   .button__text {
     color: var(-fg-level-0) !important;
   }
+
+  .button__image {
+    @include standard-image;
+    margin-top: 0.5rem;
+  }
+}
+
+.horizontal-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.vertical-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .button__border {

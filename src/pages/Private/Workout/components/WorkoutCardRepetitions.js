@@ -74,7 +74,13 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
         <div className="workout-sets-repetitions__sets-container">
           {React.Children.toArray(
             sets.map((set, index) => {
-              return <WorkoutExerciseSet set={set} index={index} />;
+              return (
+                <WorkoutExerciseSet
+                  set={set}
+                  index={index}
+                  setAmount={setAmount}
+                />
+              );
             })
           )}
         </div>

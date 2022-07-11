@@ -3,6 +3,8 @@
 }
 
 .page-body__container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .page-header__header {
@@ -38,15 +40,15 @@
 .navbar-page {
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 800px) {
   .page-body__container {
-    margin-left: 198px;
+    margin-left: 118px;
   }
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   .page-body__container {
-    margin-left: 135px;
+    margin-left: 182px;
   }
 }
 

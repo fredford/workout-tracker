@@ -3,9 +3,8 @@ import Page from "../../../components/Misc/Page";
 
 const Dashboard = () => {
   return (
-    <Page>
-      <Page.NavBar />
-      <Page.Body navbar></Page.Body>
+    <Page navbar>
+      <Page.Body></Page.Body>
     </Page>
   );
 };

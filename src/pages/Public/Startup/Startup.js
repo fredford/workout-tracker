@@ -1,4 +1,5 @@
 import React from "react";
+import { MdLogin, MdOutlineCreate } from "react-icons/md";
 import Button from "../../../components/Buttons/Button";
 
 import Card from "../../../components/Cards/Card";
@@ -16,12 +17,16 @@ export default function Startup() {
             </Card.Header>
             <Card.Bar />
             <div className="d-flex flex-column">
-              <Button className="mb-3 p-3 w-100" path="/login">
-                <Button.Image className="mb-2" src="login.png" />
+              <Button border className="mb-3" path="/login">
+                <Button.Icon>
+                  <MdLogin size={25} />
+                </Button.Icon>
                 <Button.Text>Login</Button.Text>
               </Button>
-              <Button className="p-3 w-100" path="/register">
-                <Button.Image className="mb-2" src="register.png" />
+              <Button border path="/register">
+                <Button.Icon>
+                  <MdOutlineCreate size={25} />
+                </Button.Icon>
                 <Button.Text>Register</Button.Text>
               </Button>
             </div>

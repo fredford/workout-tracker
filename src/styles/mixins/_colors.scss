@@ -5,6 +5,7 @@
   &:hover {
     background-color: var(--ac-faded) !important;
     color: var(--ac-primary) !important;
+    border-color: var(--ac-primary) !important;
   }
   &:active {
     background-color: var(--ac-primary) !important;
@@ -12,8 +13,9 @@
   }
 
   &:disabled {
-    background-color: var(--fg-lighter);
-    color: var(--bs-gray-500);
+    border-color: var(--ac-faded) !important;
+    background-color: var(--ac-faded) !important;
+    color: var(--bg-level-card) !important;
   }
 }
 

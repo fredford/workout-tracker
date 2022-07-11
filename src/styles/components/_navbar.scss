@@ -158,6 +158,7 @@
 
 @media screen and (min-width: 1000px) {
   .page-navbar {
+    width: calc(150px + 1rem);
   }
 
   .navbar-item__header {
