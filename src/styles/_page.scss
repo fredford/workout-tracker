@@ -1,6 +1,8 @@
 .page {
   background-color: var(--bg-level-0);
-  margin-bottom: 6rem;
+}
+
+.page-body__container {
 }
 
 .page-header__header {
@@ -34,11 +36,22 @@
 }
 
 .navbar-page {
-  margin-top: calc(51px + 1rem);
 }
 
-@media screen and (max-width: 431px) {
-  .navbar-page {
-    margin-top: 1rem;
+@media screen and (min-width: 1000px) {
+  .page-body__container {
+    margin-left: 198px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .page-body__container {
+    margin-left: 135px;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .page-body__container {
+    margin-bottom: 80px;
   }
 }

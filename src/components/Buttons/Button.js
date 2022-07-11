@@ -7,6 +7,9 @@ const Button = (props) => {
 
   let className = "standard-button " + props.className;
 
+  className += props.border ? " button__border" : "";
+  className += props.accent ? " button__accent" : "";
+
   let subComponentList = Object.keys(Button);
 
   let subComponents = subComponentList.map((key) => {

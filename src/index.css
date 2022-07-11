@@ -1,14 +1,18 @@
 :root {
   /* new color scheme starts*/
-  --bg-level-0: #d8d8d8;
+  --bg-level-0: #ffffff;
   --bg-level-1: #e5e5e5;
   --bg-level-2: #f2f2f2;
   --bg-level-card: #ffffff;
+  --bg-level-button: #ffffff;
 
   --fg-level-0: #0c0c0c;
   --fg-level-1: #191919;
   --fg-level-mute: #666666;
   --fg-text-acce: #20405f;
+
+  --ac-primary: #3474e0;
+  --ac-faded: #3474e026;
 
   --ac-button-hover: #cce0fe;
   --ac-button-active: #4791ff;

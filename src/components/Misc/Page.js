@@ -15,9 +15,12 @@ const Page = (props) => {
 
   return (
     <div className="page">
-      {subComponents.map((component) => {
-        return component;
-      })}
+      {props.navbar ? <Navbar /> : <></>}
+      <div className="page-body__container">
+        {subComponents.map((component) => {
+          return component;
+        })}
+      </div>
     </div>
   );
 };

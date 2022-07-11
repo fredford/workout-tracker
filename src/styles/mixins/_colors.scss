@@ -1,10 +1,14 @@
 @mixin light-base-color {
-  background-color: var(--fg-light);
-  color: var(--fg-text);
+  background-color: var(--ac-primary) !important;
+  color: var(--bg-level-card) !important;
 
   &:hover {
-    background-color: var(--fg-base);
-    color: var(--bg-card);
+    background-color: var(--ac-faded) !important;
+    color: var(--ac-primary) !important;
+  }
+  &:active {
+    background-color: var(--ac-primary) !important;
+    color: var(--bg-level-card) !important;
   }
 
   &:disabled {
@@ -14,17 +18,17 @@
 }
 
 @mixin empty-base-color {
-  background-color: var(--bg-button);
-  color: var(--fg-text);
+  background-color: var(--bg-level-card);
+  color: var(--ac-primary) !important;
 
   &:hover {
-    background-color: var(--ac-button-hover);
-    color: var(--fg-level-0);
+    background-color: var(--ac-faded);
+    color: var(--ac-primary) !important;
   }
 
   &:active {
-    background-color: var(--ac-button-active);
-    color: var(--bg-card);
+    background-color: var(--ac-primary) !important;
+    color: var(--bg-card) !important;
   }
 
   &:disabled {
