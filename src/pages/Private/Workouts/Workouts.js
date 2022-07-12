@@ -6,10 +6,9 @@ import SectionAddWorkout from "./sections/SectionAddWorkout";
 
 const Workouts = () => {
   return (
-    <Page>
-      <Page.NavBar />
-      <Page.Header navbar container header="Workouts" />
-      <Page.Body container>
+    <Page navbar container>
+      <Page.Header header="Workouts" />
+      <Page.Body>
         <SectionAddWorkout />
         <SectionWorkouts />
       </Page.Body>

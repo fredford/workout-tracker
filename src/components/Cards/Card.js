@@ -11,6 +11,8 @@ const Card = (props) => {
 
   var className = "card " + props.className;
 
+  className += props.noBorder ? " card__no-border" : "";
+
   return (
     <div className={className} onClick={props.onClick}>
       {subComponents.map((component) => component)}

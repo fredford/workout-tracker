@@ -20,6 +20,12 @@
   }
 }
 
+.card__no-border {
+  border: none !important;
+  box-shadow: none;
+  background-color: var(--bg-level-0);
+}
+
 .card-header {
   background-color: inherit;
   border-bottom: none;
@@ -27,6 +33,7 @@
 }
 
 .card-title {
+  color: var(--fg-level-0);
 }
 
 .card-subtitle {

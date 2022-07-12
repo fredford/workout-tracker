@@ -22,34 +22,31 @@ const SectionAddWorkout = () => {
       navigate(`/workouts/${data._id}`);
     }
   };
+
+  const buttons = {
+    Maintenance: "./maintenance.png",
+    Progression: "./progression.png",
+    "Single Set Max": "./max.png",
+  };
+
   return (
     <Section>
       <Section.Header>Start New Workout</Section.Header>
       <Section.Body>
         <div className="add-workout__container">
-          <Button
-            className="add-workout__item"
-            onClick={() => startNewWorkout("Maintenance")}
-          >
-            <Button.Image src={"./maintenance.png"} />
-            <Button.Text>Maintenance</Button.Text>
-          </Button>
-
-          <Button
-            className="add-workout__item"
-            onClick={() => startNewWorkout("Progression")}
-          >
-            <Button.Image src={"./progression.png"} />
-            <Button.Text>Progression</Button.Text>
-          </Button>
-
-          <Button
-            className="add-workout__item"
-            onClick={() => startNewWorkout("Single Set Max")}
-          >
-            <Button.Image src={"./max.png"} />
-            <Button.Text>Single Set Max</Button.Text>
-          </Button>
+          {Object.entries(buttons).map(([name, src]) => {
+            return (
+              <Button
+                className="add-workout__item"
+                onClick={() => startNewWorkout(name)}
+                key={name}
+                border
+              >
+                <Button.Image src={src} />
+                <Button.Text>{name}</Button.Text>
+              </Button>
+            );
+          })}
         </div>
       </Section.Body>
     </Section>

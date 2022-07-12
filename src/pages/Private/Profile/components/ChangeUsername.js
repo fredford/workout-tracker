@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Modal } from "react-bootstrap";
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
@@ -15,9 +14,6 @@ const ChangeUsername = () => {
     setUsername(e);
   };
 
-  const handleShow = () => setShow(true);
-  const handleClose = () => setShow(false);
-
   var isDisabled = true;
 
   if (username.length) {
@@ -29,7 +25,7 @@ const ChangeUsername = () => {
   };
 
   return (
-    <Card className="card-padding h-100">
+    <Card className="h-100">
       <Card.ImageHeader path="./scale.png">
         <Card.Title>Change Username</Card.Title>
         <Card.Text className="text-muted">Set your new username</Card.Text>
@@ -52,6 +48,8 @@ const ChangeUsername = () => {
             className="w-100"
             onClick={handleUpdateUsername}
             disabled={isDisabled}
+            border
+            accent
           >
             <Button.Text>Update</Button.Text>
           </Button>

@@ -10,7 +10,7 @@ const ProfileLogout = () => {
     navigate("/startup");
   };
   return (
-    <Button onClick={handleLogout}>
+    <Button border onClick={handleLogout}>
       <Button.Image src="./logout.png" />
       <Button.Text>Logout</Button.Text>
     </Button>

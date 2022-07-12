@@ -93,14 +93,12 @@ const Exercise = () => {
   };
 
   return (
-    <Page>
-      <Page.NavBar />
-      <Page.Body navbar>
-        <div className="container">
-          <Button path="/exercises" className="w-100">
-            <Button.Text>Back to Exercises</Button.Text>
-          </Button>
-        </div>
+    <Page navbar>
+      <Page.Body>
+        <Button border path="/exercises" className="w-100">
+          <Button.Text>Back to Exercises</Button.Text>
+        </Button>
+
         <div className="mb-3">
           <ExerciseInfo stats={exerciseStats.stats} />
         </div>
@@ -130,7 +128,12 @@ const Exercise = () => {
             <Card>
               <Card.Header>Settings</Card.Header>
               <Card.Body className="mt-3">
-                <Button onClick={deleteExercise} className="w-100 btn-danger">
+                <Button
+                  border
+                  accent
+                  onClick={deleteExercise}
+                  className="w-100 btn-danger"
+                >
                   <Button.Text>Delete</Button.Text>
                 </Button>
               </Card.Body>

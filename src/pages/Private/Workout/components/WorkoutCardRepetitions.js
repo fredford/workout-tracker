@@ -56,14 +56,12 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
         addSet={addSet}
       />
       <AccordionCard.Body className="workout-sets__body">
-        <Card.Bar className="mt-0 mb-2" />
         <WorkoutExerciseAmount amount={amount} setAmount={setAmount} />
         <div className="workout-sets__header-button">
-          <Button className="p-3 w-100" onClick={addSet}>
+          <Button border className="p-3 w-100" onClick={addSet}>
             <Button.Text>Add Set</Button.Text>
           </Button>
         </div>
-        <Card.Bar className="mb-2 mt-2" />
         <div className="mb-3 grid-4-item">
           <StatsCard data={numSets} title={"Sets"} />
           <StatsCard data={avgSets} title={"Avg"} />

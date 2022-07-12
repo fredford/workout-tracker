@@ -6,10 +6,10 @@
 }
 
 .stats-card {
-  background-color: var(--fg-acce);
-  color: var(--bg-card);
+  background-color: var(--ac-faded);
+  color: var(--fg-level-0);
   border-radius: $border-radius-button;
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .stats-border {
@@ -18,11 +18,15 @@
 
 .stats-card__number {
   font-weight: 700;
-  color: #e5e5e5;
+  color: var(--ac-primary);
 }
 
 .stats-card__name {
-  color: #9fbfdf;
+  color: var(--fg-level-0);
+}
+
+.stats-card__subtitle {
+  color: var(--fg-mute);
 }
 
 @media screen and (max-width: 400px) {

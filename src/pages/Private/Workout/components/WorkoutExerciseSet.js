@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaWindowClose } from "react-icons/fa";
+import { MdOutlineCancel } from "react-icons/md";
 import { resolve } from "../../../../services/utils";
 
 import SetsService from "../../../../services/sets";
@@ -29,7 +29,8 @@ const WorkoutExerciseSet = ({ set, index, setAmount }) => {
       <h5 className="workout-sets-repetitions__set-count">Set {index + 1}</h5>
       <h5 className="workout-sets-repetitions__set-amount">{set.amount}</h5>
 
-      <FaWindowClose
+      <MdOutlineCancel
+        size={20}
         className="workout-sets-repetitions__set-button"
         onClick={deleteSet}
       />

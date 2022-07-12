@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
-import { FcEditImage, FcCancel } from "react-icons/fc";
+import { MdOutlineModeEditOutline, MdDeleteOutline } from "react-icons/md";
 import { resolve } from "../../../../services/utils";
 import WorkoutService from "../../../../services/workout";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +16,7 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
   };
 
   return (
-    <Card className="p-3">
+    <Card className="p-0" noBorder>
       <Card.Body className="p-0">
         <Card.ImageHeader
           className="mb-3"
@@ -28,15 +28,15 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
         <div className="grid-4-item">
           <StatsCard data={totalAmount} title={"Total"} />
           <StatsCard data={totalSets} title={"Sets"} />
-          <Button className="">
+          <Button border>
             <Button.Icon>
-              <FcEditImage size={30} />
+              <MdOutlineModeEditOutline size={40} />
             </Button.Icon>
             <Button.Text>Edit</Button.Text>
           </Button>
-          <Button className="w-100" onClick={deleteWorkout}>
+          <Button border onClick={deleteWorkout}>
             <Button.Icon>
-              <FcCancel size={30} />
+              <MdDeleteOutline size={40} />
             </Button.Icon>
             <Button.Text>Delete</Button.Text>
           </Button>

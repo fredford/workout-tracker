@@ -9,9 +9,14 @@
     background-color: var(--bg-level-card);
     @include standard-border;
 
+    &.collapsed {
+      border-radius: $border-radius-standard !important;
+    }
+
     &:not(.collapsed) {
       color: var(--fg-text);
       background-color: var(--bg-level-card);
+      box-shadow: none;
 
       &:hover {
         background-color: var(--ac-button-hover);
@@ -25,5 +30,9 @@
   .accordion-item {
     @include standard-border;
     background-color: var(--bg-level-card);
+
+    &:first-of-type .accordion-button {
+      border-radius: $border-radius-standard;
+    }
   }
 }

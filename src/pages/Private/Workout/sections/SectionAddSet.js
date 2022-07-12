@@ -6,7 +6,7 @@ import WorkoutCardRepetitions from "../components/WorkoutCardRepetitions";
 const SectionAddSet = ({ workoutObject }) => {
   return (
     <Section>
-      <Section.Header>Exercises</Section.Header>
+      <Section.Header>Sets</Section.Header>
       <Section.Body>
         <div className="workout-sets__container">
           {Object.entries(workoutObject).map(

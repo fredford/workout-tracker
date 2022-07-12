@@ -20,11 +20,11 @@
 }
 
 @mixin empty-base-color {
-  background-color: var(--bg-level-card);
-  color: var(--ac-primary) !important;
+  background-color: inherit;
+  color: inherit;
 
   &:hover {
-    background-color: var(--ac-faded);
+    background-color: var(--ac-faded) !important;
     color: var(--ac-primary) !important;
   }
 

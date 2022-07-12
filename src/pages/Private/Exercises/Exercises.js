@@ -23,10 +23,9 @@ const Exercises = () => {
 
   return (
     <ActivityProvider>
-      <Page>
-        <Page.NavBar />
-        <Page.Header navbar container header="Exercises" />
-        <Page.Body container>
+      <Page navbar container>
+        <Page.Header header="Exercises" />
+        <Page.Body>
           <SectionExercises />
         </Page.Body>
       </Page>
