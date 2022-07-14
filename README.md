@@ -20,6 +20,8 @@ This project utilizes the MERN stack of MongoDB document database, ExpressJS web
 
 ## Roadmap
 
+- [ ] Provide comments and code clean-up
+- [ ] Provide unit-testing
 - [ ] Add duration tracking to Workouts
 - [ ] Add milestone tracking for exercise completion metrics (eg. 10,000 repetitions for Push-ups)
 - [ ] Add goals (repetitions, steps, run distance) tracking
