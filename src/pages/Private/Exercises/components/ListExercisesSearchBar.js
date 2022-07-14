@@ -1,8 +1,7 @@
-import { FourMpRounded } from "@mui/icons-material";
 import React from "react";
 
-import { FaChevronUp, FaChevronDown, FaPlus } from "react-icons/fa";
-import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
+import Button from "../../../../components/Buttons/Button";
 import Form from "../../../../components/Forms/Form";
 import AddExercise from "./AddExercise";
 
@@ -26,18 +25,18 @@ const ListExerciseSearchBar = (props) => {
   return (
     <div className="list-exercises__searchbar">
       <div className="d-flex w-100">
-        <div className="me-3 button-icon">
-          <ButtonToggle
-            id="toggle-direction"
-            checked={props.isAscending}
-            onChange={changeDirection}
-            className="button-icon"
-          >
+        <Button
+          id="toggle-direction"
+          onClick={changeDirection}
+          className="button-icon me-3"
+          border
+        >
+          <Button.Icon>
             <ShowDirection />
-          </ButtonToggle>
-        </div>
+          </Button.Icon>
+        </Button>
 
-        <div className="me-3 button-icon-height">
+        <div className="me-3 line-height">
           <AddExercise />
         </div>
         <div className="flex-fill">

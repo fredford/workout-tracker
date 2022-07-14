@@ -5,20 +5,16 @@
   gap: 0.5rem;
 }
 .workout-exercises__exercise {
-  border: 1px solid var(--fg-light);
-  border-radius: $border-radius-button;
+  @include button-border;
+  @include empty-base-color;
   padding: 0.5rem;
-
-  &:hover {
-    background-color: var(--fg-base);
-    color: var(--bg-card);
-  }
 
   h5 {
     color: inherit;
+    font-weight: $font-norm;
   }
   h6 {
-    color: inherit !important;
+    color: var(--fg-mute);
     font-weight: $font-norm;
   }
 }

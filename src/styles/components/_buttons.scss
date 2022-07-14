@@ -1,3 +1,49 @@
+.standard-button {
+  @include empty-base-color;
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius-button;
+  border: none;
+
+  color: var(--ac-primary) !important;
+
+  .button__icon {
+    color: inherit !important;
+  }
+
+  .button__text {
+    color: var(-fg-level-0) !important;
+  }
+
+  .button__image {
+    @include standard-image;
+    margin-top: 0.5rem;
+  }
+}
+
+.horizontal-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: $line-height !important;
+}
+
+.vertical-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.button__border {
+  @include button-border;
+}
+
+.button__accent {
+  @include light-base-color;
+}
+
 .link-button {
   .link-button__image {
     width: $image-width;
@@ -8,43 +54,43 @@
   }
 }
 
-.standard-button {
-  @include standard-border;
-  @include standard-padding;
-  @include empty-base-color;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+// .standard-button {
+//   @include standard-border;
+//   @include standard-padding;
+//   @include empty-base-color;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
 
-  .button__image {
-    @include standard-image;
-    margin-top: 0.5rem;
-  }
+//   .button__image {
+//     @include standard-image;
+//     margin-top: 0.5rem;
+//   }
 
-  & > *:not(:last-child) {
-    margin-bottom: 0.5rem;
-  }
+//   & > *:not(:last-child) {
+//     margin-bottom: 0.5rem;
+//   }
 
-  &:hover {
-    .button__image {
-      background-color: var(--fg-acce);
-    }
-  }
+//   &:hover {
+//     .button__image {
+//       background-color: var(--fg-acce);
+//     }
+//   }
 
-  .button__icon {
-    width: $image-width;
-  }
+//   .button__icon {
+//     width: $image-width;
+//   }
 
-  .button__text {
-    color: inherit;
-    font-weight: $font-bold;
-  }
-}
+//   .button__text {
+//     color: inherit;
+//     font-weight: $font-bold;
+//   }
+// }
 
 .button-toggle-active .button-toggle__label {
-  color: var(--bg-level-card);
-  background-color: var(--fg-acce) !important;
+  color: var(--bg-level-card) !important;
+  background-color: var(--ac-primary) !important;
 }
 
 .button-toggle {
@@ -52,8 +98,10 @@
     display: none;
   }
   .button-toggle__label {
-    @include standard-border;
-    background-color: rgba(var(--fg-acce-rgb), 0.2);
+    @include button-border;
+    @include empty-base-color;
+    color: var(--ac-primary);
+    //background-color: rgba(var(--fg-acce-rgb), 0.2);
     border-radius: $border-radius-button;
     height: 100%;
     display: flex;
@@ -86,8 +134,8 @@
 }
 
 .button-icon {
-  width: 36px;
-  height: 36px;
+  width: $line-height;
+  height: $line-height;
 }
 
 .button-icon-height {

@@ -1,0 +1,15 @@
+.dashboard__quick-actions {
+  min-width: 318px;
+  .dashboard__quick-actions-body {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .button-size {
+    width: 90px;
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+}

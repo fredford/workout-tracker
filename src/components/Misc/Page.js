@@ -6,6 +6,12 @@ const Page = (props) => {
   // Get a list of all Page subcomponents
   let subComponentList = Object.keys(Page);
 
+  let containerClassName = props.container ? " container" : "";
+
+  let pageBodyContainerClassname = props.navbar
+    ? "page-body__container"
+    : "center-page";
+
   // Get the child components for Page and display them in the order designated
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) => {
@@ -15,9 +21,14 @@ const Page = (props) => {
 
   return (
     <div className="page">
-      {subComponents.map((component) => {
-        return component;
-      })}
+      {props.navbar ? <Navbar /> : <></>}
+      <div className={pageBodyContainerClassname}>
+        <div className={containerClassName}>
+          {subComponents.map((component) => {
+            return component;
+          })}
+        </div>
+      </div>
     </div>
   );
 };

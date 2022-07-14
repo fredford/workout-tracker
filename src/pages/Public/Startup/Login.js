@@ -7,12 +7,17 @@ import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/Button";
 
+import { MdLogin } from "react-icons/md";
+
 const Login = () => {
   let navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  let isDisabled = email.length !== 0 && password.length !== 0 ? false : true;
+  console.log(isDisabled, email.length, password.length);
 
   const updateEmail = (e) => {
     setEmail(e);
@@ -58,7 +63,7 @@ const Login = () => {
       <Page.Body center>
         <Card>
           <Card.Body>
-            <h1 className="text-center p-3">Workout Tracker</h1>
+            <h1 className="text-center">Workout Tracker</h1>
             <Card.Header className="text-center text-muted">Login</Card.Header>
             <Card.Bar />
             <Form className="mb-2">
@@ -80,7 +85,17 @@ const Login = () => {
               />
             </Form>
             <Card.Text className="text-error">{error}</Card.Text>
-            <Button onClick={attemptLogin} className="w-100">
+            <Button
+              onClick={attemptLogin}
+              border
+              horizontal
+              accent
+              disabled={isDisabled}
+              className="w-100"
+            >
+              <Button.Icon>
+                <MdLogin size={25} />
+              </Button.Icon>
               <Button.Text>Login</Button.Text>
             </Button>
             <Card.Bar />

@@ -12,6 +12,7 @@ import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
 import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ListExercisesExercise from "../components/ListExercisesExercise";
+import Button from "../../../../components/Buttons/Button";
 
 const SectionExercises = () => {
   // Redux State
@@ -47,12 +48,12 @@ const SectionExercises = () => {
     );
   }
 
-  if (displayList.length > 10) {
-    displayList = displayList.slice(page * 10, page * 10 + 10);
-  }
-
   if (isAscending) {
     displayList.reverse();
+  }
+
+  if (displayList.length > 10) {
+    displayList = displayList.slice(page * 10, page * 10 + 10);
   }
 
   const changeDirection = () => {
@@ -116,22 +117,25 @@ const SectionExercises = () => {
               )}
             </div>
             <div className="d-flex flex-row justify-content-center">
-              <div className="button-icon me-2">
-                <ButtonToggle
-                  onClick={decreasePage}
-                  className="line-height w-100 h-100"
-                >
+              <Button
+                onClick={decreasePage}
+                border
+                className="me-2 button-icon"
+              >
+                <Button.Icon>
                   <FaArrowLeft />
-                </ButtonToggle>
-              </div>
-              <div className="button-icon ms-2">
-                <ButtonToggle
-                  onClick={increasePage}
-                  className="button-icon w-100 h-100"
-                >
+                </Button.Icon>
+              </Button>
+
+              <Button
+                onClick={increasePage}
+                className="ms-2 button-icon"
+                border
+              >
+                <Button.Icon>
                   <FaArrowRight />
-                </ButtonToggle>
-              </div>
+                </Button.Icon>
+              </Button>
             </div>
           </Card.Body>
         </Card>

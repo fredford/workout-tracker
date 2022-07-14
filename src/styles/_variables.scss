@@ -1,11 +1,11 @@
 $image-width: 75px;
 $image-small-width: 60px;
-$line-height: 38px;
+$line-height: 43px;
 
 // Border
-$border-radius-standard: 0.25rem;
-$border-radius-card: 0.5rem;
-$border-radius-button: 0.25rem;
+$border-radius-standard: 1rem;
+$border-radius-card: 1rem;
+$border-radius-button: 0.5rem;
 $border-radius-form: 0.25rem;
 $border-radius-image: 1rem;
 
@@ -16,7 +16,9 @@ $box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
 
 // Font
 //$font-family: "Quicksand", sans-serif;
-$font-family: "Montserrat", sans-serif;
+//$font-family: "Montserrat", sans-serif;
+$font-family: "Gilroy", sans-serif;
+$font-logo: "Days One", sans-serif;
 $font-slim: 400;
 $font-norm: 500;
 $font-bold: 600;

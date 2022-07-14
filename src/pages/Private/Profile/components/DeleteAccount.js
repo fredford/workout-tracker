@@ -29,7 +29,7 @@ const DeleteAccount = () => {
 
   return (
     <>
-      <Button onClick={handleShow}>
+      <Button border onClick={handleShow}>
         <Button.Image src="./delete.png" />
         <Button.Text>Delete Account</Button.Text>
       </Button>
@@ -60,12 +60,14 @@ const DeleteAccount = () => {
                   onClick={handleSubmit}
                   disabled={isDisabled}
                   className="w-100 button-danger"
+                  accent
+                  border
                 >
                   <Button.Text>Delete</Button.Text>
                 </Button>
               </div>
               <div className="col">
-                <Button onClick={handleClose} className="w-100">
+                <Button border onClick={handleClose} className="w-100">
                   <Button.Text>Cancel</Button.Text>
                 </Button>
               </div>

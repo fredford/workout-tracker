@@ -25,5 +25,11 @@
 }
 
 .line-height {
-  height: 38px;
+  height: $line-height;
+}
+
+.grid-margin > * {
+  margin-bottom: 1rem;
+  &:not(:last-child) {
+  }
 }

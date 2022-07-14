@@ -67,6 +67,8 @@ const ChangePassword = () => {
             className="w-100"
             onClick={handleUpdatePassword}
             disabled={isDisabled}
+            border
+            accent
           >
             <Button.Text>Update</Button.Text>
           </Button>

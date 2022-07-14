@@ -1,12 +1,12 @@
 .list-exercises__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
 .list-exercise__card {
-  @include standard-border;
+  @include button-border;
   @include empty-base-color;
 
   padding: 1rem;

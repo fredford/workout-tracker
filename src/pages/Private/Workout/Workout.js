@@ -88,10 +88,9 @@ const Workout = () => {
   );
 
   return (
-    <Page>
-      <Page.NavBar />
-      <Page.Body navbar container>
-        <Button path="/workouts" className="w-100">
+    <Page navbar>
+      <Page.Body>
+        <Button border path="/workouts" className="w-100">
           <Button.Text>Back to Workouts</Button.Text>
         </Button>
         <SectionWorkoutInfo

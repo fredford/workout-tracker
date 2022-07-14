@@ -12,10 +12,9 @@ const Profile = () => {
   const user = useSelector((state) => state.user);
 
   return (
-    <Page>
-      <Page.NavBar />
-      <Page.Header container navbar header={user.name} subheader={user.email} />
-      <Page.Body container>
+    <Page navbar>
+      <Page.Header header={user.name} subheader={user.email} />
+      <Page.Body>
         <Accordion className="profile-accordion">
           <Accordion.Item eventKey="0">
             <Accordion.Header>App Settings</Accordion.Header>

@@ -5,6 +5,7 @@ import Page from "../../../components/Misc/Page";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/Button";
+import { MdCreate } from "react-icons/md";
 
 const Register = () => {
   let navigate = useNavigate();
@@ -13,6 +14,15 @@ const Register = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
+
+  let isDisabled =
+    email.length !== 0 &&
+    password.length !== 0 &&
+    name.length !== 0 &&
+    passwordConfirm.length !== 0
+      ? false
+      : true;
+  console.log(isDisabled, email.length, password.length);
 
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
@@ -100,7 +110,7 @@ const Register = () => {
       <Page.Body center>
         <Card>
           <Card.Body>
-            <h1 className="text-center p-3">Workout Tracker</h1>
+            <h1 className="text-center">Workout Tracker</h1>
             <Card.Header className="text-center text-muted">
               Register
             </Card.Header>
@@ -122,7 +132,17 @@ const Register = () => {
               );
             })}
             <Card.Text className="text-error">{error}</Card.Text>
-            <Button onClick={attemptRegister} className="w-100">
+            <Button
+              onClick={attemptRegister}
+              border
+              horizontal
+              accent
+              disabled={isDisabled}
+              className="w-100"
+            >
+              <Button.Icon>
+                <MdCreate size={25} />
+              </Button.Icon>
               <Button.Text>Register</Button.Text>
             </Button>
             <Card.Bar />

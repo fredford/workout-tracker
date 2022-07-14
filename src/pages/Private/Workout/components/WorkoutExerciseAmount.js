@@ -33,6 +33,7 @@ const WorkoutExerciseAmount = ({ amount, setAmount }) => {
     <div className="workout-sets-repetitions__buttons-container">
       <Button
         className="workout-sets-repetitions__button-container"
+        border
         onClick={() => increaseAmount()}
       >
         <Button.Icon>
@@ -51,6 +52,7 @@ const WorkoutExerciseAmount = ({ amount, setAmount }) => {
       <Button
         className="workout-sets-repetitions__button-container"
         onClick={() => decreaseAmount()}
+        border
       >
         <Button.Icon>
           <FaMinus />

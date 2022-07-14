@@ -7,7 +7,7 @@ import Button from "../../../../components/Buttons/Button";
 
 import { addExercise } from "../../../../redux/reducers/exercises";
 
-import { FaPlus } from "react-icons/fa";
+import { BsPlusLg } from "react-icons/bs";
 import { Modal } from "react-bootstrap";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
@@ -69,9 +69,9 @@ const AddExercise = () => {
 
   return (
     <>
-      <Button onClick={handleShow} className="h-100 p-0 ps-1 pe-1 ">
+      <Button onClick={handleShow} border className="h-100 p-0 ps-3 pe-3 ">
         <Button.Icon>
-          <FaPlus className="me-1" /> <span>Add</span>
+          <BsPlusLg className="me-1" /> <span>Add</span>
         </Button.Icon>
       </Button>
       <Modal show={show} onHide={handleClose}>
