@@ -1,31 +1,42 @@
 import React from "react";
 import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Misc/Page";
-import ChartRecentActivity from "./components/ChartRecentActivity";
+import Challenges from "./components/Challenges";
+import ChartRecentActivity from "./components/Charts/ChartRecentActivity";
+import ChartTopExercises from "./components/Charts/ChartTopExercises";
+import Goals from "./components/Goals";
 import Intro from "./components/Intro";
-import StatsGroupArea from "./components/StatsGroupArea";
-import StatsGroupBasic from "./components/StatsGroupBasic";
+import LastWorkout from "./components/LastWorkout";
+import QuickActions from "./components/QuickActions";
+import StatsGroupArea from "./components/Stats/StatsGroupArea";
+import StatsGroupBasic from "./components/Stats/StatsGroupBasic";
 
 const Dashboard = () => {
   return (
     <Page navbar>
       <Page.Body>
-        <div className="dashboard__container">
-          <div className="dashboard__left-container">
-            <Intro />
-            <StatsGroupBasic />
-            <ChartRecentActivity />
+        <div className="mb-3">
+          <Intro />
+        </div>
+        <div className="row">
+          <div className="col-xl-6 grid-margin">
+            <div className="grid-350">
+              <LastWorkout />
+              <QuickActions />
+            </div>
+            <div className="grid-margin">
+              <ChartRecentActivity />
+              <StatsGroupBasic />
+            </div>
+            <div className="grid-350 grid-margin">
+              <Goals />
+              <Challenges />
+            </div>
+          </div>
+          <div className="col-xl-6 grid-margin">
+            <ChartTopExercises />
             <StatsGroupArea />
-          </div>
-          <div className="dashboard__middle-container">
-            <Card className="h-100">
-              <Card.Header>Small Card</Card.Header>
-            </Card>
-          </div>
-          <div className="dashboard__right-container">
-            <Card className="h-100">
-              <Card.Header>Small Card</Card.Header>
-            </Card>
+            <ChartTopExercises />
           </div>
         </div>
       </Page.Body>

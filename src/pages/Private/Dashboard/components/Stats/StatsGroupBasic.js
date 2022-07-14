@@ -1,5 +1,5 @@
 import React from "react";
-import StatsCard from "../../../../components/Stats/StatsCard";
+import StatsCard from "../../../../../components/Stats/StatsCard";
 
 const StatsGroupBasic = () => {
   // This is a component to display basic stats for the overall performance in the application
@@ -10,11 +10,11 @@ const StatsGroupBasic = () => {
     { title: "Workouts", subtitle: "Completed", data: 115 },
   ];
   return (
-    <div className="grid-4-item">
-      {stats.map((stat) => {
+    <div className="grid-125">
+      {stats.map((stat, index) => {
         return (
           <StatsCard
-            key={stat.title}
+            key={index}
             data={stat.data}
             title={stat.title}
             subtitle={stat.subtitle}

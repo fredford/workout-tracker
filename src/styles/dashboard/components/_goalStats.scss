@@ -1,0 +1,31 @@
+.dashboard__goals {
+  width: 100%;
+}
+
+.dashboard__goal {
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.dashboard__goals-progress {
+  position: relative;
+}
+
+.dashboard__goals-progress-bar {
+  background-color: var(--ac-faded);
+}
+
+.dashboard__goals-stats {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ac-primary);
+
+  .active & {
+    background-color: var(--bs-success);
+    color: var(--bg-level-0);
+  }
+}

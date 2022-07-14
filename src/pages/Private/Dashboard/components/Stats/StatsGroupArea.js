@@ -1,5 +1,5 @@
 import React from "react";
-import StatsCard from "../../../../components/Stats/StatsCard";
+import StatsCard from "../../../../../components/Stats/StatsCard";
 
 const StatsGroupArea = () => {
   // This is a component to display basic stats for the overall performance in the application
@@ -11,10 +11,10 @@ const StatsGroupArea = () => {
   ];
   return (
     <div className="grid-4-item">
-      {stats.map((stat) => {
+      {stats.map((stat, index) => {
         return (
           <StatsCard
-            key={stat.title}
+            key={index}
             data={stat.data}
             title={stat.title}
             subtitle={stat.subtitle}

@@ -1,4 +1,10 @@
-.grid-150 {
+.grid-125 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  gap: 1rem;
+}
+
+.grid-200 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
@@ -9,6 +15,13 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
 }
+
+.grid-350 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(318px, 1fr));
+  gap: 1rem;
+}
+
 .grid-450 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

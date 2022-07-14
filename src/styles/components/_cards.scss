@@ -20,6 +20,18 @@
   }
 }
 
+.clickable.card {
+  &:hover {
+    background-color: var(--ac-faded);
+  }
+}
+
+.clickable.card {
+  .card:hover {
+    background-color: var(--ac-faded);
+  }
+}
+
 .card__no-border {
   border: none !important;
   box-shadow: none;
@@ -60,4 +72,10 @@
 }
 
 .card-text {
+}
+
+.stretch-card {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
 }

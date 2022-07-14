@@ -12,6 +12,7 @@ const Card = (props) => {
   var className = "card " + props.className;
 
   className += props.noBorder ? " card__no-border" : "";
+  className += props.onClick ? " clickable" : "";
 
   return (
     <div className={className} onClick={props.onClick}>
