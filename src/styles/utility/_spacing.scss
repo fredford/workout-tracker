@@ -33,3 +33,12 @@
   &:not(:last-child) {
   }
 }
+
+.startup-sizing {
+  min-width: 300px;
+}
+
+.startup-header {
+  font-family: $font-logo;
+  font-weight: 500;
+}

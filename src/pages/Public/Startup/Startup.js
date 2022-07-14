@@ -9,9 +9,9 @@ export default function Startup() {
   return (
     <Page>
       <Page.Body center>
-        <Card>
+        <Card className="startup-sizing">
           <Card.Body>
-            <h1 className="text-center">Workout Tracker</h1>
+            <h1 className="text-center">Fitrak</h1>
             <Card.Header className="text-muted text-center">
               Welcome
             </Card.Header>

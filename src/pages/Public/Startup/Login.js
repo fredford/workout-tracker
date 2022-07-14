@@ -63,7 +63,7 @@ const Login = () => {
       <Page.Body center>
         <Card>
           <Card.Body>
-            <h1 className="text-center">Workout Tracker</h1>
+            <h1 className="startup-header text-center">Fitrak</h1>
             <Card.Header className="text-center text-muted">Login</Card.Header>
             <Card.Bar />
             <Form className="mb-2">

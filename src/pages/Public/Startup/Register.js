@@ -108,9 +108,9 @@ const Register = () => {
   return (
     <Page>
       <Page.Body center>
-        <Card>
+        <Card className="startup-sizing">
           <Card.Body>
-            <h1 className="text-center">Workout Tracker</h1>
+            <h1 className="startup-header text-center">Fitrak</h1>
             <Card.Header className="text-center text-muted">
               Register
             </Card.Header>
