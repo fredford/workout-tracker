@@ -10,13 +10,14 @@ This application was created to provide a workout tracking experience for users,
 
 ## Built With
 
-This project utilizes the MERN stack of MongoDB document database, ExpressJS web framework, React frontend framework and NodeJS webserver. Bootstrap was used for some styling, however, the majority of the styling is done using SCSS.
+This project utilizes the MERN stack of MongoDB document database, ExpressJS web framework, React frontend framework and NodeJS webserver. Bootstrap was used for some styling, however, the majority of the styling is done using SCSS. This repository only contains the frontend structure.
 
 - [![React][react.js]][react-url]
+- [![Bootstrap][bootstrap.com]][bootstrap-url]
 - [![Node][node.js]][node-url]
 - [![Express][express.js]][express-url]
 - [![MongoDB][mongodb.com]][mongodb-url]
-- [![Bootstrap][bootstrap.com]][bootstrap-url]
+
 
 ## Roadmap
 
