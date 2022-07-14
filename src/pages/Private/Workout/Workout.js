@@ -89,7 +89,7 @@ const Workout = () => {
 
   return (
     <Page navbar>
-      <Page.Body>
+      <Page.Body className="grid-margin">
         <Button border path="/workouts" className="w-100">
           <Button.Text>Back to Workouts</Button.Text>
         </Button>

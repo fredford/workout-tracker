@@ -8,7 +8,7 @@ const Workouts = () => {
   return (
     <Page navbar container>
       <Page.Header header="Workouts" />
-      <Page.Body>
+      <Page.Body className="grid-margin">
         <SectionAddWorkout />
         <SectionWorkouts />
       </Page.Body>

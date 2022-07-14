@@ -15,7 +15,7 @@ const Profile = () => {
     <Page navbar>
       <Page.Header header={user.name} subheader={user.email} />
       <Page.Body>
-        <Accordion className="profile-accordion">
+        <Accordion className="profile-accordion grid-margin">
           <Accordion.Item eventKey="0">
             <Accordion.Header>App Settings</Accordion.Header>
             <Accordion.Body>

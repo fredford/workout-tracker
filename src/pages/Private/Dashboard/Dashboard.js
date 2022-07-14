@@ -28,7 +28,7 @@ const Dashboard = () => {
               <ChartRecentActivity />
               <StatsGroupBasic />
             </div>
-            <div className="grid-350 grid-margin">
+            <div className="grid-350">
               <Goals />
               <Challenges />
             </div>

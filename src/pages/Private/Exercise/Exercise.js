@@ -99,7 +99,7 @@ const Exercise = () => {
           <Button.Text>Back to Exercises</Button.Text>
         </Button>
 
-        <div className="mb-3">
+        <div className="mb-3 mt-3">
           <ExerciseInfo stats={exerciseStats.stats} />
         </div>
         <div className="row">
