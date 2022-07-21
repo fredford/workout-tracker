@@ -1,6 +1,9 @@
 import http from "../http-common";
 
 class WorkoutsService {
+  getLast() {
+    return http.get("/workouts?last=true");
+  }
   getAll() {
     return http.get("/workouts");
   }

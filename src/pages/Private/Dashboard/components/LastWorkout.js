@@ -1,54 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import StatsCard from "../../../../components/Stats/StatsCard";
+import WorkoutsService from "../../../../services/workouts";
+import { resolve } from "../../../../services/utils";
 
 const LastWorkout = () => {
   const navigate = useNavigate();
 
-  const lastWorkoutInfo = {
+  const [lastWorkout, setLastWorkout] = useState({
     id: "123456",
     type: "Progressive",
-    sets: 15,
-    topExercise: "Push-ups",
-    totalRepetitions: 120,
-    primaryArea: "Upper",
+    sets: 0,
+    totalRepetitions: 0,
+  });
+
+  useEffect(() => {
+    retrieveData();
+  }, []);
+
+  const retrieveData = async () => {
+    const [data, error] = await resolve(WorkoutsService.getLast());
+
+    // Set the last workout as the data received or log the error
+    data ? setLastWorkout(data) : console.log(error);
   };
 
   return (
     <Card
       className="dashboard__last-workout"
-      onClick={() => navigate(`/workouts/${lastWorkoutInfo.id}`)}
+      onClick={() => navigate(`/workouts/${lastWorkout.id}`)}
     >
       <Card.Header>Last Workout</Card.Header>
-      <Card.Subtitle className="text-muted">
-        {lastWorkoutInfo.type}
-      </Card.Subtitle>
+      <Card.Subtitle className="text-muted">{lastWorkout.type}</Card.Subtitle>
       <Card.Body>
         <div className="grid-2-item">
+          <StatsCard data={lastWorkout.sets} title="Sets" subtitle="Count" />
           <StatsCard
-            data={lastWorkoutInfo.sets}
-            title="Sets"
-            subtitle="Count"
-          />
-          <StatsCard
-            data={lastWorkoutInfo.totalRepetitions}
+            data={lastWorkout.totalRepetitions}
             title="Total"
             subtitle="Repetitions"
           />
-          {/*
-          <StatsCard
-            data={lastWorkoutInfo.topExercise}
-            title="Top"
-            subtitle="Exercise"
-          />
-          <StatsCard
-            data={lastWorkoutInfo.primaryArea}
-            title="Primary"
-            subtitle="Area"
-          />
-  */}
         </div>
       </Card.Body>
     </Card>
