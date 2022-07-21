@@ -2,7 +2,7 @@ import http from "../http-common";
 
 class StatsService {
   getDashboardDataBasic() {
-    return http.get(`/stats/dashboardData?type=basic`);
+    return http.get(`/stats/dashboardData`);
   }
   getExerciseData(id) {
     return http.get(`/stats/exerciseData/${id}`);

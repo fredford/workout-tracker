@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Misc/Page";
+import { resolve } from "../../../services/utils";
 import Challenges from "./components/Challenges";
 import ChartRecentActivity from "./components/Charts/ChartRecentActivity";
 import ChartTopExercises from "./components/Charts/ChartTopExercises";
@@ -11,7 +12,21 @@ import QuickActions from "./components/QuickActions";
 import StatsGroupArea from "./components/Stats/StatsGroupArea";
 import StatsGroupBasic from "./components/Stats/StatsGroupBasic";
 
+import StatsService from "../../../services/stats";
+
 const Dashboard = () => {
+  const [stats, setStats] = useState({});
+
+  useEffect(() => {
+    retrieveData();
+  }, []);
+
+  const retrieveData = async () => {
+    const [data, error] = await resolve(StatsService.getDashboardDataBasic());
+
+    data ? setStats(data) : console.log(error);
+  };
+
   return (
     <Page navbar>
       <Page.Body>
@@ -26,16 +41,20 @@ const Dashboard = () => {
             </div>
             <div className="grid-margin">
               <ChartRecentActivity />
-              <StatsGroupBasic />
+              <StatsGroupBasic stats={stats.basic} />
             </div>
+            {/*
+
+            TODO Add features for Goals and Challenges
             <div className="grid-350">
               <Goals />
               <Challenges />
             </div>
+            */}
           </div>
           <div className="col-xl-6 grid-margin">
             <ChartTopExercises />
-            <StatsGroupArea />
+            <StatsGroupArea stats={stats.area} />
             <ChartTopExercises />
           </div>
         </div>
