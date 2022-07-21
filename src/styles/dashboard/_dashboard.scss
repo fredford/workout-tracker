@@ -3,3 +3,20 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.dashboard__chart-dropdown {
+  position: absolute;
+  top: 2rem;
+  right: 1.5rem;
+  z-index: 2;
+}
+
+.dashboard__chart-dropdown-menu {
+  @include button-border;
+  @include empty-base-color;
+  padding: 0.5rem 0.25rem;
+
+  &:focus-visible {
+    outline: none;
+  }
+}

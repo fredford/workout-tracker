@@ -37,6 +37,7 @@ const tempData = {
 
 const optionsObj = {
   standard: {
+    bezierCurve: true,
     plugins: {
       legend: {
         display: false,
@@ -48,8 +49,17 @@ const optionsObj = {
       y: {
         display: true,
         beginAtZero: true,
+        grid: {
+          display: false,
+        },
         ticks: {
           beginAtZero: true,
+        },
+      },
+      x: {
+        display: false,
+        grid: {
+          display: false,
         },
       },
     },
