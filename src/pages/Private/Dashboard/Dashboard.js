@@ -39,11 +39,15 @@ const Dashboard = () => {
               <LastWorkout />
               <QuickActions />
             </div>
-            <div className="grid-margin">
-              <ChartRecentActivity />
-              <StatsGroupBasic stats={stats.basic} />
-            </div>
-            {/*
+          </div>
+          <div className="col-xl-6 grid-margin">
+            <ChartRecentActivity />
+          </div>
+          <div className="col-xl-6 grid-margin">
+            <StatsGroupBasic stats={stats.basic} />
+          </div>
+
+          {/*
 
             TODO Add features for Goals and Challenges
             <div className="grid-350">
@@ -51,10 +55,14 @@ const Dashboard = () => {
               <Challenges />
             </div>
             */}
-          </div>
+
           <div className="col-xl-6 grid-margin">
             <ChartTopExercises />
+          </div>
+          <div className="col-xl-6 grid-margin">
             <StatsGroupArea stats={stats.area} />
+          </div>
+          <div className="col-xl-6">
             <ChartTopExercises />
           </div>
         </div>
