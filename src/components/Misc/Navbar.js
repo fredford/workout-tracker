@@ -10,7 +10,16 @@ import NavbarItem from "./NavbarItem";
 
 import Button from "../Buttons/Button";
 
+import { useNavigate } from "react-router-dom";
+
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    navigate("/startup");
+  };
+
   return (
     <div className="page-navbar">
       <div className="navbar-title__container">
@@ -24,7 +33,7 @@ const Navbar = () => {
         <NavbarItem name="Workouts" icon={<AssignmentOutlinedIcon />} />
       </div>
 
-      <Button className="w-100 navbar__logout">
+      <Button className="w-100 navbar__logout" onClick={handleLogout}>
         <Button.Icon>
           <MdLogout />
         </Button.Icon>

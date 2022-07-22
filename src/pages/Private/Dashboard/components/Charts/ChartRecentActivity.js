@@ -47,6 +47,7 @@ const ChartRecentActivity = () => {
   return (
     <Card>
       <Card.Header>Recent Activity</Card.Header>
+      <Card.Title className="text-muted">Repetitions Per Day</Card.Title>
       <Card.Body className="mt-3">
         <div className="dashboard__chart-dropdown">
           <select

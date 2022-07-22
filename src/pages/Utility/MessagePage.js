@@ -54,7 +54,7 @@ const messageHandler = {
   },
   deletesuccess: {
     message: "Your account has been deleted, sorry to see you go!",
-    button: "/",
+    button: "/startup",
     icon: <BsFillCheckCircleFill color="green" size="2rem" />,
   },
   deletecancel: {

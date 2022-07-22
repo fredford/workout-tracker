@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { resolve } from "../../../../services/utils";
 import WorkoutsService from "../../../../services/workouts";
 import WorkoutService from "../../../../services/workout";
+import Button from "../../../../components/Buttons/Button";
 
 const SectionWorkouts = () => {
   const navigate = useNavigate();
@@ -31,18 +32,16 @@ const SectionWorkouts = () => {
 
   var displayList = [...workouts];
 
-  if (isAscending) {
-    displayList.reverse();
+  if (displayList.length > 10) {
+    displayList = displayList.slice(page * 10, page * 10 + 10);
   }
-
-  const changeDirection = () => {
-    setIsAscending(!isAscending);
-  };
 
   const increasePage = () => {
     var newPage = page;
 
-    if (workouts.length > 10) {
+    let maxPage = Math.floor(workouts.length / 10);
+
+    if (workouts.length > 10 && maxPage > page) {
       setPage(++newPage);
     }
   };
@@ -53,12 +52,6 @@ const SectionWorkouts = () => {
     if (page > 0) {
       setPage(--newPage);
     }
-  };
-
-  const deleteWorkout = async (id) => {
-    const [data, error] = await resolve(WorkoutService.deleteById(id));
-
-    setWorkouts(workouts.filter((workout) => workout._id !== id));
   };
 
   return (
@@ -94,22 +87,17 @@ const SectionWorkouts = () => {
         </div>
 
         <div className="d-flex flex-row justify-content-center">
-          <div className="button-icon me-2">
-            <ButtonToggle
-              onChange={decreasePage}
-              className="line-height w-100 h-100"
-            >
+          <Button onClick={decreasePage} border className="me-2 button-icon">
+            <Button.Icon>
               <FaArrowLeft />
-            </ButtonToggle>
-          </div>
-          <div className="button-icon ms-2">
-            <ButtonToggle
-              onChange={increasePage}
-              className="button-icon w-100 h-100"
-            >
+            </Button.Icon>
+          </Button>
+
+          <Button onClick={increasePage} className="ms-2 button-icon" border>
+            <Button.Icon>
               <FaArrowRight />
-            </ButtonToggle>
-          </div>
+            </Button.Icon>
+          </Button>
         </div>
       </Section.Body>
     </Section>

@@ -12,7 +12,7 @@ const StatsGroupArea = ({ stats }) => {
 
   var displayStats = stats ? stats : tempStats;
   return (
-    <div className="grid-4-item">
+    <div className="grid-125">
       {displayStats.map((stat, index) => {
         return (
           <StatsCard

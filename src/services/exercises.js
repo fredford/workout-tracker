@@ -20,8 +20,8 @@ class ExercisesService {
   updateExercise(data) {
     return http.put("/exercises", data);
   }
-  deleteExercise(user, id) {
-    return http.delete(`/exercises?id=${id}&user=${user}`);
+  deleteExercise(id) {
+    return http.delete(`/exercises?id=${id}`);
   }
 }
 

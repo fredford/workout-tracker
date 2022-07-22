@@ -59,12 +59,13 @@ const Dashboard = () => {
           <div className="col-xl-6 grid-margin">
             <ChartTopExercises />
           </div>
-          <div className="col-xl-6 grid-margin">
+          <div className="col-xl-6">
             <StatsGroupArea stats={stats.area} />
           </div>
-          <div className="col-xl-6">
+          {/*<div className="col-xl-6">
             <ChartTopExercises />
           </div>
+          */}
         </div>
       </Page.Body>
     </Page>

@@ -81,7 +81,7 @@ const Exercise = () => {
 
   const deleteExercise = async () => {
     const [data, error] = await resolve(
-      ExercisesServices.deleteExercise(user._id, exerciseId)
+      ExercisesServices.deleteExercise(exerciseId)
     );
 
     if (data) {

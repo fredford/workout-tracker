@@ -5,7 +5,13 @@ import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
+import UserService from "../../../../services/user";
+import { resolve } from "../../../../services/utils";
+import { useNavigate } from "react-router-dom";
+
 const DeleteAccount = () => {
+  const navigate = useNavigate();
+
   const user = useSelector((state) => state.user);
   const [show, setShow] = useState(false);
   const [username, setUsername] = useState("");
@@ -23,8 +29,15 @@ const DeleteAccount = () => {
     isDisabled = false;
   }
 
-  const handleSubmit = () => {
-    // TODO handle deleting user account
+  const handleSubmit = async () => {
+    const [data, error] = await resolve(UserService.deleteUser());
+
+    if (data) {
+      localStorage.removeItem("authToken");
+      navigate("/message/deletesuccess");
+    } else {
+      navigate("/message/deletecancel");
+    }
   };
 
   return (

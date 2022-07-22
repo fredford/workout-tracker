@@ -1,0 +1,40 @@
+.top-exercises__container {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.top-exercises__headers {
+  border-bottom: 1px solid var(--ac-primary);
+  th {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+.top-exercises__exercise {
+}
+
+.top-exercises__item {
+  border-bottom: $border;
+
+  @include empty-base-color;
+
+  td {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 14px;
+    font-weight: $font-norm;
+  }
+
+  h4 {
+    font-size: 15px;
+    font-weight: $font-norm;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  h5 {
+    font-size: 14px;
+    font-weight: $font-norm;
+  }
+}

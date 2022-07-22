@@ -20,3 +20,23 @@
     outline: none;
   }
 }
+
+.dashboard__table-dropdown {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.dashboard__table-dropdown-menu {
+  @include button-border;
+  @include empty-base-color;
+  padding: 0.5rem 0.25rem;
+
+  &:not(:last-child) {
+    margin-right: 0.5rem;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+}
