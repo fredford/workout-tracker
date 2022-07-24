@@ -8,7 +8,7 @@ import AddExerciseModal from "../../../../components/Misc/AddExerciseModal";
 import { Modal } from "react-bootstrap";
 import SectionAddWorkout from "../../Workouts/sections/SectionAddWorkout";
 
-const QuickActions = () => {
+const QuickActions = React.memo(function WrappedQuickActions() {
   const [showExercise, setShowExercise] = useState(false);
   const handleShowExercise = () => setShowExercise(true);
   const handleCloseExercise = () => setShowExercise(false);
@@ -24,11 +24,11 @@ const QuickActions = () => {
   return (
     <Card className="dashboard__quick-actions">
       <Card.Header>Quick Actions</Card.Header>
-      <Card.Body className="mt-3 d-flex flex-row justify-content-between">
+      <Card.Body className="dashboard__quick-actions-buttons">
         <>
           <Button
             border
-            className="button-size p-2"
+            className="button-size p-2 w-100"
             onClick={handleShowExercise}
           >
             <Button.Icon>
@@ -44,7 +44,7 @@ const QuickActions = () => {
         <>
           <Button
             border
-            className="button-size p-2"
+            className="button-size p-2 w-100"
             onClick={handleShowWorkout}
           >
             <Button.Icon>
@@ -61,7 +61,11 @@ const QuickActions = () => {
           </Modal>
         </>
         <>
-          <Button border className="button-size p-2" onClick={handleShowSteps}>
+          <Button
+            border
+            className="button-size p-2 w-100"
+            onClick={handleShowSteps}
+          >
             <Button.Icon>
               <RiFootprintFill size={25} />
             </Button.Icon>
@@ -74,6 +78,6 @@ const QuickActions = () => {
       </Card.Body>
     </Card>
   );
-};
+});
 
 export default QuickActions;

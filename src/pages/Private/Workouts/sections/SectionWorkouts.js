@@ -5,16 +5,13 @@ import Card from "../../../../components/Cards/Card";
 
 import Section from "../../../../components/Misc/Section";
 
-import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import { useNavigate } from "react-router-dom";
 import { resolve } from "../../../../services/utils";
 import WorkoutsService from "../../../../services/workouts";
-import WorkoutService from "../../../../services/workout";
 import Button from "../../../../components/Buttons/Button";
 
 const SectionWorkouts = () => {
   const navigate = useNavigate();
-  const [isAscending, setIsAscending] = useState(false);
   const [page, setPage] = useState(0);
   const [workouts, setWorkouts] = useState([]);
 

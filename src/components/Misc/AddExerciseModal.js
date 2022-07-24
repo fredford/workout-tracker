@@ -22,6 +22,11 @@ const AddExerciseModal = ({ show, handleClose }) => {
   const [newArea, setNewArea] = useState("");
   const [newType, setNewType] = useState("");
 
+  // Conditional render, if the modal is not required return null
+  if (!show) {
+    return null;
+  }
+
   var errorName = "";
 
   var createDisabled = true;
@@ -63,7 +68,7 @@ const AddExerciseModal = ({ show, handleClose }) => {
 
   return (
     <Modal show={show} onHide={handleClose}>
-      <Card>
+      <Card className="no-background-border">
         <Card.Header bar>Add Exercise</Card.Header>
         <Card.Body>
           <Card.Title>Name</Card.Title>
@@ -82,7 +87,7 @@ const AddExerciseModal = ({ show, handleClose }) => {
           <Card.Subtitle className="text-muted mb-2">
             The general area of the body being worked
           </Card.Subtitle>
-          <div className="d-flex flex-row mb-3">
+          <div className="grid-4-item mb-3">
             {React.Children.toArray(
               areas.map((area) => {
                 let id = `${area}-area`;

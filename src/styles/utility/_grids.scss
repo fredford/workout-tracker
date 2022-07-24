@@ -48,6 +48,12 @@
 }
 
 @media screen and (max-width: 400px) {
+  .grid-350 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   .grid-4-item {
     gap: 0.5rem;
   }

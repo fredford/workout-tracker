@@ -17,7 +17,6 @@ const Login = () => {
   const [error, setError] = useState("");
 
   let isDisabled = email.length !== 0 && password.length !== 0 ? false : true;
-  console.log(isDisabled, email.length, password.length);
 
   const updateEmail = (e) => {
     setEmail(e);
