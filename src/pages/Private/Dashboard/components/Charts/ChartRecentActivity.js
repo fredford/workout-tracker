@@ -1,35 +1,42 @@
+// Library imports
 import React, { useEffect, useState } from "react";
+
+// Local component imports
 import Card from "../../../../../components/Cards/Card";
 import StatsLineChart from "../../../../../components/Stats/StatsLineChart";
 
-import { resolve } from "../../../../../services/utils";
-
+// Utilities
+import useApi from "../../../../../services/useApi";
 import StatsService from "../../../../../services/stats";
-import Button from "../../../../../components/Buttons/Button";
 
+/**
+ * Component that displays a chart of recent workout activity in the application
+ *
+ * Status: complete
+ */
 const ChartRecentActivity = () => {
+  // State variables for chart stats and date range for viewing
   const [stats, setStats] = useState({});
   const [date, setDate] = useState("week");
 
+  // API GET call to retrieve the recent workout activity from the server
+  const { data } = useApi(StatsService.getDashboardActivity, [date]);
+
+  // Handle data retrieved for the component state
   useEffect(() => {
-    retrieveData();
-  }, [date]);
+    // Set the data for the stats of the activity chart
+    if (data) setStats(data);
+  }, [data]);
 
-  const retrieveData = async () => {
-    const [data, error] = await resolve(
-      StatsService.getDashboardActivity(date)
-    );
-
-    data ? setStats(data) : console.log(error);
-  };
-
-  let primaryColor = getComputedStyle(document.body).getPropertyValue(
+  // Get the CSS property value for the faded accent color of the application
+  let fadedColor = getComputedStyle(document.body).getPropertyValue(
     "--ac-faded"
   );
-  let fadedColor = getComputedStyle(document.body).getPropertyValue(
+  // Get the CSS property value for the primary accent color of the application
+  let primaryColor = getComputedStyle(document.body).getPropertyValue(
     "--ac-primary"
   );
-
+  // Set the chart data settings for ChartJS
   var chartData = {
     labels: Object.keys(stats),
     datasets: [
@@ -37,8 +44,8 @@ const ChartRecentActivity = () => {
         lineTension: 0.5,
         label: "Workout",
         data: Object.values(stats),
-        backgroundColor: primaryColor,
-        borderColor: fadedColor,
+        backgroundColor: fadedColor,
+        borderColor: primaryColor,
         fill: true,
       },
     ],

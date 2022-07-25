@@ -1,6 +1,14 @@
 import React from "react";
 import Card from "../../../../components/Cards/Card";
 
+/**
+ * Component to display the current goals in progress.
+ *
+ * Status: in-progress, not in use.
+ *
+ * TODO: This component needs a workflow to be setup for adding goals for users
+ * general goals like Total Reps or Total Steps
+ */
 const Goals = () => {
   const goalsList = [
     { name: "Total Repetitions", current: 10000, goal: 200000 },

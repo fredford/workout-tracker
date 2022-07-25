@@ -1,31 +1,42 @@
+// Library imports
 import React, { useEffect, useState } from "react";
-import Card from "../../../components/Cards/Card";
+
+// Local component imports
 import Page from "../../../components/Misc/Page";
-import { resolve } from "../../../services/utils";
-import Challenges from "./components/Challenges";
-import ChartRecentActivity from "./components/Charts/ChartRecentActivity";
-import ChartTopExercises from "./components/Charts/ChartTopExercises";
-import Goals from "./components/Goals";
 import Intro from "./components/Intro";
 import LastWorkout from "./components/LastWorkout";
 import QuickActions from "./components/QuickActions";
 import StatsGroupArea from "./components/Stats/StatsGroupArea";
 import StatsGroupBasic from "./components/Stats/StatsGroupBasic";
+import ChartRecentActivity from "./components/Charts/ChartRecentActivity";
+import ListTopExercises from "./components/Charts/ListTopExercises";
+import Challenges from "./components/Challenges";
+import Goals from "./components/Goals";
 
+// Utilities
 import StatsService from "../../../services/stats";
+import useApi from "../../../services/useApi";
 
+/**
+ * Component that displays the main dashboard for the application
+ *
+ * Status: in-progress, in use
+ *
+ * TODO: This components needs functionality to be implemented for the Goals
+ * component and the Challenges component
+ */
 const Dashboard = () => {
+  // State variable for dashboard stats
   const [stats, setStats] = useState({});
 
+  // API GET call to retrieve Basic Stats from the server
+  const { loading, data, error } = useApi(StatsService.getDashboardDataBasic);
+
+  // Handle data retrieved for the component state
   useEffect(() => {
-    retrieveData();
-  }, []);
-
-  const retrieveData = async () => {
-    const [data, error] = await resolve(StatsService.getDashboardDataBasic());
-
-    data ? setStats(data) : console.log(error);
-  };
+    // Set the data for the stats of the dashboard
+    if (data) setStats(data);
+  }, [data]);
 
   return (
     <Page navbar>
@@ -46,26 +57,19 @@ const Dashboard = () => {
           <div className="col-xl-6 grid-margin">
             <StatsGroupBasic stats={stats.basic} />
           </div>
-
           {/*
-
             TODO Add features for Goals and Challenges
             <div className="grid-350">
               <Goals />
               <Challenges />
             </div>
-            */}
-
+          */}
           <div className="col-xl-6 grid-margin">
-            <ChartTopExercises />
+            <ListTopExercises />
           </div>
           <div className="col-xl-6">
             <StatsGroupArea stats={stats.area} />
           </div>
-          {/*<div className="col-xl-6">
-            <ChartTopExercises />
-          </div>
-          */}
         </div>
       </Page.Body>
     </Page>

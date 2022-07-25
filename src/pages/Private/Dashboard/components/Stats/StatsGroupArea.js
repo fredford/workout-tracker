@@ -1,7 +1,16 @@
+// Library imports
 import React from "react";
+
+// Local component imports
 import StatsCard from "../../../../../components/Stats/StatsCard";
 
-const StatsGroupArea = ({ stats }) => {
+/**
+ * Component container handling the display of overall performance stats for
+ * the user in the application.
+ *
+ * Status: complete
+ */
+const StatsGroupArea = React.memo(function WrappedStatsGroupArea({ stats }) {
   // This is a component to display basic stats for the overall performance in the application
   let tempStats = [
     { title: "Top Area", subtitle: "Lower", data: 0 },
@@ -25,6 +34,6 @@ const StatsGroupArea = ({ stats }) => {
       })}
     </div>
   );
-};
+});
 
 export default StatsGroupArea;

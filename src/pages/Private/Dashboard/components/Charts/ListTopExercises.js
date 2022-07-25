@@ -1,29 +1,38 @@
+// Library imports
 import React, { useEffect, useState } from "react";
-import Card from "../../../../../components/Cards/Card";
-import StatsLineChart from "../../../../../components/Stats/StatsLineChart";
-
-import { resolve } from "../../../../../services/utils";
-import StatsService from "../../../../../services/stats";
 import { useNavigate } from "react-router-dom";
 
-const ChartTopExercises = () => {
+// Local component imports
+import Card from "../../../../../components/Cards/Card";
+
+// Utilities
+import StatsService from "../../../../../services/stats";
+import useApi from "../../../../../services/useApi";
+
+/**
+ * Component that displays a list of the top exercises in the application
+ *
+ * Status: complete
+ */
+const ListTopExercises = () => {
+  // Library Hooks
   const navigate = useNavigate();
+
+  // State variables for current date and area range
   const [stats, setStats] = useState([]);
   const [date, setDate] = useState("week");
   const [area, setArea] = useState("all");
 
+  // API GET call to retrieve the top exercises in the application
+  const { data } = useApi(StatsService.getTopExercises, [area, date]);
+
+  // Handle data retrieved for the component state
   useEffect(() => {
-    retrieveData();
-  }, [date, area]);
+    // Set the data for the top exercises stats
+    if (data) setStats(data);
+  }, [data]);
 
-  const retrieveData = async () => {
-    const [data, error] = await resolve(
-      StatsService.getTopExercises(area, date)
-    );
-
-    data ? setStats(data) : console.log(error);
-  };
-
+  // Function to handle redirecting the user to the exercise they have clicked on
   const openExercise = (id) => {
     navigate(`/exercises/${id}`);
   };
@@ -83,10 +92,9 @@ const ChartTopExercises = () => {
             })}
           </tbody>
         </table>
-        {/*<StatsLineChart show data={chartData} options={"standard"} />*/}
       </Card.Body>
     </Card>
   );
 };
 
-export default ChartTopExercises;
+export default ListTopExercises;

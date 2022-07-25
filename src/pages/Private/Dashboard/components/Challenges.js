@@ -1,6 +1,13 @@
 import React from "react";
 import Card from "../../../../components/Cards/Card";
 
+/**
+ * Component to display the current challenges in progress.
+ *
+ * Status: in-progress, not in use.
+ *
+ * TODO: This component needs a workflow to be setup for adding challenges for exercises.
+ */
 const Challenges = () => {
   const challengesList = [
     { name: "3000 Push-ups", current: 1000, goal: 3000 },

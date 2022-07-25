@@ -1,14 +1,23 @@
+// Library imports
 import React, { useState } from "react";
-import Button from "../../../../components/Buttons/Button";
-import Card from "../../../../components/Cards/Card";
-
+import { Modal } from "react-bootstrap";
 import { FaRunning, FaClipboardList } from "react-icons/fa";
 import { RiFootprintFill } from "react-icons/ri";
+
+//Local component imports
+import Button from "../../../../components/Buttons/Button";
+import Card from "../../../../components/Cards/Card";
 import AddExerciseModal from "../../../../components/Misc/AddExerciseModal";
-import { Modal } from "react-bootstrap";
 import SectionAddWorkout from "../../Workouts/sections/SectionAddWorkout";
 
+/**
+ * Component for making quick actions for adding an exercise, starting a workout,
+ * or adding steps.
+ *
+ * Status: complete
+ */
 const QuickActions = React.memo(function WrappedQuickActions() {
+  // Modal logic for hiding and showing
   const [showExercise, setShowExercise] = useState(false);
   const handleShowExercise = () => setShowExercise(true);
   const handleCloseExercise = () => setShowExercise(false);
