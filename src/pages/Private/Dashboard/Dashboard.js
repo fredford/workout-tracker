@@ -30,7 +30,7 @@ const Dashboard = () => {
   const [stats, setStats] = useState({});
 
   // API GET call to retrieve Basic Stats from the server
-  const { loading, data, error } = useApi(StatsService.getDashboardDataBasic);
+  const { data } = useApi(StatsService.getDashboardDataBasic);
 
   // Handle data retrieved for the component state
   useEffect(() => {

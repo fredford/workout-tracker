@@ -1,25 +1,38 @@
+// Library imports
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
+
+// Local component imports
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
+/**
+ * Component that allows a user to change their username
+ *
+ * Status: in-progress, in-use
+ *
+ * TODO: currently does not update the username, but is visible
+ */
 const ChangeUsername = () => {
+  // Retrieve user object from the store
   const user = useSelector((state) => state.user);
-  const [show, setShow] = useState(false);
+
+  // State variable for the new username
   const [username, setUsername] = useState("");
 
-  console.log(username);
+  // Function to update the input username
   const updateUsername = (e) => {
     setUsername(e);
   };
 
   var isDisabled = true;
 
+  // If no username is provided, prevent updating the name
   if (username.length) {
     isDisabled = false;
   }
-
+  // Function to make an API call updating the username
   const handleUpdateUsername = () => {
     // TODO update the username in the database
   };

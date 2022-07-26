@@ -12,13 +12,13 @@ import StatsCard from "../../../../../components/Stats/StatsCard";
  */
 const StatsGroupBasic = React.memo(function WrappedStatsGroupBasic({ stats }) {
   let tempStats = [
-    { title: "Top Exercise", subtitle: "-", data: 0 },
+    { title: "Total", subtitle: "Repetitions", data: 0 },
     { title: "Top Average", subtitle: "-", data: 0 },
     { title: "Sets", subtitle: "Completed", data: 0 },
     { title: "Workouts", subtitle: "Completed", data: 0 },
   ];
 
-  var displayStats = stats ? stats : tempStats;
+  let displayStats = stats ? stats : tempStats;
 
   return (
     <div className="grid-125">

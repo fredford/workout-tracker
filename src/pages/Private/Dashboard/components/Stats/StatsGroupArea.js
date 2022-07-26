@@ -13,10 +13,10 @@ import StatsCard from "../../../../../components/Stats/StatsCard";
 const StatsGroupArea = React.memo(function WrappedStatsGroupArea({ stats }) {
   // This is a component to display basic stats for the overall performance in the application
   let tempStats = [
-    { title: "Top Area", subtitle: "Lower", data: 0 },
-    { title: "Weekly Progress", subtitle: "Upper", data: "+5%" },
-    { title: "-", subtitle: "-", data: "-" },
-    { title: "-", subtitle: "-", data: "-" },
+    { title: "Top Area", subtitle: "-", data: "-" },
+    { title: "Top Progress Wkly", subtitle: "-", data: "-" },
+    { title: "Best Workout", subtitle: "-", data: "-" },
+    { title: "Top Exercise", subtitle: "-", data: "-" },
   ];
 
   var displayStats = stats ? stats : tempStats;

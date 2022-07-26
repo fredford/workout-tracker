@@ -1,10 +1,17 @@
+// Library imports
 import React from "react";
 import { MdLogin, MdOutlineCreate } from "react-icons/md";
-import Button from "../../../components/Buttons/Button";
 
-import Card from "../../../components/Cards/Card";
+// Local component imports
 import Page from "../../../components/Misc/Page";
+import Button from "../../../components/Buttons/Button";
+import Card from "../../../components/Cards/Card";
 
+/**
+ * Component that displays the landing page of the application
+ *
+ * Status: complete
+ */
 export default function Startup() {
   return (
     <Page>

@@ -1,20 +1,34 @@
+// Library imports
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { MdCreate } from "react-icons/md";
+
+// Local component imports
 import Page from "../../../components/Misc/Page";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/Button";
-import { MdCreate } from "react-icons/md";
 
+// Utilities
+import AuthService from "../../../services/auth";
+
+/**
+ * Component to display the registration page and perform a user registration
+ * to the application.
+ *
+ * Status: complete
+ */
 const Register = () => {
+  // React hooks
   let navigate = useNavigate();
+  //State variables for storing user registration information
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [name, setName] = useState("");
   const [error, setError] = useState("");
 
+  // Check if enough information is provided to attempt a valid registration
   let isDisabled =
     email.length !== 0 &&
     password.length !== 0 &&
@@ -22,14 +36,15 @@ const Register = () => {
     passwordConfirm.length !== 0
       ? false
       : true;
-  console.log(isDisabled, email.length, password.length);
 
+  // If the user is already authenticated redirect them to their dashboard
   useEffect(() => {
     if (localStorage.getItem("authToken")) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, []);
 
+  // Placeholder information and form items
   const items = [
     {
       label: "Name",
@@ -65,16 +80,11 @@ const Register = () => {
     },
   ];
 
+  // Function to attempt a user registration given the provided information
   const attemptRegister = async (e) => {
     e.preventDefault();
 
-    const config = {
-      baseURL: `${process.env.REACT_APP_BACKEND_URL}/api/v1`,
-      header: {
-        "Content-Type": "application/json",
-      },
-    };
-
+    // Final check if the two passwords provided match
     if (password !== passwordConfirm) {
       setPassword("");
       setPasswordConfirm("");
@@ -83,26 +93,20 @@ const Register = () => {
       }, 5000);
       return setError("Passwords do not match");
     }
-
-    try {
-      const { data } = await axios.post(
-        "/register",
-        {
-          name,
-          email,
-          password,
-        },
-        config
-      );
-
-      localStorage.setItem("authToken", data.token);
-      navigate("/");
-    } catch (error) {
-      setError(error.response.data.error);
-      setTimeout(() => {
-        setError("");
-      }, 5000);
-    }
+    // Make an API POST request for a registation to create an account
+    AuthService.postRegister(name, email, password)
+      .then((response) => {
+        // If a registration is confirmed a token is provided
+        localStorage.setItem("authToken", response.data.token);
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        // If a registration is denied an error is provided
+        setError(error.response.data.error);
+        setTimeout(() => {
+          setError("");
+        }, 5000);
+      });
   };
 
   return (

@@ -1,16 +1,25 @@
 import React from "react";
 
+/**
+ * Component for providing a Card, provides a series of flexible
+ * sub-components that can be used to improve usability.
+ *
+ * Status: complete
+ */
 const Card = (props) => {
+  // Get a list of DOM keys used for Card component
   let subComponentList = Object.keys(Card);
-
+  // Iterate through the list of child components provided
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) =>
       child.type.displayName === key ? child : null
     );
   });
 
-  var className = "card " + props.className;
+  // Set the high level css class for a Card
+  let className = "card " + props.className;
 
+  // Set the card for implementation specifics
   className += props.noBorder ? " card__no-border" : "";
   className += props.onClick ? " clickable" : "";
 
