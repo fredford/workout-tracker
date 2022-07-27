@@ -9,12 +9,16 @@
   @include empty-base-color;
   padding: 0.5rem;
 
+  color: var(--foreground-text);
+
   h5 {
     color: inherit;
     font-weight: $font-norm;
+    font-size: 15px;
   }
   h6 {
-    color: var(--fg-mute);
+    color: var(--foreground-mute);
     font-weight: $font-norm;
+    font-size: 13px;
   }
 }

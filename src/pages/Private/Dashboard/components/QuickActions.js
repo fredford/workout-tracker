@@ -39,7 +39,6 @@ const QuickActions = React.memo(function WrappedQuickActions() {
             border
             className="button-size p-2 w-100"
             onClick={handleShowExercise}
-            disabled
           >
             <Button.Icon>
               <FaRunning size={25} />

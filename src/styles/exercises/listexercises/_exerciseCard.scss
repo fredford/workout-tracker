@@ -9,6 +9,7 @@
   @include button-border;
   @include empty-base-color;
 
+  color: var(--foreground-text);
   padding: 1rem;
 
   display: flex;

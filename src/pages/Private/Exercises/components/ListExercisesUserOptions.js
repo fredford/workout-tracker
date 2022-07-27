@@ -12,7 +12,7 @@ const ListExercisesUserOptions = (props) => {
 
   return (
     <div className="mb-3">
-      <h4 className="text-center mb-2">User Options</h4>
+      <h4 className="text-normal text-center mb-2">User Options</h4>
       <ButtonToggle className={buttonClass} onClick={buttonChange}>
         User Only
       </ButtonToggle>

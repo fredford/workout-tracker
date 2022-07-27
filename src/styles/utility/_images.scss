@@ -1,3 +1,7 @@
 .standard-image {
   @include standard-image;
 }
+
+.button-image {
+  @include button-image;
+}

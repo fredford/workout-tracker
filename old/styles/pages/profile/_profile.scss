@@ -37,7 +37,7 @@
   position: relative;
   padding: 5px;
   border-radius: $border-radius-button;
-  background-color: var(--bg-main);
+
   color: var(--fg-main);
 }
 
@@ -128,7 +128,6 @@
 }
 
 .profile-picture__form {
-  background-color: var(--bg-main);
   color: var(--bs-secondary);
   border-color: var(--bs-secondary);
 }

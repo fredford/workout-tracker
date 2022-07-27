@@ -13,7 +13,7 @@
     }
 
     &:not(.collapsed) {
-      color: var(--fg-text);
+      color: var(--foreground-text);
       background-color: var(--background-card);
       box-shadow: none;
 

@@ -9,7 +9,6 @@ import { Modal } from "react-bootstrap";
 import Card from "../Cards/Card";
 import Form from "../Forms/Form";
 import Button from "../Buttons/Button";
-import ButtonRadio from "../Buttons/ButtonRadio";
 
 const AddExerciseModal = ({ show, handleClose }) => {
   const navigate = useNavigate();
@@ -68,7 +67,7 @@ const AddExerciseModal = ({ show, handleClose }) => {
 
   return (
     <Modal show={show} onHide={handleClose}>
-      <Card className="no-background-border">
+      <Card>
         <Card.Header bar>Add Exercise</Card.Header>
         <Card.Body>
           <Card.Title>Name</Card.Title>
@@ -90,22 +89,19 @@ const AddExerciseModal = ({ show, handleClose }) => {
           <div className="grid-4-item mb-3">
             {React.Children.toArray(
               areas.map((area) => {
-                let id = `${area}-area`;
-
+                let id = `${area}`;
                 return (
-                  <div className="d-flex flex-column align-items-center container">
-                    <ButtonRadio
-                      id={id}
-                      checked={area === newArea}
-                      onChange={changeArea}
-                    >
-                      <img
-                        className="standard-image"
-                        id={`${area.toLowerCase()}-image`}
-                        alt=""
-                      />
-                    </ButtonRadio>
-                    <p>{area}</p>
+                  <div className="d-flex flex-column justify-content-center align-items-center container">
+                    <Button onClick={() => changeArea(id)} className="p-0">
+                      <Button.Image active={area === newArea}>
+                        <img
+                          className="button-image"
+                          id={`${area.toLowerCase()}-image`}
+                          alt=""
+                        />
+                      </Button.Image>
+                    </Button>
+                    <p className="text-normal">{area}</p>
                   </div>
                 );
               })
@@ -120,18 +116,16 @@ const AddExerciseModal = ({ show, handleClose }) => {
               types.map((type) => {
                 return (
                   <div className="d-flex flex-column align-items-center container">
-                    <ButtonRadio
-                      id={type}
-                      checked={type === newType}
-                      onChange={changeType}
-                    >
-                      <img
-                        className="standard-image"
-                        id={`${type.toLowerCase()}-image`}
-                        alt=""
-                      />
-                    </ButtonRadio>
-                    <p>{type}</p>
+                    <Button className="p-0" onClick={() => changeType(type)}>
+                      <Button.Image active={type === newType}>
+                        <img
+                          className="button-image"
+                          id={`${type.toLowerCase()}-image`}
+                          alt=""
+                        />
+                      </Button.Image>
+                    </Button>
+                    <p className="text-normal">{type}</p>
                   </div>
                 );
               })
@@ -148,7 +142,7 @@ const AddExerciseModal = ({ show, handleClose }) => {
               </Button>
             </div>
             <div className="col-6">
-              <Button className="w-100 btn-danger" onClick={handleClose}>
+              <Button className="w-100" border onClick={handleClose}>
                 <Button.Text>Cancel</Button.Text>
               </Button>
             </div>

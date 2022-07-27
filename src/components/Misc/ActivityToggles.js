@@ -30,7 +30,7 @@ export default function ActivityToggles() {
 
   return (
     <div className="mb-3">
-      <h4 className="text-center mb-2">Activity Type</h4>
+      <h4 className="activity__button-title">Activity Type</h4>
       <div className="activity__button-group">
         <div className="d-flex flex-column align-items-center container">
           <ButtonToggle

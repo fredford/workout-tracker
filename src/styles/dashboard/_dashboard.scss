@@ -13,7 +13,7 @@
 
 .dashboard__chart-dropdown-menu {
   @include button-border;
-  @include empty-base-color;
+  @include card-base-color;
   padding: 0.5rem 0.5rem;
 
   color: var(--foreground-text);
@@ -33,7 +33,7 @@
 
 .dashboard__table-dropdown-menu {
   @include button-border;
-  @include empty-base-color;
+  @include card-base-color;
   padding: 0.5rem 0.25rem;
 
   color: var(--foreground-text);

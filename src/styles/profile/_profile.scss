@@ -15,7 +15,7 @@
     background-color: var(--background-body);
     font-size: 1.25rem;
     font-weight: $font-bold;
-    color: var(--fg-text);
+    color: var(--foreground-text);
 
     &:focus {
       @include button-border;
@@ -36,7 +36,7 @@
     }
 
     &:not(.collapsed) {
-      color: var(--fg-text);
+      color: var(--foreground-text);
       background-color: var(--background-body);
       box-shadow: none !important;
 
@@ -48,7 +48,7 @@
       }
     }
     &::after {
-      filter: var(--fg-filter-text) !important;
+      filter: var(--foreground-filter-arrow) !important;
       border-radius: 0;
     }
   }

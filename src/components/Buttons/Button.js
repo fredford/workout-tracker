@@ -9,6 +9,7 @@ const Button = (props) => {
 
   className += props.horizontal ? " horizontal-button" : " vertical-button";
 
+  className += props.checked ? " button__checked" : "";
   className += props.border ? " button__border" : "";
   className += props.accent ? " button__accent" : "";
 
@@ -42,7 +43,10 @@ Button.Icon = Icon;
 
 const Image = (props) => {
   let className = "button__image " + props.className;
-  return <img className={className} src={props.src} alt="" />;
+
+  className += props.active ? " button__active" : "";
+
+  return <div className={className}>{props.children}</div>;
 };
 Image.displayName = "Image";
 Button.Image = Image;

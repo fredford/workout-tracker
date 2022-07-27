@@ -8,46 +8,16 @@
   --background-acce: #2ee09a26;
   --background-mute: #6b6b6b26;
   --background-form: #6b6b6b26;
+  --background-img: #ef84f526;
 
   --foreground-text: #1c1c1c;
   --foreground-mute: #6b6b6b;
   --foreground-prim: #3474e0;
   --foreground-acce: #148458;
 
-  /* new color scheme starts*/
-
-  --ac-level-0: #708090;
-  --ac-level-1: #4080bf;
-
   /* new color scheme end */
 
-  --bg-main: #dddddd;
-  --bg-button: #eeeeee;
-  --bg-card: #ffffff;
-  --fg-text: #1c1c1c;
-  --fg-mute: #6b6b6b;
-  --fg-main: #111111;
-  /*--fg-acce: #6aa5ff;
-  */
-  --fg-dang: darkred;
-  --bg-main-rgb: 248, 249, 250;
-  --bg-card-rgb: 250, 250, 250;
-  --fg-main-rgb: 33, 37, 41;
-  --fg-dang-rgb: 139, 0, 0;
-
-  --fg-color-400: #99c2ff;
-  --fg-color-500: #6aa5ff;
-  --fg-color-600: #5c9dff;
-  --fg-color-700: #3385ff;
-
-  --fg-base: #5c9dff;
-  --fg-light: #c2d5f2;
-  --fg-lighter: #e0eaf8;
-  --fg-acce: #708090;
-
-  --fg-acce-rgb: 112, 128, 144;
-
-  --fg-filter-text: none;
+  --foreground-filter-arrow: none;
 }
 [data-theme="dark"] {
   /* FINAL COLORS */
@@ -60,39 +30,15 @@
   --background-acce: #2ee09a26;
   --background-mute: #6b6b6b26;
   --background-form: #6b6b6b26;
+  --background-img: #ef84f526;
   /* Foregrounds */
   --foreground-text: #f2f2f2;
   --foreground-mute: #919191;
   --foreground-prim: #3474e0;
   --foreground-acce: #2ee09a;
 
-  /* new color scheme starts */
-
-  --ac-level-0: #708090;
-  --ac-level-1: #4080bf;
-
-  /* new color scheme ends */
-
-  --bg-main: #202020;
-  --bg-button: #212121;
-  --bg-card: #313131;
-  --fg-text: #e3e3e3;
-  --fg-mute: #acacac;
-  --fg-main: #ffffff;
-
-  --fg-dang: firebrick;
-  --bg-main-rgb: 52, 58, 64;
-  --bg-card-rgb: 33, 37, 41;
-  --fg-main-rgb: 248, 249, 250;
-  --fg-acce-rgb: 135, 206, 250;
-  --fg-dang-rgb: 178, 34, 34;
-
-  --fg-filter-text: invert(99%) sepia(0%) saturate(4806%) hue-rotate(217deg)
-    brightness(118%) contrast(78%);
-
-  --fg-base: #3385ff;
-  --fg-light: #5c9dff;
-  --fg-lighter: darkslateblue;
+  --foreground-filter-arrow: invert(99%) sepia(0%) saturate(4806%)
+    hue-rotate(217deg) brightness(118%) contrast(78%);
 }
 
 div[role="dialog"] [data-theme="dark"] {

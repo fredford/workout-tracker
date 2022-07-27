@@ -1,9 +1,13 @@
 .standard-button {
   @include card-base-color;
   padding: 0.5rem 1rem;
-  border-radius: $border-radius-button;
+  border-radius: $border-radius;
   border: none;
 
+  .button__checked {
+    background-color: var(--foreground-prim);
+    color: var(---background-card);
+  }
   .button__icon {
     color: inherit !important;
   }
@@ -13,8 +17,12 @@
   }
 
   .button__image {
-    @include standard-image;
-    margin-top: 0.5rem;
+    background-color: var(--background-img);
+    border-radius: $border-radius;
+  }
+
+  .button__active {
+    background-color: var(--foreground-prim) !important;
   }
 }
 
@@ -52,40 +60,6 @@
   }
 }
 
-// .standard-button {
-//   @include standard-border;
-//   @include standard-padding;
-//   @include empty-base-color;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: center;
-
-//   .button__image {
-//     @include standard-image;
-//     margin-top: 0.5rem;
-//   }
-
-//   & > *:not(:last-child) {
-//     margin-bottom: 0.5rem;
-//   }
-
-//   &:hover {
-//     .button__image {
-//       background-color: var(--fg-acce);
-//     }
-//   }
-
-//   .button__icon {
-//     width: $image-width;
-//   }
-
-//   .button__text {
-//     color: inherit;
-//     font-weight: $font-bold;
-//   }
-// }
-
 .button-toggle-active .button-toggle__label {
   color: var(---background-card) !important;
   background-color: var(--foreground-prim) !important;
@@ -99,35 +73,11 @@
     @include button-border;
     @include empty-base-color;
     color: var(--foreground-prim);
-    //background-color: rgba(var(--fg-acce-rgb), 0.2);
     border-radius: $border-radius-button;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-}
-
-.button-radio {
-  .button-radio__input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-  }
-
-  .button-radio__label {
-    border: 2px solid rgba(var(--fg-acce-rgb), 0.2);
-    background-color: rgba(var(--fg-acce-rgb), 0.1);
-    border-radius: $border-radius-button;
-    padding: 0.25rem;
-  }
-
-  .button-radio__input:hover ~ .button-radio__label {
-    background-color: rgba(var(--fg-acce-rgb), 0.2);
-  }
-
-  .button-radio__input:checked ~ .button-radio__label {
-    background-color: rgba(var(--fg-acce-rgb), 0.6);
   }
 }
 
@@ -145,20 +95,11 @@
 .set-button {
   opacity: 0.5;
   padding: 0;
-  color: var(--fg-acce);
+  color: var(--foreground-prim);
   @include standard-border;
 }
 
 .set-button:hover {
   opacity: 1;
   color: var(--bs-red);
-}
-
-.button-danger {
-  background-color: var(--bs-red);
-  color: var(--bg-card);
-
-  &:hover {
-    background-color: var(--fg-dang);
-  }
 }

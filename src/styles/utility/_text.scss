@@ -4,5 +4,9 @@
 
 .text-muted {
   font-weight: $font-slim;
-  color: var(--fg-mute) !important;
+  color: var(--foreground-mute) !important;
+}
+
+.text-normal {
+  color: var(--foreground-text);
 }

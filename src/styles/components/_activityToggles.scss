@@ -1,3 +1,9 @@
+.activity__button-title {
+  color: var(--foreground-text);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
 .activity__button-group {
   display: flex;
   flex-direction: row;
@@ -15,7 +21,7 @@
 }
 
 .activity__button-group p {
-  color: var(--fg-text);
+  color: var(--foreground-text);
   font-weight: bold;
 }
 

@@ -72,7 +72,7 @@ const DeleteAccount = () => {
                 <Button
                   onClick={handleSubmit}
                   disabled={isDisabled}
-                  className="w-100 button-danger"
+                  className="w-100"
                   accent
                   border
                 >

@@ -1,9 +1,19 @@
 @mixin standard-image {
   @include standard-padding;
-  border-radius: $border-radius-image;
+  border-radius: $border-radius;
   width: $image-width;
 
-  background-color: rgba(var(--fg-acce-rgb), 0.4);
+  background-color: var(--background-img) !important;
+
+  @media screen and (max-width: 500px) {
+    width: $image-small-width;
+  }
+}
+
+@mixin button-image {
+  @include standard-padding;
+  border-radius: $border-radius;
+  width: $image-width;
 
   @media screen and (max-width: 500px) {
     width: $image-small-width;

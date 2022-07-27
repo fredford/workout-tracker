@@ -16,7 +16,7 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
   };
 
   return (
-    <Card className="p-0" noBorder>
+    <Card className="p-0 no-background-border" noBorder>
       <Card.Body className="p-0">
         <Card.ImageHeader
           className="mb-3"

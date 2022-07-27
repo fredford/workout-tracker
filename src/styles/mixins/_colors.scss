@@ -40,9 +40,6 @@
 }
 
 @mixin empty-base-color {
-  background-color: inherit;
-  color: inherit;
-
   &:hover {
     background-color: var(--background-prim);
     color: var(--foreground-text);
