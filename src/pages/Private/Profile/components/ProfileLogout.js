@@ -11,7 +11,9 @@ const ProfileLogout = () => {
   };
   return (
     <Button border onClick={handleLogout}>
-      <Button.Image src="./logout.png" />
+      <Button.Image>
+        <img className="button-image" src="./logout.png" alt="" />
+      </Button.Image>
       <Button.Text>Logout</Button.Text>
     </Button>
   );

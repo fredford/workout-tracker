@@ -5,10 +5,14 @@ import { useNavigate } from "react-router-dom";
 const Button = (props) => {
   const navigate = useNavigate();
 
-  let className = "standard-button " + props.className;
+  var className = "standard-button ";
+
+  if (props.light) {
+    className = "light-button ";
+  }
+  className += props.className;
 
   className += props.horizontal ? " horizontal-button" : " vertical-button";
-
   className += props.checked ? " button__checked" : "";
   className += props.border ? " button__border" : "";
   className += props.accent ? " button__accent" : "";

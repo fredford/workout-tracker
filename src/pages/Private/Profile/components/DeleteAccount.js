@@ -43,7 +43,9 @@ const DeleteAccount = () => {
   return (
     <>
       <Button border onClick={handleShow}>
-        <Button.Image src="./delete.png" />
+        <Button.Image>
+          <img className="button-image" src="./delete.png" />
+        </Button.Image>
         <Button.Text>Delete Account</Button.Text>
       </Button>
       <Modal show={show} onHide={handleClose}>

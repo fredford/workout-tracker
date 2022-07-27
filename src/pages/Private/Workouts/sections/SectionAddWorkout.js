@@ -41,8 +41,11 @@ const SectionAddWorkout = () => {
                 onClick={() => startNewWorkout(name)}
                 key={name}
                 border
+                light
               >
-                <Button.Image src={src} />
+                <Button.Image>
+                  <img className="button-image" src={src} alt="" />
+                </Button.Image>
                 <Button.Text>{name}</Button.Text>
               </Button>
             );

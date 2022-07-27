@@ -26,6 +26,34 @@
   }
 }
 
+.light-button {
+  @include light-base-color;
+  padding: 0.5rem 1rem;
+  border-radius: $border-radius;
+  border: none;
+
+  .button__checked {
+    background-color: var(--foreground-prim);
+    color: var(---background-card);
+  }
+  .button__icon {
+    color: inherit !important;
+  }
+
+  .button__text {
+    color: var(-fg-level-0) !important;
+  }
+
+  .button__image {
+    background-color: var(--background-img);
+    border-radius: $border-radius;
+  }
+
+  .button__active {
+    background-color: var(--foreground-prim) !important;
+  }
+}
+
 .horizontal-button {
   display: flex;
   flex-direction: row;

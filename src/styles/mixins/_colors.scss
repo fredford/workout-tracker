@@ -1,11 +1,10 @@
 @mixin light-base-color {
-  background-color: var(--foreground-prim) !important;
-  color: var(--background-card) !important;
+  background-color: var(--background-prim);
+  color: var(--foreground-prim);
 
   &:hover {
-    background-color: var(--foreground-prim) !important;
-    color: var(--foreground-text) !important;
-    border-color: var(--foreground-prim) !important;
+    background-color: var(--foreground-prim);
+    color: var(--background-card);
   }
   &:active {
     background-color: var(--foreground-prim) !important;
@@ -15,7 +14,7 @@
   &:disabled {
     border-color: var(--background-prim) !important;
     background-color: var(--background-prim) !important;
-    color: var(--background-card) !important;
+    color: var(--foreground-mute) !important;
   }
 }
 
