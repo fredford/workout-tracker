@@ -2,20 +2,20 @@ $image-width: 75px;
 $image-small-width: 60px;
 $line-height: 43px;
 
-// Border
+/*        Background    */
+
+/*        Border        */
+// Standard Border
+$border: var(--border);
 $border-radius-standard: 1rem;
+
 $border-radius-card: 1rem;
 $border-radius-button: 0.5rem;
 $border-radius-form: 0.25rem;
 $border-radius-image: 1rem;
 
-// Box Shadow
-
-$box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-  rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-
-$box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
-  rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+/*        Shadow        */
+$box-shadow: none;
 
 // Font
 //$font-family: "Quicksand", sans-serif;
@@ -48,5 +48,3 @@ $core-active: rgba($core-color, 0.6);
 // Cardio Body
 $cardio-light: rgba($cardio-color, 0.3);
 $cardio-active: rgba($cardio-color, 0.6);
-
-$border: 1px solid var(--border-color);

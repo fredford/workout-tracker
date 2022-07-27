@@ -1,8 +1,21 @@
 :root {
+  /* FINAL COLORS */
+  --border: 1px solid #dadce0;
+
+  --background-body: #ffffff;
+  --background-card: #ffffff;
+  --background-prim: #3474e026;
+  --background-acce: #2ee09a26;
+  --background-form: ;
+
+  --foreground-text: #1c1c1c;
+  --foreground-mute: #6b6b6b;
+  --foreground-prim: #3474e0;
+  --foreground-acce: #148458;
+
   /* new color scheme starts*/
   --bg-level-0: #fbfbff;
   --bg-level-1: #e5e5e5;
-  --bg-level-2: #f2f2f2;
   --bg-level-card: #ffffff;
   --bg-level-button: #ffffff;
 
@@ -13,8 +26,6 @@
 
   --ac-primary: #3474e0;
   --ac-faded: #3474e026;
-
-  --border-color: #dadce0;
 
   --ac-button-hover: #cce0fe;
   --ac-button-active: #4791ff;
@@ -52,10 +63,24 @@
   --fg-filter-text: none;
 }
 [data-theme="dark"] {
+  /* FINAL COLORS */
+  /* Border */
+  --border: none;
+  /* Backgrounds */
+  --background-body: #080f25;
+  --background-card: #0c1533;
+  --background-prim: #15265c;
+  --background-acce: #2ee09a26;
+  --background-form: ;
+  /* Foregrounds */
+  --foreground-text: #f2f2f2;
+  --foreground-mute: #919191;
+  --foreground-prim: #3474e0;
+  --foreground-acce: #2ee09a;
+
   /* new color scheme starts */
   --bg-level-0: #121212;
   --bg-level-1: #292929;
-  --bg-level-2: #333333;
   --bg-level-card: #353535;
 
   --fg-level-0: #f2f2f2;
@@ -97,26 +122,10 @@ div[role="dialog"] [data-theme="dark"] {
   background-color: var(--bs-gray-900);
 }
 
-/*
-:root {
-  --bg-main: #eeeeee;
-  --bg-card: #fff;
-  --fg-main: #212529;
-  --fg-acce: lightseagreen;
-  --bg-main-rgb: 248, 249, 250;
-  --bg-card-rgb: 250, 250, 250;
-  --fg-main-rgb: 33, 37, 41;
-  --fg-acce-rgb: 32, 178, 170;
-}
-[data-theme="dark"] {
-  --bg-main: #343a40;
-  --bg-card: #212529;
-  --fg-main: #eeeeee;
-  --fg-acce: lightseagreen;
-  --bg-main-rgb: 52, 58, 64;
-  --bg-card-rgb: 33, 37, 41;
-  --fg-main-rgb: 248, 249, 250;
-  --fg-acce-rgb: 32, 178, 170;
+html {
+  background: var(--background-body);
 }
 
-*/
+body {
+  background: var(--background-body);
+}

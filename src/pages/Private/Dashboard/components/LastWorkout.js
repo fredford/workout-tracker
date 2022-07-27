@@ -1,6 +1,7 @@
 // Library imports
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 // Local component imports
 import Card from "../../../../components/Cards/Card";
@@ -9,6 +10,7 @@ import WorkoutsService from "../../../../services/workouts";
 
 // Utilities
 import useApi from "../../../../services/useApi";
+import Button from "../../../../components/Buttons/Button";
 
 /**
  * Component that retrieves the Last Workout performed
@@ -29,7 +31,7 @@ const LastWorkout = () => {
   });
 
   // API GET call for the Last Workout
-  const { loading, data, error } = useApi(WorkoutsService.getLast);
+  const { data, error } = useApi(WorkoutsService.getLast);
 
   // Handle data retrieved for the component state
   useEffect(() => {
@@ -38,40 +40,47 @@ const LastWorkout = () => {
       setLastWorkout(data);
       setLink(`/workouts/${data.id}`);
     }
-  }, [data, error]);
+  }, [data]);
 
-  return (
-    <Card className="dashboard__last-workout" onClick={() => navigate(link)}>
-      {error ? (
+  // If no workout is found allow the user to start a new workout instead
+  if (error) {
+    return (
+      <Card onClick={() => navigate(link)}>
         <Card.Body>
           <div className="d-flex justify-content-center align-items-center h-100">
             <h3>Start Workout</h3>
           </div>
         </Card.Body>
-      ) : (
-        <Fragment>
-          <Card.Header>Last Workout</Card.Header>
-          <Card.Subtitle className="text-muted">
-            {lastWorkout.type}
-          </Card.Subtitle>
-          <Card.Body>
-            <div className="grid-2-item">
-              <StatsCard
-                data={lastWorkout.sets}
-                title="Sets"
-                subtitle="Count"
-              />
-              <StatsCard
-                data={lastWorkout.totalRepetitions}
-                title="Total"
-                subtitle="Repetitions"
-              />
-            </div>
-          </Card.Body>
-        </Fragment>
-      )}
-    </Card>
-  );
+      </Card>
+    );
+  } else {
+    return (
+      <Card>
+        <Card.Header>Last Workout</Card.Header>
+        <Card.Subtitle>{lastWorkout.type}</Card.Subtitle>
+        <Card.Body className="dashboard__last-workout-items">
+          <StatsCard
+            className="item"
+            data={lastWorkout.sets}
+            title="Sets"
+            subtitle="Count"
+          />
+          <StatsCard
+            className="item"
+            data={lastWorkout.totalRepetitions}
+            title="Total"
+            subtitle="Repetitions"
+          />
+          <Button className="item" border onClick={() => navigate(link)}>
+            <Button.Icon>
+              <RiArrowGoBackFill />
+            </Button.Icon>
+            <Button.Text>Open</Button.Text>
+          </Button>
+        </Card.Body>
+      </Card>
+    );
+  }
 };
 
 export default LastWorkout;

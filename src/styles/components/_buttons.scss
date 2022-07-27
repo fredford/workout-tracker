@@ -1,10 +1,10 @@
 .standard-button {
-  @include empty-base-color;
+  @include card-base-color;
   padding: 0.5rem 1rem;
   border-radius: $border-radius-button;
   border: none;
 
-  color: var(--ac-primary) !important;
+  color: var(--foreground-prim) !important;
 
   .button__icon {
     color: inherit !important;

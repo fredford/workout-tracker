@@ -14,7 +14,11 @@
 .dashboard__chart-dropdown-menu {
   @include button-border;
   @include empty-base-color;
-  padding: 0.5rem 0.25rem;
+  padding: 0.5rem 0.5rem;
+
+  color: var(--foreground-text);
+
+  border-radius: $border-radius-button;
 
   &:focus-visible {
     outline: none;
@@ -31,6 +35,10 @@
   @include button-border;
   @include empty-base-color;
   padding: 0.5rem 0.25rem;
+
+  color: var(--foreground-text);
+
+  border-radius: $border-radius-button;
 
   &:not(:last-child) {
     margin-right: 0.5rem;

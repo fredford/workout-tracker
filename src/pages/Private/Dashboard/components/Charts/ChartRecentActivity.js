@@ -30,11 +30,11 @@ const ChartRecentActivity = () => {
 
   // Get the CSS property value for the faded accent color of the application
   let fadedColor = getComputedStyle(document.body).getPropertyValue(
-    "--ac-faded"
+    "--background-acce"
   );
   // Get the CSS property value for the primary accent color of the application
   let primaryColor = getComputedStyle(document.body).getPropertyValue(
-    "--ac-primary"
+    "--foreground-acce"
   );
   // Set the chart data settings for ChartJS
   var chartData = {
@@ -54,7 +54,7 @@ const ChartRecentActivity = () => {
   return (
     <Card>
       <Card.Header>Recent Activity</Card.Header>
-      <Card.Title className="text-muted">Repetitions Per Day</Card.Title>
+      <Card.Subtitle className="text-muted">Repetitions Per Day</Card.Subtitle>
       <Card.Body className="mt-3">
         <div className="dashboard__chart-dropdown">
           <select

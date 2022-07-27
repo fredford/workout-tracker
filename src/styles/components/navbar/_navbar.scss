@@ -1,50 +1,38 @@
-.page-navbar {
+.navbar__page {
+  @include standard-border;
+  @include standard-shadow;
+
   z-index: 5;
   position: fixed;
   left: 1rem;
 
   display: flex;
-  background-color: var(--bg-card);
-  @include standard-border;
+  background-color: var(--background-card);
+
   padding: 0.5rem;
 }
 
-.navbar-title__container {
-}
-.navbar-title {
-  font-family: $font-logo !important;
-  font-weight: 400;
+.navbar__logo {
+  h1 {
+    color: var(--foreground-acce);
+    font-family: $font-logo !important;
+    font-weight: 400;
+  }
 }
 
-.navbar-items {
+.navbar__items {
   display: flex;
 }
 
 .navbar-item {
-  color: var(--fg-level-0);
-  text-decoration: none !important;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  border: 1px solid var(--bg-level-card);
-  border-radius: $border-radius-standard;
+  text-decoration: none !important;
 }
 
-.navbar-item__icon-container {
-  color: var(--ac-primary);
-}
-
-.navbar-item:hover {
-  color: var(--ac-primary) !important;
-}
-
-.navbar-items a:hover {
-  background-color: var(--ac-faded);
-  color: var(--ac-primary) !important;
-}
-
-.navbar-items a:active {
-  border: 1px solid var(--ac-primary) !important;
+.navbar__items a:active {
+  border: 1px solid var(--foreground-prim) !important;
 }
 
 .navbar-item__active {
@@ -55,10 +43,11 @@
 .navbar-item__header {
   margin: 0;
   text-decoration: none !important;
-  font-weight: 400;
+  font-weight: $font-norm;
 }
 
 .navbar__logout {
+  width: 100%;
 }
 
 @media screen and (max-width: 470px) {
@@ -72,7 +61,7 @@
 }
 
 @media screen and (max-width: 799px) {
-  .page-navbar {
+  .navbar__page {
     right: 0.5rem;
     left: 0.5rem;
     bottom: 0.5rem;
@@ -87,7 +76,7 @@
     font-size: larger;
     margin-left: 0.5rem;
   }
-  .navbar-items {
+  .navbar__items {
     flex-direction: row;
   }
 
@@ -108,7 +97,7 @@
 }
 
 @media screen and (min-width: 800px) {
-  .page-navbar {
+  .navbar__page {
     top: 1rem;
     bottom: 1rem;
     flex-direction: column;
@@ -120,7 +109,7 @@
     padding: 0.5rem;
   }
 
-  .navbar-items {
+  .navbar__items {
     flex-direction: column;
   }
 
@@ -130,7 +119,7 @@
 }
 
 @media screen and (min-width: 800px) and (max-width: 999px) {
-  .page-navbar {
+  .navbar__page {
   }
 
   .navbar-title__container {
@@ -152,12 +141,12 @@
   }
 
   .navbar__logout-text {
-    display: none;
+    //display: none;
   }
 }
 
 @media screen and (min-width: 1000px) {
-  .page-navbar {
+  .navbar__page {
     width: calc(150px + 1rem);
   }
 

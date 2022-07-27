@@ -4,20 +4,24 @@
 }
 
 .top-exercises__headers {
-  border-bottom: 1px solid var(--ac-primary);
+  border-bottom: 1px solid var(--foreground-acce);
   th {
     font-size: 16px;
     text-align: center;
+    color: var(--foreground-acce);
   }
 }
 
 .top-exercises__exercise {
+  font-weight: $font-bold !important;
 }
 
 .top-exercises__item {
-  border-bottom: $border;
+  border-bottom: 1px solid var(--background-acce);
 
   @include empty-base-color;
+
+  color: var(--foreground-text);
 
   td {
     padding: 0.5rem;

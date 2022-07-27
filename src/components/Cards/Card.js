@@ -32,11 +32,11 @@ const Card = (props) => {
 
 // Header component as a replacement to Section header text
 const Header = (props) => {
-  let className = "card-header " + props.className;
+  let className = "card__header " + props.className;
   return (
     <>
       <h3 className={className}>{props.children}</h3>
-      {props.bar ? <hr className="card-bar" /> : <></>}
+      {props.bar ? <hr className="card__bar" /> : <></>}
     </>
   );
 };
@@ -45,13 +45,13 @@ Card.Header = Header;
 
 // Container to display an image with text beside
 const ImageHeader = (props) => {
-  let className = `card-image-body__header ${props.className}`;
+  let className = `card__image-body__header ${props.className}`;
   return (
     <div className={className}>
       <div className="me-3 d-flex align-items-center">
-        <img src={props.path} alt="" className="card-image-body__image" />
+        <img src={props.path} alt="" className="card__image-body__image" />
       </div>
-      <div className="card-image-body">{props.children}</div>
+      <div className="card__image-body">{props.children}</div>
     </div>
   );
 };
@@ -60,7 +60,7 @@ Card.ImageHeader = ImageHeader;
 
 // Title component displaying the primary title or text
 const Title = (props) => {
-  let className = "card-title " + props.className;
+  let className = "card__title " + props.className;
   return <h4 className={className}>{props.children}</h4>;
 };
 Title.displayName = "Title";
@@ -68,7 +68,7 @@ Card.Title = Title;
 
 // Subtitle component displaying the secondary title or text
 const Subtitle = (props) => {
-  let className = "card-subtitle " + props.className;
+  let className = "card__subtitle " + props.className;
   return <h5 className={className}>{props.children}</h5>;
 };
 Subtitle.displayName = "Subtitle";
@@ -76,7 +76,7 @@ Card.Subtitle = Subtitle;
 
 // Body container displaying the remaining components in the Card
 const Body = (props) => {
-  let className = "card-body " + props.className;
+  let className = "card__body " + props.className;
   return <div className={className}>{props.children}</div>;
 };
 Body.displayName = "Body";
@@ -84,7 +84,7 @@ Card.Body = Body;
 
 // Base sized text
 const Text = (props) => {
-  let className = "card-text " + props.className;
+  let className = "card__text " + props.className;
   return <p className={className}>{props.children}</p>;
 };
 Text.displayName = "Text";
@@ -92,7 +92,7 @@ Card.Text = Text;
 
 // Bar separator for separating different components in the Card
 const Bar = (props) => {
-  let className = "card-bar " + props.className;
+  let className = "card__bar " + props.className;
   return <hr className={className} />;
 };
 Bar.displayName = "Bar";

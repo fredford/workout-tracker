@@ -1,6 +1,7 @@
 .card {
   @include standard-border;
-  background-color: var(--bg-card);
+  background-color: var(--background-card);
+  backdrop-filter: blur(10px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -21,57 +22,52 @@
 }
 
 .clickable.card {
-  &:hover {
-    background-color: var(--ac-faded);
-  }
-}
-
-.clickable.card {
-  .card:hover {
-    background-color: var(--ac-faded);
-  }
+  @include empty-base-color;
 }
 
 .card__no-border {
   border: none !important;
   box-shadow: none;
-  background-color: var(--bg-level-0);
+  background-color: var(--background-card);
 }
 
-.card-header {
-  background-color: inherit;
+.card__header {
+  background-color: none;
   border-bottom: none;
   padding: 0rem;
+  color: var(--foreground-text);
 }
 
-.card-title {
-  color: var(--fg-level-0);
+.card__title {
+  color: var(--foreground-text);
 }
 
-.card-subtitle {
+.card__subtitle {
   margin-top: 0;
-  color: var(--fg-mute);
+  color: var(--foreground-mute);
+  font-weight: $font-norm;
 }
 
-.card-body {
+.card__body {
+  flex: 1 1 auto;
   padding: 0rem;
   box-sizing: border-box;
 }
 
-.card-image-body__header {
+.card__image-body__header {
   display: flex;
 }
 
-.card-image-body__image {
+.card__image-body__image {
   @include standard-image;
   //height: 50px;
 }
 
-.card-image-body {
+.card__image-body {
   box-sizing: border-box;
 }
 
-.card-text {
+.card__text {
 }
 
 .stretch-card {

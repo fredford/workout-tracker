@@ -3,8 +3,8 @@
   color: var(--bg-level-card) !important;
 
   &:hover {
-    background-color: var(--ac-faded) !important;
-    color: var(--ac-primary) !important;
+    background-color: var(--ac-primary) !important;
+    color: var(--foreground-text) !important;
     border-color: var(--ac-primary) !important;
   }
   &:active {
@@ -19,18 +19,38 @@
   }
 }
 
-@mixin empty-base-color {
-  background-color: inherit;
-  color: inherit;
+@mixin card-base-color {
+  background-color: var(--background-card);
+  color: var(--foreground-text);
 
   &:hover {
-    background-color: var(--ac-faded) !important;
-    color: var(--ac-primary) !important;
+    background-color: var(--background-prim);
+    color: var(--foreground-text);
   }
 
   &:active {
     background-color: var(--ac-primary) !important;
     color: var(--bg-card) !important;
+  }
+
+  &:disabled {
+    background-color: var(--bg-level-1);
+    color: var(--bs-gray-500);
+  }
+}
+
+@mixin empty-base-color {
+  background-color: inherit;
+  color: inherit;
+
+  &:hover {
+    background-color: var(--background-prim);
+    color: var(--foreground-text);
+  }
+
+  &:active {
+    background-color: var(--foreground-prim) !important;
+    color: var(--background-card) !important;
   }
 
   &:disabled {

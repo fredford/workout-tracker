@@ -1,5 +1,5 @@
 .page {
-  background-color: var(--bg-level-0);
+  background: var(--background-body);
 }
 
 .page-body__container {
@@ -42,7 +42,7 @@
 
 @media screen and (min-width: 800px) {
   .page-body__container {
-    margin-left: 118px;
+    margin-left: 130px;
   }
 }
 
