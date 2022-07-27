@@ -50,7 +50,7 @@ const Login = () => {
   const attemptLogin = async (e) => {
     e.preventDefault();
     // Make an API POST request for a login to retrieve web token
-    AuthService.postLogin({ email, password })
+    AuthService.postLogin(email, password)
       .then((response) => {
         localStorage.setItem("authToken", response.data.token);
         navigate("/dashboard");
