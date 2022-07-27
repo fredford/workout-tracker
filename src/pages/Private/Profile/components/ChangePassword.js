@@ -25,7 +25,7 @@ const ChangePassword = () => {
   }
 
   const handleUpdatePassword = () => {
-    // TODO update the user password in the database
+    // TODO Update the database for a user password change
   };
 
   return (

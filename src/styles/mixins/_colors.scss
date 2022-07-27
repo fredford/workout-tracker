@@ -1,41 +1,41 @@
 @mixin light-base-color {
-  background-color: var(--ac-primary) !important;
-  color: var(--bg-level-card) !important;
+  background-color: var(--foreground-prim) !important;
+  color: var(--background-card) !important;
 
   &:hover {
-    background-color: var(--ac-primary) !important;
+    background-color: var(--foreground-prim) !important;
     color: var(--foreground-text) !important;
-    border-color: var(--ac-primary) !important;
+    border-color: var(--foreground-prim) !important;
   }
   &:active {
-    background-color: var(--ac-primary) !important;
-    color: var(--bg-level-card) !important;
+    background-color: var(--foreground-prim) !important;
+    color: var(--background-card) !important;
   }
 
   &:disabled {
-    border-color: var(--ac-faded) !important;
-    background-color: var(--ac-faded) !important;
-    color: var(--bg-level-card) !important;
+    border-color: var(--background-prim) !important;
+    background-color: var(--background-prim) !important;
+    color: var(--background-card) !important;
   }
 }
 
 @mixin card-base-color {
   background-color: var(--background-card);
-  color: var(--foreground-text);
+  color: var(--foreground-prim);
 
   &:hover {
     background-color: var(--background-prim);
-    color: var(--foreground-text);
+    color: var(--foreground-prim);
   }
 
   &:active {
-    background-color: var(--ac-primary) !important;
-    color: var(--bg-card) !important;
+    background-color: var(--foreground-prim);
+    color: var(--background-card);
   }
 
   &:disabled {
-    background-color: var(--bg-level-1);
-    color: var(--bs-gray-500);
+    background-color: var(--background-mute);
+    color: var(--foreground-mute);
   }
 }
 
@@ -49,12 +49,12 @@
   }
 
   &:active {
-    background-color: var(--foreground-prim) !important;
-    color: var(--background-card) !important;
+    background-color: var(--foreground-prim);
+    color: var(--background-card);
   }
 
   &:disabled {
-    background-color: var(--bg-level-1);
+    background-color: var(--background-mute);
     color: var(--bs-gray-500);
   }
 }

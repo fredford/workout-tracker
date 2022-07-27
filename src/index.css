@@ -6,7 +6,8 @@
   --background-card: #ffffff;
   --background-prim: #3474e026;
   --background-acce: #2ee09a26;
-  --background-form: ;
+  --background-mute: #6b6b6b26;
+  --background-form: #6b6b6b26;
 
   --foreground-text: #1c1c1c;
   --foreground-mute: #6b6b6b;
@@ -14,21 +15,7 @@
   --foreground-acce: #148458;
 
   /* new color scheme starts*/
-  --bg-level-0: #fbfbff;
-  --bg-level-1: #e5e5e5;
-  --bg-level-card: #ffffff;
-  --bg-level-button: #ffffff;
 
-  --fg-level-0: #0c0c0c;
-  --fg-level-1: #191919;
-  --fg-level-mute: #666666;
-  --fg-text-acce: #20405f;
-
-  --ac-primary: #3474e0;
-  --ac-faded: #3474e026;
-
-  --ac-button-hover: #cce0fe;
-  --ac-button-active: #4791ff;
   --ac-level-0: #708090;
   --ac-level-1: #4080bf;
 
@@ -71,7 +58,8 @@
   --background-card: #0c1533;
   --background-prim: #15265c;
   --background-acce: #2ee09a26;
-  --background-form: ;
+  --background-mute: #6b6b6b26;
+  --background-form: #6b6b6b26;
   /* Foregrounds */
   --foreground-text: #f2f2f2;
   --foreground-mute: #919191;
@@ -79,17 +67,6 @@
   --foreground-acce: #2ee09a;
 
   /* new color scheme starts */
-  --bg-level-0: #121212;
-  --bg-level-1: #292929;
-  --bg-level-card: #353535;
-
-  --fg-level-0: #f2f2f2;
-  --fg-level-1: #e5e5e5;
-  --fg-level-mute: #919191;
-  --fg-text-acce: #9fbfdf;
-
-  --ac-button-hover: #0041a3;
-  --ac-button-active: #0049b7;
 
   --ac-level-0: #708090;
   --ac-level-1: #4080bf;

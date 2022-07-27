@@ -21,10 +21,11 @@ import useApi from "../../../services/useApi";
  * Component that displays the main dashboard for the application
  *
  * Status: in-progress, in use
- *
- * TODO: This components needs functionality to be implemented for the Goals
- * component and the Challenges component
  */
+
+// TODO implement functionality to Goals feature
+// TODO implement functionality to Challenges feature
+
 const Dashboard = () => {
   // State variable for dashboard stats
   const [stats, setStats] = useState({});
@@ -58,11 +59,10 @@ const Dashboard = () => {
             <StatsGroupBasic stats={stats.basic} />
           </div>
           {/*
-            TODO Add features for Goals and Challenges
-            <div className="grid-350">
-              <Goals />
-              <Challenges />
-            </div>
+          <div className="grid-350 grid-margin">
+            <Goals />
+            <Challenges />
+          </div>
           */}
           <div className="col-xl-6 grid-margin">
             <ListTopExercises />

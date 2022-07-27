@@ -32,12 +32,12 @@
 }
 
 .navbar__items a:active {
-  border: 1px solid var(--foreground-prim) !important;
+  border: $border-fg-prim;
 }
 
 .navbar-item__active {
-  border: 1px solid var(--ac-primary);
-  color: var(--ac-primary);
+  border: $border-fg-prim;
+  color: var(--foreground-prim);
 }
 
 .navbar-item__header {

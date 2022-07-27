@@ -35,8 +35,8 @@
   position: relative;
   padding: 5px;
   border-radius: $border-radius-button;
-  background-color: var(--bg-level-1);
-  color: var(--fg-main);
+  background-color: var(--background-form);
+  color: var(--foreground-prim);
 }
 
 #distance:checked + .label-theme .theme-slider {
@@ -81,7 +81,7 @@
   position: absolute;
   width: 50px;
   height: 30px;
-  background-color: var(--bg-level-card);
+  background-color: var(--background-card);
   color: var(--bg-card) !important;
   //box-shadow: $box-shadow;
   border-radius: $border-radius-button;

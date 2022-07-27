@@ -1,6 +1,6 @@
 @mixin standard-border {
   border: $border;
-  border-radius: $border-radius-standard;
+  border-radius: $border-radius;
 }
 
 @mixin standard-shadow {
@@ -14,11 +14,11 @@
 // }
 
 @mixin button-border {
-  border: 1px solid var(--background-prim);
-  border-radius: $border-radius-standard;
+  border: $border-bg-prim;
+  border-radius: $border-radius;
 }
 
 @mixin basic-border {
-  border: 1px solid #dadce0;
-  border-radius: $border-radius-standard;
+  border: $border-bg-mute;
+  border-radius: $border-radius;
 }

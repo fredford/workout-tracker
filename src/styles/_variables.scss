@@ -7,7 +7,11 @@ $line-height: 43px;
 /*        Border        */
 // Standard Border
 $border: var(--border);
-$border-radius-standard: 1rem;
+$border-radius: 1rem;
+$border-fg-prim: 1px solid var(--foreground-prim);
+$border-bg-prim: 1px solid var(--background-prim);
+$border-bg-mute: 1px solid var(--background-mute);
+$border-acce: 1px solid var(--foreground-acce);
 
 $border-radius-card: 1rem;
 $border-radius-button: 0.5rem;

@@ -12,7 +12,7 @@
 
   .accordion-button {
     @include button-border;
-    background-color: var(--bg-level-0);
+    background-color: var(--background-body);
     font-size: 1.25rem;
     font-weight: $font-bold;
     color: var(--fg-text);
@@ -23,25 +23,28 @@
     }
 
     &:hover {
-      background-color: var(--ac-button-hover);
+      background-color: var(--background-prim);
     }
 
     &:active {
       @include button-border;
-      background-color: var(--ac-button-active);
+      background-color: var(--foreground-prim);
     }
 
     &.collapsed {
-      border-radius: $border-radius-standard !important;
+      border-radius: $border-radius !important;
     }
 
     &:not(.collapsed) {
       color: var(--fg-text);
-      background-color: var(--bg-level-0);
+      background-color: var(--background-body);
       box-shadow: none !important;
 
       &:hover {
-        background-color: var(--ac-button-hover);
+        background-color: var(--background-prim);
+      }
+      &:active {
+        background-color: var(--foreground-prim);
       }
     }
     &::after {
@@ -52,11 +55,11 @@
 
   .accordion-item {
     border: none;
-    border-radius: $border-radius-standard;
+    border-radius: $border-radius;
     background-color: inherit !important;
 
     &:first-of-type .accordion-button {
-      border-radius: $border-radius-standard;
+      border-radius: $border-radius;
     }
   }
 
@@ -64,7 +67,7 @@
   }
 
   .accordion-body {
-    background-color: var(--bg-level-0);
+    background-color: var(--background-body);
     padding: 1rem 0.5rem;
   }
 }

@@ -11,8 +11,6 @@ import Form from "../../../../components/Forms/Form";
  * Component that allows a user to change their username
  *
  * Status: in-progress, in-use
- *
- * TODO: currently does not update the username, but is visible
  */
 const ChangeUsername = () => {
   // Retrieve user object from the store
@@ -34,7 +32,7 @@ const ChangeUsername = () => {
   }
   // Function to make an API call updating the username
   const handleUpdateUsername = () => {
-    // TODO update the username in the database
+    // TODO Update the username in the database for a name change
   };
 
   return (

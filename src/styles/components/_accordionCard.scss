@@ -6,20 +6,19 @@
   }
 
   .accordion-button {
-    background-color: var(--bg-level-card);
-    @include standard-border;
+    background-color: var(--background-card);
 
     &.collapsed {
-      border-radius: $border-radius-standard !important;
+      border-radius: $border-radius !important;
     }
 
     &:not(.collapsed) {
       color: var(--fg-text);
-      background-color: var(--bg-level-card);
+      background-color: var(--background-card);
       box-shadow: none;
 
       &:hover {
-        background-color: var(--ac-button-hover);
+        background-color: var(--background-prim);
       }
     }
   }
@@ -29,10 +28,10 @@
 
   .accordion-item {
     @include standard-border;
-    background-color: var(--bg-level-card);
+    background-color: var(--background-card);
 
     &:first-of-type .accordion-button {
-      border-radius: $border-radius-standard;
+      border-radius: $border-radius;
     }
   }
 }

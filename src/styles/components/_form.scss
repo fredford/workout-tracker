@@ -6,8 +6,8 @@
 
 .form-control {
   height: $line-height;
-  border: 1px solid #dadce0;
+  border: $border;
   border-radius: 1rem;
-  background-color: var(--bg-level-0) !important;
-  color: var(--fg-level-0) !important;
+  background-color: var(--background-form) !important;
+  color: var(--foreground-text) !important;
 }

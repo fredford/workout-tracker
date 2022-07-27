@@ -19,9 +19,11 @@
   .workout-sets__header-text {
   }
   .workout-sets__header-title {
+    color: var(--foreground-text);
   }
   .workout-sets__header-type {
-    font-weight: $font-slim;
+    font-weight: $font-norm;
+    color: var(--foreground-mute);
   }
 }
 .workout-sets__header-button {
@@ -47,9 +49,10 @@
 }
 
 .workout-sets-repetitions__form-input {
-  @include basic-border;
-  background-color: var(--bg-level-0) !important;
-  color: var(--fg-level-0) !important;
+  @include standard-border;
+  @include standard-shadow;
+  background-color: var(--background-form) !important;
+  color: var(--foreground-acce) !important;
   height: 100%;
   width: 100%;
   font-size: x-large;
@@ -64,21 +67,18 @@
 }
 
 .workout-sets-repetitions__set {
+  @include basic-border;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   height: $line-height;
-  background-color: var(--bg-level-card);
   padding: 0.25rem 0.5rem;
-  border-radius: $border-radius-button;
-  @include basic-border;
 }
 
 .workout-sets-repetitions__set-count {
-  padding-top: 1px;
   font-weight: $font-norm;
-  color: var(--fg-level-1);
+  color: var(--foreground-text);
 }
 
 .workout-sets-repetitions__set-amount {
@@ -86,16 +86,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  //border: 1px solid var(--fg-base);
-  border-radius: $border-radius-button;
-  margin: 0 0.5rem 0 1rem;
-  flex-grow: 1;
+  color: var(--foreground-acce);
   font-size: large;
-  padding-top: 1px;
 }
 
 .workout-sets-repetitions__set-button {
-  color: var(--ac-button-active);
+  color: var(--foreground-prim);
 
   &:hover {
     color: var(--fg-dang);

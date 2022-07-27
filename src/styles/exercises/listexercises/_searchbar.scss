@@ -18,21 +18,6 @@
   background-color: rgba($color: $accent-color, $alpha: 0.6);
 }
 
-.list-exercises__search {
-  padding-left: 0.5rem;
-  color: var(--fg-main) !important;
-  border-radius: $border-radius-button;
-  background-color: var(--bg-level-1);
-  border: none !important;
-  margin-left: 0.5rem;
-  width: 100%;
-}
-
-.list-exercises__search::placeholder {
-  color: var(--fg-main);
-  font-family: $font-family;
-}
-
 .list-exercises__add-button {
   margin-left: 0.5rem;
 

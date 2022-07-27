@@ -13,7 +13,7 @@
 }
 
 .dashboard__goals-progress-bar {
-  background-color: var(--ac-faded);
+  background-color: var(--background-prim);
 }
 
 .dashboard__goals-stats {
@@ -22,10 +22,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--ac-primary);
+  color: var(--foreground-prim);
 
   .active & {
     background-color: var(--bs-success);
-    color: var(--bg-level-0);
+    color: var(--background-card);
   }
 }
