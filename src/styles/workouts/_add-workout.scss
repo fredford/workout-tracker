@@ -12,6 +12,20 @@
   }
 }
 
+@media screen and (max-width: 400px) {
+  .add-workout__container {
+    flex-direction: column;
+  }
+
+  .add-workout__item {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .add-workout__item {
     margin-right: 0.5rem;

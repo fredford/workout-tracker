@@ -6,7 +6,9 @@ const Page = (props) => {
   // Get a list of all Page subcomponents
   let subComponentList = Object.keys(Page);
 
-  let containerClassName = props.container ? " container" : "";
+  let className = "page " + props.className;
+
+  let containerClassName = props.container ? " container p-0" : "";
 
   let pageBodyContainerClassname = props.navbar
     ? "page-body__container"
@@ -20,7 +22,7 @@ const Page = (props) => {
   });
 
   return (
-    <div className="page">
+    <div className={className}>
       {props.navbar ? <Navbar /> : <></>}
       <div className={pageBodyContainerClassname}>
         <div className={containerClassName}>
