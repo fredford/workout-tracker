@@ -5,7 +5,7 @@ const ExerciseInfo = React.memo(({ stats }) => {
   const exercise = JSON.parse(localStorage.getItem("exercise"));
 
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column text-normal">
       <div className="d-flex justify-content-center mb-3">
         <h1>{exercise.name}</h1>
       </div>

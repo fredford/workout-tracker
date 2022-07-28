@@ -2,10 +2,15 @@ import React, { useState } from "react";
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
+import api from "../../../../services/sendRequest";
+import UserService from "../../../../services/user";
+import { passwordCompare } from "../../../../services/utils";
 
 const ChangePassword = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [data, setData] = useState(null);
 
   const updatePassword = (e) => {
     setPassword(e);
@@ -14,18 +19,12 @@ const ChangePassword = () => {
     setConfirmPassword(e);
   };
 
-  var isDisabled = true;
+  // Password comparison function
+  const isMatch = passwordCompare(password, confirmPassword);
 
-  if (
-    password.length > 5 &&
-    confirmPassword.length > 5 &&
-    password === confirmPassword
-  ) {
-    isDisabled = false;
-  }
-
-  const handleUpdatePassword = () => {
-    // TODO Update the database for a user password change
+  const handleUpdatePassword = async () => {
+    // TODO change this to an update function in the API
+    const [data, error] = await api.fetch(UserService.getUser());
   };
 
   return (
@@ -66,7 +65,7 @@ const ChangePassword = () => {
           <Button
             className="w-100"
             onClick={handleUpdatePassword}
-            disabled={isDisabled}
+            disabled={!isMatch}
             border
             accent
           >

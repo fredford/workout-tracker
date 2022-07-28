@@ -35,3 +35,16 @@ export const secondsToDuration = (time) => {
 
   return { hours, minutes, seconds };
 };
+
+/**
+ * Utility function to compare two input passwords
+ * @param {string} password1 password for comparison
+ * @param {string} password2 password to be compared
+ * @returns boolean if they match or not
+ */
+export const passwordCompare = (password1, password2) => {
+  if (password1.length > 5 && password2.length > 5 && password1 === password2) {
+    return true;
+  }
+  return false;
+};
