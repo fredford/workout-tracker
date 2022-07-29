@@ -5,6 +5,10 @@ class UserService {
     return http.get("/profile");
   }
 
+  updateUser(user) {
+    return http.put("/profile", user);
+  }
+
   deleteUser() {
     return http.delete("/profile");
   }

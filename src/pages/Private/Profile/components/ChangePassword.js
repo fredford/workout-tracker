@@ -1,20 +1,43 @@
+// Library imports
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
+// Local component imports
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
-import api from "../../../../services/sendRequest";
-import UserService from "../../../../services/user";
+
+// Redux import
+import { updateUser } from "../../../../redux/reducers/user";
+
+// Utilities
 import { passwordCompare } from "../../../../services/utils";
 
+/**
+ * Component that allows a user to change their password
+ *
+ * Status: complete
+ */
+
 const ChangePassword = () => {
+  // React hooks
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  // Component state variables
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [data, setData] = useState(null);
+  // Redux store user object
+  const user = useSelector((state) => state.user);
 
+  // Function for updating the state for password
   const updatePassword = (e) => {
     setPassword(e);
   };
+
+  // Function for updating the state for confirm password
   const updateConfirmPassword = (e) => {
     setConfirmPassword(e);
   };
@@ -22,9 +45,20 @@ const ChangePassword = () => {
   // Password comparison function
   const isMatch = passwordCompare(password, confirmPassword);
 
+  // Function to update the Redux store and make a PUT request
+  // to the server updating the password
   const handleUpdatePassword = async () => {
-    // TODO change this to an update function in the API
-    const [data, error] = await api.fetch(UserService.getUser());
+    var newUser = { ...user };
+
+    newUser.password = password;
+
+    try {
+      await dispatch(updateUser(newUser));
+      navigate("/message/passwordsuccess");
+    } catch (err) {
+      navigate("/message/passwordfailure");
+      console.log(err);
+    }
   };
 
   return (

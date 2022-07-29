@@ -15,10 +15,14 @@ const MessagePage = () => {
       <Page.Body center>
         <Card>
           <Card.Body>
-            <div className="d-flex flex-column align-items-center">
+            <div className="d-flex flex-column align-items-center text-normal">
               <Card.Text>{messageHandler[message].message}</Card.Text>
               <div className="mt-2 mb-3">{messageHandler[message].icon}</div>
-              <Button className="w-100" path={messageHandler[message].button}>
+              <Button
+                border
+                className="w-100"
+                path={messageHandler[message].button}
+              >
                 <Button.Text>Continue</Button.Text>
               </Button>
             </div>
@@ -46,6 +50,11 @@ const messageHandler = {
     message: "Your password was successfully changed!",
     button: "/profile",
     icon: <BsFillCheckCircleFill color="green" size="2rem" />,
+  },
+  passwordfailure: {
+    message: "Your password was not successfully changed!",
+    button: "/profile",
+    icon: <BsFillXCircleFill color="red" size="2rem" />,
   },
   passwordcancel: {
     message: "Your password was not changed!",

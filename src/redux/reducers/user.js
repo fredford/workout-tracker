@@ -27,16 +27,28 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
   return data;
 });
 
-export const updateUser = createAsyncThunk("user/updateUser", async (user) => {
-  const response = await axios
-    .put(profilePath, user, config)
-    .catch(function (error) {
-      if (error.response.status === 401) {
-        localStorage.removeItem("authToken");
+export const updateUser = createAsyncThunk(
+  "user/updateUser",
+  async (newUser) => {
+    const [data, error] = await UserService.updateUser(newUser).then(
+      (result) => {
+        if (result.status === 200 && result.data.success) {
+          return [result.data.data, null];
+        }
+      },
+      (error) => {
+        if (error.status === 401) {
+          localStorage.removeItem("authToken");
+          window.location.href(`${this.base_url}/startup`);
+        } else {
+          console.log(error);
+          return [null, error];
+        }
       }
-    });
-  return response.data;
-});
+    );
+    return data;
+  }
+);
 
 const userSlice = createSlice({
   name: "user",
@@ -72,10 +84,10 @@ const userSlice = createSlice({
       state.theme = payload.theme;
     },
     [updateUser.fulfilled]: (state, { payload }) => {
-      state._id = payload.data._id;
-      state.name = payload.data.name;
-      state.email = payload.data.email;
-      state.theme = payload.data.theme;
+      state._id = payload._id;
+      state.name = payload.name;
+      state.email = payload.email;
+      state.theme = payload.theme;
     },
   },
 });
