@@ -8,6 +8,11 @@ import { SettingsContext } from "../../../../contexts/settingsContext";
 // Redux import
 import { updateUser } from "../../../../redux/reducers/user";
 
+/**
+ * Component to allow the user to change the color theme of the application
+ *
+ * Status: complete
+ */
 const ProfileTheme = () => {
   // React hooks
   const dispatch = useDispatch();
