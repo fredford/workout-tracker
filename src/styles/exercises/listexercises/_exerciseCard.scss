@@ -19,7 +19,19 @@
 }
 
 .list-exercise__image {
+  @include standard-image;
 }
 
-.list-exercise__text-container {
+.list-exercise__text {
+  margin-top: 0.5rem;
+
+  h6 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 110px;
+  }
+  p {
+    color: var(--foreground-mute);
+  }
 }

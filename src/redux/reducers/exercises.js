@@ -1,16 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import { resolve } from "../../services/utils";
 import ExercisesService from "../../services/exercises";
+import api from "../../services/sendRequest";
 
 export const fetchExercises = createAsyncThunk(
   "exercises/fetchExercises",
   async () => {
-    const [data, error] = await resolve(ExercisesService.getAll());
+    const [data, error] = await api.fetch(ExercisesService.getAll());
 
-    if (error && error.status === 401) {
-      localStorage.removeItem("authToken");
+    if (error) {
+      throw error;
     }
+
     return data;
   }
 );
@@ -18,22 +19,14 @@ export const fetchExercises = createAsyncThunk(
 export const addExercise = createAsyncThunk(
   "exercises/addExercise",
   async (exercise) => {
-    const [data, error] = await ExercisesService.createExercise(exercise)
-      .then(function (response) {
-        return [response.data.data, null];
-      })
-      .catch(function (error) {
-        let jsonError = error.toJSON();
+    const [data, error] = await api.create(
+      ExercisesService.createExercise(exercise)
+    );
 
-        if (jsonError.status === 401) {
-          localStorage.removeItem("authoToken");
-        }
-
-        return [null, "Fail"];
-      });
     if (error) {
-      console.log(error);
+      throw error;
     }
+
     return data;
   }
 );

@@ -1,8 +1,14 @@
 .user-options__button-group {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   width: 100%;
+}
+
+.user-options__header {
+  color: var(--foreground-text);
+  text-align: center;
+  margin-bottom: 0.5rem;
 }
 
 .user-options__button-group button {

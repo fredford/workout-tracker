@@ -24,8 +24,6 @@ const ProfileTheme = () => {
     setCheckedTheme(!checkedTheme);
   };
 
-  console.log("there");
-
   return (
     <Card className="card-padding h-100 ">
       <Card.ImageHeader path="./mode.png">

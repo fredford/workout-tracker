@@ -12,6 +12,7 @@ const Button = (props) => {
   }
   className += props.className;
 
+  className += props.active ? " button__active" : "";
   className += props.horizontal ? " horizontal-button" : " vertical-button";
   className += props.checked ? " button__checked" : "";
   className += props.border ? " button__border" : "";

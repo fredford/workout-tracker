@@ -9,7 +9,6 @@ import Section from "../../../../components/Misc/Section";
 import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
-import ButtonToggle from "../../../../components/Buttons/ButtonToggle";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ListExercisesExercise from "../components/ListExercisesExercise";
 import Button from "../../../../components/Buttons/Button";
@@ -96,9 +95,9 @@ const SectionExercises = () => {
             />
             <ListExerciseSearchBar
               isAscending={isAscending}
-              updateDirection={changeDirection}
+              changeDirection={changeDirection}
               search={search}
-              updateSearch={changeSearch}
+              changeSearch={changeSearch}
             />
             <Card.Bar />
             <div className="list-exercises__container">

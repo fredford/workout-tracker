@@ -78,6 +78,11 @@
   @include light-base-color;
 }
 
+.button__active {
+  background-color: var(--foreground-prim);
+  color: var(---background-card);
+}
+
 .link-button {
   .link-button__image {
     width: $image-width;
