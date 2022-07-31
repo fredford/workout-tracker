@@ -1,25 +1,27 @@
+// Library imports
 import React, { useContext, useState } from "react";
-
+// Local component imports
 import Card from "../../../../components/Cards/Card";
-
+// Local context
 import { SettingsContext } from "../../../../contexts/settingsContext";
 
+/**
+ * Component that allows a user to change the weight units used in the application
+ *
+ * Status: complete
+ */
 const ProfileWeight = () => {
-  const { theme, weight, distance } = useContext(SettingsContext);
-
-  const [stateWeight, setStateWeight] = weight;
+  // Settings context for user settings
+  const [settings, updateSettings] = useContext(SettingsContext);
+  // Component state for if checked
   const [checkedWeight, setCheckedWeight] = useState(
-    stateWeight === "lbs" ? false : true
+    settings.weight === "lbs" ? false : true
   );
 
-  const toggleChanger = (e) => {
-    var oldSettings = JSON.parse(localStorage.getItem("settings"));
-
-    oldSettings.weight = oldSettings.weight === "lbs" ? "kg" : "lbs";
-    setStateWeight(oldSettings.weight);
+  // Function for toggling the units for measuring weight in the application
+  const toggleChanger = () => {
+    updateSettings("weight");
     setCheckedWeight(!checkedWeight);
-
-    localStorage.setItem("settings", JSON.stringify(oldSettings));
   };
 
   return (

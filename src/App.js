@@ -15,12 +15,12 @@ import publicRoutes from "./routes/public";
 import privateRoutes from "./routes/private";
 
 const App = () => {
-  const { theme } = useContext(SettingsContext);
+  const [settings, setSettings] = useContext(SettingsContext);
 
-  document.documentElement.setAttribute("data-theme", theme[0]);
+  document.documentElement.setAttribute("data-theme", settings.theme);
 
   return (
-    <div className="App" data-theme={theme[0]}>
+    <div className="App" data-theme={settings.theme}>
       <Routes>
         <Route exact path="/" element={<Loading />} />
         <Route element={<PrivateRoute />}>

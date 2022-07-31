@@ -1,26 +1,27 @@
+// Library imports
 import React, { useContext, useState } from "react";
-
+// Local component imports
 import Card from "../../../../components/Cards/Card";
-
+// Contexts
 import { SettingsContext } from "../../../../contexts/settingsContext";
 
+/**
+ * Component to allow the user to change the distance units of the application
+ *
+ * Status: complete
+ */
 const ProfileDistance = () => {
-  const { theme, weight, distance } = useContext(SettingsContext);
-
-  const [stateDistance, setStateDistance] = distance;
-
+  // Settings context for user settings
+  const [settings, updateSettings] = useContext(SettingsContext);
+  // Component state for if checked
   const [checkedDistance, setCheckedDistance] = useState(
-    stateDistance === "km" ? false : true
+    settings.distance === "km" ? false : true
   );
 
-  const toggleChanger = (e) => {
-    var oldSettings = JSON.parse(localStorage.getItem("settings"));
-
-    oldSettings.distance = oldSettings.distance === "km" ? "mi" : "km";
-    setStateDistance(oldSettings.distance);
+  // Function for updating the distance units of the application in the settingsContext
+  const toggleChanger = () => {
+    updateSettings("distance");
     setCheckedDistance(!checkedDistance);
-
-    localStorage.setItem("settings", JSON.stringify(oldSettings));
   };
 
   return (

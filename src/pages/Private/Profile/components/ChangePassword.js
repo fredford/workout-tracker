@@ -19,7 +19,6 @@ import { passwordCompare } from "../../../../services/utils";
  *
  * Status: complete
  */
-
 const ChangePassword = () => {
   // React hooks
   const navigate = useNavigate();

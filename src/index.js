@@ -13,13 +13,13 @@ function start() {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <SettingsProvider>
-          <WorkoutProvider>
-            <Provider store={store}>
+        <Provider store={store}>
+          <SettingsProvider>
+            <WorkoutProvider>
               <App />
-            </Provider>
-          </WorkoutProvider>
-        </SettingsProvider>
+            </WorkoutProvider>
+          </SettingsProvider>
+        </Provider>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

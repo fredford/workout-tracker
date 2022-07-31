@@ -1,12 +1,9 @@
 // Library imports
 import React, { useContext, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
 // Local component imports
 import Card from "../../../../components/Cards/Card";
 // Contexts
 import { SettingsContext } from "../../../../contexts/settingsContext";
-// Redux import
-import { updateUser } from "../../../../redux/reducers/user";
 
 /**
  * Component to allow the user to change the color theme of the application
@@ -14,40 +11,20 @@ import { updateUser } from "../../../../redux/reducers/user";
  * Status: complete
  */
 const ProfileTheme = () => {
-  // React hooks
-  const dispatch = useDispatch();
-  // Redux store user object
-  const user = useSelector((state) => state.user);
-  // Settings context variables
-  const { theme } = useContext(SettingsContext);
-  // Component state variables for the Theme
-  const [stateTheme, setStateTheme] = theme;
+  // Settings context for user settings
+  const [settings, updateSettings] = useContext(SettingsContext);
+  // Component state for if checked
   const [checkedTheme, setCheckedTheme] = useState(
-    stateTheme === "dark" ? true : false
+    settings.theme === "dark" ? true : false
   );
 
-  // Function for updating the Redux store and localStorage for the theme
-  const toggleChanger = async (e) => {
-    // Get the local settings information
-    var oldSettings = JSON.parse(localStorage.getItem("settings"));
-    // Make the change to the new theme value
-    oldSettings.theme = oldSettings.theme === "light" ? "dark" : "light";
-    // Change the component state data
-    setStateTheme(oldSettings.theme);
+  // Function for updating theme of the application in the settingsContext
+  const toggleChanger = () => {
+    updateSettings("theme");
     setCheckedTheme(!checkedTheme);
-    // Set the local storage settings information
-    localStorage.setItem("settings", JSON.stringify(oldSettings));
-
-    // Update the user theme and use Redux dispatch to update the user
-    var newUser = { ...user };
-    newUser.theme = oldSettings.theme;
-
-    try {
-      await dispatch(updateUser(newUser));
-    } catch (err) {
-      console.log(err);
-    }
   };
+
+  console.log("there");
 
   return (
     <Card className="card-padding h-100 ">

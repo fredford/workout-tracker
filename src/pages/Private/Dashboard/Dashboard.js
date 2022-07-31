@@ -15,34 +15,31 @@ import Goals from "./components/Goals";
 
 // Utilities
 import StatsService from "../../../services/stats";
-import useApi from "../../../services/useApi";
+import api from "../../../services/sendRequest";
 
 /**
- * Component that displays the main dashboard for the application
+ * Page that displays the main dashboard for the application
  *
- * Status: in-progress, in use
+ * Status: complete
+ *
+ * Future:
+ * - TODO implement functionality to Goals feature
+ * - TODO implement functionality to Challenges feature
  */
-
-// TODO implement functionality to Goals feature
-// TODO implement functionality to Challenges feature
-
 const Dashboard = () => {
   // State variable for dashboard stats
   const [stats, setStats] = useState({});
 
-  // API GET call to retrieve Basic Stats from the server
-  const { data } = useApi(StatsService.getDashboardDataBasic);
-
-  // Get the current date
+  // Get the Time and current Hour for the Intro component
   var today = new Date();
   // Get the current hour of the day
   var currHr = today.getHours();
 
   // Handle data retrieved for the component state
   useEffect(() => {
-    // Set the data for the stats of the dashboard
-    if (data) setStats(data);
-  }, [data]);
+    // API GET call to retrieve Basic Stats from the server
+    api.fetch(StatsService.getDashboardDataBasic(), setStats);
+  }, []);
 
   return (
     <Page navbar>
