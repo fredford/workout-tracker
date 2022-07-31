@@ -33,6 +33,11 @@ const Dashboard = () => {
   // API GET call to retrieve Basic Stats from the server
   const { data } = useApi(StatsService.getDashboardDataBasic);
 
+  // Get the current date
+  var today = new Date();
+  // Get the current hour of the day
+  var currHr = today.getHours();
+
   // Handle data retrieved for the component state
   useEffect(() => {
     // Set the data for the stats of the dashboard
@@ -43,7 +48,7 @@ const Dashboard = () => {
     <Page navbar>
       <Page.Body>
         <div className="mb-3">
-          <Intro />
+          <Intro currHr={currHr} />
         </div>
         <div className="row">
           <div className="col-xl-6 grid-margin">

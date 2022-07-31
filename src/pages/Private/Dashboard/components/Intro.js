@@ -7,14 +7,10 @@ import { useSelector } from "react-redux";
  *
  * Status: complete
  */
-const Intro = () => {
+const Intro = ({ currHr }) => {
   // Retrieve the store state for the User
   const user = useSelector((state) => state.user);
 
-  // Get the current date
-  var today = new Date();
-  // Get the current hour of the day
-  var currHr = today.getHours();
   // Set the default greeting time frame
   var outputMessage = "Good evening";
 
@@ -26,6 +22,7 @@ const Intro = () => {
   else if (currHr < 18) {
     outputMessage = "Good afternoon";
   }
+
   return (
     <div className="dashboard-intro">
       <h1>
@@ -35,4 +32,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default React.memo(Intro);

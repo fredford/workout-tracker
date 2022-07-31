@@ -9,8 +9,8 @@ import StatsCard from "../../../../components/Stats/StatsCard";
 import WorkoutsService from "../../../../services/workouts";
 
 // Utilities
-import useApi from "../../../../services/useApi";
 import Button from "../../../../components/Buttons/Button";
+import api from "../../../../services/sendRequest";
 
 /**
  * Component that retrieves the Last Workout performed
@@ -29,21 +29,20 @@ const LastWorkout = () => {
     sets: 0,
     totalRepetitions: 0,
   });
-
-  // API GET call for the Last Workout
-  const { data, error } = useApi(WorkoutsService.getLast);
+  const [showLast, setShowLast] = useState(false);
 
   // Handle data retrieved for the component state
   useEffect(() => {
-    // Set the data for the last workout
-    if (data) {
+    // API GET request to retrieve the last workout started by the User
+    api.fetch(WorkoutsService.getLast(), (data) => {
       setLastWorkout(data);
       setLink(`/workouts/${data.id}`);
-    }
-  }, [data]);
+      setShowLast(true);
+    });
+  }, []);
 
   // If no workout is found allow the user to start a new workout instead
-  if (error) {
+  if (!showLast) {
     return (
       <Card onClick={() => navigate(link)}>
         <Card.Body>
