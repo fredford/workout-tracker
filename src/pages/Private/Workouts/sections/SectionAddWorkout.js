@@ -1,28 +1,42 @@
+// Library imports
 import React from "react";
-import Section from "../../../../components/Misc/Section";
-
-import { resolve } from "../../../../services/utils";
-import WorkoutsService from "../../../../services/workouts";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+
+// Local component imports
+import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
 
+// Local services imports
+import WorkoutsService from "../../../../services/workouts";
+import api from "../../../../services/sendRequest";
+
+/**
+ * Component for displaying the types of workouts a User can start and starting that workout
+ *
+ * Status: complete
+ */
 const SectionAddWorkout = () => {
+  // React hooks
   const navigate = useNavigate();
+
+  // Redux store User
   const user = useSelector((state) => state.user);
 
+  // Function to start the Workout selected
   const startNewWorkout = async (type) => {
-    const [data, error] = await resolve(
+    api.create(
       WorkoutsService.createWorkout({
         type: type,
         user: user._id,
-      })
+      }),
+      (data) => {
+        navigate(`/workouts/${data._id}`);
+      }
     );
-    if (data) {
-      navigate(`/workouts/${data._id}`);
-    }
   };
 
+  // Object of buttons to be displayed
   const buttons = {
     Maintenance: "./maintenance.png",
     Progression: "./progression.png",

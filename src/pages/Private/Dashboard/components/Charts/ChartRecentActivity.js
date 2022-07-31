@@ -6,8 +6,8 @@ import Card from "../../../../../components/Cards/Card";
 import StatsLineChart from "../../../../../components/Stats/StatsLineChart";
 
 // Utilities
-import useApi from "../../../../../services/useApi";
 import StatsService from "../../../../../services/stats";
+import api from "../../../../../services/sendRequest";
 
 /**
  * Component that displays a chart of recent workout activity in the application
@@ -19,14 +19,11 @@ const ChartRecentActivity = () => {
   const [stats, setStats] = useState({});
   const [date, setDate] = useState("week");
 
-  // API GET call to retrieve the recent workout activity from the server
-  const { data } = useApi(StatsService.getDashboardActivity, [date]);
-
   // Handle data retrieved for the component state
   useEffect(() => {
-    // Set the data for the stats of the activity chart
-    if (data) setStats(data);
-  }, [data]);
+    // API GET call to retrieve the recent workout activity from the server
+    api.fetch(StatsService.getDashboardActivity(date), setStats);
+  }, [date]);
 
   // Get the CSS property value for the faded accent color of the application
   let fadedColor = getComputedStyle(document.body).getPropertyValue(

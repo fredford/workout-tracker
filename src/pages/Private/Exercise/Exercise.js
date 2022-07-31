@@ -9,7 +9,6 @@ import {
 } from "../../../redux/reducers/exercises";
 import ExerciseInfo from "./sections/ExerciseInfo";
 import Button from "../../../components/Buttons/Button";
-import { resolve } from "../../../services/utils";
 import { useNavigate } from "react-router-dom";
 
 import ExercisesServices from "../../../services/exercises";
@@ -19,6 +18,7 @@ import CumulativeChart from "./components/CumulativeChart";
 import SetProgressionChart from "./components/SetProgressionChart";
 import WorkoutProgressionChart from "./components/WorkoutProgressionChart";
 import ChallengesCard from "./components/ChallengesCard";
+import api from "../../../services/sendRequest";
 
 const Exercise = () => {
   const [exerciseStats, setExerciseStats] = useState({
@@ -58,38 +58,29 @@ const Exercise = () => {
 
   const user = useSelector((state) => state.user);
 
-  if (exercise) {
-    localStorage.setItem("exercise", JSON.stringify(exercise));
-  }
-
   useEffect(() => {
     retrieveData();
   }, []);
 
+  // Retrieve the stats for the Exercise
   const retrieveData = async () => {
-    const [data, error] = await resolve(
-      StatsService.getExerciseData(exerciseId)
-    );
-
-    if (data) {
+    api.fetch(StatsService.getExerciseData(exerciseId), (data) => {
       setExerciseStats(data);
       setShowStats(true);
-    } else {
-      console.log(error);
-    }
+    });
   };
 
+  // Function to handle deleting the Exercise
   const deleteExercise = async () => {
-    const [data, error] = await resolve(
-      ExercisesServices.deleteExercise(exerciseId)
+    api.request(
+      ExercisesServices.deleteExercise(exerciseId),
+      () => {
+        navigate("/message/exercisedeletesuccess");
+      },
+      () => {
+        navigate("/message/exercisedeletefailed");
+      }
     );
-
-    if (data) {
-      navigate("/message/exercisedeletesuccess");
-    } else {
-      console.log(error);
-      navigate("/message/exercisedeletefailed");
-    }
   };
 
   return (
@@ -100,7 +91,7 @@ const Exercise = () => {
         </Button>
 
         <div className="mb-3 mt-3">
-          <ExerciseInfo stats={exerciseStats.stats} />
+          <ExerciseInfo exercise={exercise} stats={exerciseStats.stats} />
         </div>
         <div className="row">
           <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">

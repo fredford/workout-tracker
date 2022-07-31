@@ -7,7 +7,8 @@ import Card from "../../../../../components/Cards/Card";
 
 // Utilities
 import StatsService from "../../../../../services/stats";
-import useApi from "../../../../../services/useApi";
+
+import api from "../../../../../services/sendRequest";
 
 /**
  * Component that displays a list of the top exercises in the application
@@ -23,14 +24,11 @@ const ListTopExercises = () => {
   const [date, setDate] = useState("week");
   const [area, setArea] = useState("all");
 
-  // API GET call to retrieve the top exercises in the application
-  const { data } = useApi(StatsService.getTopExercises, [area, date]);
-
   // Handle data retrieved for the component state
   useEffect(() => {
-    // Set the data for the top exercises stats
-    if (data) setStats(data);
-  }, [data]);
+    // API GET call to retrieve the top exercises in the application
+    api.fetch(StatsService.getTopExercises(area, date), setStats);
+  }, [area, date]);
 
   // Function to handle redirecting the user to the exercise they have clicked on
   const openExercise = (id) => {

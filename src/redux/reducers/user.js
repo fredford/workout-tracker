@@ -1,9 +1,4 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-
-import { config } from "../../services/utils";
-
-import { profilePath } from "../../services/apiPaths";
 
 import UserService from "../../services/user";
 

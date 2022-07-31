@@ -1,9 +1,14 @@
+// Library imports
 import React from "react";
+// Local component imports
 import StatsCard from "../../../../components/Stats/StatsCard";
 
-const ExerciseInfo = React.memo(({ stats }) => {
-  const exercise = JSON.parse(localStorage.getItem("exercise"));
-
+/**
+ * Component for displaying Exercise basic information and statistics
+ *
+ * Status: complete
+ */
+const ExerciseInfo = React.memo(({ exercise, stats }) => {
   return (
     <div className="d-flex flex-column text-normal">
       <div className="d-flex justify-content-center mb-3">
