@@ -1,18 +1,25 @@
+// Library imports
 import React, { useContext, useEffect, useState } from "react";
-
 import { useSelector } from "react-redux";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-import { ActivityContext } from "../../../../contexts/activityContext";
-
+// Local component imports
 import Card from "../../../../components/Cards/Card";
 import Section from "../../../../components/Misc/Section";
 import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import ListExercisesExercise from "../components/ListExercisesExercise";
 import Button from "../../../../components/Buttons/Button";
 
+// Contexts
+import { ActivityContext } from "../../../../contexts/activityContext";
+
+/**
+ * Section handling the display of the Exercises List component with functionality for display handling
+ *
+ * Status: complete
+ */
 const SectionExercises = () => {
   // Redux State
   const exercises = useSelector((state) => state.exercises.exercises);
@@ -41,24 +48,29 @@ const SectionExercises = () => {
     item.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  // If at least one filter has been applied
   if (!isAllOff) {
     displayList = displayList.filter(
       (item) => activities[item.area.toLowerCase()][0]
     );
   }
 
+  // If the state is set to show in ascending order
   if (isAscending) {
     displayList.reverse();
   }
 
+  // If there are more exercises than 10 divide into pages
   if (displayList.length > 10) {
     displayList = displayList.slice(page * 10, page * 10 + 10);
   }
 
+  // Function to change the direction of the list displayed
   const changeDirection = () => {
     setIsAscending(!isAscending);
   };
 
+  // Increase the current page number
   const increasePage = () => {
     var newPage = page;
 
@@ -66,7 +78,7 @@ const SectionExercises = () => {
       setPage(++newPage);
     }
   };
-
+  // Decrease the current page number to a minimum of zero
   const decreasePage = () => {
     var newPage = page;
 
@@ -75,10 +87,11 @@ const SectionExercises = () => {
     }
   };
 
+  // Set the display to only show User created exercises
   const changeUserOnly = () => {
     setUserOnly(!userOnly);
   };
-
+  // Set the search term for the exercises
   const changeSearch = (term) => {
     setSearch(term);
   };

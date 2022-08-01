@@ -10,6 +10,7 @@ class ExercisesService {
     return http.get("/exercises");
   }
   // Gets a specific exercise
+  // TODO return the exercise object instead of a list
   getById(id) {
     return http.get(`/exercises?id=${id}`);
   }

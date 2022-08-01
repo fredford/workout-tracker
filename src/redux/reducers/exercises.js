@@ -56,6 +56,7 @@ export const { setExercises } = exercisesSlice.actions;
 export default exercisesSlice.reducer;
 
 export const selectExerciseById = (state, exerciseId) => {
+  // TODO check if a list is being returned or an object
   return state.exercises.exercises.find(
     (exercise) => exercise._id === exerciseId
   );
