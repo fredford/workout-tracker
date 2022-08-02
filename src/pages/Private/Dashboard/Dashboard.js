@@ -31,15 +31,21 @@ const Dashboard = () => {
   const [stats, setStats] = useState({});
 
   // Get the Time and current Hour for the Intro component
-  var today = new Date();
+  let today = new Date();
   // Get the current hour of the day
-  var currHr = today.getHours();
+  let currHr = today.getHours();
 
   // Handle data retrieved for the component state
   useEffect(() => {
     // API GET call to retrieve Basic Stats from the server
-    api.fetch(StatsService.getDashboardDataBasic(), setStats);
+    const retrieveData = async() => {
+      await api.fetch(StatsService.getDashboardDataBasic(), setStats);
+    }
+    retrieveData()
   }, []);
+
+
+
 
   return (
     <Page navbar>
@@ -58,7 +64,6 @@ const Dashboard = () => {
           <div className="statsBasic">
             <StatsGroupBasic stats={stats.basic} />
           </div>
-
           <div className="chartActivity">
             <ChartRecentActivity />
           </div>

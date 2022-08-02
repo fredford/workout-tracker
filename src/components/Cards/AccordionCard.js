@@ -1,17 +1,25 @@
+// Library imports
 import React from "react";
-import Button from "../Buttons/Button";
 import { Accordion } from "react-bootstrap";
 
+/**
+ * Component for providing an Accordion wrapper, provides a series of flexible
+ * subcomponents that can be used to improve re-usability
+ *
+ * Status: completed
+ */
 const AccordionCard = (props) => {
+  // Get a list of DOM keys used for the Accordion component
   let subComponentList = Object.keys(AccordionCard);
-
+  // Iterate through the list of child components provided
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) =>
       child.type.displayName === key ? child : null
     );
   });
 
-  var className = "accordion-card " + props.className;
+    // Set the high level css class for the Accordion
+  let className = "accordion-card " + props.className;
 
   return (
     <div className={className} onClick={props.onClick}>
@@ -26,7 +34,6 @@ const AccordionCard = (props) => {
 
 // Header component as a replacement to Section header text
 const Header = (props) => {
-  let className = "card-header " + props.className;
   return (
     <Accordion.Header>
       <div className="workout-sets__header">

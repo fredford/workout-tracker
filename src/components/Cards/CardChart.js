@@ -2,6 +2,17 @@ import React from "react";
 import StatsLineChart from "../Stats/StatsLineChart";
 import Card from "./Card";
 
+/**
+ * Component for displaying a React ChartJS chart on a Card component
+ * @param header string - title for the chart
+ * @param stats list - the dataset to be used
+ * @param showStats boolean - to determine if the data should be shown
+ * @param options string - options specifications to be used
+ * @returns {JSX.Element}
+ * @constructor
+ *
+ * Status: completed
+ */
 const CardChart = ({ header, stats, showStats, options = "standard" }) => {
   // Get the CSS property value for the faded accent color of the application
   let fadedColor = getComputedStyle(document.body).getPropertyValue(

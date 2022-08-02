@@ -1,7 +1,7 @@
 // Library imports
 import React from "react";
 // Local component imports
-import StatsCard from "../../../../components/Stats/StatsCard";
+import CardStats from "../../../../components/Cards/CardStats";
 
 /**
  * Component for displaying Exercise basic information and statistics
@@ -26,7 +26,7 @@ const ExerciseInfo = React.memo(({ exercise, stats }) => {
         </div>
         <div className="mt-3 grid-3-item">
           {Object.keys(stats).map((key) => (
-            <StatsCard key={key} data={stats[key]} title={key} />
+            <CardStats key={key} data={stats[key]} title={key} />
           ))}
         </div>
       </div>

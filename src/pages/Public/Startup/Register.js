@@ -30,12 +30,10 @@ const Register = () => {
 
   // Check if enough information is provided to attempt a valid registration
   let isDisabled =
-    email.length !== 0 &&
-    password.length !== 0 &&
-    name.length !== 0 &&
-    passwordConfirm.length !== 0
-      ? false
-      : true;
+    !(email.length !== 0 &&
+      password.length !== 0 &&
+      name.length !== 0 &&
+      passwordConfirm.length !== 0);
 
   // If the user is already authenticated redirect them to their dashboard
   useEffect(() => {

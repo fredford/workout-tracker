@@ -1,15 +1,22 @@
 import React from "react";
 
+/**
+ * Component for providing a Form, provides a series of flexible
+ * subcomponents that can be used to improve consistency and re-usability.
+ *
+ * Status: completed
+ */
 const Form = (props) => {
+  // Get a list of DOM keys used for Form component
   let subComponentList = Object.keys(Form);
-
+  // Iterate through the list of child components
   let subComponents = subComponentList.map((key) => {
     return React.Children.map(props.children, (child) =>
       child.type.displayName === key ? child : null
     );
   });
-
-  var className = " " + props.className;
+  // Set the high level css class for a Form
+  let className = " " + props.className;
 
   return (
     <form className={className}>
@@ -18,6 +25,7 @@ const Form = (props) => {
   );
 };
 
+// Label component to provide consistent from labeling
 const Label = (props) => {
   let className = "form-label " + props.className;
   return (
@@ -29,6 +37,7 @@ const Label = (props) => {
 Label.displayName = "Label";
 Form.Label = Label;
 
+// Input component to provide consistent input usage
 const Input = (props) => {
   let className = "form-control " + props.className;
   return (

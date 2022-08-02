@@ -5,7 +5,7 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 
 // Local component imports
 import Card from "../../../../components/Cards/Card";
-import StatsCard from "../../../../components/Stats/StatsCard";
+import CardStats from "../../../../components/Cards/CardStats";
 import WorkoutsService from "../../../../services/workouts";
 
 // Utilities
@@ -58,13 +58,13 @@ const LastWorkout = () => {
         <Card.Header>Last Workout</Card.Header>
         <Card.Subtitle>{lastWorkout.type}</Card.Subtitle>
         <Card.Body className="dashboard__last-workout-items">
-          <StatsCard
+          <CardStats
             className="item"
             data={lastWorkout.sets}
             title="Sets"
             subtitle="Count"
           />
-          <StatsCard
+          <CardStats
             className="item"
             data={lastWorkout.totalRepetitions}
             title="Total"

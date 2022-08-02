@@ -1,12 +1,24 @@
+// Library imports
 import React, { useEffect, useState } from "react";
-
-import { getAuth } from "../../services/utils";
-
 import { useNavigate } from "react-router-dom";
 
-const Landing = () => {
+// Utilities
+import { getAuth } from "../../services/utils";
+
+
+/**
+ * Component to show a loading icon
+ * @returns {JSX.Element}
+ * @constructor
+ *
+ * Status: completed
+ */
+const Loading = () => {
+  // React hooks
   let navigate = useNavigate();
+  // Component state
   const [show, setShow] = useState(true);
+  // Retrieve auth token
   let token = getAuth();
 
   useEffect(() => {
@@ -33,4 +45,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+export default Loading;

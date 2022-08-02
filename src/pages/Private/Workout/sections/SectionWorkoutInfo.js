@@ -6,7 +6,7 @@ import {useNavigate} from "react-router-dom";
 // Local component imports
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
-import StatsCard from "../../../../components/Stats/StatsCard";
+import CardStats from "../../../../components/Cards/CardStats";
 
 // Local services
 import WorkoutService from "../../../../services/workout";
@@ -39,8 +39,8 @@ const SectionWorkoutInfo = ({workout, totalAmount, totalSets}) => {
           <Card.Title>{workout.type}</Card.Title>
         </Card.ImageHeader>
         <div className="grid-4-item">
-          <StatsCard data={totalAmount} title={"Total"}/>
-          <StatsCard data={totalSets} title={"Sets"}/>
+          <CardStats data={totalAmount} title={"Total"}/>
+          <CardStats data={totalSets} title={"Sets"}/>
           <Button border>
             <Button.Icon>
               <MdOutlineModeEditOutline size={40}/>

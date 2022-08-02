@@ -25,7 +25,7 @@ const SectionAddWorkout = () => {
 
   // Function to start the Workout selected
   const startNewWorkout = async (type) => {
-    api.create(
+    await api.create(
       WorkoutsService.createWorkout({
         type: type,
         user: user._id,

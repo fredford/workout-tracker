@@ -2,7 +2,7 @@
 import React from "react";
 
 // Local component imports
-import StatsCard from "../../../../../components/Stats/StatsCard";
+import CardStats from "../../../../../components/Cards/CardStats";
 
 /**
  * Component container handling the display of overall performance stats for
@@ -24,7 +24,7 @@ const StatsGroupArea = React.memo(function WrappedStatsGroupArea({ stats }) {
     <div className="stats-grid">
       {displayStats.map((stat, index) => {
         return (
-          <StatsCard
+          <CardStats
             key={index}
             data={stat.data}
             title={stat.title}

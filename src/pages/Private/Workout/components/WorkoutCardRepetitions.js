@@ -5,7 +5,7 @@ import React, { useContext, useState } from "react";
 import Button from "../../../../components/Buttons/Button";
 import WorkoutExerciseAmount from "./WorkoutExerciseAmount";
 import WorkoutExerciseSet from "./WorkoutExerciseSet";
-import StatsCard from "../../../../components/Stats/StatsCard";
+import CardStats from "../../../../components/Cards/CardStats";
 import AccordionCard from "../../../../components/Cards/AccordionCard";
 
 // Local services
@@ -83,10 +83,10 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
           </Button>
         </div>
         <div className="mb-3 grid-4-item">
-          <StatsCard data={numSets} title={"Sets"} />
-          <StatsCard data={avgSets} title={"Avg"} />
-          <StatsCard data={maxSet} title={"Max"} />
-          <StatsCard data={sumSets} title={"Total"} />
+          <CardStats data={numSets} title={"Sets"} />
+          <CardStats data={avgSets} title={"Avg"} />
+          <CardStats data={maxSet} title={"Max"} />
+          <CardStats data={sumSets} title={"Total"} />
         </div>
 
         <div className="workout-sets-repetitions__sets-container">

@@ -1,22 +1,36 @@
+// Library imports
 import React, { useContext } from "react";
-
-import "bootstrap/dist/css/bootstrap.min.css";
-
-import "./styles/styles.scss";
-
-import { SettingsContext } from "./contexts/settingsContext";
-
 import { Routes, Route } from "react-router-dom";
 
+// CSS imports
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./styles/styles.scss";
+
+// Context
+import { SettingsContext } from "./contexts/settingsContext";
+
+// Utility components
 import Loading from "./pages/Utility/Loading";
 import PrivateRoute from "./pages/Utility/PrivateRoute";
 
+// Available routes
 import publicRoutes from "./routes/public";
 import privateRoutes from "./routes/private";
 
+/**
+ * Baseline for the application, routes the user to public or private routes based on
+ * authentication status with the server.
+ *
+ * @returns {JSX.Element}
+ * @constructor
+ *
+ * Status: complete
+ */
 const App = () => {
-  const [settings, setSettings] = useContext(SettingsContext);
+  // Get Settings context to set the current theme
+  const [settings] = useContext(SettingsContext);
 
+  // Set the CSS theme to be used
   document.documentElement.setAttribute("data-theme", settings.theme);
 
   return (

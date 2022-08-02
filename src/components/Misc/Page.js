@@ -1,15 +1,24 @@
+// Library imports
 import React from "react";
+// Local component imports
 import Navbar from "./Navbar/Navbar";
 
 // Main parent component handling all Page presentations
+/**
+ * Component wrapper providing a consistent and re-usable Page for
+ * displaying the contents of the application on each page. Handles the display
+ * of the navbar and page centering.
+ *
+ * Status: completed
+ */
 const Page = (props) => {
   // Get a list of all Page subcomponents
   let subComponentList = Object.keys(Page);
-
+  // Set high level CSS class
   let className = "page " + props.className;
-
+  // Set CSS for container page with flexible gutters
   let containerClassName = props.container ? " container p-0" : "";
-
+  // Set the page layout, centered page or standard layout
   let pageBodyContainerClassname = props.navbar
     ? "page-body__container"
     : "center-page";
@@ -35,14 +44,14 @@ const Page = (props) => {
   );
 };
 
-// NavBar Component shown at the top of the page when requested
-const NavBar = (props) => {
+// NavBar Component shown at the side or bottom of the page when requested
+const NavBar = () => {
   return <Navbar />;
 };
 NavBar.displayName = "NavBar";
 Page.NavBar = NavBar;
 
-// Header Componeent shown at the top of the page when requested
+// Header Component shown at the top of the page when requested
 const Header = ({
   className,
   center,

@@ -60,21 +60,22 @@ const Exercise = () => {
   const [exercise, setExercise] = useState({});
 
   useEffect(() => {
+    // Retrieve the stats for the Exercise
+    const retrieveData = async () => {
+      await api.fetch(StatsService.getExerciseData(exerciseId), (data) => {
+        setExerciseStats(data);
+        setShowStats(true);
+      });
+    };
+    // Retrieve the Exercise information
+    const retrieveExercise = async () => {
+      await api.fetch(ExercisesServices.getById(exerciseId), setExercise);
+    };
     retrieveExercise();
     retrieveData();
-  }, []);
+  }, [exerciseId]);
 
-  // Retrieve the stats for the Exercise
-  const retrieveData = async () => {
-    await api.fetch(StatsService.getExerciseData(exerciseId), (data) => {
-      setExerciseStats(data);
-      setShowStats(true);
-    });
-  };
-  // Retrieve the Exercise information
-  const retrieveExercise = async () => {
-    await api.fetch(ExercisesServices.getById(exerciseId), setExercise);
-  };
+
 
   // Function to handle deleting the Exercise
   const deleteExercise = async () => {

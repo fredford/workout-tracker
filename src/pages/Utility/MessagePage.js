@@ -1,11 +1,26 @@
+// Library imports
 import React from "react";
+import { useParams } from "react-router-dom";
+import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
+
+// Local component imports
 import Page from "../../components/Misc/Page";
 import Card from "../../components/Cards/Card";
-import { useParams } from "react-router-dom";
-
-import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import Button from "../../components/Buttons/Button";
 
+/**
+ * Page that handles the display of important messaging to the User
+ * @returns {JSX.Element}
+ * @constructor
+ *
+ * Status: completed
+ *
+ * Future:
+ * - TODO add further messaging for more use cases
+ * - TODO look to have the server send the success/error message rather than
+ *    storing here
+ * - TODO look to utilize success boolean from request in determining Check or Cross
+ */
 const MessagePage = () => {
   let { message } = useParams();
 

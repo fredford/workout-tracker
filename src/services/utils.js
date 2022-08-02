@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export const config = {
   headers: {
     "Content-Type": "application/json",
@@ -43,10 +41,8 @@ export const secondsToDuration = (time) => {
  * @returns boolean if they match or not
  */
 export const passwordCompare = (password1, password2) => {
-  if (password1.length > 5 && password2.length > 5 && password1 === password2) {
-    return true;
-  }
-  return false;
+  return password1.length > 5 && password2.length > 5 && password1 === password2;
+
 };
 
 /**

@@ -1,10 +1,11 @@
+// Library imports
 import React from "react";
 
 /**
  * Component for providing a Card, provides a series of flexible
- * sub-components that can be used to improve usability.
+ * subcomponents that can be used to improve consistency and re-usability.
  *
- * Status: complete
+ * Status: completed
  */
 const Card = (props) => {
   // Get a list of DOM keys used for Card component
