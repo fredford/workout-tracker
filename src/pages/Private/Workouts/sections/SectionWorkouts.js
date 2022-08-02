@@ -1,17 +1,27 @@
+// Library imports
 import React, { useEffect, useState } from "react";
-import { FaArrowLeft, FaArrowRight, FaWindowClose } from "react-icons/fa";
-
-import Card from "../../../../components/Cards/Card";
-
-import Section from "../../../../components/Misc/Section";
-
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { resolve } from "../../../../services/utils";
-import WorkoutsService from "../../../../services/workouts";
+
+// Local component imports
+import Card from "../../../../components/Cards/Card";
+import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
 
+// Local services
+import WorkoutsService from "../../../../services/workouts";
+import api from "../../../../services/sendRequest";
+
+/**
+ * Section to display the Workout History in the form of a Card list
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const SectionWorkouts = () => {
+  // React hooks
   const navigate = useNavigate();
+
+  // Component state
   const [page, setPage] = useState(0);
   const [workouts, setWorkouts] = useState([]);
 
@@ -19,32 +29,32 @@ const SectionWorkouts = () => {
     retrieveAllWorkouts();
   }, [JSON.stringify(workouts)]);
 
+  // Function to retrieve User Workouts from the server
   const retrieveAllWorkouts = async () => {
-    const [data, error] = await resolve(WorkoutsService.getAll());
-
-    if (data) {
-      setWorkouts(data);
-    }
+    api.fetch(WorkoutsService.getAll(), setWorkouts)
   };
 
-  var displayList = [...workouts];
-
+  // Create a list that can be manipulated to display only specified Workouts
+  let displayList = [...workouts];
+  // Only display 10 Workouts at a time on the current page
   if (displayList.length > 10) {
     displayList = displayList.slice(page * 10, page * 10 + 10);
   }
-
+  // Function to increment the page number if more pages are available
   const increasePage = () => {
-    var newPage = page;
+    let newPage = page;
 
     let maxPage = Math.floor(workouts.length / 10);
 
+    // If the current page is less than the max number of pages computed
     if (workouts.length > 10 && maxPage > page) {
       setPage(++newPage);
     }
   };
 
+  // Function to decrement the page number until the first page
   const decreasePage = () => {
-    var newPage = page;
+    let newPage = page;
 
     if (page > 0) {
       setPage(--newPage);

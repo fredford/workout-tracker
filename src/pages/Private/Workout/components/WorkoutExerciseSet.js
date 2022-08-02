@@ -1,24 +1,39 @@
+// Library imports
 import React, { useContext } from "react";
 import { MdOutlineCancel } from "react-icons/md";
-import { resolve } from "../../../../services/utils";
 
+// Local services
 import SetsService from "../../../../services/sets";
+import api from "../../../../services/sendRequest";
+
+// Contexts
 import { WorkoutContext } from "../../../../contexts/workoutContext";
 
+/**
+ * Component to display a Set in the current Workout
+ * @param set object containing information about exercise, workout, user
+ * @param index place in the Workout list that the Set is placed
+ * @param setAmount function to set the Amount for the Set
+ * @returns {JSX.Element}
+ * @constructor
+ *
+ * Status: complete
+ */
 const WorkoutExerciseSet = ({ set, index, setAmount }) => {
   const contextData = useContext(WorkoutContext);
   const [sets, setSets] = contextData.sets;
 
+  // Function to DELETE the current Set
   const deleteSet = async () => {
-    const [data, error] = await resolve(SetsService.removeSet(set._id));
-
-    if (data) {
-      var newSets = [...sets];
+    await api.request(SetsService.removeSet(set._id),
+      (data) => {
+      let newSets = [...sets];
       newSets = newSets.filter((newSet) => newSet._id !== set._id);
       setSets(newSets);
-    } else {
-      console.log(error);
-    }
+    },
+      (error) => {
+      console.log(error)
+      })
   };
   return (
     <div

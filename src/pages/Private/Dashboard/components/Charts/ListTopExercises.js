@@ -36,7 +36,7 @@ const ListTopExercises = () => {
   };
 
   return (
-    <Card>
+    <Card className="d-flex align-items-stretch">
       <Card.Header>Top Exercises</Card.Header>
       <Card.Body className="">
         <div className="dashboard__table-dropdown">

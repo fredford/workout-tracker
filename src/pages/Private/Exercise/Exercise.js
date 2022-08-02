@@ -17,7 +17,10 @@ import api from "../../../services/sendRequest";
 /**
  * Page to display information and statistics on a given Exercise
  *
- * Status: incomplete
+ * Status: in-progress
+ *
+ * Future:
+ * - TODO add functionality to adding Challenges
  */
 const Exercise = () => {
   // React hooks
@@ -63,22 +66,19 @@ const Exercise = () => {
 
   // Retrieve the stats for the Exercise
   const retrieveData = async () => {
-    api.fetch(StatsService.getExerciseData(exerciseId), (data) => {
+    await api.fetch(StatsService.getExerciseData(exerciseId), (data) => {
       setExerciseStats(data);
       setShowStats(true);
     });
   };
   // Retrieve the Exercise information
   const retrieveExercise = async () => {
-    // TODO potentially change from data[0] to data
-    api.fetch(ExercisesServices.getById(exerciseId), (data) => {
-      setExercise(data[0]);
-    });
+    await api.fetch(ExercisesServices.getById(exerciseId), setExercise);
   };
 
   // Function to handle deleting the Exercise
   const deleteExercise = async () => {
-    api.request(
+    await api.request(
       ExercisesServices.deleteExercise(exerciseId),
       () => {
         navigate("/message/exercisedeletesuccess");

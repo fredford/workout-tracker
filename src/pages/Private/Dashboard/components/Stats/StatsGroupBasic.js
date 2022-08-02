@@ -21,7 +21,7 @@ const StatsGroupBasic = React.memo(function WrappedStatsGroupBasic({ stats }) {
   let displayStats = stats ? stats : tempStats;
 
   return (
-    <div className="grid-125">
+    <div className="stats-grid">
       {displayStats.map((stat, index) => {
         return (
           <StatsCard

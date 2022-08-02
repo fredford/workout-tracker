@@ -47,18 +47,26 @@ const Dashboard = () => {
         <div className="mb-3">
           <Intro currHr={currHr} />
         </div>
-        <div className="row">
-          <div className="col-xl-6 grid-margin">
-            <div className="grid-350">
-              <LastWorkout />
-              <QuickActions />
-            </div>
+
+        <div className="dashboard__container">
+          <div className="lastWorkout">
+            <LastWorkout />
           </div>
-          <div className="col-xl-6 grid-margin">
+          <div className="quickActions">
+            <QuickActions />
+          </div>
+          <div className="statsBasic">
+            <StatsGroupBasic stats={stats.basic} />
+          </div>
+
+          <div className="chartActivity">
             <ChartRecentActivity />
           </div>
-          <div className="col-xl-6 grid-margin">
-            <StatsGroupBasic stats={stats.basic} />
+          <div className="statsArea">
+            <StatsGroupArea stats={stats.area} />
+          </div>
+          <div className="topExercises">
+            <ListTopExercises />
           </div>
           {/*
           <div className="grid-350 grid-margin">
@@ -66,12 +74,7 @@ const Dashboard = () => {
             <Challenges />
           </div>
           */}
-          <div className="col-xl-6 grid-margin">
-            <ListTopExercises />
-          </div>
-          <div className="col-xl-6">
-            <StatsGroupArea stats={stats.area} />
-          </div>
+
         </div>
       </Page.Body>
     </Page>

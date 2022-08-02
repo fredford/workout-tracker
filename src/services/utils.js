@@ -48,3 +48,12 @@ export const passwordCompare = (password1, password2) => {
   }
   return false;
 };
+
+/**
+ * Function to handle converting an input to a Number or Zero;
+ * @param value string input by the User
+ * @returns {number|number}
+ */
+export function convertToNumber(value) {
+  return !isNaN(Number(value)) ? Number(value) : 0;
+}

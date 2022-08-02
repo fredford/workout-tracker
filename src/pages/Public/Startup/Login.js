@@ -27,7 +27,7 @@ const Login = () => {
   const [error, setError] = useState("");
 
   // Logic to determine if a login contains an email and password
-  let isDisabled = email.length !== 0 && password.length !== 0 ? false : true;
+  let isDisabled = !(email.length !== 0 && password.length !== 0);
 
   // Function to update the input email
   const updateEmail = (e) => {

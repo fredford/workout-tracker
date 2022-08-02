@@ -3,3 +3,5 @@ TODO
 .env
 build
 .vercel
+
+.idea/*

@@ -1,4 +1,5 @@
 .grid-125 {
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
   gap: 1rem;
@@ -61,3 +62,47 @@
     gap: 0.5rem;
   }
 }
+
+
+.stats-grid{
+  display: grid;
+}
+
+@media screen and (min-width: 300px){
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 464px){
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+@media screen and (min-width: 600px){
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1075px){
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1325px){
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+    gap: 1rem;
+  }
+}
+
+
+
+
+

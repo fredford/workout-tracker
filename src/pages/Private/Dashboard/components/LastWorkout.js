@@ -54,7 +54,7 @@ const LastWorkout = () => {
     );
   } else {
     return (
-      <Card>
+      <Card className="h-100">
         <Card.Header>Last Workout</Card.Header>
         <Card.Subtitle>{lastWorkout.type}</Card.Subtitle>
         <Card.Body className="dashboard__last-workout-items">

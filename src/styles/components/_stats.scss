@@ -9,9 +9,15 @@
   background-color: var(--background-acce) !important;
   border-radius: $border-radius;
   padding: 1rem;
+  height: 100%;
+
 
   // Title
   h5 {
+    min-width: 122px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: var(--foreground-text);
   }
   // Subtitle

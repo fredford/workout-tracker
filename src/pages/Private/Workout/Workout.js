@@ -1,49 +1,60 @@
+// Library imports
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
-import Page from "../../../components/Misc/Page";
-import { resolve } from "../../../services/utils";
-import WorkoutsService from "../../../services/workouts";
-import WorkoutService from "../../../services/workout";
-import SectionAddExercise from "./sections/SectionAddExercise";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
+// Local component imports
+import Page from "../../../components/Misc/Page";
+import SectionAddExercise from "./sections/SectionAddExercise";
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
 import SectionAddSet from "./sections/SectionAddSet";
-import { WorkoutContext } from "../../../contexts/workoutContext";
 import Button from "../../../components/Buttons/Button";
 
-const Workout = () => {
-  const contextData = useContext(WorkoutContext);
+// Local services
+import WorkoutsService from "../../../services/workouts";
+import WorkoutService from "../../../services/workout";
+import api from "../../../services/sendRequest";
 
+// Contexts
+import { WorkoutContext } from "../../../contexts/workoutContext";
+
+
+/**
+ * Page that displays a User Workout and the Exercises and Sets associated to it
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const Workout = () => {
+  // Context for current Workout
+  const contextData = useContext(WorkoutContext);
   const [sets, setSets] = contextData.sets;
   const [workout, setWorkout] = contextData.workout;
-
+  // Component state
+  const [totalAmount, setTotalAmount] = useState(0);
+  const [totalSets, setTotalSets] = useState(0);
+  // WorkoutId passed in URL parameters
   const { workoutId } = useParams();
 
+  // Function for setting a new exercise to the list of exercises with sets
   const changeNewExercise = (exercise) => {
     setNewExercise(exercise);
   };
-
-  const [totalAmount, setTotalAmount] = useState(0);
-  const [totalSets, setTotalSets] = useState(0);
 
   useEffect(() => {
     retrieveData();
   }, [JSON.stringify(sets)]);
 
+  // Function for retrieving data for the current workout
   const retrieveData = async () => {
-    const [dataWorkout, errorWorkout] = await resolve(
-      WorkoutsService.getById(workoutId)
-    );
-    const [dataSets, errorSets] = await resolve(
-      WorkoutService.getAll(workoutId)
-    );
-    setWorkout(dataWorkout[0]);
-    setSets(dataSets);
-
-    let amount = dataSets.reduce((sum, a) => sum + Number(a.amount), 0);
-    setTotalAmount(amount);
-    setTotalSets(dataSets.length);
+    // Retrieve the workout information
+    await api.fetch(WorkoutsService.getById(workoutId), setWorkout)
+    // Retrieve the sets associated to this workout and set the total sets and amount done
+    await api.fetch(WorkoutService.getAll(workoutId), (data) => {
+      setSets(data)
+      let amount = data.reduce((sum, a) => sum + Number(a.amount), 0);
+      setTotalAmount(amount);
+      setTotalSets(data.length);
+    })
   };
 
   // Variable for the new exercise selected
@@ -51,13 +62,12 @@ const Workout = () => {
 
   // List of all exercises
   const exercises = useSelector((state) => state.exercises.exercises);
-  // Set the list of available exercises
 
   // List of Exercises used in the Workout
-  var listOfWorkoutExercises = [];
+  let listOfWorkoutExercises = [];
 
   // Object to store all data on the workout
-  var workoutObject = {};
+  let workoutObject = {};
 
   // If an Exercise is selected, add it to the list for display
   if (newExercise !== "") {
@@ -70,7 +80,7 @@ const Workout = () => {
 
   // If there are Sets added to the Workout
   if (sets.length > 0) {
-    var setsGroupedByExercise = groupBy(sets, "name");
+    let setsGroupedByExercise = groupBy(sets, "name");
 
     // Create the workoutObject containing the Exercise and Sets associated
     for (const [key, value] of Object.entries(setsGroupedByExercise)) {
@@ -83,7 +93,7 @@ const Workout = () => {
   }
 
   // Filter exercises being performed from the available list
-  var availableExercises = exercises.filter(
+  let availableExercises = exercises.filter(
     (exercise) => !listOfWorkoutExercises.includes(exercise.name)
   );
 
@@ -109,6 +119,12 @@ const Workout = () => {
   );
 };
 
+/**
+ * Function to group a list by a key
+ * @param xs list to be sorted and reduced
+ * @param key the key that the list should be sorted by
+ * @returns {object} object containing the keys and the sets associated
+ */
 const groupBy = function (xs, key) {
   return xs.reduce(function (rv, x) {
     (rv[x.exercise[key]] = rv[x.exercise[key]] || []).push(x);

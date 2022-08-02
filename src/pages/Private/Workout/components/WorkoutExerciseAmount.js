@@ -1,10 +1,27 @@
+// Library imports
 import React from "react";
+import {FaPlus, FaMinus} from "react-icons/fa";
+
+// Local component imports
 import Button from "../../../../components/Buttons/Button";
-import { FaPlus, FaMinus } from "react-icons/fa";
 
-const WorkoutExerciseAmount = ({ amount, setAmount }) => {
-  var numberAmount = convertToNumber(amount);
+// Utilities
+import {convertToNumber} from "../../../../services/utils";
 
+/**
+ * Component to handle updating the current amount for the Set
+ * @param amount current amount for the exercise state used in previous Sets
+ * @param setAmount function to update the amount in state
+ * @returns {JSX.Element}
+ * @constructor
+ *
+ * Status: complete
+ */
+const WorkoutExerciseAmount = ({amount, setAmount}) => {
+  // Convert the amount to a Number
+  let numberAmount = convertToNumber(amount);
+
+  // Function to increment the current Amount
   const increaseAmount = () => {
     if (!numberAmount) {
       setAmount(1);
@@ -13,16 +30,18 @@ const WorkoutExerciseAmount = ({ amount, setAmount }) => {
     }
   };
 
+  // Function to decrement the current Amount
   const decreaseAmount = () => {
-    var numberAmount = convertToNumber(amount);
+    let numberAmount = convertToNumber(amount);
 
     if (numberAmount) {
       setAmount(--numberAmount);
     }
   };
 
+  // Function to update the current amount in the parent State
   const updateAmount = (e) => {
-    var numberAmount = convertToNumber(e.target.value);
+    let numberAmount = convertToNumber(e.target.value);
 
     if (numberAmount >= 0) {
       setAmount(numberAmount);
@@ -37,7 +56,7 @@ const WorkoutExerciseAmount = ({ amount, setAmount }) => {
         onClick={() => increaseAmount()}
       >
         <Button.Icon>
-          <FaPlus />
+          <FaPlus/>
         </Button.Icon>
       </Button>
 
@@ -55,15 +74,11 @@ const WorkoutExerciseAmount = ({ amount, setAmount }) => {
         border
       >
         <Button.Icon>
-          <FaMinus />
+          <FaMinus/>
         </Button.Icon>
       </Button>
     </div>
   );
 };
-
-function convertToNumber(value) {
-  return Number(value) !== NaN ? Number(value) : 0;
-}
 
 export default WorkoutExerciseAmount;

@@ -1,7 +1,16 @@
+// Library imports
 import React from "react";
+// Local component imports
 import Card from "../../../../components/Cards/Card";
 
-const SectionAddExercise = ({ exercises, setNewExercise }) => {
+/**
+ * Component for displaying a list of exercises available to be started in the workout
+ * @param exercises list of exercises available for the workout
+ * @param setNewExercise function to start the next exercise in the workout
+ * @returns {JSX.Element}
+ * @constructor
+ */
+const SectionAddExercise = ({exercises, setNewExercise}) => {
   return (
     <Card className="flex-grow-1">
       <Card.Body>
