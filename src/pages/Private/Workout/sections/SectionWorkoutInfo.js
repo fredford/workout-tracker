@@ -9,7 +9,7 @@ import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
 
 // Local services
-import WorkoutService from "../../../../services/workout";
+import WorkoutService from "../../../../services/WorkoutService";
 import api from "../../../../services/sendRequest";
 
 /**

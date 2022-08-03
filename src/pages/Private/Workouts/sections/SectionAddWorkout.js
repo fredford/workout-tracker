@@ -1,15 +1,14 @@
 // Library imports
 import React from "react";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 // Local component imports
 import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
 
 // Local services imports
-import WorkoutsService from "../../../../services/workouts";
-import api from "../../../../services/sendRequest";
+import services from "../../../../services/services";
 
 /**
  * Component for displaying the types of workouts a User can start and starting that workout
@@ -25,15 +24,14 @@ const SectionAddWorkout = () => {
 
   // Function to start the Workout selected
   const startNewWorkout = async (type) => {
-    await api.create(
-      WorkoutsService.createWorkout({
+    await services.workouts.createWorkout(
+      {
         type: type,
         user: user._id,
-      }),
+      },
       (data) => {
         navigate(`/workouts/${data._id}`);
-      }
-    );
+      })
   };
 
   // Object of buttons to be displayed
@@ -58,7 +56,7 @@ const SectionAddWorkout = () => {
                 light
               >
                 <Button.Image>
-                  <img className="button-image" src={src} alt="" />
+                  <img className="button-image" src={src} alt=""/>
                 </Button.Image>
                 <Button.Text>{name}</Button.Text>
               </Button>

@@ -6,8 +6,7 @@ import Card from "../../../../../components/Cards/Card";
 import StatsLineChart from "../../../../../components/Stats/StatsLineChart";
 
 // Utilities
-import StatsService from "../../../../../services/stats";
-import api from "../../../../../services/sendRequest";
+import services from "../../../../../services/services";
 
 /**
  * Component that displays a chart of recent workout activity in the application
@@ -22,7 +21,10 @@ const ChartRecentActivity = () => {
   // Handle data retrieved for the component state
   useEffect(() => {
     // API GET call to retrieve the recent workout activity from the server
-    api.fetch(StatsService.getDashboardActivity(date), setStats);
+    const retrieveData = async() => {
+      await services.stats.getDashboardActivity(date, setStats)
+    }
+    retrieveData()
   }, [date]);
 
   // Get the CSS property value for the faded accent color of the application
@@ -34,7 +36,7 @@ const ChartRecentActivity = () => {
     "--foreground-acce"
   );
   // Set the chart data settings for ChartJS
-  var chartData = {
+  let chartData = {
     labels: Object.keys(stats),
     datasets: [
       {

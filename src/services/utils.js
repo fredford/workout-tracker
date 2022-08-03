@@ -24,15 +24,6 @@ export const getAuth = () => {
   return localStorage.getItem("authToken");
 };
 
-export const secondsToDuration = (time) => {
-  let hours = Math.floor(time);
-  let minutes = "";
-  let seconds = "";
-
-  console.log(time, hours, minutes, seconds);
-
-  return { hours, minutes, seconds };
-};
 
 /**
  * Utility function to compare two input passwords

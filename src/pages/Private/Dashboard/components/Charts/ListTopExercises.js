@@ -6,9 +6,8 @@ import { useNavigate } from "react-router-dom";
 import Card from "../../../../../components/Cards/Card";
 
 // Utilities
-import StatsService from "../../../../../services/stats";
+import services from "../../../../../services/services";
 
-import api from "../../../../../services/sendRequest";
 
 /**
  * Component that displays a list of the top exercises in the application
@@ -27,7 +26,10 @@ const ListTopExercises = () => {
   // Handle data retrieved for the component state
   useEffect(() => {
     // API GET call to retrieve the top exercises in the application
-    api.fetch(StatsService.getTopExercises(area, date), setStats);
+    const retrieveData = async() => {
+      await services.stats.getTopExercises(area, date, setStats);
+    }
+    retrieveData()
   }, [area, date]);
 
   // Function to handle redirecting the user to the exercise they have clicked on

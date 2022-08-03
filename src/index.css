@@ -1,7 +1,8 @@
 :root {
-  /* FINAL COLORS */
-  --border: 1px solid #dadce0;
 
+  /* Border */
+  --border: 1px solid #dadce0;
+  /* Background */
   --background-body: #ffffff;
   --background-card: #ffffff;
   --background-prim: #3474e026;
@@ -9,18 +10,14 @@
   --background-mute: #6b6b6b26;
   --background-form: #6b6b6b26;
   --background-img: #ef84f526;
-
+  /* Foreground */
   --foreground-text: #1c1c1c;
   --foreground-mute: #6b6b6b;
   --foreground-prim: #3474e0;
   --foreground-acce: #148458;
-
-  /* new color scheme end */
-
   --foreground-filter-arrow: none;
 }
 [data-theme="dark"] {
-  /* FINAL COLORS */
   /* Border */
   --border: none;
   /* Backgrounds */
@@ -36,7 +33,6 @@
   --foreground-mute: #919191;
   --foreground-prim: #3474e0;
   --foreground-acce: #2ee09a;
-
   --foreground-filter-arrow: invert(99%) sepia(0%) saturate(4806%)
     hue-rotate(217deg) brightness(118%) contrast(78%);
 }

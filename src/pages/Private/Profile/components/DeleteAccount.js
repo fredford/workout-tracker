@@ -10,8 +10,7 @@ import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
 // Local services imports
-import UserService from "../../../../services/user";
-import api from "../../../../services/sendRequest";
+import services from "../../../../services/services";
 
 /**
  * Component for displaying and deleting the User account
@@ -40,9 +39,7 @@ const DeleteAccount = () => {
 
   // Function for handling the user submitting a DELETE request
   const handleSubmit = async () => {
-    await api.request(
-      UserService.deleteUser(),
-      () => {
+    await services.user.deleteUser(() => {
         // Request success actions
         localStorage.removeItem("authToken");
         navigate("/message/deletesuccess");
@@ -50,8 +47,8 @@ const DeleteAccount = () => {
       () => {
         // Request failure actions
         navigate("/message/deletecancel");
-      }
-    );
+      })
+
   };
 
   return (

@@ -9,8 +9,7 @@ import CardStats from "../../../../components/Cards/CardStats";
 import AccordionCard from "../../../../components/Cards/AccordionCard";
 
 // Local services
-import SetsService from "../../../../services/sets";
-import api from "../../../../services/sendRequest";
+import services from "../../../../services/services";
 
 // Contexts
 import { WorkoutContext } from "../../../../contexts/workoutContext";
@@ -49,15 +48,14 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
 
   // Function to perform adding a Set to the server
   const addSet = async () => {
-    // Create Set object containing the workoutId, exerciseId and amount done
-    let set = {
-      workoutId: workout._id,
-      exerciseId: exercise._id,
-      amount: amount,
-    };
-
     // API POST request to create a Set for the Workout
-    await api.create(SetsService.createSet(set), (data) => {
+    await services.sets.createSet(
+      {
+        workoutId: workout._id,
+        exerciseId: exercise._id,
+        amount: amount,
+      },
+      (data) => {
       // Add Set to the context data on the Workout
       let newSets = [...setsList];
       newSets.push(data);
@@ -66,6 +64,7 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
       // Option to add functionality for error handling
       console.log(error)
     })
+
   };
 
   return (

@@ -9,7 +9,7 @@ import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
 
 // Local services
-import WorkoutsService from "../../../../services/workouts";
+import WorkoutsService from "../../../../services/WorkoutsService";
 import api from "../../../../services/sendRequest";
 
 /**

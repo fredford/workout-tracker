@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 // Utilities
 import { getAuth } from "../../services/utils";
 
-
 /**
  * Component to show a loading icon
  * @returns {JSX.Element}
@@ -17,6 +16,7 @@ const Loading = () => {
   // React hooks
   let navigate = useNavigate();
   // Component state
+  // eslint-disable-next-line no-unused-vars
   const [show, setShow] = useState(true);
   // Retrieve auth token
   let token = getAuth();
@@ -28,11 +28,7 @@ const Loading = () => {
 
     return () => {
       clearTimeout(timer);
-      if (token) {
-        navigate("/dashboard");
-      } else {
-        navigate("/startup");
-      }
+      token ? navigate("/dashboard") : navigate("/startup");
     };
   });
 

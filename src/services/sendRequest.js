@@ -18,7 +18,7 @@ class MakeApi {
    * @returns array containing the data and error obtained
    */
   request = async (promise, successFunc = null, failFunc = null) => {
-    const output = await promise.then(
+    return await promise.then(
       (result) => {
         if (result.data.success) {
           if (successFunc) {
@@ -39,8 +39,6 @@ class MakeApi {
         }
       }
     );
-
-    return output;
   };
 
   /**
@@ -51,7 +49,7 @@ class MakeApi {
    * @returns array containing the data and error obtained
    */
   fetch = async (promise, successFunc = null, failFunc = null) => {
-    const output = await promise.then(
+    return await promise.then(
       (result) => {
         if (result.status === 200 && result.data.success) {
           if (successFunc) {
@@ -72,8 +70,6 @@ class MakeApi {
         }
       }
     );
-
-    return output;
   };
 
   /**

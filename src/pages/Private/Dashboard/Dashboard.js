@@ -10,12 +10,11 @@ import StatsGroupArea from "./components/Stats/StatsGroupArea";
 import StatsGroupBasic from "./components/Stats/StatsGroupBasic";
 import ChartRecentActivity from "./components/Charts/ChartRecentActivity";
 import ListTopExercises from "./components/Charts/ListTopExercises";
-import Challenges from "./components/Challenges";
-import Goals from "./components/Goals";
+//import Challenges from "./components/Challenges";
+//import Goals from "./components/Goals";
 
 // Utilities
-import StatsService from "../../../services/stats";
-import api from "../../../services/sendRequest";
+import services from "../../../services/services";
 
 /**
  * Page that displays the main dashboard for the application
@@ -39,13 +38,10 @@ const Dashboard = () => {
   useEffect(() => {
     // API GET call to retrieve Basic Stats from the server
     const retrieveData = async() => {
-      await api.fetch(StatsService.getDashboardDataBasic(), setStats);
+      await services.stats.getDashboardDataBasic(setStats);
     }
     retrieveData()
   }, []);
-
-
-
 
   return (
     <Page navbar>

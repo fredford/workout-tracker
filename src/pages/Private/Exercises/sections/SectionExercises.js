@@ -35,11 +35,11 @@ const SectionExercises = () => {
     setPage(0);
   }, [activities]);
 
-  var displayList = [...exercises];
+  let displayList = [...exercises];
 
   //var displayList = exercises.slice(page * 10, page * 10 + 10);
 
-  var isAllOff = Object.values(activities).every((x) => x[0] === false);
+  let isAllOff = Object.values(activities).every((x) => x[0] === false);
 
   // Filter list for User Only
   displayList = displayList.filter((item) => !userOnly || !item.isAdmin);

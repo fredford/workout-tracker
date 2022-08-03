@@ -11,13 +11,10 @@ import SectionAddSet from "./sections/SectionAddSet";
 import Button from "../../../components/Buttons/Button";
 
 // Local services
-import WorkoutsService from "../../../services/workouts";
-import WorkoutService from "../../../services/workout";
-import api from "../../../services/sendRequest";
+import services from "../../../services/services";
 
 // Contexts
 import { WorkoutContext } from "../../../contexts/workoutContext";
-
 
 /**
  * Page that displays a User Workout and the Exercises and Sets associated to it
@@ -44,14 +41,15 @@ const Workout = () => {
   useEffect(() => {
     const retrieveData = async () => {
       // Retrieve the workout information
-      await api.fetch(WorkoutsService.getById(workoutId), setWorkout)
+      await services.workouts.getById(workoutId, setWorkout);
       // Retrieve the sets associated to this workout and set the total sets and amount done
-      await api.fetch(WorkoutService.getAll(workoutId), (data) => {
-        setSets(data)
-        let amount = data.reduce((sum, a) => sum + Number(a.amount), 0);
-        setTotalAmount(amount);
-        setTotalSets(data.length);
-      })
+      await services.workout.getAll(workoutId,
+        (data) => {
+          setSets(data)
+          let amount = data.reduce((sum, a) => sum + Number(a.amount), 0);
+          setTotalAmount(amount);
+          setTotalSets(data.length);
+        })
     };
     retrieveData();
   }, [stringSets, setSets, setWorkout, workoutId]);

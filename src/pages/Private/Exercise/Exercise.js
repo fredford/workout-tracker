@@ -1,7 +1,7 @@
 // Library imports
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 // Local component imports
 import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Misc/Page";
@@ -10,9 +10,8 @@ import Button from "../../../components/Buttons/Button";
 import ChallengesCard from "./components/ChallengesCard";
 import CardChart from "../../../components/Cards/CardChart";
 // API Services
-import ExercisesServices from "../../../services/exercises";
-import StatsService from "../../../services/stats";
-import api from "../../../services/sendRequest";
+import services from "../../../services/services";
+
 
 /**
  * Page to display information and statistics on a given Exercise
@@ -26,7 +25,7 @@ const Exercise = () => {
   // React hooks
   const navigate = useNavigate();
   // Get the exerciseId of the exercise shown from the parameters
-  let { exerciseId } = useParams();
+  let {exerciseId} = useParams();
 
   // Component state background data if none is found
   const [exerciseStats, setExerciseStats] = useState({
@@ -62,32 +61,28 @@ const Exercise = () => {
   useEffect(() => {
     // Retrieve the stats for the Exercise
     const retrieveData = async () => {
-      await api.fetch(StatsService.getExerciseData(exerciseId), (data) => {
+      await services.stats.getExerciseData((exerciseId), (data) => {
         setExerciseStats(data);
         setShowStats(true);
       });
     };
     // Retrieve the Exercise information
     const retrieveExercise = async () => {
-      await api.fetch(ExercisesServices.getById(exerciseId), setExercise);
+      await services.exercises.getById(exerciseId, setExercise);
     };
     retrieveExercise();
     retrieveData();
   }, [exerciseId]);
 
-
-
   // Function to handle deleting the Exercise
   const deleteExercise = async () => {
-    await api.request(
-      ExercisesServices.deleteExercise(exerciseId),
+    await services.exercises.deleteExercise(exerciseId,
       () => {
         navigate("/message/exercisedeletesuccess");
       },
       () => {
         navigate("/message/exercisedeletefailed");
-      }
-    );
+      });
   };
 
   return (
@@ -98,7 +93,7 @@ const Exercise = () => {
         </Button>
 
         <div className="mb-3 mt-3">
-          <ExerciseInfo exercise={exercise} stats={exerciseStats.stats} />
+          <ExerciseInfo exercise={exercise} stats={exerciseStats.stats}/>
         </div>
         <div className="row">
           <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
@@ -123,7 +118,7 @@ const Exercise = () => {
             />
           </div>
           <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-            <ChallengesCard />
+            <ChallengesCard/>
           </div>
           <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
             <Card>

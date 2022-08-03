@@ -6,11 +6,10 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 // Local component imports
 import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
-import WorkoutsService from "../../../../services/workouts";
 
 // Utilities
 import Button from "../../../../components/Buttons/Button";
-import api from "../../../../services/sendRequest";
+import services from "../../../../services/services";
 
 /**
  * Component that retrieves the Last Workout performed
@@ -34,11 +33,15 @@ const LastWorkout = () => {
   // Handle data retrieved for the component state
   useEffect(() => {
     // API GET request to retrieve the last workout started by the User
-    api.fetch(WorkoutsService.getLast(), (data) => {
-      setLastWorkout(data);
-      setLink(`/workouts/${data.id}`);
-      setShowLast(true);
-    });
+    const retrieveData = async () => {
+      await services.workouts.getLast((data) => {
+        setLastWorkout(data);
+        setLink(`/workouts/${data.id}`);
+        setShowLast(true);
+      })
+    }
+    retrieveData()
+
   }, []);
 
   // If no workout is found allow the user to start a new workout instead

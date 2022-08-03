@@ -1,46 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-import UserService from "../../services/user";
+import services from "../../services/services";
 
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-  const [data, error] = await UserService.getUser()
-    .then(function (response) {
-      return [response.data.data, null];
-    })
-    .catch(function (error) {
-      let jsonError = error.toJSON();
 
-      if (jsonError.status === 401) {
-        localStorage.removeItem("authToken");
-      }
+  const [data, error] = await services.user.getUser(null, null);
 
-      return [null, "Fail"];
-    });
-  if (error) {
-    console.log(error);
-  }
+  if (error) throw error;
   return data;
 });
 
 export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (newUser) => {
-    const [data, error] = await UserService.updateUser(newUser).then(
-      (result) => {
-        if (result.status === 200 && result.data.success) {
-          return [result.data.data, null];
-        }
-      },
-      (error) => {
-        if (error.status === 401) {
-          localStorage.removeItem("authToken");
-          window.location.href(`${this.base_url}/startup`);
-        } else {
-          console.log(error);
-          return [null, error];
-        }
-      }
-    );
+
+    const [data, error] = await services.user.updateUser(newUser, null, null)
+    if (error) throw error;
     return data;
   }
 );

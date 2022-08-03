@@ -1,17 +1,13 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
-import ExercisesService from "../../services/exercises";
-import api from "../../services/sendRequest";
+import services from "../../services/services";
 
 export const fetchExercises = createAsyncThunk(
   "exercises/fetchExercises",
   async () => {
-    const [data, error] = await api.fetch(ExercisesService.getAll());
+    const [data, error] = await services.exercises.getAll()
 
-    if (error) {
-      throw error;
-    }
-
+    if (error) throw error;
     return data;
   }
 );
@@ -19,14 +15,9 @@ export const fetchExercises = createAsyncThunk(
 export const addExercise = createAsyncThunk(
   "exercises/addExercise",
   async (exercise) => {
-    const [data, error] = await api.create(
-      ExercisesService.createExercise(exercise)
-    );
+    const [data, error] = await services.exercises.createExercise(exercise);
 
-    if (error) {
-      throw error;
-    }
-
+    if (error) throw error;
     return data;
   }
 );
@@ -42,16 +33,16 @@ const exercisesSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchExercises.fulfilled]: (state, { payload }) => {
+    [fetchExercises.fulfilled]: (state, {payload}) => {
       state.exercises = payload;
     },
-    [addExercise.fulfilled]: (state, { payload }) => {
+    [addExercise.fulfilled]: (state, {payload}) => {
       state.exercises = [...state.exercises, payload];
     },
   },
 });
 
-export const { setExercises } = exercisesSlice.actions;
+export const {setExercises} = exercisesSlice.actions;
 
 export default exercisesSlice.reducer;
 
