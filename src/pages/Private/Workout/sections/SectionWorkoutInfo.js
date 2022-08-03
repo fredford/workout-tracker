@@ -10,7 +10,7 @@ import CardStats from "../../../../components/Cards/CardStats";
 
 // Local services
 import WorkoutService from "../../../../services/WorkoutService";
-import api from "../../../../services/sendRequest";
+import api from "../../../../services/ApiHandler";
 
 /**
  * Component to display Workout information and general statistics

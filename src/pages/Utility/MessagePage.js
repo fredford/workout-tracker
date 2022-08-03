@@ -7,6 +7,7 @@ import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import Page from "../../components/Misc/Page";
 import Card from "../../components/Cards/Card";
 import Button from "../../components/Buttons/Button";
+import {getAuth} from "../../utilities/utils";
 
 /**
  * Page that handles the display of important messaging to the User
@@ -24,9 +25,10 @@ import Button from "../../components/Buttons/Button";
 const MessagePage = () => {
   let { message } = useParams();
 
+  let token = getAuth();
+
   return (
-    <Page>
-      <Page.NavBar />
+    <Page navbar={token}>
       <Page.Body center>
         <Card>
           <Card.Body>

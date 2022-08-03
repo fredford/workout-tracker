@@ -1,13 +1,6 @@
 class MakeApi {
   constructor() {
-    this.loading = false;
-    this.data = null;
-    this.error = null;
-
     this.base_url = window.location.origin;
-
-    this.success = null;
-    this.fail = null;
   }
 
   /**

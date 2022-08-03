@@ -6,7 +6,7 @@ import {FaPlus, FaMinus} from "react-icons/fa";
 import Button from "../../../../components/Buttons/Button";
 
 // Utilities
-import {convertToNumber} from "../../../../services/utils";
+import {convertToNumber} from "../../../../utilities/utils";
 
 /**
  * Component to handle updating the current amount for the Set

@@ -10,7 +10,7 @@ import Button from "../../../../components/Buttons/Button";
 
 // Local services
 import WorkoutsService from "../../../../services/WorkoutsService";
-import api from "../../../../services/sendRequest";
+import api from "../../../../services/ApiHandler";
 
 /**
  * Section to display the Workout History in the form of a Card list

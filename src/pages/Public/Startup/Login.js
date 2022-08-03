@@ -10,7 +10,7 @@ import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/Button";
 
 // Utilities
-import AuthService from "../../../services/auth";
+import AuthService from "../../../services/AuthService";
 
 /**
  * Component to display the login page for the application and perform a

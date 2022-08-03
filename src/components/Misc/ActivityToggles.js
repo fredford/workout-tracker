@@ -2,13 +2,22 @@ import React, { useContext } from "react";
 import { ActivityContext } from "../../contexts/activityContext";
 
 import ButtonToggle from "../Buttons/ButtonToggle";
+
+/**
+ * Component set to handle activity toggles for an activity context
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function ActivityToggles() {
+
+  // Acquire context state
   const activities = useContext(ActivityContext);
   const [upper, setUpper] = activities.upper;
   const [lower, setLower] = activities.lower;
   const [core, setCore] = activities.core;
   const [cardio, setCardio] = activities.cardio;
 
+  // Button handler to update the visibility of each toggle
   const buttonChange = (e) => {
     switch (e.target.id) {
       case "button-upper":

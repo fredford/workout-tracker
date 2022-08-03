@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Utilities
-import { getAuth } from "../../services/utils";
+import { getAuth } from "../../utilities/utils";
 
 /**
  * Component to show a loading icon

@@ -12,7 +12,7 @@ import Form from "../../../../components/Forms/Form";
 import { updateUser } from "../../../../redux/reducers/user";
 
 // Utilities
-import { passwordCompare } from "../../../../services/utils";
+import { passwordCompare } from "../../../../utilities/utils";
 
 /**
  * Component that allows a user to change their password

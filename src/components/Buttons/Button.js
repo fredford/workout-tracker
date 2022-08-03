@@ -17,7 +17,7 @@ const Button = (props) => {
 
   // Additional CSS class modifiers
   className += props.className;
-  className += props.light ? "light-button " : ""
+  className += props.light ? " light-button " : ""
   className += props.active ? " button__active" : "";
   className += props.horizontal ? " horizontal-button" : " vertical-button";
   className += props.checked ? " button__checked" : "";

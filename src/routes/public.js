@@ -6,13 +6,14 @@ import Register from "../pages/Public/Startup/Register";
 import Startup from "../pages/Public/Startup/Startup";
 // // Utility Components
 import NotFound from "../pages/Utility/NotFound";
-// import MessagePage from "../pages/Utility/MessagePage";
+import MessagePage from "../pages/Utility/MessagePage";
 
+// TODO implement forgotpassword and resetpassword
 const publicRoutes = [
-  // {
-  //   path: "/message/:message",
-  //   element: <MessagePage />,
-  // },
+  {
+     path: "/message/:message",
+     element: <MessagePage />,
+   },
   {
     path: "/login",
     element: <Login />,

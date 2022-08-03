@@ -1,10 +1,14 @@
+// Library imports
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
+// Services
 import services from "../../services/services";
 
+// Reducer to fetch exercises for the User
 export const fetchExercises = createAsyncThunk(
   "exercises/fetchExercises",
   async () => {
+    // Retrieve the exercises from the server
     const [data, error] = await services.exercises.getAll()
 
     if (error) throw error;
@@ -12,9 +16,12 @@ export const fetchExercises = createAsyncThunk(
   }
 );
 
+// Reducer to add an exercise to the server
 export const addExercise = createAsyncThunk(
   "exercises/addExercise",
   async (exercise) => {
+
+    // Request to create an exercise
     const [data, error] = await services.exercises.createExercise(exercise);
 
     if (error) throw error;

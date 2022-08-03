@@ -1,19 +1,25 @@
+// Library imports
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
+// Services
 import services from "../../services/services";
 
+// Reducer to fetch the user information
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
 
+  // Retrieve user information from the server
   const [data, error] = await services.user.getUser(null, null);
 
   if (error) throw error;
   return data;
 });
 
+// Reducer to update the user information
 export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (newUser) => {
 
+    // Request to update the user information
     const [data, error] = await services.user.updateUser(newUser, null, null)
     if (error) throw error;
     return data;

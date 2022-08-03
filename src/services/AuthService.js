@@ -7,6 +7,9 @@ const instance = axios.create({
   },
 });
 
+/**
+ * Class to handle User logins and registration.
+ */
 class AuthService {
   postLogin(email, password) {
     return instance.post("/login", { email, password });

@@ -1,48 +1,46 @@
+// Library imports
 import React, { useState } from "react";
-
-import { addExercise } from "../../redux/reducers/exercises";
-
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { Modal } from "react-bootstrap";
+
+// Local components imports
 import Card from "../Cards/Card";
 import Form from "../Forms/Form";
 import Button from "../Buttons/Button";
 
+// Reducers
+import { addExercise } from "../../redux/reducers/exercises";
+
 const AddExerciseModal = ({ show, handleClose }) => {
+  // React hooks
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  // Get Redux store data for User and Exercises
   const user = useSelector((state) => state.user);
   const exercises = useSelector((state) => state.exercises.exercises);
 
+  // Set component state
   const [name, setName] = useState("");
   const [newArea, setNewArea] = useState("");
   const [newType, setNewType] = useState("");
 
   // Conditional render, if the modal is not required return null
-  if (!show) {
-    return null;
-  }
+  if (!show) return null;
 
-  var errorName = "";
-
-  var createDisabled = true;
 
   // Check that all fields have been filled out
-  if (name.length !== 0 && newArea.length !== 0 && newType.length !== 0) {
-    createDisabled = false;
-  }
+  let createDisabled = !(name.length !== 0 && newArea.length !== 0 && newType.length !== 0)
 
   // Check if the name already exists in the system
   if (exercises.some((obj) => obj.name === name)) {
     createDisabled = false;
-    errorName = "Exercise name already exists";
   }
 
+  // Function to create an Exercise when called
   const createExercise = async () => {
-    var newExercise = {
+    let newExercise = {
       name,
       area: newArea,
       type: newType,
@@ -57,10 +55,11 @@ const AddExerciseModal = ({ show, handleClose }) => {
     }
   };
 
+  // Update the current state Area
   const changeArea = (id) => {
     setNewArea(id);
   };
-
+  // Update the current state Type
   const changeType = (id) => {
     setNewType(id);
   };
@@ -137,6 +136,8 @@ const AddExerciseModal = ({ show, handleClose }) => {
                 className="w-100"
                 disabled={createDisabled}
                 onClick={createExercise}
+                border
+                light
               >
                 <Button.Text>Add</Button.Text>
               </Button>

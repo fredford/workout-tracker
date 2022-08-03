@@ -1,5 +1,5 @@
 import http from "../http-common";
-import api from "./sendRequest";
+import api from "./ApiHandler";
 
 /**
  * Class to handle the requests with the server for Sets.

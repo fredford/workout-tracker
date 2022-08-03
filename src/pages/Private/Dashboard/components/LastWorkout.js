@@ -49,7 +49,7 @@ const LastWorkout = () => {
     return (
       <Card onClick={() => navigate(link)}>
         <Card.Body>
-          <div className="d-flex justify-content-center align-items-center h-100">
+          <div className="d-flex justify-content-center align-items-center h-100 text-normal">
             <h3>Start Workout</h3>
           </div>
         </Card.Body>

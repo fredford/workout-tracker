@@ -1,29 +1,10 @@
-export const config = {
-  headers: {
-    "Content-Type": "application/json",
-    Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-  },
-  baseURL: process.env.REACT_APP_BASE_URL,
-};
-
-export const resolve = async (promise) => {
-  try {
-    const result = await promise;
-    return [result.data.data, null];
-  } catch (error) {
-    if (error.response.status === 401) {
-      console.log("there");
-    }
-    console.log(error);
-
-    return [null, error];
-  }
-};
-
+/**
+ * Utility function to return the authentication token
+ * @returns {string}
+ */
 export const getAuth = () => {
   return localStorage.getItem("authToken");
 };
-
 
 /**
  * Utility function to compare two input passwords

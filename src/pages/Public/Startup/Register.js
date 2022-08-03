@@ -10,7 +10,7 @@ import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/Button";
 
 // Utilities
-import AuthService from "../../../services/auth";
+import AuthService from "../../../services/AuthService";
 
 /**
  * Component to display the registration page and perform a user registration
@@ -91,7 +91,7 @@ const Register = () => {
       }, 5000);
       return setError("Passwords do not match");
     }
-    // Make an API POST request for a registation to create an account
+    // Make an API POST request for a registration to create an account
     AuthService.postRegister(name, email, password)
       .then((response) => {
         // If a registration is confirmed a token is provided
