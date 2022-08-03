@@ -9,8 +9,7 @@ import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
 
 // Local services
-import WorkoutsService from "../../../../services/WorkoutsService";
-import api from "../../../../services/ApiHandler";
+import services from "../../../../services/services";
 
 /**
  * Section to display the Workout History in the form of a Card list
@@ -26,13 +25,13 @@ const SectionWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
+    // Function to retrieve User Workouts from the server
+    const retrieveAllWorkouts = async () => {
+      await services.workouts.getAll(setWorkouts);
+    };
+
     retrieveAllWorkouts();
   }, [JSON.stringify(workouts)]);
-
-  // Function to retrieve User Workouts from the server
-  const retrieveAllWorkouts = async () => {
-    api.fetch(WorkoutsService.getAll(), setWorkouts)
-  };
 
   // Create a list that can be manipulated to display only specified Workouts
   let displayList = [...workouts];

@@ -1,7 +1,7 @@
 // Library imports
 import React from "react";
-import {MdOutlineModeEditOutline, MdDeleteOutline} from "react-icons/md";
-import {useNavigate} from "react-router-dom";
+import { MdOutlineModeEditOutline, MdDeleteOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 // Local component imports
 import Button from "../../../../components/Buttons/Button";
@@ -9,23 +9,24 @@ import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
 
 // Local services
-import WorkoutService from "../../../../services/WorkoutService";
-import api from "../../../../services/ApiHandler";
+import services from "../../../../services/services";
 
 /**
  * Component to display Workout information and general statistics
  *
  * Status: completed
  */
-const SectionWorkoutInfo = ({workout, totalAmount, totalSets}) => {
+const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
   // React hooks
   const navigate = useNavigate();
 
   // Function for sending a DELETE request given the current workout
   const deleteWorkout = async () => {
-    await api.request(WorkoutService.deleteById(workout._id),
+    await services.workout.deleteById(
+      workout._id,
       () => navigate("/workouts"),
-      (error) => console.log(error))
+      (error) => console.log(error)
+    );
   };
 
   return (
@@ -39,17 +40,17 @@ const SectionWorkoutInfo = ({workout, totalAmount, totalSets}) => {
           <Card.Title>{workout.type}</Card.Title>
         </Card.ImageHeader>
         <div className="grid-4-item">
-          <CardStats data={totalAmount} title={"Total"}/>
-          <CardStats data={totalSets} title={"Sets"}/>
+          <CardStats data={totalAmount} title={"Total"} />
+          <CardStats data={totalSets} title={"Sets"} />
           <Button border>
             <Button.Icon>
-              <MdOutlineModeEditOutline size={40}/>
+              <MdOutlineModeEditOutline size={40} />
             </Button.Icon>
             <Button.Text>Edit</Button.Text>
           </Button>
           <Button border onClick={deleteWorkout}>
             <Button.Icon>
-              <MdDeleteOutline size={40}/>
+              <MdDeleteOutline size={40} />
             </Button.Icon>
             <Button.Text>Delete</Button.Text>
           </Button>

@@ -29,11 +29,12 @@ const Register = () => {
   const [error, setError] = useState("");
 
   // Check if enough information is provided to attempt a valid registration
-  let isDisabled =
-    !(email.length !== 0 &&
-      password.length !== 0 &&
-      name.length !== 0 &&
-      passwordConfirm.length !== 0);
+  let isDisabled = !(
+    email.length !== 0 &&
+    password.length !== 0 &&
+    name.length !== 0 &&
+    passwordConfirm.length !== 0
+  );
 
   // If the user is already authenticated redirect them to their dashboard
   useEffect(() => {
@@ -111,7 +112,7 @@ const Register = () => {
     <Page>
       <Page.Body center>
         <Card className="startup-sizing">
-          <Card.Body>
+          <Card.Body className="text-normal">
             <h1 className="startup-header text-center">Fitrak</h1>
             <Card.Header className="text-center text-muted">
               Register

@@ -17,8 +17,8 @@ export default function Startup() {
     <Page>
       <Page.Body center>
         <Card className="startup-sizing">
-          <Card.Body>
-            <h1 className="text-center">Fitrak</h1>
+          <Card.Body className="text-normal">
+            <h1 className="text-center startup-header">Fitrak</h1>
             <Card.Header className="text-muted text-center">
               Welcome
             </Card.Header>
