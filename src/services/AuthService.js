@@ -17,6 +17,9 @@ class AuthService {
   postRegister(name, email, password) {
     return instance.post("/register", { name, email, password });
   }
+  postForgot(email) {
+    return instance.post("/forgotpassword", { email });
+  }
 }
 
 export default new AuthService();

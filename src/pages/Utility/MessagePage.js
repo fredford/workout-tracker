@@ -7,7 +7,7 @@ import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 import Page from "../../components/Misc/Page";
 import Card from "../../components/Cards/Card";
 import Button from "../../components/Buttons/Button";
-import {getAuth} from "../../utilities/utils";
+import { getAuth } from "../../utilities/utils";
 
 /**
  * Page that handles the display of important messaging to the User
@@ -106,6 +106,16 @@ const messageHandler = {
   exercisedeletefailed: {
     message: "Your exercise has not been deleted!",
     button: "/exercises",
+    icon: <BsFillXCircleFill color="red" size="2rem" />,
+  },
+  forgotsuccess: {
+    message: "A password reset was sent to the email provided",
+    button: "/startup",
+    icon: <BsFillCheckCircleFill color="green" size="2rem" />,
+  },
+  forgotfail: {
+    message: "A password reset could not be sent",
+    button: "/startup",
     icon: <BsFillXCircleFill color="red" size="2rem" />,
   },
 };

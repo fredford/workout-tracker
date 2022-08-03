@@ -13,8 +13,9 @@ export const getAuth = () => {
  * @returns boolean if they match or not
  */
 export const passwordCompare = (password1, password2) => {
-  return password1.length > 5 && password2.length > 5 && password1 === password2;
-
+  return (
+    password1.length > 5 && password2.length > 5 && password1 === password2
+  );
 };
 
 /**
@@ -24,4 +25,11 @@ export const passwordCompare = (password1, password2) => {
  */
 export function convertToNumber(value) {
   return !isNaN(Number(value)) ? Number(value) : 0;
+}
+
+export function isValidEmail(email) {
+  const regex_pattern =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  return regex_pattern.test(email);
 }
