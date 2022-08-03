@@ -53,7 +53,7 @@ const ChangeUsername = () => {
 
   return (
     <Card className="h-100">
-      <Card.ImageHeader path="./scale.png">
+      <Card.ImageHeader path="./displayname.png">
         <Card.Title>Change Username</Card.Title>
         <Card.Text className="text-muted">Set your new username</Card.Text>
       </Card.ImageHeader>
