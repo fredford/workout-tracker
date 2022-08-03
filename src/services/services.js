@@ -2,7 +2,7 @@ import UserService from "./UserService";
 import WorkoutService from "./WorkoutService";
 import WorkoutsService from "./WorkoutsService";
 import SetsService from "./SetsService";
-import StatsService from "./StatsService"
+import StatsService from "./StatsService";
 import ExercisesService from "./ExercisesService";
 
 const services = {
@@ -11,7 +11,7 @@ const services = {
   workouts: WorkoutsService,
   sets: SetsService,
   stats: StatsService,
-  exercises: ExercisesService
-}
+  exercises: ExercisesService,
+};
 
 export default services;

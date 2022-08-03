@@ -1,9 +1,0 @@
-.default-card {
-  @include standard-card;
-}
-
-@media screen and (max-width: 400px) {
-  .default-card {
-    margin: 0;
-  }
-}
