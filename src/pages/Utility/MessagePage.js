@@ -118,4 +118,14 @@ const messageHandler = {
     button: "/startup",
     icon: <BsFillXCircleFill color="red" size="2rem" />,
   },
+  resetsuccess: {
+    message: "Your password was successfully changed!",
+    button: "/startup",
+    icon: <BsFillCheckCircleFill color="green" size="2rem" />,
+  },
+  resetfailure: {
+    message: "Your password was not successfully changed!",
+    button: "/startup",
+    icon: <BsFillXCircleFill color="red" size="2rem" />,
+  },
 };

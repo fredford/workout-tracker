@@ -1,9 +1,8 @@
 // Startup Components
-// import ForgotPassword from "../pages/Startup/ForgotPassword";
 import Login from "../pages/Public/Startup/Login";
 import Register from "../pages/Public/Startup/Register";
 import ForgotPassword from "../pages/Public/Startup/ForgotPassword";
-// import ResetPassword from "../pages/Startup/ResetPassword";
+import ResetPassword from "../pages/Public/Startup/ResetPassword";
 import Startup from "../pages/Public/Startup/Startup";
 // // Utility Components
 import NotFound from "../pages/Utility/NotFound";
@@ -31,10 +30,10 @@ const publicRoutes = [
     path: "/forgotpassword",
     element: <ForgotPassword />,
   },
-  // {
-  //   path: "/resetpassword/:resetToken",
-  //   element: <ResetPassword />,
-  // },
+  {
+    path: "/resetpassword/:resetToken",
+    element: <ResetPassword />,
+  },
   {
     path: "*",
     element: <NotFound />,

@@ -20,6 +20,9 @@ class AuthService {
   postForgot(email) {
     return instance.post("/forgotpassword", { email });
   }
+  postReset(token, password) {
+    return instance.put(`/resetpassword/${token}`, { password });
+  }
 }
 
 export default new AuthService();
