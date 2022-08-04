@@ -8,7 +8,6 @@ import Startup from "../pages/Public/Startup/Startup";
 import NotFound from "../pages/Utility/NotFound";
 import MessagePage from "../pages/Utility/MessagePage";
 
-// TODO implement forgotpassword and resetpassword
 const publicRoutes = [
   {
     path: "/message/:message",

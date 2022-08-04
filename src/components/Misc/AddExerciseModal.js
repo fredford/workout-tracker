@@ -29,9 +29,12 @@ const AddExerciseModal = ({ show, handleClose }) => {
   // Conditional render, if the modal is not required return null
   if (!show) return null;
 
-
   // Check that all fields have been filled out
-  let createDisabled = !(name.length !== 0 && newArea.length !== 0 && newType.length !== 0)
+  let createDisabled = !(
+    name.length !== 0 &&
+    newArea.length !== 0 &&
+    newType.length !== 0
+  );
 
   // Check if the name already exists in the system
   if (exercises.some((obj) => obj.name === name)) {
