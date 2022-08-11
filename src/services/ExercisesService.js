@@ -1,5 +1,5 @@
 import http from "../http-common";
-import api from "./ApiHandler"
+import api from "./ApiHandler";
 
 /**
  * Class to handle the requests with the server for Exercises.
@@ -10,7 +10,7 @@ class ExercisesService {
    * @returns {Promise<[*,null]|[null,any]>}
    */
   getAll(successFunc = null, failureFunc = null) {
-    return api.fetch(http.get("/exercises?type=all"), successFunc, failureFunc);
+    return api.fetch(http.get("/exercises"), successFunc, failureFunc);
   }
 
   /**
@@ -21,7 +21,7 @@ class ExercisesService {
    * @returns {Promise<[*,null]|[null,any]>}
    */
   getById(id, successFunc = null, failureFunc = null) {
-    return api.fetch(http.get(`/exercises?id=${id}`), successFunc, failureFunc);
+    return api.fetch(http.get(`/exercise?id=${id}`), successFunc, failureFunc);
   }
 
   /**
@@ -43,7 +43,11 @@ class ExercisesService {
    * @returns {Promise<[*,null]|[null,any]>}
    */
   deleteExercise(id, successFunc = null, failureFunc = null) {
-    return api.request(http.delete(`/exercises?id=${id}`), successFunc, failureFunc);
+    return api.request(
+      http.delete(`/exercise?id=${id}`),
+      successFunc,
+      failureFunc
+    );
   }
 }
 

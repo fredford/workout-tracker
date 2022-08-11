@@ -12,7 +12,7 @@ class WorkoutsService {
    * @returns {Promise<[*,null]|[null,*]>}
    */
   getLast(successFunc = null, failureFunc = null) {
-    return api.fetch(http.get("/workouts?last=true"), successFunc, failureFunc);
+    return api.fetch(http.get("/lastworkout"), successFunc, failureFunc);
   }
 
   /**
@@ -33,7 +33,7 @@ class WorkoutsService {
    * @returns {Promise<[*,null]|[null,*]>}
    */
   getById(id, successFunc = null, failureFunc = null) {
-    return api.fetch(http.get(`/workouts?id=${id}`), successFunc, failureFunc);
+    return api.fetch(http.get(`/workout?id=${id}`), successFunc, failureFunc);
   }
 
   /**

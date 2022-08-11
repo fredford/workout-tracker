@@ -15,7 +15,7 @@ class WorkoutService {
    * @returns {Promise<AxiosResponse<any>>}
    */
   getAll(id, successFunc = null, failureFunc = null) {
-    return api.fetch(http.get(`/workout/${id}`), successFunc, failureFunc);
+    return api.fetch(http.get(`/sets?id=${id}`), successFunc, failureFunc);
   }
 
   /**
@@ -26,7 +26,11 @@ class WorkoutService {
    * @returns {Promise<[*,null]|[null,*]>}
    */
   deleteById(id, successFunc = null, failureFunc = null) {
-    return api.request(http.delete(`/workout/${id}`), successFunc, failureFunc);
+    return api.request(
+      http.delete(`/workout?id=${id}`),
+      successFunc,
+      failureFunc
+    );
   }
 }
 
