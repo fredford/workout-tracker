@@ -23,18 +23,6 @@ This project utilizes the MERN stack of MongoDB document database, ExpressJS web
 - [![Express][express.js]][express-url]
 - [![MongoDB][mongodb.com]][mongodb-url]
 
-## :wrench: Install
-
-To install the application clone locally and run the following commands:
-```bash
-$ cd workout-tracker
-$ npm install
-$ npm start
-```
-**_NOTE:_** This application requires the backend framework to run locally as well as setting ENV variables
-
-### Environment Variables
-
 ## :world_map: Roadmap
 
 - [x] Provide comments and code clean-up
