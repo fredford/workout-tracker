@@ -1,16 +1,19 @@
-# Workout Tracker
+<p align="center">
+    <a href="https://fitrak.vercel.app/">
+        <img src="https://cdn-icons-png.flaticon.com/512/384/384205.png" width="150px"/>
+    </a>
+</p>
+<h1 align="center">Fitrak</h1>
+<p align="center">A simple fitness tracking app</p>
+<p align="center"><a href="https://fitrak.vercel.app/">https://fitrak.vercel.app/</p>
 
-## Live Website
+# Workout Tracker (Frontend)
 
-https://fitrak.vercel.app/
-
-## Description
-
-This application was created to provide a workout tracking experience for users, that allows users to create exercises and workouts while being able to follow their progression.
+This application was created to provide a workout tracking experience for users, that allows you to create exercises and workouts while being able to follow their progression.
 
 ![fitrak](https://user-images.githubusercontent.com/57697667/179096625-481a000c-ec82-4121-9778-e4f2fa58fe9c.png)
 
-## Built With
+## :hammer: Built With
 
 This project utilizes the MERN stack of MongoDB document database, ExpressJS web framework, React frontend framework and NodeJS webserver. Bootstrap was used for some styling, however, the majority of the styling is done using SCSS. This repository only contains the frontend structure.
 
@@ -20,10 +23,21 @@ This project utilizes the MERN stack of MongoDB document database, ExpressJS web
 - [![Express][express.js]][express-url]
 - [![MongoDB][mongodb.com]][mongodb-url]
 
+## :wrench: Install
 
-## Roadmap
+To install the application clone locally and run the following commands:
+```bash
+$ cd workout-tracker
+$ npm install
+$ npm start
+```
+**_NOTE:_** This application requires the backend framework to run locally as well as setting ENV variables
 
-- [ ] Provide comments and code clean-up
+### Environment Variables
+
+## :world_map: Roadmap
+
+- [x] Provide comments and code clean-up
 - [ ] Provide unit-testing
 - [ ] Add duration tracking to Workouts
 - [ ] Add milestone tracking for exercise completion metrics (eg. 10,000 repetitions for Push-ups)
