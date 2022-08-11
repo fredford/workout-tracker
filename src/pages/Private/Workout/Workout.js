@@ -37,25 +37,23 @@ const Workout = () => {
     setNewExercise(exercise);
   };
 
-  let stringSets = JSON.stringify(sets)
+  let stringSets = JSON.stringify(sets);
   useEffect(() => {
     const retrieveData = async () => {
       // Retrieve the workout information
       await services.workouts.getById(workoutId, setWorkout);
       // Retrieve the sets associated to this workout and set the total sets and amount done
-      await services.workout.getAll(workoutId,
-        (data) => {
-          setSets(data)
-          let amount = data.reduce((sum, a) => sum + Number(a.amount), 0);
-          setTotalAmount(amount);
-          setTotalSets(data.length);
-        })
+      await services.workout.getAll(workoutId, (data) => {
+        setSets(data);
+        let amount = data.reduce((sum, a) => sum + Number(a.amount), 0);
+        setTotalAmount(amount);
+        setTotalSets(data.length);
+      });
     };
     retrieveData();
   }, [stringSets, setSets, setWorkout, workoutId]);
 
   // Function for retrieving data for the current workout
-
 
   // Variable for the new exercise selected
   const [newExercise, setNewExercise] = useState("");
