@@ -5,11 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 // Local component imports
 import Section from "../../../../components/Misc/Section";
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 
 // Local services imports
 import services from "../../../../services/services";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
 
 /**
  * Component for displaying the types of workouts a User can start and starting that workout
@@ -50,15 +49,9 @@ const SectionAddWorkout = () => {
         <div className="grid-3-item">
           {Object.entries(buttons).map(([name, src]) => {
             return (
-              <ButtonImage
-                className="no-overflow"
-                key={name}
-                onClick={() => startNewWorkout(name)}
-                src={src}
-                alt={name}
-              >
+              <Button key={name} onClick={() => startNewWorkout(name)} src={src} alt={name}>
                 {name}
-              </ButtonImage>
+              </Button>
             );
           })}
         </div>

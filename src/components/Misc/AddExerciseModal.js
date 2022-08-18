@@ -7,7 +7,7 @@ import { Modal } from "react-bootstrap";
 // Local components imports
 import Card from "../Cards/Card";
 import Form from "../Forms/Form";
-import Button from "../Buttons/Button";
+import Button from "../Buttons/buttons";
 
 // Reducers
 import { addExercise } from "../../redux/reducers/exercises";
@@ -30,11 +30,7 @@ const AddExerciseModal = ({ show, handleClose }) => {
   if (!show) return null;
 
   // Check that all fields have been filled out
-  let createDisabled = !(
-    name.length !== 0 &&
-    newArea.length !== 0 &&
-    newType.length !== 0
-  );
+  let createDisabled = !(name.length !== 0 && newArea.length !== 0 && newType.length !== 0);
 
   // Check if the name already exists in the system
   if (exercises.some((obj) => obj.name === name)) {
@@ -77,12 +73,7 @@ const AddExerciseModal = ({ show, handleClose }) => {
             The name that will be used to represent the exercise
           </Card.Subtitle>
           <Form className="mb-3">
-            <Form.Input
-              id="add-name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e)}
-            />
+            <Form.Input id="add-name" type="text" value={name} onChange={(e) => setName(e)} />
           </Form>
           <Card.Title>Area</Card.Title>
           <Card.Subtitle className="text-muted mb-2">
@@ -94,16 +85,14 @@ const AddExerciseModal = ({ show, handleClose }) => {
                 let id = `${area}`;
                 return (
                   <div className="d-flex flex-column justify-content-center align-items-center container">
-                    <Button onClick={() => changeArea(id)} className="p-0">
-                      <Button.Image active={area === newArea}>
-                        <img
-                          className="button-image"
-                          id={`${area.toLowerCase()}-image`}
-                          alt=""
-                        />
-                      </Button.Image>
+                    <Button
+                      toggle
+                      srcId={`${area.toLowerCase()}-image`}
+                      active={area === newArea}
+                      onClick={() => changeArea(id)}
+                    >
+                      {area}
                     </Button>
-                    <p className="text-normal">{area}</p>
                   </div>
                 );
               })
@@ -118,16 +107,14 @@ const AddExerciseModal = ({ show, handleClose }) => {
               types.map((type) => {
                 return (
                   <div className="d-flex flex-column align-items-center container">
-                    <Button className="p-0" onClick={() => changeType(type)}>
-                      <Button.Image active={type === newType}>
-                        <img
-                          className="button-image"
-                          id={`${type.toLowerCase()}-image`}
-                          alt=""
-                        />
-                      </Button.Image>
+                    <Button
+                      active={type === newType}
+                      toggle
+                      onClick={() => changeType(type)}
+                      srcId={`${type.toLowerCase()}-image`}
+                    >
+                      {type}
                     </Button>
-                    <p className="text-normal">{type}</p>
                   </div>
                 );
               })
@@ -135,19 +122,13 @@ const AddExerciseModal = ({ show, handleClose }) => {
           </div>
           <div className="row">
             <div className="col-6">
-              <Button
-                className="w-100"
-                disabled={createDisabled}
-                onClick={createExercise}
-                border
-                light
-              >
-                <Button.Text>Add</Button.Text>
+              <Button fill disabled={createDisabled} onClick={createExercise}>
+                Add
               </Button>
             </div>
             <div className="col-6">
-              <Button className="w-100" border onClick={handleClose}>
-                <Button.Text>Cancel</Button.Text>
+              <Button fill onClick={handleClose}>
+                Cancel
               </Button>
             </div>
           </div>

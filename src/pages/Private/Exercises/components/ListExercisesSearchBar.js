@@ -2,8 +2,7 @@
 import React from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
-import ButtonIcon from "../../../../components/Buttons/ButtonIcon";
+import Button from "../../../../components/Buttons/buttons";
 import Form from "../../../../components/Forms/Form";
 import AddExercise from "./AddExercise";
 
@@ -13,14 +12,6 @@ import AddExercise from "./AddExercise";
  * Status: complete
  */
 const ListExerciseSearchBar = ({ isAscending, changeDirection, changeSearch, search }) => {
-  // Function that returns the icon associated with the direction requested
-  const ShowDirection = () => {
-    if (isAscending) {
-      return <FaChevronUp />;
-    } else {
-      return <FaChevronDown />;
-    }
-  };
   // Change the direction for displaying the exercises
   const updateDirection = () => {
     changeDirection();
@@ -32,9 +23,7 @@ const ListExerciseSearchBar = ({ isAscending, changeDirection, changeSearch, sea
 
   return (
     <div className="list-exercises__searchbar">
-      <ButtonIcon onClick={updateDirection}>
-        <ShowDirection />
-      </ButtonIcon>
+      <Button iconOnly Icon={isAscending ? FaChevronUp : FaChevronDown} onClick={updateDirection} />
       <div className="line-height">
         <AddExercise />
       </div>

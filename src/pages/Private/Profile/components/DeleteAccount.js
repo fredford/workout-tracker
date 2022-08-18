@@ -5,7 +5,7 @@ import { Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
@@ -39,7 +39,8 @@ const DeleteAccount = () => {
 
   // Function for handling the user submitting a DELETE request
   const handleSubmit = async () => {
-    await services.user.deleteUser(() => {
+    await services.user.deleteUser(
+      () => {
         // Request success actions
         localStorage.removeItem("authToken");
         navigate("/message/deletesuccess");
@@ -47,17 +48,14 @@ const DeleteAccount = () => {
       () => {
         // Request failure actions
         navigate("/message/deletecancel");
-      })
-
+      }
+    );
   };
 
   return (
     <>
-      <Button border onClick={handleShow}>
-        <Button.Image>
-          <img className="button-image" src="./delete.png" alt="" />
-        </Button.Image>
-        <Button.Text>Delete Account</Button.Text>
+      <Button src="./delete.png" alt="Delete" onClick={handleShow}>
+        Delete Account
       </Button>
       <Modal show={show} onHide={handleClose}>
         <Card>
@@ -80,23 +78,13 @@ const DeleteAccount = () => {
                 required
               ></Form.Input>
             </Form>
-            <div className="row">
-              <div className="col">
-                <Button
-                  onClick={handleSubmit}
-                  disabled={!(username === user.name)}
-                  className="w-100"
-                  accent
-                  border
-                >
-                  <Button.Text>Delete</Button.Text>
-                </Button>
-              </div>
-              <div className="col">
-                <Button border onClick={handleClose} className="w-100">
-                  <Button.Text>Cancel</Button.Text>
-                </Button>
-              </div>
+            <div className="d-flex flex-row large-gap">
+              <Button fill onClick={handleSubmit} disabled={!(username === user.name)}>
+                Delete
+              </Button>
+              <Button fill onClick={handleClose}>
+                Cancel
+              </Button>
             </div>
           </Card.Body>
         </Card>

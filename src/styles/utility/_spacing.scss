@@ -6,6 +6,13 @@
   margin-right: auto;
 }
 
+.small-gap {
+  gap: 0.5rem;
+}
+.large-gap {
+  gap: 1rem;
+}
+
 @media screen and (min-width: 992px) {
   .container {
     max-width: 960px;

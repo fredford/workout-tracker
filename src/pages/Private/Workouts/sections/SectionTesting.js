@@ -1,29 +1,38 @@
-import React from "react";
-import ButtonDanger from "../../../../components/Buttons/ButtonDanger";
-import ButtonIcon from "../../../../components/Buttons/ButtonIcon";
+import React, { useState } from "react";
+import Button from "../../../../components/Buttons/buttons";
 
 import { FaArrowLeft } from "react-icons/fa";
-import ButtonBasic from "../../../../components/Buttons/ButtonBasic";
-import ButtonImage from "../../../../components/Buttons/ButtonImage";
 
 const SectionTesting = () => {
+  const [isActive, setIsActive] = useState(false);
+
   return (
     <div>
       <h3>Section Testing</h3>
       <div className="d-flex flex-row">
-        <ButtonDanger onClick={() => console.log("hello")}>Hello</ButtonDanger>
-        <ButtonIcon>
-          <FaArrowLeft />
-        </ButtonIcon>
+        <Button iconOnly Icon={FaArrowLeft} onClick={() => console.log("hello")} />
       </div>
       <div className="w-100">
-        <ButtonBasic>
-          <FaArrowLeft size={40} />
+        <Button iconOnly Icon={FaArrowLeft} onClick={() => console.log("hello")}></Button>
+        <Button fill onClick={() => console.log("hello")}>
           Hello
-        </ButtonBasic>
-        <ButtonImage src="./maintenance.png" alt="Exercise">
+        </Button>
+        <Button fill disabled onClick={() => console.log("hello")}>
+          Hello there
+        </Button>
+        <Button toggle Icon={FaArrowLeft}>
           Hello
-        </ButtonImage>
+        </Button>
+
+        <Button
+          toggle
+          src={"./max.png"}
+          alt="Max"
+          active={isActive}
+          onClick={() => setIsActive(!isActive)}
+        >
+          Max
+        </Button>
       </div>
     </div>
   );
