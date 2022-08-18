@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Card from "../../../../components/Cards/Card";
 import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
+import ButtonIcon from "../../../../components/Buttons/ButtonIcon";
 
 // Local services
 import services from "../../../../services/services";
@@ -93,17 +94,12 @@ const SectionWorkouts = () => {
         </div>
 
         <div className="d-flex flex-row justify-content-center">
-          <Button onClick={decreasePage} border className="me-2 button-icon">
-            <Button.Icon>
-              <FaArrowLeft />
-            </Button.Icon>
-          </Button>
-
-          <Button onClick={increasePage} className="ms-2 button-icon" border>
-            <Button.Icon>
-              <FaArrowRight />
-            </Button.Icon>
-          </Button>
+          <ButtonIcon onClick={decreasePage} className="me-3">
+            <FaArrowLeft />
+          </ButtonIcon>
+          <ButtonIcon onClick={increasePage}>
+            <FaArrowRight />
+          </ButtonIcon>
         </div>
       </Section.Body>
     </Section>

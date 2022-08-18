@@ -12,6 +12,7 @@
 @import "./mixins/spacing";
 @import "./mixins/colors";
 @import "./mixins/images";
+@import "./mixins/components";
 
 @import "./utility/text";
 @import "./utility/spacing";
@@ -26,13 +27,17 @@
 @import "./page";
 @import "./components/cards";
 @import "./components/accordionCard";
-@import "./components/buttons";
 @import "./components/navbar/navbar";
 @import "./components/activityToggles";
 @import "./components/form";
 @import "./components/stats";
 @import "./components/section";
 @import "./components/modal";
+@import "./components/buttons/buttons";
+@import "./components/buttons/standard-button";
+@import "./components/buttons/danger-button";
+@import "./components/buttons/icon-button";
+@import "./components/buttons/basic-button";
 
 @import "./profile/profile-hero";
 @import "./profile/profile";

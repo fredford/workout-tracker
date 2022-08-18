@@ -1,0 +1,18 @@
+.icon-button {
+  @include default-button;
+
+  color: var(--foreground-prim);
+  border: 1px solid var(--background-prim);
+  background-color: inherit;
+  height: $line-height;
+  width: $line-height;
+
+  &:hover {
+    border: 1px solid var(--foreground-prim);
+  }
+
+  &:active {
+    background-color: var(--foreground-prim);
+    color: var(--background-body);
+  }
+}
