@@ -1,12 +1,12 @@
 // Library imports
-import React, {useContext} from "react";
-import {MdOutlineCancel} from "react-icons/md";
+import React, { useContext } from "react";
+import { MdOutlineCancel } from "react-icons/md";
 
 // Local services
 import services from "../../../../services/services";
 
 // Contexts
-import {WorkoutContext} from "../../../../contexts/workoutContext";
+import { WorkoutContext } from "../../../../contexts/workoutContext";
 
 /**
  * Component to display a Set in the current Workout
@@ -18,7 +18,7 @@ import {WorkoutContext} from "../../../../contexts/workoutContext";
  *
  * Status: complete
  */
-const WorkoutExerciseSet = ({set, index, setAmount}) => {
+const WorkoutExerciseSet = ({ set, index, setAmount }) => {
   const contextData = useContext(WorkoutContext);
   const [sets, setSets] = contextData.sets;
 
@@ -32,10 +32,9 @@ const WorkoutExerciseSet = ({set, index, setAmount}) => {
         setSets(newSets);
       },
       (error) => {
-        console.log(error)
+        console.log(error);
       }
-    )
-
+    );
   };
   return (
     <div
@@ -47,7 +46,7 @@ const WorkoutExerciseSet = ({set, index, setAmount}) => {
       <h5 className="workout-sets-repetitions__set-amount">{set.amount}</h5>
 
       <MdOutlineCancel
-        size={20}
+        size={25}
         className="workout-sets-repetitions__set-button"
         onClick={deleteSet}
       />

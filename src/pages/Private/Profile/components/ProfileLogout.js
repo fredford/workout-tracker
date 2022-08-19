@@ -1,9 +1,8 @@
 // Library imports
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 // Local component import
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 
 /**
  * Component for allowing the User to logout of the application
@@ -11,19 +10,15 @@ import Button from "../../../../components/Buttons/Button";
  * Status: complete
  */
 const ProfileLogout = () => {
-  // React hooks
-  const navigate = useNavigate();
-  // Function to handle logging out of the application
-  const handleLogout = () => {
-    localStorage.removeItem("authToken");
-    navigate("/startup");
-  };
   return (
-    <Button border onClick={handleLogout}>
-      <Button.Image>
-        <img className="button-image" src="./logout.png" alt="" />
-      </Button.Image>
-      <Button.Text>Logout</Button.Text>
+    <Button
+      src="./logout.png"
+      alt="Logout"
+      border
+      path="/startup"
+      onClick={() => localStorage.removeItem("authToken")}
+    >
+      Logout
     </Button>
   );
 };

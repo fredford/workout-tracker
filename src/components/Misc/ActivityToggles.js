@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ActivityContext } from "../../contexts/activityContext";
 
-import ButtonToggle from "../Buttons/ButtonToggle";
+import Button from "../Buttons/buttons";
 
 /**
  * Component set to handle activity toggles for an activity context
@@ -9,7 +9,6 @@ import ButtonToggle from "../Buttons/ButtonToggle";
  * @constructor
  */
 export default function ActivityToggles() {
-
   // Acquire context state
   const activities = useContext(ActivityContext);
   const [upper, setUpper] = activities.upper;
@@ -18,8 +17,8 @@ export default function ActivityToggles() {
   const [cardio, setCardio] = activities.cardio;
 
   // Button handler to update the visibility of each toggle
-  const buttonChange = (e) => {
-    switch (e.target.id) {
+  const buttonChange = (id) => {
+    switch (id) {
       case "button-upper":
         setUpper(!upper);
         break;
@@ -37,54 +36,54 @@ export default function ActivityToggles() {
     }
   };
 
+  const types = {
+    Upper: {
+      id: "button-upper",
+      checked: upper,
+      src: "./upper.png",
+      alt: "Upper",
+    },
+    Lower: {
+      id: "button-lower",
+      checked: lower,
+      src: "./lower.png",
+      alt: "Lower",
+    },
+    Core: {
+      id: "button-core",
+      checked: core,
+      src: "./core.png",
+      alt: "Core",
+    },
+    Cardio: {
+      id: "button-cardio",
+      checked: cardio,
+      src: "./cardio.png",
+      alt: "Cardio",
+    },
+  };
+
+  console.log(types);
+
   return (
     <div className="mb-3">
       <h4 className="activity__button-title">Activity Type</h4>
-      <div className="activity__button-group">
-        <div className="d-flex flex-column align-items-center container">
-          <ButtonToggle
-            id="button-upper"
-            checked={upper}
-            onChange={buttonChange}
-            className="w-100"
-          >
-            <img className="activity__button-image" src="./upper.png" alt="" />
-          </ButtonToggle>
-          <p>Upper</p>
-        </div>
-        <div className="d-flex flex-column align-items-center container">
-          <ButtonToggle
-            id="button-lower"
-            checked={lower}
-            onChange={buttonChange}
-            className="w-100"
-          >
-            <img className="activity__button-image" src="./lower.png" alt="" />
-          </ButtonToggle>
-          <p>Lower</p>
-        </div>
-        <div className="d-flex flex-column align-items-center container">
-          <ButtonToggle
-            id="button-core"
-            checked={core}
-            onChange={buttonChange}
-            className="w-100"
-          >
-            <img className="activity__button-image" src="./core.png" alt="" />
-          </ButtonToggle>
-          <p>Core</p>
-        </div>
-        <div className="d-flex flex-column align-items-center container">
-          <ButtonToggle
-            id="button-cardio"
-            checked={cardio}
-            onChange={buttonChange}
-            className="w-100"
-          >
-            <img className="activity__button-image" src="./cardio.png" alt="" />
-          </ButtonToggle>
-          <p>Cardio</p>
-        </div>
+      <div className="activity__button-group large-gap">
+        {Object.keys(types).map((type) => {
+          return (
+            <Button
+              key={type}
+              id={types[type].id}
+              active={types[type].checked}
+              onChange={buttonChange}
+              src={types[type].src}
+              alt={types[type].alt}
+              fill
+            >
+              {type}
+            </Button>
+          );
+        })}
       </div>
     </div>
   );

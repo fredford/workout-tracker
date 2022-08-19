@@ -7,7 +7,7 @@ import { MdLogin } from "react-icons/md";
 import Page from "../../../components/Misc/Page";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
-import Button from "../../../components/Buttons/Button";
+import Button from "../../../components/Buttons/buttons";
 
 // Utilities
 import AuthService from "../../../services/AuthService";
@@ -73,12 +73,7 @@ const Login = () => {
             <Card.Bar />
             <Form className="mb-2">
               <Form.Label for="login-email">Email</Form.Label>
-              <Form.Input
-                id="login-email"
-                type="email"
-                value={email}
-                onChange={updateEmail}
-              />
+              <Form.Input id="login-email" type="email" value={email} onChange={updateEmail} />
             </Form>
             <Form className="mb-3">
               <Form.Label for="login-password">Password</Form.Label>
@@ -90,18 +85,8 @@ const Login = () => {
               />
             </Form>
             <Card.Text className="text-error">{error}</Card.Text>
-            <Button
-              onClick={attemptLogin}
-              border
-              horizontal
-              accent
-              disabled={isDisabled}
-              className="w-100"
-            >
-              <Button.Icon>
-                <MdLogin size={25} />
-              </Button.Icon>
-              <Button.Text>Login</Button.Text>
+            <Button Icon={MdLogin} iconSize={25} onClick={attemptLogin} disabled={isDisabled} fill>
+              Login
             </Button>
             <Card.Bar />
             <div className="d-flex justify-content-between">

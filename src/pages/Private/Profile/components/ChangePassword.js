@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
@@ -64,13 +64,11 @@ const ChangePassword = () => {
     <Card className="card-padding h-100">
       <Card.ImageHeader path="./password.png">
         <Card.Title>Change Password</Card.Title>
-        <Card.Text className="text-muted">
-          Set your new password (minimum 6 characters)
-        </Card.Text>
+        <Card.Text className="text-muted">Set your new password (minimum 6 characters)</Card.Text>
       </Card.ImageHeader>
       <Card.Body className="pb-0 mt-3">
         <div className="profile-settings-card">
-          <Form className="mb-3">
+          <Form className="mb-3 button-fill">
             <Form.Label>New Password</Form.Label>
             <Form.Input
               type="password"
@@ -82,7 +80,7 @@ const ChangePassword = () => {
               required
             ></Form.Input>
           </Form>
-          <Form className="mb-3">
+          <Form className="mb-3 button-fill">
             <Form.Label>Confirm New Password</Form.Label>
             <Form.Input
               type="password"
@@ -95,14 +93,8 @@ const ChangePassword = () => {
             ></Form.Input>
           </Form>
 
-          <Button
-            className="w-100"
-            onClick={handleUpdatePassword}
-            disabled={!isMatch}
-            border
-            accent
-          >
-            <Button.Text>Update</Button.Text>
+          <Button onClick={handleUpdatePassword} disabled={!isMatch} className="w-100">
+            Update
           </Button>
         </div>
       </Card.Body>

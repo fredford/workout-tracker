@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 
@@ -59,7 +59,8 @@ const ChangeUsername = () => {
       </Card.ImageHeader>
       <Card.Body className="pb-0 mt-3">
         <div className="profile-settings-card">
-          <Form className="mb-3">
+          <Form className="mb-3 w-100">
+            <Form.Label>New Username</Form.Label>
             <Form.Input
               type="text"
               id="name"
@@ -71,14 +72,8 @@ const ChangeUsername = () => {
             ></Form.Input>
           </Form>
 
-          <Button
-            className="w-100"
-            onClick={handleUpdateName}
-            disabled={isDisabled}
-            border
-            accent
-          >
-            <Button.Text>Update</Button.Text>
+          <Button className="w-100" onClick={handleUpdateName} disabled={isDisabled}>
+            Update
           </Button>
         </div>
       </Card.Body>

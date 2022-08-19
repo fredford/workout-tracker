@@ -4,7 +4,7 @@ import { MdLogin, MdOutlineCreate } from "react-icons/md";
 
 // Local component imports
 import Page from "../../../components/Misc/Page";
-import Button from "../../../components/Buttons/Button";
+import Button from "../../../components/Buttons/buttons";
 import Card from "../../../components/Cards/Card";
 
 /**
@@ -19,22 +19,14 @@ export default function Startup() {
         <Card className="startup-sizing">
           <Card.Body className="text-normal">
             <h1 className="text-center startup-header">Fitrak</h1>
-            <Card.Header className="text-muted text-center">
-              Welcome
-            </Card.Header>
+            <Card.Header className="text-muted text-center">Welcome</Card.Header>
             <Card.Bar />
-            <div className="d-flex flex-column">
-              <Button border className="mb-3" path="/login">
-                <Button.Icon>
-                  <MdLogin size={25} />
-                </Button.Icon>
-                <Button.Text>Login</Button.Text>
+            <div className="d-flex flex-column large-gap">
+              <Button Icon={MdLogin} iconSize={25} path="/login">
+                Login
               </Button>
-              <Button border path="/register">
-                <Button.Icon>
-                  <MdOutlineCreate size={25} />
-                </Button.Icon>
-                <Button.Text>Register</Button.Text>
+              <Button Icon={MdOutlineCreate} iconSize={25} path="/register">
+                Register
               </Button>
             </div>
           </Card.Body>

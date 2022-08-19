@@ -2,7 +2,7 @@
 import React from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 import Form from "../../../../components/Forms/Form";
 import AddExercise from "./AddExercise";
 
@@ -11,20 +11,7 @@ import AddExercise from "./AddExercise";
  *
  * Status: complete
  */
-const ListExerciseSearchBar = ({
-  isAscending,
-  changeDirection,
-  changeSearch,
-  search,
-}) => {
-  // Function that returns the icon associated with the direction requested
-  const ShowDirection = () => {
-    if (isAscending) {
-      return <FaChevronUp />;
-    } else {
-      return <FaChevronDown />;
-    }
-  };
+const ListExerciseSearchBar = ({ isAscending, changeDirection, changeSearch, search }) => {
   // Change the direction for displaying the exercises
   const updateDirection = () => {
     changeDirection();
@@ -36,17 +23,8 @@ const ListExerciseSearchBar = ({
 
   return (
     <div className="list-exercises__searchbar">
-      <Button
-        id="toggle-direction"
-        onClick={updateDirection}
-        className="button-icon me-3"
-        border
-      >
-        <Button.Icon>
-          <ShowDirection />
-        </Button.Icon>
-      </Button>
-      <div className="me-3 line-height">
+      <Button iconOnly Icon={isAscending ? FaChevronUp : FaChevronDown} onClick={updateDirection} />
+      <div className="line-height">
         <AddExercise />
       </div>
       <Form className="w-100 flex-fill">

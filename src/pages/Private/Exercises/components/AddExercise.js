@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 import AddExerciseModal from "../../../../components/Misc/AddExerciseModal";
 
 /**
@@ -20,11 +20,7 @@ const AddExercise = () => {
 
   return (
     <>
-      <Button onClick={handleShow} border className="h-100 p-0 ps-3 pe-3 ">
-        <Button.Icon>
-          <BsPlusLg />
-        </Button.Icon>
-      </Button>
+      <Button iconOnly Icon={BsPlusLg} onClick={handleShow} />
       <AddExerciseModal show={show} handleClose={handleClose} />
     </>
   );

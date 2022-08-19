@@ -1,17 +1,16 @@
 // Library imports
-import React, {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import {useNavigate} from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 // Local component imports
 import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Misc/Page";
 import ExerciseInfo from "./sections/ExerciseInfo";
-import Button from "../../../components/Buttons/Button";
+import Button from "../../../components/Buttons/buttons";
 import ChallengesCard from "./components/ChallengesCard";
 import CardChart from "../../../components/Cards/CardChart";
 // API Services
 import services from "../../../services/services";
-
 
 /**
  * Page to display information and statistics on a given Exercise
@@ -25,7 +24,7 @@ const Exercise = () => {
   // React hooks
   const navigate = useNavigate();
   // Get the exerciseId of the exercise shown from the parameters
-  let {exerciseId} = useParams();
+  let { exerciseId } = useParams();
 
   // Component state background data if none is found
   const [exerciseStats, setExerciseStats] = useState({
@@ -61,7 +60,7 @@ const Exercise = () => {
   useEffect(() => {
     // Retrieve the stats for the Exercise
     const retrieveData = async () => {
-      await services.stats.getExerciseData((exerciseId), (data) => {
+      await services.stats.getExerciseData(exerciseId, (data) => {
         setExerciseStats(data);
         setShowStats(true);
       });
@@ -76,24 +75,26 @@ const Exercise = () => {
 
   // Function to handle deleting the Exercise
   const deleteExercise = async () => {
-    await services.exercises.deleteExercise(exerciseId,
+    await services.exercises.deleteExercise(
+      exerciseId,
       () => {
         navigate("/message/exercisedeletesuccess");
       },
       () => {
         navigate("/message/exercisedeletefailed");
-      });
+      }
+    );
   };
 
   return (
     <Page navbar>
       <Page.Body>
-        <Button border path="/exercises" className="w-100">
-          <Button.Text>Back to Exercises</Button.Text>
+        <Button fill path="/exercises">
+          Back to Exercises
         </Button>
 
         <div className="mb-3 mt-3">
-          <ExerciseInfo exercise={exercise} stats={exerciseStats.stats}/>
+          <ExerciseInfo exercise={exercise} stats={exerciseStats.stats} />
         </div>
         <div className="row">
           <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
@@ -118,19 +119,14 @@ const Exercise = () => {
             />
           </div>
           <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-            <ChallengesCard/>
+            <ChallengesCard />
           </div>
           <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
             <Card>
               <Card.Header>Settings</Card.Header>
               <Card.Body className="mt-3">
-                <Button
-                  border
-                  accent
-                  onClick={deleteExercise}
-                  className="w-100"
-                >
-                  <Button.Text>Delete</Button.Text>
+                <Button fill onClick={deleteExercise} danger>
+                  Delete
                 </Button>
               </Card.Body>
             </Card>

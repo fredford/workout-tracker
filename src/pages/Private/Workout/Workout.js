@@ -8,7 +8,7 @@ import Page from "../../../components/Misc/Page";
 import SectionAddExercise from "./sections/SectionAddExercise";
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
 import SectionAddSet from "./sections/SectionAddSet";
-import Button from "../../../components/Buttons/Button";
+import Button from "../../../components/Buttons/buttons";
 
 // Local services
 import services from "../../../services/services";
@@ -98,14 +98,10 @@ const Workout = () => {
   return (
     <Page navbar>
       <Page.Body className="grid-margin">
-        <Button border path="/workouts" className="w-100">
-          <Button.Text>Back to Workouts</Button.Text>
+        <Button path="/workouts" className="w-100">
+          Back to Workouts
         </Button>
-        <SectionWorkoutInfo
-          workout={workout}
-          totalAmount={totalAmount}
-          totalSets={totalSets}
-        />
+        <SectionWorkoutInfo workout={workout} totalAmount={totalAmount} totalSets={totalSets} />
         <SectionAddExercise
           exercises={availableExercises}
           newExercise={newExercise}

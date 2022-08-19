@@ -1,11 +1,11 @@
 // Library imports
 import React from "react";
-import {useSelector} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 // Local component imports
 import Section from "../../../../components/Misc/Section";
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 
 // Local services imports
 import services from "../../../../services/services";
@@ -31,7 +31,8 @@ const SectionAddWorkout = () => {
       },
       (data) => {
         navigate(`/workouts/${data._id}`);
-      })
+      }
+    );
   };
 
   // Object of buttons to be displayed
@@ -45,20 +46,11 @@ const SectionAddWorkout = () => {
     <Section>
       <Section.Header>Start New Workout</Section.Header>
       <Section.Body>
-        <div className="add-workout__container">
+        <div className="grid-3-item">
           {Object.entries(buttons).map(([name, src]) => {
             return (
-              <Button
-                className="add-workout__item"
-                onClick={() => startNewWorkout(name)}
-                key={name}
-                border
-                light
-              >
-                <Button.Image>
-                  <img className="button-image" src={src} alt=""/>
-                </Button.Image>
-                <Button.Text>{name}</Button.Text>
+              <Button key={name} onClick={() => startNewWorkout(name)} src={src} alt={name}>
+                {name}
               </Button>
             );
           })}

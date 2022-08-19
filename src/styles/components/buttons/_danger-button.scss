@@ -1,0 +1,18 @@
+.danger-button {
+  @include default-button;
+
+  color: var(--bs-danger);
+  border: 1px solid #dc354526;
+  background-color: inherit;
+  padding: 0 1rem;
+  height: $line-height;
+
+  &:hover {
+    border: 1px solid #dc3545;
+  }
+
+  &:active {
+    background-color: #dc3545;
+    color: var(--background-body);
+  }
+}

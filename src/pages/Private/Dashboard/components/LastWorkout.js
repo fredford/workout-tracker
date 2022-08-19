@@ -8,7 +8,7 @@ import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
 
 // Utilities
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 import services from "../../../../services/services";
 
 /**
@@ -38,20 +38,17 @@ const LastWorkout = () => {
         setLastWorkout(data);
         setLink(`/workouts/${data.id}`);
         setShowLast(true);
-      })
-    }
-    retrieveData()
-
+      });
+    };
+    retrieveData();
   }, []);
 
   // If no workout is found allow the user to start a new workout instead
   if (!showLast) {
     return (
       <Card onClick={() => navigate(link)}>
-        <Card.Body>
-          <div className="d-flex justify-content-center align-items-center h-100 text-normal">
-            <h3>Start Workout</h3>
-          </div>
+        <Card.Body className="d-flex justify-content-center align-items-center h-100 text-normal">
+          <h3>Start Workout</h3>
         </Card.Body>
       </Card>
     );
@@ -60,24 +57,21 @@ const LastWorkout = () => {
       <Card className="h-100">
         <Card.Header>Last Workout</Card.Header>
         <Card.Subtitle>{lastWorkout.type}</Card.Subtitle>
-        <Card.Body className="dashboard__last-workout-items">
+        <Card.Body className="dashboard__last-workout-items large-gap">
           <CardStats
-            className="item"
+            className="fill-container"
             data={lastWorkout.sets}
             title="Sets"
             subtitle="Count"
           />
           <CardStats
-            className="item"
+            className="fill-container"
             data={lastWorkout.totalRepetitions}
             title="Total"
             subtitle="Repetitions"
           />
-          <Button className="item" border onClick={() => navigate(link)}>
-            <Button.Icon>
-              <RiArrowGoBackFill />
-            </Button.Icon>
-            <Button.Text>Open</Button.Text>
+          <Button Icon={RiArrowGoBackFill} iconSize={25} onClick={() => navigate(link)}>
+            Open
           </Button>
         </Card.Body>
       </Card>

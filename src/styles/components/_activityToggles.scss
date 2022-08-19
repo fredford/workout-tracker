@@ -7,8 +7,7 @@
 .activity__button-group {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
-  width: 100%;
+  justify-content: space-between;
 }
 
 .activity__button-group label {
@@ -25,17 +24,17 @@
   font-weight: bold;
 }
 
-@media screen and (min-width: 532px) {
-  .activity__button-group label:not(:last-child) {
-  }
-}
-@media screen and (max-width: 532px) {
-  .activity__button-group {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, auto);
-  }
-}
+// @media screen and (min-width: 532px) {
+//   .activity__button-group label:not(:last-child) {
+//   }
+// }
+// @media screen and (max-width: 532px) {
+//   .activity__button-group {
+//     display: grid;
+//     grid-template-columns: repeat(2, 1fr);
+//     grid-template-rows: repeat(2, auto);
+//   }
+// }
 
 .activity__button-group input {
   display: none;
@@ -51,6 +50,22 @@
 
 #button-upper:checked ~ #label-button-upper {
   background-color: $upper-active;
+}
+
+#button-upper:checked {
+  background-color: $upper-active;
+}
+
+#button-lower:checked {
+  background-color: $lower-active;
+}
+
+#button-core:checked {
+  background-color: $core-active;
+}
+
+#button-cardio:checked {
+  background-color: $cardio-active;
 }
 
 #label-button-lower {

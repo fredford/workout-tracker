@@ -7,7 +7,7 @@ import { MdCreate } from "react-icons/md";
 import Page from "../../../components/Misc/Page";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
-import Button from "../../../components/Buttons/Button";
+import Button from "../../../components/Buttons/buttons";
 
 // Utilities
 import AuthService from "../../../services/AuthService";
@@ -114,9 +114,7 @@ const Register = () => {
         <Card className="startup-sizing">
           <Card.Body className="text-normal">
             <h1 className="startup-header text-center">Fitrak</h1>
-            <Card.Header className="text-center text-muted">
-              Register
-            </Card.Header>
+            <Card.Header className="text-center text-muted">Register</Card.Header>
             <Card.Bar />
 
             {items.map((item, index) => {
@@ -136,23 +134,18 @@ const Register = () => {
             })}
             <Card.Text className="text-error">{error}</Card.Text>
             <Button
+              Icon={MdCreate}
+              iconSize={25}
               onClick={attemptRegister}
-              border
-              horizontal
-              accent
               disabled={isDisabled}
-              className="w-100"
+              fill
             >
-              <Button.Icon>
-                <MdCreate size={25} />
-              </Button.Icon>
-              <Button.Text>Register</Button.Text>
+              Register
             </Button>
             <Card.Bar />
 
             <p>
-              Already registered?{" "}
-              <Link to={{ pathname: "/login" }}> Sign in</Link>
+              Already registered? <Link to={{ pathname: "/login" }}> Sign in</Link>
             </p>
           </Card.Body>
         </Card>

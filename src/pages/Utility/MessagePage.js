@@ -6,7 +6,7 @@ import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 // Local component imports
 import Page from "../../components/Misc/Page";
 import Card from "../../components/Cards/Card";
-import Button from "../../components/Buttons/Button";
+import Button from "../../components/Buttons/buttons";
 import { getAuth } from "../../utilities/utils";
 
 /**
@@ -35,12 +35,8 @@ const MessagePage = () => {
             <div className="d-flex flex-column align-items-center text-normal">
               <Card.Text>{messageHandler[message].message}</Card.Text>
               <div className="mt-2 mb-3">{messageHandler[message].icon}</div>
-              <Button
-                border
-                className="w-100"
-                path={messageHandler[message].button}
-              >
-                <Button.Text>Continue</Button.Text>
+              <Button fill path={messageHandler[message].button}>
+                Continue
               </Button>
             </div>
           </Card.Body>

@@ -1,7 +1,7 @@
 // Library import
 import React from "react";
 // Local component import
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 
 /**
  * Component to select the user options available
@@ -16,13 +16,8 @@ const ListExercisesUserOptions = ({ changeUserClicked, userClicked }) => {
   return (
     <div className="user-options__button-group">
       <h4 className="user-options__header">User Options</h4>
-      <Button
-        onClick={buttonChange}
-        border
-        className="w-100"
-        active={userClicked}
-      >
-        <Button.Text>User Only</Button.Text>
+      <Button onClick={buttonChange} active={userClicked}>
+        User Only
       </Button>
     </div>
   );
