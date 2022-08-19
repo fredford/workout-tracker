@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../../components/Buttons/buttons";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
 // Services
 import AuthService from "../../../services/AuthService";
 import { passwordCompare } from "../../../utilities/utils";
@@ -49,40 +49,38 @@ const ResetPassword = () => {
   };
 
   return (
-    <Page>
-      <Page.Body center>
-        <Card>
-          <Card.Body>
-            <h1 className="startup-header text-center text-normal">Fitrak</h1>
-            <Card.Header className="text-center text-muted">Reset Password</Card.Header>
-            <Card.Bar />
-            <p className="text-normal"></p>
-            <Form>
-              <Form.Label for="forgot-password1">Provide a new password</Form.Label>
-              <Form.Input
-                id="forgot-password1"
-                type="password"
-                placeholder="******"
-                value={password1}
-                onChange={updatePassword1}
-              />
-            </Form>
-            <Form className="mt-3">
-              <Form.Label for="forgot-password2">Confirm the new password</Form.Label>
-              <Form.Input
-                id="forgot-password2"
-                type="password"
-                placeholder="******"
-                value={password2}
-                onChange={updatePassword2}
-              />
-            </Form>
-            <Button onClick={attemptRequest} disabled={!isValid} className="mt-3 w-100">
-              Reset Password
-            </Button>
-          </Card.Body>
-        </Card>
-      </Page.Body>
+    <Page center>
+      <Card>
+        <Card.Body>
+          <h1 className="startup-header text-center text-normal">Fitrak</h1>
+          <Card.Header className="text-center text-muted">Reset Password</Card.Header>
+          <Card.Bar />
+          <p className="text-normal"></p>
+          <Form>
+            <Form.Label for="forgot-password1">Provide a new password</Form.Label>
+            <Form.Input
+              id="forgot-password1"
+              type="password"
+              placeholder="******"
+              value={password1}
+              onChange={updatePassword1}
+            />
+          </Form>
+          <Form className="mt-3">
+            <Form.Label for="forgot-password2">Confirm the new password</Form.Label>
+            <Form.Input
+              id="forgot-password2"
+              type="password"
+              placeholder="******"
+              value={password2}
+              onChange={updatePassword2}
+            />
+          </Form>
+          <Button onClick={attemptRequest} disabled={!isValid} className="mt-3 w-100">
+            Reset Password
+          </Button>
+        </Card.Body>
+      </Card>
     </Page>
   );
 };

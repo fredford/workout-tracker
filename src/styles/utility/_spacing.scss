@@ -12,10 +12,20 @@
 }
 
 .small-gap {
-  gap: 0.5rem;
+  gap: $small-gap;
 }
 .large-gap {
-  gap: 1rem;
+  gap: $large-gap;
+}
+
+.no-gap {
+  gap: 0 !important;
+}
+
+@media screen and (max-width: 799px) {
+  .large-gap {
+    gap: 0.5rem;
+  }
 }
 
 @media screen and (min-width: 992px) {

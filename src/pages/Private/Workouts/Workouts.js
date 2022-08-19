@@ -1,6 +1,7 @@
 import React from "react";
 
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
+import PageHeader from "../../../components/Layout/Page/PageHeader";
 import SectionWorkouts from "./sections/SectionWorkouts";
 import SectionAddWorkout from "./sections/SectionAddWorkout";
 
@@ -10,11 +11,9 @@ import SectionAddWorkout from "./sections/SectionAddWorkout";
 const Workouts = () => {
   return (
     <Page navbar container>
-      <Page.Header header="Workouts" />
-      <Page.Body className="grid-margin">
-        <SectionAddWorkout />
-        <SectionWorkouts />
-      </Page.Body>
+      <PageHeader header="Workouts" />
+      <SectionAddWorkout />
+      <SectionWorkouts />
     </Page>
   );
 };

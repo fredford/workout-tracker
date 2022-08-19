@@ -1,7 +1,6 @@
 .dashboard__container {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 }
 
 .quickActions {
@@ -29,7 +28,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-
   .dashboard__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -37,16 +35,13 @@
     gap: 1rem 1rem;
     grid-auto-flow: row;
     grid-template-areas:
-    "quickActions quickActions lastWorkout lastWorkout"
-    "statsBasic statsBasic statsArea statsArea"
-    "chartActivity chartActivity topExercises topExercises"
+      "quickActions quickActions lastWorkout lastWorkout"
+      "statsBasic statsBasic statsArea statsArea"
+      "chartActivity chartActivity topExercises topExercises";
   }
-
 }
 
-
 @media screen and (min-width: 1600px) {
-
   .dashboard__container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -54,12 +49,10 @@
     gap: 1rem 1rem;
     grid-auto-flow: row;
     grid-template-areas:
-    "quickActions statsBasic lastWorkout statsArea"
-    "chartActivity chartActivity topExercises topExercises"
+      "quickActions statsBasic lastWorkout statsArea"
+      "chartActivity chartActivity topExercises topExercises";
   }
-
 }
-
 
 .dashboard__chart-dropdown {
   position: absolute;

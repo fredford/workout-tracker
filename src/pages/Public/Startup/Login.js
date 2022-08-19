@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdLogin } from "react-icons/md";
 
 // Local component imports
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/buttons";
@@ -64,40 +64,38 @@ const Login = () => {
   };
 
   return (
-    <Page>
-      <Page.Body center>
-        <Card>
-          <Card.Body>
-            <h1 className="startup-header text-center text-normal">Fitrak</h1>
-            <Card.Header className="text-center text-muted">Login</Card.Header>
-            <Card.Bar />
-            <Form className="mb-2">
-              <Form.Label for="login-email">Email</Form.Label>
-              <Form.Input id="login-email" type="email" value={email} onChange={updateEmail} />
-            </Form>
-            <Form className="mb-3">
-              <Form.Label for="login-password">Password</Form.Label>
-              <Form.Input
-                id="login-password"
-                type="password"
-                value={password}
-                onChange={updatePassword}
-              />
-            </Form>
-            <Card.Text className="text-error">{error}</Card.Text>
-            <Button Icon={MdLogin} iconSize={25} onClick={attemptLogin} disabled={isDisabled} fill>
-              Login
-            </Button>
-            <Card.Bar />
-            <div className="d-flex justify-content-between">
-              <Link className="me-5" to={{ pathname: "/forgotpassword" }}>
-                Forgot Password?
-              </Link>
-              <Link to={{ pathname: "/register" }}>Create an account</Link>
-            </div>
-          </Card.Body>
-        </Card>
-      </Page.Body>
+    <Page center>
+      <Card>
+        <Card.Body>
+          <h1 className="startup-header text-center text-normal">Fitrak</h1>
+          <Card.Header className="text-center text-muted">Login</Card.Header>
+          <Card.Bar />
+          <Form className="mb-2">
+            <Form.Label for="login-email">Email</Form.Label>
+            <Form.Input id="login-email" type="email" value={email} onChange={updateEmail} />
+          </Form>
+          <Form className="mb-3">
+            <Form.Label for="login-password">Password</Form.Label>
+            <Form.Input
+              id="login-password"
+              type="password"
+              value={password}
+              onChange={updatePassword}
+            />
+          </Form>
+          <Card.Text className="text-error">{error}</Card.Text>
+          <Button Icon={MdLogin} iconSize={25} onClick={attemptLogin} disabled={isDisabled} fill>
+            Login
+          </Button>
+          <Card.Bar />
+          <div className="d-flex justify-content-between">
+            <Link className="me-5" to={{ pathname: "/forgotpassword" }}>
+              Forgot Password?
+            </Link>
+            <Link to={{ pathname: "/register" }}>Create an account</Link>
+          </div>
+        </Card.Body>
+      </Card>
     </Page>
   );
 };

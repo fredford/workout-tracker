@@ -2,7 +2,15 @@ $image-width: 75px;
 $image-small-width: 60px;
 $line-height: 43px;
 
+/*        Text          */
+$foreground-text: var(--foreground-text);
+$foreground-mute: var(--foreground-mute);
+/*        Foreground    */
+$foreground-primary: var(--foreground-prim);
+$foreground-accent: var(--foreground-acce);
 /*        Background    */
+$background-card: var(--background-card);
+$background-body: var(--background-body);
 
 /*        Border        */
 // Standard Border
@@ -12,6 +20,7 @@ $border-fg-prim: 1px solid var(--foreground-prim);
 $border-bg-prim: 1px solid var(--background-prim);
 $border-bg-mute: 1px solid var(--background-mute);
 $border-acce: 1px solid var(--foreground-acce);
+$border-prim: 1px solid var(--foreground-prim);
 
 $border-radius-card: 1rem;
 $border-radius-button: 0.5rem;
@@ -52,3 +61,32 @@ $core-active: rgba($core-color, 0.6);
 // Cardio Body
 $cardio-light: rgba($cardio-color, 0.3);
 $cardio-active: rgba($cardio-color, 0.6);
+
+// Screen breakpoints
+$breakpoint-xs: 350px;
+$breakpoint-sm: 600px;
+$breakpoint-md: 800px;
+$breakpoint-lg: 1000px;
+$breakpoint-xl: 1200px;
+$breakpoint-xx: 1600px;
+
+$small-gap: 0.5rem;
+$large-gap: 1rem;
+
+@media screen and (max-width: $breakpoint-xx) {
+}
+
+@media screen and (max-width: $breakpoint-xl) {
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+}
+
+@media screen and (max-width: $breakpoint-md) {
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+}

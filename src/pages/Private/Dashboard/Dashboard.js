@@ -2,7 +2,8 @@
 import React, { useEffect, useState } from "react";
 
 // Local component imports
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
+
 import Intro from "./components/Intro";
 import LastWorkout from "./components/LastWorkout";
 import QuickActions from "./components/QuickActions";
@@ -37,47 +38,42 @@ const Dashboard = () => {
   // Handle data retrieved for the component state
   useEffect(() => {
     // API GET call to retrieve Basic Stats from the server
-    const retrieveData = async() => {
+    const retrieveData = async () => {
       await services.stats.getDashboardDataBasic(setStats);
-    }
-    retrieveData()
+    };
+    retrieveData();
   }, []);
 
   return (
-    <Page navbar>
-      <Page.Body>
-        <div className="mb-3">
-          <Intro currHr={currHr} />
-        </div>
+    <Page navbar container>
+      <Intro currHr={currHr} />
 
-        <div className="dashboard__container">
-          <div className="lastWorkout">
-            <LastWorkout />
-          </div>
-          <div className="quickActions">
-            <QuickActions />
-          </div>
-          <div className="statsBasic">
-            <StatsGroupBasic stats={stats.basic} />
-          </div>
-          <div className="chartActivity">
-            <ChartRecentActivity />
-          </div>
-          <div className="statsArea">
-            <StatsGroupArea stats={stats.area} />
-          </div>
-          <div className="topExercises">
-            <ListTopExercises />
-          </div>
-          {/*
+      <div className="dashboard__container large-gap">
+        <div className="lastWorkout">
+          <LastWorkout />
+        </div>
+        <div className="quickActions">
+          <QuickActions />
+        </div>
+        <div className="statsBasic">
+          <StatsGroupBasic stats={stats.basic} />
+        </div>
+        <div className="chartActivity">
+          <ChartRecentActivity />
+        </div>
+        <div className="statsArea">
+          <StatsGroupArea stats={stats.area} />
+        </div>
+        <div className="topExercises">
+          <ListTopExercises />
+        </div>
+        {/*
           <div className="grid-350 grid-margin">
             <Goals />
             <Challenges />
           </div>
           */}
-
-        </div>
-      </Page.Body>
+      </div>
     </Page>
   );
 };

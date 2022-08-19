@@ -127,7 +127,7 @@ const AddExerciseModal = ({ show, handleClose }) => {
               </Button>
             </div>
             <div className="col-6">
-              <Button fill onClick={handleClose}>
+              <Button danger fill onClick={handleClose}>
                 Cancel
               </Button>
             </div>

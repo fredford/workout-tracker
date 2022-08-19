@@ -58,18 +58,8 @@ const LastWorkout = () => {
         <Card.Header>Last Workout</Card.Header>
         <Card.Subtitle>{lastWorkout.type}</Card.Subtitle>
         <Card.Body className="dashboard__last-workout-items large-gap">
-          <CardStats
-            className="fill-container"
-            data={lastWorkout.sets}
-            title="Sets"
-            subtitle="Count"
-          />
-          <CardStats
-            className="fill-container"
-            data={lastWorkout.totalRepetitions}
-            title="Total"
-            subtitle="Repetitions"
-          />
+          <CardStats data={lastWorkout.sets} title="Sets" subtitle="Count" />
+          <CardStats data={lastWorkout.totalRepetitions} title="Total" subtitle="Repetitions" />
           <Button Icon={RiArrowGoBackFill} iconSize={25} onClick={() => navigate(link)}>
             Open
           </Button>

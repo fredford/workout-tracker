@@ -16,10 +16,10 @@ const NavbarItem = React.memo(function WrappedNavbarItem({ icon, name }) {
   // Format the desired path to redirect to
   let path = `/${name.toLowerCase()}`;
   // Base CSS class
-  let classes = "navbar-item w-100 ";
+  let classes = "navbar__item w-100 no-gap ";
   // If the navbar-item is the current page set to active
   if (window.location.pathname.includes(path)) {
-    classes += "navbar-item__active";
+    classes += "navbar__item-active";
   }
 
   return (

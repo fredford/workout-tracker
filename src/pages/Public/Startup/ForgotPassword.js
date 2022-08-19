@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../../../components/Buttons/buttons";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
 // Services
 import AuthService from "../../../services/AuthService";
 // Utilities
@@ -40,32 +40,28 @@ const ForgotPassword = () => {
   };
 
   return (
-    <Page>
-      <Page.Body center>
-        <Card>
-          <Card.Body>
-            <h1 className="startup-header text-center text-normal">Fitrak</h1>
-            <Card.Header className="text-center text-muted">Forgot Password</Card.Header>
-            <Card.Bar />
-            <p className="text-normal"></p>
-            <Form>
-              <Form.Label for="forgot-email">
-                Provide your account email to reset password
-              </Form.Label>
-              <Form.Input
-                id="forgot-email"
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={updateEmail}
-              />
-            </Form>
-            <Button onClick={attemptRequest} disabled={!isValid} className=" mt-3 w-100">
-              Reset Password
-            </Button>
-          </Card.Body>
-        </Card>
-      </Page.Body>
+    <Page center>
+      <Card>
+        <Card.Body>
+          <h1 className="startup-header text-center text-normal">Fitrak</h1>
+          <Card.Header className="text-center text-muted">Forgot Password</Card.Header>
+          <Card.Bar />
+          <p className="text-normal"></p>
+          <Form>
+            <Form.Label for="forgot-email">Provide your account email to reset password</Form.Label>
+            <Form.Input
+              id="forgot-email"
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={updateEmail}
+            />
+          </Form>
+          <Button onClick={attemptRequest} disabled={!isValid} className=" mt-3 w-100">
+            Reset Password
+          </Button>
+        </Card.Body>
+      </Card>
     </Page>
   );
 };

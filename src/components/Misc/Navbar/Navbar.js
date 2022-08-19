@@ -27,18 +27,14 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar__page">
-      <div className="navbar__logo">
-        <h1>Fitrak</h1>
-      </div>
-
+    <div className="navbar__container">
+      <h1 className="navbar__logo">Fitrak</h1>
       <div className="navbar__items">
         <NavbarItem name="Dashboard" icon={DashboardTwoToneIcon} />
         <NavbarItem name="Profile" icon={PermIdentityOutlinedIcon} />
         <NavbarItem name="Exercises" icon={DirectionsRunIcon} />
         <NavbarItem name="Workouts" icon={AssignmentOutlinedIcon} />
       </div>
-
       <Button Icon={MdLogout} className="navbar__logout" onClick={handleLogout}>
         Logout
       </Button>

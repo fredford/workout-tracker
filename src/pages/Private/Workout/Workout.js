@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 // Local component imports
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
 import SectionAddExercise from "./sections/SectionAddExercise";
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
 import SectionAddSet from "./sections/SectionAddSet";
@@ -97,18 +97,16 @@ const Workout = () => {
 
   return (
     <Page navbar>
-      <Page.Body className="grid-margin">
-        <Button path="/workouts" className="w-100">
-          Back to Workouts
-        </Button>
-        <SectionWorkoutInfo workout={workout} totalAmount={totalAmount} totalSets={totalSets} />
-        <SectionAddExercise
-          exercises={availableExercises}
-          newExercise={newExercise}
-          setNewExercise={changeNewExercise}
-        />
-        <SectionAddSet workoutObject={workoutObject} />
-      </Page.Body>
+      <Button path="/workouts" className="w-100">
+        Back to Workouts
+      </Button>
+      <SectionWorkoutInfo workout={workout} totalAmount={totalAmount} totalSets={totalSets} />
+      <SectionAddExercise
+        exercises={availableExercises}
+        newExercise={newExercise}
+        setNewExercise={changeNewExercise}
+      />
+      <SectionAddSet workoutObject={workoutObject} />
     </Page>
   );
 };

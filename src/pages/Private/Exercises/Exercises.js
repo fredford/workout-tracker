@@ -2,7 +2,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 // Local component imports
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
+import PageHeader from "../../../components/Layout/Page/PageHeader";
 import SectionExercises from "./sections/SectionExercises";
 // Contexts
 import { ActivityProvider } from "../../../contexts/activityContext";
@@ -34,10 +35,8 @@ const Exercises = () => {
   return (
     <ActivityProvider>
       <Page navbar container>
-        <Page.Header header="Exercises" />
-        <Page.Body>
-          <SectionExercises />
-        </Page.Body>
+        <PageHeader header="Exercises" />
+        <SectionExercises />
       </Page>
     </ActivityProvider>
   );
