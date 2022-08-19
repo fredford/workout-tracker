@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 // Local component imports
-import Button from "../../../components/Buttons/Button";
+import Button from "../../../components/Buttons/buttons";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
 import Page from "../../../components/Misc/Page";
@@ -54,15 +54,11 @@ const ResetPassword = () => {
         <Card>
           <Card.Body>
             <h1 className="startup-header text-center text-normal">Fitrak</h1>
-            <Card.Header className="text-center text-muted">
-              Reset Password
-            </Card.Header>
+            <Card.Header className="text-center text-muted">Reset Password</Card.Header>
             <Card.Bar />
             <p className="text-normal"></p>
             <Form>
-              <Form.Label for="forgot-password1">
-                Provide a new password
-              </Form.Label>
+              <Form.Label for="forgot-password1">Provide a new password</Form.Label>
               <Form.Input
                 id="forgot-password1"
                 type="password"
@@ -72,9 +68,7 @@ const ResetPassword = () => {
               />
             </Form>
             <Form className="mt-3">
-              <Form.Label for="forgot-password2">
-                Confirm the new password
-              </Form.Label>
+              <Form.Label for="forgot-password2">Confirm the new password</Form.Label>
               <Form.Input
                 id="forgot-password2"
                 type="password"
@@ -83,14 +77,8 @@ const ResetPassword = () => {
                 onChange={updatePassword2}
               />
             </Form>
-            <Button
-              onClick={attemptRequest}
-              disabled={!isValid}
-              border
-              accent
-              className="mt-3 w-100"
-            >
-              <Button.Text>Reset Password</Button.Text>
+            <Button onClick={attemptRequest} disabled={!isValid} className="mt-3 w-100">
+              Reset Password
             </Button>
           </Card.Body>
         </Card>

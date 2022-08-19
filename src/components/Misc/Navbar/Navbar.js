@@ -9,7 +9,7 @@ import { MdLogout } from "react-icons/md";
 
 // Local component imports
 import NavbarItem from "./NavbarItem";
-import Button from "../../Buttons/Button";
+import Button from "../../Buttons/buttons";
 
 /**
  * Component for displaying the navbar on the edge of the screen
@@ -33,17 +33,14 @@ const Navbar = () => {
       </div>
 
       <div className="navbar__items">
-        <NavbarItem name="Dashboard" icon={<DashboardTwoToneIcon />} />
-        <NavbarItem name="Profile" icon={<PermIdentityOutlinedIcon />} />
-        <NavbarItem name="Exercises" icon={<DirectionsRunIcon />} />
-        <NavbarItem name="Workouts" icon={<AssignmentOutlinedIcon />} />
+        <NavbarItem name="Dashboard" icon={DashboardTwoToneIcon} />
+        <NavbarItem name="Profile" icon={PermIdentityOutlinedIcon} />
+        <NavbarItem name="Exercises" icon={DirectionsRunIcon} />
+        <NavbarItem name="Workouts" icon={AssignmentOutlinedIcon} />
       </div>
 
-      <Button className="navbar__logout" border onClick={handleLogout}>
-        <Button.Icon>
-          <MdLogout />
-        </Button.Icon>
-        <Button.Text className="navbar__logout-text">Logout</Button.Text>
+      <Button Icon={MdLogout} className="navbar__logout" onClick={handleLogout}>
+        Logout
       </Button>
     </div>
   );

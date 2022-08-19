@@ -9,7 +9,7 @@
   display: flex;
   background-color: var(--background-card);
 
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .navbar__logo {
@@ -22,6 +22,7 @@
 
 .navbar__items {
   display: flex;
+  width: 100%;
 }
 
 .navbar-item {
@@ -106,7 +107,7 @@
     border-radius: 1rem;
     justify-content: space-between;
 
-    padding: 0.5rem;
+    padding: 1rem;
   }
 
   .navbar__items {

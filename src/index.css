@@ -1,5 +1,4 @@
 :root {
-
   /* Border */
   --border: 1px solid #dadce0;
   /* Background */
@@ -33,8 +32,8 @@
   --foreground-mute: #919191;
   --foreground-prim: #3474e0;
   --foreground-acce: #2ee09a;
-  --foreground-filter-arrow: invert(99%) sepia(0%) saturate(4806%)
-    hue-rotate(217deg) brightness(118%) contrast(78%);
+  --foreground-filter-arrow: invert(99%) sepia(0%) saturate(4806%) hue-rotate(217deg)
+    brightness(118%) contrast(78%);
 }
 
 div[role="dialog"] [data-theme="dark"] {

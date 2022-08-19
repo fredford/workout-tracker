@@ -10,7 +10,7 @@ import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
 import ListExercisesExercise from "../components/ListExercisesExercise";
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 
 // Contexts
 import { ActivityContext } from "../../../../contexts/activityContext";
@@ -50,9 +50,7 @@ const SectionExercises = () => {
 
   // If at least one filter has been applied
   if (!isAllOff) {
-    displayList = displayList.filter(
-      (item) => activities[item.area.toLowerCase()][0]
-    );
+    displayList = displayList.filter((item) => activities[item.area.toLowerCase()][0]);
   }
 
   // If the state is set to show in ascending order
@@ -102,10 +100,7 @@ const SectionExercises = () => {
         <Card>
           <Card.Body>
             <ActivityToggles />
-            <ListExercisesUserOptions
-              userClicked={userOnly}
-              changeUserClicked={changeUserOnly}
-            />
+            <ListExercisesUserOptions userClicked={userOnly} changeUserClicked={changeUserOnly} />
             <ListExerciseSearchBar
               isAscending={isAscending}
               changeDirection={changeDirection}
@@ -117,9 +112,7 @@ const SectionExercises = () => {
               {React.Children.toArray(
                 displayList.map((exercise) => {
                   var area = exercise.area.toLowerCase();
-                  var isAllOff = Object.values(activities).every(
-                    (x) => x[0] === false
-                  );
+                  var isAllOff = Object.values(activities).every((x) => x[0] === false);
                   if (isAllOff || activities[area][0]) {
                     return <ListExercisesExercise exercise={exercise} />;
                   } else {
@@ -128,26 +121,9 @@ const SectionExercises = () => {
                 })
               )}
             </div>
-            <div className="d-flex flex-row justify-content-center">
-              <Button
-                onClick={decreasePage}
-                border
-                className="me-2 button-icon"
-              >
-                <Button.Icon>
-                  <FaArrowLeft />
-                </Button.Icon>
-              </Button>
-
-              <Button
-                onClick={increasePage}
-                className="ms-2 button-icon"
-                border
-              >
-                <Button.Icon>
-                  <FaArrowRight />
-                </Button.Icon>
-              </Button>
+            <div className="d-flex flex-row justify-content-center large-gap">
+              <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} />
+              <Button iconOnly Icon={FaArrowRight} onClick={increasePage} />
             </div>
           </Card.Body>
         </Card>

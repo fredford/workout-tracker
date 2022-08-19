@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 import WorkoutExerciseAmount from "./WorkoutExerciseAmount";
 import WorkoutExerciseSet from "./WorkoutExerciseSet";
 import CardStats from "../../../../components/Cards/CardStats";
@@ -56,29 +56,26 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
         amount: amount,
       },
       (data) => {
-      // Add Set to the context data on the Workout
-      let newSets = [...setsList];
-      newSets.push(data);
-      setSetsList(newSets);
-    }, (error) => {
-      // Option to add functionality for error handling
-      console.log(error)
-    })
-
+        // Add Set to the context data on the Workout
+        let newSets = [...setsList];
+        newSets.push(data);
+        setSetsList(newSets);
+      },
+      (error) => {
+        // Option to add functionality for error handling
+        console.log(error);
+      }
+    );
   };
 
   return (
     <AccordionCard className="workout-sets__cards">
-      <AccordionCard.Header
-        name={exercise.name}
-        type={exercise.type}
-        addSet={addSet}
-      />
+      <AccordionCard.Header name={exercise.name} type={exercise.type} addSet={addSet} />
       <AccordionCard.Body className="workout-sets__body">
         <WorkoutExerciseAmount amount={amount} setAmount={setAmount} />
         <div className="workout-sets__header-button">
-          <Button border className="p-3 w-100" onClick={addSet}>
-            <Button.Text>Add Set</Button.Text>
+          <Button fill onClick={addSet}>
+            Add Set
           </Button>
         </div>
         <div className="mb-3 grid-4-item">
@@ -91,13 +88,7 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
         <div className="workout-sets-repetitions__sets-container">
           {React.Children.toArray(
             sets.map((set, index) => {
-              return (
-                <WorkoutExerciseSet
-                  set={set}
-                  index={index}
-                  setAmount={setAmount}
-                />
-              );
+              return <WorkoutExerciseSet set={set} index={index} setAmount={setAmount} />;
             })
           )}
         </div>

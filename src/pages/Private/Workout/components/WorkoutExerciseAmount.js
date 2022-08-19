@@ -1,12 +1,12 @@
 // Library imports
 import React from "react";
-import {FaPlus, FaMinus} from "react-icons/fa";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 // Local component imports
-import Button from "../../../../components/Buttons/Button";
+import Button from "../../../../components/Buttons/buttons";
 
 // Utilities
-import {convertToNumber} from "../../../../utilities/utils";
+import { convertToNumber } from "../../../../utilities/utils";
 
 /**
  * Component to handle updating the current amount for the Set
@@ -17,7 +17,7 @@ import {convertToNumber} from "../../../../utilities/utils";
  *
  * Status: complete
  */
-const WorkoutExerciseAmount = ({amount, setAmount}) => {
+const WorkoutExerciseAmount = ({ amount, setAmount }) => {
   // Convert the amount to a Number
   let numberAmount = convertToNumber(amount);
 
@@ -52,13 +52,9 @@ const WorkoutExerciseAmount = ({amount, setAmount}) => {
     <div className="workout-sets-repetitions__buttons-container">
       <Button
         className="workout-sets-repetitions__button-container"
-        border
+        Icon={FaPlus}
         onClick={() => increaseAmount()}
-      >
-        <Button.Icon>
-          <FaPlus/>
-        </Button.Icon>
-      </Button>
+      />
 
       <form className="workout-sets-repetitions__form">
         <input
@@ -67,16 +63,11 @@ const WorkoutExerciseAmount = ({amount, setAmount}) => {
           onChange={(e) => updateAmount(e)}
         />
       </form>
-
       <Button
         className="workout-sets-repetitions__button-container"
         onClick={() => decreaseAmount()}
-        border
-      >
-        <Button.Icon>
-          <FaMinus/>
-        </Button.Icon>
-      </Button>
+        Icon={FaMinus}
+      />
     </div>
   );
 };

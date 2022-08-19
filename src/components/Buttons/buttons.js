@@ -16,25 +16,29 @@ const Button = ({
   disabled,
   toggle,
   active,
+  danger,
+  id,
+  onChange,
 }) => {
   let buttonClassName = "button-basic " + (className ?? "");
   buttonClassName += fill ? " button-fill" : "";
   buttonClassName += iconOnly ? " button-icon" : "";
   buttonClassName += disabled ? " button-disabled" : "";
   buttonClassName += active ? " button-active" : "";
+  buttonClassName += danger ? " button-danger" : "";
 
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClick = (e) => {
     if (path && onClick) {
-      onClick();
+      onClick(e);
       navigate(path);
     } else if (path && !onClick) {
       navigate(path);
     } else if (!path && onClick) {
-      onClick();
-    } else {
-      return;
+      onClick(e);
+    } else if (onChange) {
+      onChange(id);
     }
   };
 
@@ -54,7 +58,7 @@ const Button = ({
   }
 
   return (
-    <button className={buttonClassName} onClick={handleClick} disabled={disabled}>
+    <button id={id} className={buttonClassName} onClick={handleClick} disabled={disabled}>
       {src || srcId ? <img className="standard-image" src={src} id={srcId} alt={alt} /> : <></>}
       {Icon ? <Icon size={iconSize} /> : <></>}
       {children ? <p>{children}</p> : <></>}
