@@ -1,0 +1,16 @@
+.page-header {
+}
+
+.page-header__header {
+  color: $foreground-text;
+}
+
+.page-header__subheader {
+  color: $foreground-mute;
+  font-weight: $font-norm;
+}
+
+.page-header__bar {
+  margin-top: $small-gap;
+  margin-bottom: $large-gap;
+}

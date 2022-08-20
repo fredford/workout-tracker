@@ -63,12 +63,19 @@
   }
 }
 
-
-.stats-grid{
+.stats-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: $large-gap;
 }
 
-@media screen and (min-width: 300px){
+@media screen and (max-width: $breakpoint-lg) {
+  .stats-grid {
+    gap: $small-gap;
+  }
+}
+
+/* @media screen and (min-width: 300px){
   .stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
     gap: 1rem;
@@ -100,9 +107,4 @@
     grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
     gap: 1rem;
   }
-}
-
-
-
-
-
+} */

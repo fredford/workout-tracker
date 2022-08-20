@@ -3,7 +3,7 @@ import React from "react";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 // Local component imports
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 
 // Utilities
 import { convertToNumber } from "../../../../utilities/utils";

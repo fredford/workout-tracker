@@ -4,7 +4,7 @@ import { MdOutlineModeEditOutline, MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
 // Local component imports
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
 

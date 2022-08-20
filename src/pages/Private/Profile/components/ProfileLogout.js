@@ -2,7 +2,7 @@
 import React from "react";
 
 // Local component import
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 
 /**
  * Component for allowing the User to logout of the application

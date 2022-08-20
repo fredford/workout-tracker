@@ -1,0 +1,59 @@
+.page {
+  background-color: $background-body;
+  margin: $large-gap;
+}
+
+.page-body {
+  display: flex;
+  flex-direction: column;
+  gap: $large-gap;
+}
+
+.normal-page {
+  margin-left: 140px;
+}
+
+.center-page {
+  margin: 0 !important;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: $breakpoint-xx) {
+}
+
+@media screen and (max-width: $breakpoint-xl) {
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .page {
+    margin: $small-gap;
+  }
+
+  .page-body {
+    gap: $small-gap;
+  }
+
+  .normal-page {
+    margin: 0 0 97px 0;
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .page {
+    margin-bottom: 1.5rem;
+  }
+  .normal-page {
+    .container {
+      padding: 0 !important;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+}

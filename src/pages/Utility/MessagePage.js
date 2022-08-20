@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 
 // Local component imports
-import Page from "../../components/Misc/Page";
+import Page from "../../components/Layout/Page/Page";
 import Card from "../../components/Cards/Card";
-import Button from "../../components/Buttons/buttons";
+import Button from "../../components/Buttons/Button";
 import { getAuth } from "../../utilities/utils";
 
 /**
@@ -28,20 +28,18 @@ const MessagePage = () => {
   let token = getAuth();
 
   return (
-    <Page navbar={token}>
-      <Page.Body center>
-        <Card>
-          <Card.Body>
-            <div className="d-flex flex-column align-items-center text-normal">
-              <Card.Text>{messageHandler[message].message}</Card.Text>
-              <div className="mt-2 mb-3">{messageHandler[message].icon}</div>
-              <Button fill path={messageHandler[message].button}>
-                Continue
-              </Button>
-            </div>
-          </Card.Body>
-        </Card>
-      </Page.Body>
+    <Page navbar={token} center>
+      <Card>
+        <Card.Body>
+          <div className="d-flex flex-column align-items-center text-normal">
+            <Card.Text>{messageHandler[message].message}</Card.Text>
+            <div className="mt-2 mb-3">{messageHandler[message].icon}</div>
+            <Button fill path={messageHandler[message].button}>
+              Continue
+            </Button>
+          </div>
+        </Card.Body>
+      </Card>
     </Page>
   );
 };

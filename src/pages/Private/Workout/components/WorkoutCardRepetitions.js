@@ -2,7 +2,7 @@
 import React, { useContext, useState } from "react";
 
 // Local component imports
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import WorkoutExerciseAmount from "./WorkoutExerciseAmount";
 import WorkoutExerciseSet from "./WorkoutExerciseSet";
 import CardStats from "../../../../components/Cards/CardStats";

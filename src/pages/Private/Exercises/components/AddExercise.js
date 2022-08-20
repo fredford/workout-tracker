@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { BsPlusLg } from "react-icons/bs";
 // Local component imports
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import AddExerciseModal from "../../../../components/Misc/AddExerciseModal";
 
 /**

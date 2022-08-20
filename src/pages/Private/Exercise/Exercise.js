@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 // Local component imports
 import Card from "../../../components/Cards/Card";
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
 import ExerciseInfo from "./sections/ExerciseInfo";
-import Button from "../../../components/Buttons/buttons";
+import Button from "../../../components/Buttons/Button";
 import ChallengesCard from "./components/ChallengesCard";
 import CardChart from "../../../components/Cards/CardChart";
 // API Services
@@ -88,51 +88,49 @@ const Exercise = () => {
 
   return (
     <Page navbar>
-      <Page.Body>
-        <Button fill path="/exercises">
-          Back to Exercises
-        </Button>
+      <Button fill path="/exercises">
+        Back to Exercises
+      </Button>
 
-        <div className="mb-3 mt-3">
-          <ExerciseInfo exercise={exercise} stats={exerciseStats.stats} />
+      <div className="mb-3 mt-3">
+        <ExerciseInfo exercise={exercise} stats={exerciseStats.stats} />
+      </div>
+      <div className="row">
+        <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+          <CardChart
+            header="Cumulative Repetitions"
+            stats={exerciseStats.cumulative}
+            showStats={showStats}
+          />
         </div>
-        <div className="row">
-          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-            <CardChart
-              header="Cumulative Repetitions"
-              stats={exerciseStats.cumulative}
-              showStats={showStats}
-            />
-          </div>
-          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-            <CardChart
-              header="Set Progression"
-              stats={exerciseStats.setProgression}
-              showStats={showStats}
-            />
-          </div>
-          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-            <CardChart
-              header="Workout Progression"
-              stats={exerciseStats.workoutProgression}
-              showStats={showStats}
-            />
-          </div>
-          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-            <ChallengesCard />
-          </div>
-          <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-            <Card>
-              <Card.Header>Settings</Card.Header>
-              <Card.Body className="mt-3">
-                <Button fill onClick={deleteExercise} danger>
-                  Delete
-                </Button>
-              </Card.Body>
-            </Card>
-          </div>
+        <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+          <CardChart
+            header="Set Progression"
+            stats={exerciseStats.setProgression}
+            showStats={showStats}
+          />
         </div>
-      </Page.Body>
+        <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+          <CardChart
+            header="Workout Progression"
+            stats={exerciseStats.workoutProgression}
+            showStats={showStats}
+          />
+        </div>
+        <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+          <ChallengesCard />
+        </div>
+        <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
+          <Card>
+            <Card.Header>Settings</Card.Header>
+            <Card.Body className="mt-3">
+              <Button fill onClick={deleteExercise} danger>
+                Delete
+              </Button>
+            </Card.Body>
+          </Card>
+        </div>
+      </div>
     </Page>
   );
 };

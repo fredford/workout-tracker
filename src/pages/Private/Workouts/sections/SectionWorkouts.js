@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 // Local component imports
 import Card from "../../../../components/Cards/Card";
 import Section from "../../../../components/Misc/Section";
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 
 // Local services
 import services from "../../../../services/services";

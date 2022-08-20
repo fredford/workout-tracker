@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // Local component imports
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import Form from "../../../../components/Forms/Form";
 

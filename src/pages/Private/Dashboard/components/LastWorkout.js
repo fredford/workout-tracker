@@ -8,7 +8,7 @@ import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
 
 // Utilities
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import services from "../../../../services/services";
 
 /**
@@ -46,30 +46,18 @@ const LastWorkout = () => {
   // If no workout is found allow the user to start a new workout instead
   if (!showLast) {
     return (
-      <Card onClick={() => navigate(link)}>
-        <Card.Body className="d-flex justify-content-center align-items-center h-100 text-normal">
-          <h3>Start Workout</h3>
-        </Card.Body>
-      </Card>
+      <Button className="w-100" onClick={() => navigate(link)}>
+        Start Workout
+      </Button>
     );
   } else {
     return (
-      <Card className="h-100">
+      <Card className="w-100">
         <Card.Header>Last Workout</Card.Header>
         <Card.Subtitle>{lastWorkout.type}</Card.Subtitle>
-        <Card.Body className="dashboard__last-workout-items large-gap">
-          <CardStats
-            className="fill-container"
-            data={lastWorkout.sets}
-            title="Sets"
-            subtitle="Count"
-          />
-          <CardStats
-            className="fill-container"
-            data={lastWorkout.totalRepetitions}
-            title="Total"
-            subtitle="Repetitions"
-          />
+        <Card.Body className="section-quick-last__items">
+          <CardStats data={lastWorkout.sets} title="Sets" subtitle="Count" />
+          <CardStats data={lastWorkout.totalRepetitions} title="Total" subtitle="Repetitions" />
           <Button Icon={RiArrowGoBackFill} iconSize={25} onClick={() => navigate(link)}>
             Open
           </Button>

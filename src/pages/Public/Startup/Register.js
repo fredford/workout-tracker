@@ -4,10 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { MdCreate } from "react-icons/md";
 
 // Local component imports
-import Page from "../../../components/Misc/Page";
+import Page from "../../../components/Layout/Page/Page";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
-import Button from "../../../components/Buttons/buttons";
+import Button from "../../../components/Buttons/Button";
 
 // Utilities
 import AuthService from "../../../services/AuthService";
@@ -109,47 +109,45 @@ const Register = () => {
   };
 
   return (
-    <Page>
-      <Page.Body center>
-        <Card className="startup-sizing">
-          <Card.Body className="text-normal">
-            <h1 className="startup-header text-center">Fitrak</h1>
-            <Card.Header className="text-center text-muted">Register</Card.Header>
-            <Card.Bar />
+    <Page center>
+      <Card className="startup-sizing">
+        <Card.Body className="text-normal">
+          <h1 className="startup-header text-center">Fitrak</h1>
+          <Card.Header className="text-center text-muted">Register</Card.Header>
+          <Card.Bar />
 
-            {items.map((item, index) => {
-              return (
-                <Form key={index} className="mb-3">
-                  <Form.Label>{item.label}</Form.Label>
-                  <Form.Input
-                    type={item.type}
-                    placeholder={item.placeholder}
-                    onChange={item.onChange}
-                    value={item.value}
-                    autoComplete="off"
-                    required={item.required}
-                  />
-                </Form>
-              );
-            })}
-            <Card.Text className="text-error">{error}</Card.Text>
-            <Button
-              Icon={MdCreate}
-              iconSize={25}
-              onClick={attemptRegister}
-              disabled={isDisabled}
-              fill
-            >
-              Register
-            </Button>
-            <Card.Bar />
+          {items.map((item, index) => {
+            return (
+              <Form key={index} className="mb-3">
+                <Form.Label>{item.label}</Form.Label>
+                <Form.Input
+                  type={item.type}
+                  placeholder={item.placeholder}
+                  onChange={item.onChange}
+                  value={item.value}
+                  autoComplete="off"
+                  required={item.required}
+                />
+              </Form>
+            );
+          })}
+          <Card.Text className="text-error">{error}</Card.Text>
+          <Button
+            Icon={MdCreate}
+            iconSize={25}
+            onClick={attemptRegister}
+            disabled={isDisabled}
+            fill
+          >
+            Register
+          </Button>
+          <Card.Bar />
 
-            <p>
-              Already registered? <Link to={{ pathname: "/login" }}> Sign in</Link>
-            </p>
-          </Card.Body>
-        </Card>
-      </Page.Body>
+          <p>
+            Already registered? <Link to={{ pathname: "/login" }}> Sign in</Link>
+          </p>
+        </Card.Body>
+      </Card>
     </Page>
   );
 };

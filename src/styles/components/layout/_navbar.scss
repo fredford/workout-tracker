@@ -1,0 +1,99 @@
+.navbar__container {
+  @include standard-border;
+  @include standard-shadow;
+
+  background-color: $background-card;
+
+  z-index: 5;
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: $small-gap;
+
+  flex-direction: column;
+  left: $large-gap;
+  top: $large-gap;
+  bottom: $large-gap;
+  gap: $small-gap;
+}
+
+.navbar__logo {
+  color: $foreground-accent;
+  font-family: $font-logo !important;
+  font-weight: 400;
+}
+
+.navbar__items {
+  display: flex;
+  flex-direction: column;
+  gap: $small-gap;
+}
+
+.navbar__item {
+  width: 108px !important;
+  text-decoration: none !important;
+}
+
+.navbar__item-active {
+  border: $border-prim;
+}
+
+.navbar__logout {
+  width: 100%;
+}
+
+@media screen and (max-width: $breakpoint-xl) {
+}
+
+@media screen and (max-width: $breakpoint-xl) {
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .navbar__container {
+    flex-direction: row;
+    top: auto;
+    left: $small-gap;
+    bottom: $small-gap;
+    right: $small-gap;
+
+    gap: $small-gap;
+  }
+
+  .navbar__items {
+    flex-direction: row;
+    gap: $small-gap;
+  }
+
+  .navbar__item {
+    flex: 1 1 0px;
+  }
+
+  .navbar__logout {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .navbar__container {
+    bottom: 1.5rem;
+  }
+  .navbar__logo {
+    font-size: 1.5rem;
+  }
+
+  .navbar__item {
+    max-width: $line-height;
+    max-height: $line-height;
+    p {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+}

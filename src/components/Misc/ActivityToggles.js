@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ActivityContext } from "../../contexts/activityContext";
 
-import Button from "../Buttons/buttons";
+import Button from "../Buttons/Button";
 
 /**
  * Component set to handle activity toggles for an activity context

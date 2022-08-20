@@ -24,10 +24,8 @@
 @import "./utility/utility";
 @import "./utility/loading";
 
-@import "./page";
 @import "./components/cards";
 @import "./components/accordionCard";
-@import "./components/navbar/navbar";
 @import "./components/activityToggles";
 @import "./components/form";
 @import "./components/stats";
@@ -39,6 +37,10 @@
 @import "./components/buttons/icon-button";
 @import "./components/buttons/basic-button";
 @import "./components/buttons/newButtons";
+
+@import "./components/layout/navbar";
+@import "./components/layout/page";
+@import "./components/layout/pageHeader";
 
 @import "./profile/profile-hero";
 @import "./profile/profile";
@@ -56,8 +58,6 @@
 @import "./workout/workout-sets";
 
 @import "./dashboard/dashboard";
-@import "./dashboard/components/quickActions";
 @import "./dashboard/components/goalStats";
-@import "./dashboard/components/lastWorkout";
 @import "./dashboard/components/topExercises";
 @import "./dashboard/components/intro";
