@@ -8,7 +8,6 @@ import "./index.css";
 // Redux store
 import store from "./store";
 // Context Providers
-import { SettingsProvider } from "./contexts/settingsContext";
 import { WorkoutProvider } from "./contexts/workoutContext";
 // Local component imports
 import App from "./App";
@@ -18,11 +17,9 @@ function start() {
     <React.StrictMode>
       <BrowserRouter>
         <Provider store={store}>
-          <SettingsProvider>
-            <WorkoutProvider>
-              <App />
-            </WorkoutProvider>
-          </SettingsProvider>
+          <WorkoutProvider>
+            <App />
+          </WorkoutProvider>
         </Provider>
       </BrowserRouter>
     </React.StrictMode>,

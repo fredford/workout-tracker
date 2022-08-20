@@ -1,9 +1,10 @@
 // Library imports
-import React, { useContext, useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 // Local component imports
 import Card from "../../../../components/Cards/Card";
-// Local context
-import { SettingsContext } from "../../../../contexts/settingsContext";
+//Redux Store
+import { updateUser } from "../../../../redux/reducers/user";
 
 /**
  * Component that allows a user to change the weight units used in the application
@@ -11,33 +12,35 @@ import { SettingsContext } from "../../../../contexts/settingsContext";
  * Status: complete
  */
 const ProfileWeight = () => {
-  // Settings context for user settings
-  const [settings, updateSettings] = useContext(SettingsContext);
-  // Component state for if checked
-  const [checkedWeight, setCheckedWeight] = useState(
-    settings.weight === "lbs" ? false : true
-  );
+  // React hooks
+  const dispatch = useDispatch();
+  // Redux store user
+  const user = useSelector((state) => state.user);
 
   // Function for toggling the units for measuring weight in the application
   const toggleChanger = () => {
-    updateSettings("weight");
-    setCheckedWeight(!checkedWeight);
+    let newUser = { ...user };
+    newUser.weight = user.weight === "lbs" ? "kg" : "lbs";
+
+    try {
+      dispatch(updateUser(newUser));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <Card className="card-padding h-100">
       <Card.ImageHeader path="./scale.png">
         <Card.Title>Weight</Card.Title>
-        <Card.Text className="text-muted">
-          Set the units for measuring weight
-        </Card.Text>
+        <Card.Text className="text-muted">Set the units for measuring weight</Card.Text>
       </Card.ImageHeader>
       <Card.Body className="pb-0 mt-3">
         <div className="profile-settings-card">
           <input
             id="weight"
             type="checkbox"
-            checked={checkedWeight}
+            checked={user.weight === "lbs" ? false : true}
             onChange={toggleChanger}
           />
           <label htmlFor="weight" className="label-theme">
