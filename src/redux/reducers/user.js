@@ -6,7 +6,6 @@ import services from "../../services/services";
 
 // Reducer to fetch the user information
 export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
-
   // Retrieve user information from the server
   const [data, error] = await services.user.getUser(null, null);
 
@@ -15,25 +14,23 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async () => {
 });
 
 // Reducer to update the user information
-export const updateUser = createAsyncThunk(
-  "user/updateUser",
-  async (newUser) => {
+export const updateUser = createAsyncThunk("user/updateUser", async (newUser) => {
+  // Request to update the user information
+  const [data, error] = await services.user.updateUser(newUser, null, null);
+  if (error) throw error;
+  return data;
+});
 
-    // Request to update the user information
-    const [data, error] = await services.user.updateUser(newUser, null, null)
-    if (error) throw error;
-    return data;
-  }
-);
+const initialState = {
+  _id: "",
+  name: "",
+  email: "",
+  theme: "",
+};
 
 const userSlice = createSlice({
   name: "user",
-  initialState: {
-    _id: "",
-    name: "",
-    email: "",
-    theme: "",
-  },
+  initialState: initialState,
   reducers: {
     updateName(state, action) {
       const { name } = action.payload;
@@ -49,6 +46,12 @@ const userSlice = createSlice({
       state.name = name;
       state.email = email;
       state.theme = theme;
+    },
+    resetUser(state, action) {
+      state._id = initialState._id;
+      state.name = initialState.name;
+      state.email = initialState.email;
+      state.theme = initialState.theme;
     },
   },
   extraReducers: {
@@ -68,6 +71,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { updateName, updateTheme, setUser } = userSlice.actions;
+export const { updateName, updateTheme, setUser, resetUser } = userSlice.actions;
 
 export default userSlice.reducer;

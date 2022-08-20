@@ -106,17 +106,17 @@
   content: "kg";
 }
 
-.km-mode {
+.mi-mode {
   left: 21px;
 }
 
-.km-mode::before {
-  content: "km";
-}
-
-.mi-mode {
-  left: 73px;
-}
 .mi-mode::before {
   content: "mi";
+}
+
+.km-mode {
+  left: 73px;
+}
+.km-mode::before {
+  content: "km";
 }
