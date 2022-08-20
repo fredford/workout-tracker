@@ -5,7 +5,7 @@ import { BiHome } from "react-icons/bi";
 
 // Local component imports
 import Page from "../../components/Layout/Page/Page";
-import Button from "../../components/Buttons/buttons";
+import Button from "../../components/Buttons/Button";
 
 /**
  * Page that displays when the path is not found

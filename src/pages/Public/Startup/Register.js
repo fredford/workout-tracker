@@ -7,7 +7,7 @@ import { MdCreate } from "react-icons/md";
 import Page from "../../../components/Layout/Page/Page";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
-import Button from "../../../components/Buttons/buttons";
+import Button from "../../../components/Buttons/Button";
 
 // Utilities
 import AuthService from "../../../services/AuthService";

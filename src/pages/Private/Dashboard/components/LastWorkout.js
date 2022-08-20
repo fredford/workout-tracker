@@ -8,7 +8,7 @@ import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
 
 // Utilities
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import services from "../../../../services/services";
 
 /**

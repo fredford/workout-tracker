@@ -5,7 +5,7 @@ import { FaRunning, FaClipboardList } from "react-icons/fa";
 import { RiFootprintFill } from "react-icons/ri";
 
 //Local component imports
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
 import AddExerciseModal from "../../../../components/Misc/AddExerciseModal";
 import SectionAddWorkout from "../../Workouts/sections/SectionAddWorkout";

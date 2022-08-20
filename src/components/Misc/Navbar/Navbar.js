@@ -9,7 +9,7 @@ import { MdLogout } from "react-icons/md";
 
 // Local component imports
 import NavbarItem from "./NavbarItem";
-import Button from "../../Buttons/buttons";
+import Button from "../../Buttons/Button";
 
 /**
  * Component for displaying the navbar on the edge of the screen

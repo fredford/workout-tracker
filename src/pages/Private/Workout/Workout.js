@@ -8,7 +8,7 @@ import Page from "../../../components/Layout/Page/Page";
 import SectionAddExercise from "./sections/SectionAddExercise";
 import SectionWorkoutInfo from "./sections/SectionWorkoutInfo";
 import SectionAddSet from "./sections/SectionAddSet";
-import Button from "../../../components/Buttons/buttons";
+import Button from "../../../components/Buttons/Button";
 
 // Local services
 import services from "../../../services/services";

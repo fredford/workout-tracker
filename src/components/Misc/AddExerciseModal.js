@@ -7,7 +7,7 @@ import { Modal } from "react-bootstrap";
 // Local components imports
 import Card from "../Cards/Card";
 import Form from "../Forms/Form";
-import Button from "../Buttons/buttons";
+import Button from "../Buttons/Button";
 
 // Reducers
 import { addExercise } from "../../redux/reducers/exercises";

@@ -10,7 +10,7 @@ import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
 import ListExercisesExercise from "../components/ListExercisesExercise";
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 
 // Contexts
 import { ActivityContext } from "../../../../contexts/activityContext";

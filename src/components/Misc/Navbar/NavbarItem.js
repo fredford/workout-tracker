@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 // Local imports
-import Button from "../../Buttons/buttons";
+import Button from "../../Buttons/Button";
 
 /**
  * Component to display a navbar item and redirect to the provided path

@@ -1,7 +1,7 @@
 // Library import
 import React from "react";
 // Local component import
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 
 /**
  * Component to select the user options available

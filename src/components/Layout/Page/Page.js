@@ -8,7 +8,6 @@ const Page = ({ container, className, center, navbar, children }) => {
   let pageBodyClassName = "page-body ";
   pageBodyClassName += container ? "container " : "";
   pageBodyClassName += className ? className : "";
-  //pageBodyClassName += center ? " center-page " : "";
 
   let pageLayoutClassName = navbar ? "normal-page" : "center-page";
 

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Card from "../../../components/Cards/Card";
 import Page from "../../../components/Layout/Page/Page";
 import ExerciseInfo from "./sections/ExerciseInfo";
-import Button from "../../../components/Buttons/buttons";
+import Button from "../../../components/Buttons/Button";
 import ChallengesCard from "./components/ChallengesCard";
 import CardChart from "../../../components/Cards/CardChart";
 // API Services

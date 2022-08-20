@@ -2,7 +2,7 @@
 import React from "react";
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 // Local component imports
-import Button from "../../../../components/Buttons/buttons";
+import Button from "../../../../components/Buttons/Button";
 import Form from "../../../../components/Forms/Form";
 import AddExercise from "./AddExercise";
 

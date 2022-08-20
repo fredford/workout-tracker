@@ -4,7 +4,7 @@ import { MdLogin, MdOutlineCreate } from "react-icons/md";
 
 // Local component imports
 import Page from "../../../components/Layout/Page/Page";
-import Button from "../../../components/Buttons/buttons";
+import Button from "../../../components/Buttons/Button";
 import Card from "../../../components/Cards/Card";
 
 /**

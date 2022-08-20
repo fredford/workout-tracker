@@ -6,7 +6,7 @@ import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 // Local component imports
 import Page from "../../components/Layout/Page/Page";
 import Card from "../../components/Cards/Card";
-import Button from "../../components/Buttons/buttons";
+import Button from "../../components/Buttons/Button";
 import { getAuth } from "../../utilities/utils";
 
 /**

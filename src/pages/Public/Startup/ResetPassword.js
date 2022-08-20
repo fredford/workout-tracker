@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 // Local component imports
-import Button from "../../../components/Buttons/buttons";
+import Button from "../../../components/Buttons/Button";
 import Card from "../../../components/Cards/Card";
 import Form from "../../../components/Forms/Form";
 import Page from "../../../components/Layout/Page/Page";
