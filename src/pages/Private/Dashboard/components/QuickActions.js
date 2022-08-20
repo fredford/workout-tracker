@@ -31,17 +31,18 @@ const QuickActions = React.memo(function WrappedQuickActions() {
   const handleCloseSteps = () => setShowSteps(false);
 
   return (
-    <Card className="dashboard__quick-actions">
+    <Card className="w-100">
       <Card.Header>Quick Actions</Card.Header>
-      <Card.Body className="dashboard__quick-actions-buttons large-gap">
+      <Card.Subtitle>Make some progress</Card.Subtitle>
+      <Card.Body className="section-quick-last__items">
         <>
-          <Button fill Icon={FaRunning} iconSize={25} onClick={handleShowExercise}>
+          <Button Icon={FaRunning} iconSize={25} onClick={handleShowExercise}>
             Add Exercise
           </Button>
           <AddExerciseModal show={showExercise} handleClose={handleCloseExercise} />
         </>
         <>
-          <Button fill Icon={FaClipboardList} iconSize={25} onClick={handleShowWorkout}>
+          <Button Icon={FaClipboardList} iconSize={25} onClick={handleShowWorkout}>
             Add Workout
           </Button>
           <Modal show={showWorkout} onHide={handleCloseWorkout}>
@@ -53,7 +54,7 @@ const QuickActions = React.memo(function WrappedQuickActions() {
           </Modal>
         </>
         <>
-          <Button fill Icon={RiFootprintFill} iconSize={25} onClick={handleShowSteps}>
+          <Button Icon={RiFootprintFill} iconSize={25} onClick={handleShowSteps}>
             Add Steps
           </Button>
           <Modal show={showSteps} onHide={handleCloseSteps}>

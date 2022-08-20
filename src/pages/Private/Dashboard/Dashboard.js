@@ -48,25 +48,21 @@ const Dashboard = () => {
     <Page navbar container>
       <Intro currHr={currHr} />
 
+      <div className="dashboard__section-quick-last">
+        <LastWorkout />
+        <QuickActions />
+      </div>
+
       <div className="dashboard__container large-gap">
-        <div className="lastWorkout">
-          <LastWorkout />
-        </div>
-        <div className="quickActions">
-          <QuickActions />
-        </div>
-        <div className="statsBasic">
+        <div className="w-100">
           <StatsGroupBasic stats={stats.basic} />
-        </div>
-        <div className="chartActivity">
           <ChartRecentActivity />
         </div>
-        <div className="statsArea">
+        <div className="w-100">
           <StatsGroupArea stats={stats.area} />
-        </div>
-        <div className="topExercises">
           <ListTopExercises />
         </div>
+
         {/*
           <div className="grid-350 grid-margin">
             <Goals />

@@ -51,9 +51,6 @@
 }
 
 @media screen and (max-width: $breakpoint-lg) {
-}
-
-@media screen and (max-width: $breakpoint-md) {
   .navbar__container {
     flex-direction: row;
     top: auto;
@@ -76,6 +73,9 @@
   .navbar__logout {
     display: none;
   }
+}
+
+@media screen and (max-width: $breakpoint-md) {
 }
 
 @media screen and (max-width: $breakpoint-sm) {
