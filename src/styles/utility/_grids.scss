@@ -69,7 +69,7 @@
   gap: $large-gap;
 }
 
-@media screen and (max-width: $breakpoint-md) {
+@media screen and (max-width: $breakpoint-lg) {
   .stats-grid {
     gap: $small-gap;
   }

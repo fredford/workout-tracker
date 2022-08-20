@@ -1,14 +1,14 @@
 .dashboard__section-quick-last {
+  @include gap-size;
   display: flex;
   flex-direction: row;
-  gap: $large-gap;
 
   .section-quick-last__items {
+    @include gap-size;
     margin-top: $large-gap;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: $large-gap;
 
     & > * {
       flex: 1 1 0px;
@@ -17,16 +17,16 @@
 }
 
 .dashboard__container {
+  @include gap-size;
   display: flex;
   width: 100%;
-  gap: $large-gap;
 }
 
 .dashboard__group {
+  @include gap-size;
   width: 50%;
   display: flex;
   flex-direction: column;
-  gap: $large-gap;
 }
 
 @media screen and (max-width: $breakpoint-xx) {
@@ -48,25 +48,11 @@
   }
 
   .dashboard__group {
-    gap: $large-gap;
     width: 100%;
   }
 }
 
 @media screen and (max-width: $breakpoint-md) {
-  .dashboard__section-quick-last {
-    gap: $small-gap;
-    .section-quick-last__items {
-      gap: $small-gap;
-    }
-  }
-
-  .dashboard__container {
-    gap: $small-gap;
-  }
-  .dashboard__group {
-    gap: $small-gap;
-  }
 }
 
 @media screen and (max-width: $breakpoint-sm) {
