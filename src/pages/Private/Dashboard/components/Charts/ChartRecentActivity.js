@@ -21,20 +21,16 @@ const ChartRecentActivity = () => {
   // Handle data retrieved for the component state
   useEffect(() => {
     // API GET call to retrieve the recent workout activity from the server
-    const retrieveData = async() => {
-      await services.stats.getDashboardActivity(date, setStats)
-    }
-    retrieveData()
+    const retrieveData = async () => {
+      await services.stats.getDashboardActivity(date, setStats);
+    };
+    retrieveData();
   }, [date]);
 
   // Get the CSS property value for the faded accent color of the application
-  let fadedColor = getComputedStyle(document.body).getPropertyValue(
-    "--background-acce"
-  );
+  let fadedColor = getComputedStyle(document.body).getPropertyValue("--background-acce");
   // Get the CSS property value for the primary accent color of the application
-  let primaryColor = getComputedStyle(document.body).getPropertyValue(
-    "--foreground-acce"
-  );
+  let primaryColor = getComputedStyle(document.body).getPropertyValue("--foreground-acce");
   // Set the chart data settings for ChartJS
   let chartData = {
     labels: Object.keys(stats),
@@ -51,7 +47,7 @@ const ChartRecentActivity = () => {
   };
 
   return (
-    <Card>
+    <Card className="w-100">
       <Card.Header>Recent Activity</Card.Header>
       <Card.Subtitle className="text-muted">Repetitions Per Day</Card.Subtitle>
       <Card.Body className="mt-3">

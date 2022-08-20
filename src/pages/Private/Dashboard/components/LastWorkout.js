@@ -47,7 +47,7 @@ const LastWorkout = () => {
   if (!showLast) {
     return (
       <Button className="w-100" onClick={() => navigate(link)}>
-        <h3>Start Workout</h3>
+        Start Workout
       </Button>
     );
   } else {

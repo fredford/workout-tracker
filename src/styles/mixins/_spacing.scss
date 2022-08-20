@@ -1,3 +1,11 @@
 @mixin standard-padding {
   padding: 0.5rem;
 }
+
+@mixin gap-size {
+  gap: $large-gap;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    gap: $small-gap;
+  }
+}

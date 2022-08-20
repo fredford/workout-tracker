@@ -8,7 +8,6 @@ import Card from "../../../../../components/Cards/Card";
 // Utilities
 import services from "../../../../../services/services";
 
-
 /**
  * Component that displays a list of the top exercises in the application
  *
@@ -26,10 +25,10 @@ const ListTopExercises = () => {
   // Handle data retrieved for the component state
   useEffect(() => {
     // API GET call to retrieve the top exercises in the application
-    const retrieveData = async() => {
+    const retrieveData = async () => {
       await services.stats.getTopExercises(area, date, setStats);
-    }
-    retrieveData()
+    };
+    retrieveData();
   }, [area, date]);
 
   // Function to handle redirecting the user to the exercise they have clicked on
@@ -38,7 +37,7 @@ const ListTopExercises = () => {
   };
 
   return (
-    <Card className="d-flex align-items-stretch">
+    <Card className="w-100">
       <Card.Header>Top Exercises</Card.Header>
       <Card.Body className="">
         <div className="dashboard__table-dropdown">
