@@ -23,12 +23,14 @@
     }
 
     &:hover {
-      background-color: var(--background-prim);
+      border: $border-fg-prim;
+      color: $foreground-primary;
     }
 
     &:active {
       @include button-border;
-      background-color: var(--foreground-prim);
+      color: $background-card;
+      background-color: $foreground-primary;
     }
 
     &.collapsed {
@@ -41,10 +43,12 @@
       box-shadow: none !important;
 
       &:hover {
-        background-color: var(--background-prim);
+        color: $foreground-primary;
+        border: $border-fg-prim;
       }
       &:active {
         background-color: var(--foreground-prim);
+        color: $background-card;
       }
     }
     &::after {
@@ -68,6 +72,12 @@
 
   .accordion-body {
     background-color: var(--background-body);
-    padding: 1rem 0.5rem;
+    padding: $large-gap 0;
+  }
+
+  @media screen and (max-width: $breakpoint-lg) {
+    .accordion-body {
+      padding: $small-gap 0;
+    }
   }
 }

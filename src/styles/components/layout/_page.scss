@@ -1,6 +1,6 @@
 .page {
   background-color: $background-body;
-  margin: $large-gap;
+  padding: $large-gap;
 }
 
 .page-body {
@@ -29,7 +29,7 @@
 
 @media screen and (max-width: $breakpoint-lg) {
   .page {
-    margin: $small-gap;
+    padding: $small-gap;
   }
 
   .page-body {
@@ -46,7 +46,7 @@
 
 @media screen and (max-width: $breakpoint-sm) {
   .page {
-    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
   }
   .normal-page {
     .container {

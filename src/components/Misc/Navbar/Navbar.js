@@ -1,6 +1,6 @@
 // Library imports
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import DashboardTwoToneIcon from "@mui/icons-material/Dashboard";
 import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
 import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
@@ -11,6 +11,8 @@ import { MdLogout } from "react-icons/md";
 import NavbarItem from "./NavbarItem";
 import Button from "../../Buttons/Button";
 
+// Redux store
+import { resetUser } from "../../../redux/reducers/user";
 /**
  * Component for displaying the navbar on the edge of the screen
  *
@@ -18,12 +20,12 @@ import Button from "../../Buttons/Button";
  */
 const Navbar = () => {
   // React hooks
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // Function for logging the user out of their account
   const handleLogout = () => {
     localStorage.removeItem("authToken");
-    navigate("/startup");
+    dispatch(resetUser());
   };
 
   return (
@@ -35,7 +37,7 @@ const Navbar = () => {
         <NavbarItem name="Exercises" icon={DirectionsRunIcon} />
         <NavbarItem name="Workouts" icon={AssignmentOutlinedIcon} />
       </div>
-      <Button Icon={MdLogout} className="navbar__logout" onClick={handleLogout}>
+      <Button path="/startup" Icon={MdLogout} className="navbar__logout" onClick={handleLogout}>
         Logout
       </Button>
     </div>

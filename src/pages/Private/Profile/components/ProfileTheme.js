@@ -1,9 +1,10 @@
 // Library imports
-import React, { useContext, useState } from "react";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 // Local component imports
 import Card from "../../../../components/Cards/Card";
-// Contexts
-import { SettingsContext } from "../../../../contexts/settingsContext";
+//Redux Store
+import { updateUser } from "../../../../redux/reducers/user";
 
 /**
  * Component to allow the user to change the color theme of the application
@@ -11,17 +12,21 @@ import { SettingsContext } from "../../../../contexts/settingsContext";
  * Status: complete
  */
 const ProfileTheme = () => {
-  // Settings context for user settings
-  const [settings, updateSettings] = useContext(SettingsContext);
-  // Component state for if checked
-  const [checkedTheme, setCheckedTheme] = useState(
-    settings.theme === "dark" ? true : false
-  );
+  // React hooks
+  const dispatch = useDispatch();
+  // Redux store user
+  const user = useSelector((state) => state.user);
 
-  // Function for updating theme of the application in the settingsContext
+  // Function for updating theme of the application
   const toggleChanger = () => {
-    updateSettings("theme");
-    setCheckedTheme(!checkedTheme);
+    let newUser = { ...user };
+    newUser.theme = user.theme === "light" ? "dark" : "light";
+
+    try {
+      dispatch(updateUser(newUser));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -35,13 +40,13 @@ const ProfileTheme = () => {
           <input
             id="theme"
             type="checkbox"
-            checked={checkedTheme}
+            checked={user.theme !== "dark"}
             onChange={toggleChanger}
           />
           <label htmlFor="theme" className="label-theme">
             <div className="theme-slider"></div>
-            <span className="slider-label-left light-mode" />
-            <span className="slider-label-right dark-mode" />
+            <span className="slider-label-left dark-mode" />
+            <span className="slider-label-right light-mode" />
           </label>
         </div>
       </Card.Body>
