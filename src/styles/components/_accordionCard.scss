@@ -10,6 +10,7 @@
 
     &.collapsed {
       border-radius: $border-radius !important;
+      border: $border-fg-prim;
     }
 
     &:not(.collapsed) {
@@ -19,6 +20,7 @@
 
       &:hover {
         background-color: var(--background-prim);
+        border: $border-fg-prim;
       }
     }
   }
