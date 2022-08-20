@@ -28,9 +28,6 @@
 }
 
 @media screen and (max-width: $breakpoint-lg) {
-}
-
-@media screen and (max-width: $breakpoint-md) {
   .page {
     margin: $small-gap;
   }
@@ -42,6 +39,9 @@
   .normal-page {
     margin: 0 0 97px 0;
   }
+}
+
+@media screen and (max-width: $breakpoint-md) {
 }
 
 @media screen and (max-width: $breakpoint-sm) {

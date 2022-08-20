@@ -18,16 +18,15 @@
 
 .dashboard__container {
   display: flex;
-  flex-direction: row;
+  width: 100%;
+  gap: $large-gap;
+}
 
-  .dashboard__group {
-    display: flex;
-    flex-direction: column;
-    gap: $large-gap;
-    & > * {
-      flex: 1 1 auto;
-    }
-  }
+.dashboard__group {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: $large-gap;
 }
 
 @media screen and (max-width: $breakpoint-xx) {
@@ -39,10 +38,35 @@
 @media screen and (max-width: $breakpoint-lg) {
   .dashboard__section-quick-last {
     flex-direction: column;
+
+    .section-quick-last__items {
+    }
+  }
+
+  .dashboard__container {
+    flex-direction: column;
+  }
+
+  .dashboard__group {
+    gap: $large-gap;
+    width: 100%;
   }
 }
 
 @media screen and (max-width: $breakpoint-md) {
+  .dashboard__section-quick-last {
+    gap: $small-gap;
+    .section-quick-last__items {
+      gap: $small-gap;
+    }
+  }
+
+  .dashboard__container {
+    gap: $small-gap;
+  }
+  .dashboard__group {
+    gap: $small-gap;
+  }
 }
 
 @media screen and (max-width: $breakpoint-sm) {

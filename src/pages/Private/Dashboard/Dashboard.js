@@ -45,7 +45,7 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <Page navbar container>
+    <Page navbar>
       <Intro currHr={currHr} />
 
       <div className="dashboard__section-quick-last">
@@ -53,12 +53,12 @@ const Dashboard = () => {
         <QuickActions />
       </div>
 
-      <div className="dashboard__container large-gap">
-        <div className="w-100">
+      <div className="dashboard__container">
+        <div className="dashboard__group">
           <StatsGroupBasic stats={stats.basic} />
           <ChartRecentActivity />
         </div>
-        <div className="w-100">
+        <div className="dashboard__group">
           <StatsGroupArea stats={stats.area} />
           <ListTopExercises />
         </div>
