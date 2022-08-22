@@ -1,6 +1,7 @@
 // Library imports
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "../../../../components/Buttons/Button";
 
 /**
  * Component for displaying an Exercise card with an image of the exercise type
@@ -12,22 +13,20 @@ const ListExercisesExercise = React.memo(({ exercise }) => {
   const navigate = useNavigate();
 
   return (
-    <div
-      className="list-exercise__card"
+    <Button
       id={exercise.area}
       key={exercise._id}
       onClick={() => navigate(`/exercises/${exercise._id}`)}
+      className="align-items-start no-gap"
     >
-      <img
-        className="list-exercise__image"
-        id={`${exercise.area.toLowerCase()}-image`}
-        alt=""
-      />
-      <div className="list-exercise__text">
-        <h6>{exercise.name}</h6>
-        <p>{exercise.type}</p>
-      </div>
-    </div>
+      <span className="list-exercise__text">
+        <span className="list-exercise__name">{exercise.name}</span>
+        <span className="w-100 d-flex justify-content-between">
+          <span className="list-exercise__area">{exercise.area}</span>
+          <span className="list-exercise__type">{exercise.type}</span>
+        </span>
+      </span>
+    </Button>
   );
 });
 

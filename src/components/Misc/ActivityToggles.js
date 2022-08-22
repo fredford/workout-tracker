@@ -63,8 +63,6 @@ export default function ActivityToggles() {
     },
   };
 
-  console.log(types);
-
   return (
     <div className="mb-3">
       <h4 className="activity__button-title">Activity Type</h4>

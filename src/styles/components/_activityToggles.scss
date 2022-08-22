@@ -7,7 +7,26 @@
 .activity__button-group {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  & > * {
+    flex: 1 1 0px;
+    min-width: 115px;
+  }
+
+  @media screen and (max-width: 769px) {
+    & > * {
+      flex-basis: 175px;
+    }
+  }
+
+  @media screen and (max-width: 422px) {
+    & > * {
+      flex-basis: 90px;
+    }
+  }
 }
 
 .activity__button-group label {

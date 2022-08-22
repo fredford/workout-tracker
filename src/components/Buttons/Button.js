@@ -61,7 +61,7 @@ const Button = ({
     <button id={id} className={buttonClassName} onClick={handleClick} disabled={disabled}>
       {src || srcId ? <img className="standard-image" src={src} id={srcId} alt={alt} /> : <></>}
       {Icon ? <Icon size={iconSize} /> : <></>}
-      {children ? <p>{children}</p> : <></>}
+      {children ? <p className="w-100">{children}</p> : <></>}
     </button>
   );
 };
