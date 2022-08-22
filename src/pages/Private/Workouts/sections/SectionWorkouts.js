@@ -23,11 +23,16 @@ const SectionWorkouts = () => {
   // Component state
   const [page, setPage] = useState(0);
   const [workouts, setWorkouts] = useState([]);
+  const [numPages, setNumPages] = useState(0);
+
+  console.log(numPages);
 
   useEffect(() => {
     // Function to retrieve User Workouts from the server
     const retrieveAllWorkouts = async () => {
       await services.workouts.getAll(setWorkouts);
+
+      setNumPages(Math.floor(workouts.length / 10));
     };
 
     retrieveAllWorkouts();
@@ -103,8 +108,12 @@ const SectionWorkouts = () => {
         </div>
 
         <div className="d-flex flex-row justify-content-center">
-          <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} className="me-3" />
-          <Button iconOnly Icon={FaArrowRight} onClick={increasePage} />
+          {page > 0 ? (
+            <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} className="me-3" />
+          ) : (
+            <></>
+          )}
+          {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
         </div>
       </Section.Body>
     </Section>
