@@ -25,8 +25,6 @@ const SectionWorkouts = () => {
   const [workouts, setWorkouts] = useState([]);
   const [numPages, setNumPages] = useState(0);
 
-  console.log(numPages);
-
   useEffect(() => {
     // Function to retrieve User Workouts from the server
     const retrieveAllWorkouts = async () => {
