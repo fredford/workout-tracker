@@ -1,7 +1,10 @@
 // Library imports
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
+// Local components
+import Loading from "../Utility/Loading";
 
 // Redux store reducers
 import { fetchUser } from "../../redux/reducers/user";
@@ -19,12 +22,21 @@ const PrivateRoute = () => {
   const dispatch = useDispatch();
   // Check if the user has an authentication token
   let token = localStorage.getItem("authToken");
+  // App starting
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (token) {
       // Attempt to use the auth token with the server, if it is invalid remove
       try {
-        dispatch(fetchUser());
+        dispatch(fetchUser()).then(
+          (res) => {
+            setLoading(false);
+          },
+          (rej) => {
+            setLoading(false);
+          }
+        );
         dispatch(fetchExercises());
       } catch (e) {
         localStorage.removeItem("authToken");
@@ -32,11 +44,9 @@ const PrivateRoute = () => {
     }
   }, [token, dispatch]);
 
-  return localStorage.getItem("authToken") ? (
-    <Outlet />
-  ) : (
-    <Navigate to="/startup" />
-  );
+  if (loading) return <Loading />;
+
+  return localStorage.getItem("authToken") ? <Outlet /> : <Navigate to="/startup" />;
 };
 
 export default PrivateRoute;
