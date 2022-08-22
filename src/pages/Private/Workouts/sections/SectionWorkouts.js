@@ -70,11 +70,11 @@ const SectionWorkouts = () => {
               let date = new Date(workout.date);
               return (
                 <div className="list-workouts__workout" key={workout._id}>
-                  <Card
+                  <div
                     className="list-workouts__workout-card"
                     onClick={() => navigate(`/workouts/${workout._id}`)}
                   >
-                    <Card.Body className="list-workouts__workout-body">
+                    <div className="list-workouts__workout-body">
                       <img
                         className="list-workouts__workout-image"
                         src={workoutTypeImg[workout.type]}
@@ -82,10 +82,20 @@ const SectionWorkouts = () => {
                       />
                       <div className="list-workouts__workout-text">
                         <h5>{date.toDateString()}</h5>
-                        <h6>{workout.type}</h6>
+                        <p className="list-workouts__workout-name">
+                          <span className="d-flex flex-column">
+                            Reps <span className="list-workouts__workout-stat">{workout.Reps}</span>
+                          </span>
+                          <span className="d-flex flex-column">
+                            Sets <span className="list-workouts__workout-stat">{workout.Sets}</span>
+                          </span>
+                          <span className="d-flex flex-column">
+                            Avg <span className="list-workouts__workout-stat">{workout.Avg}</span>
+                          </span>
+                        </p>
                       </div>
-                    </Card.Body>
-                  </Card>
+                    </div>
+                  </div>
                 </div>
               );
             })
