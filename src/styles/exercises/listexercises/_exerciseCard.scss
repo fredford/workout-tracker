@@ -1,13 +1,12 @@
 .list-exercises__container {
+  @include gap-size;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   margin-bottom: 1rem;
 }
 
 .list-exercise__card {
-  @include button-border;
-  @include empty-base-color;
+  @include default-button;
 
   color: var(--foreground-text);
   padding: 1rem;
@@ -23,15 +22,28 @@
 }
 
 .list-exercise__text {
-  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
 
-  h6 {
+  .list-exercise__name {
+    color: $foreground-primary;
+    font-weight: $font-bold;
+    font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 110px;
   }
-  p {
-    color: var(--foreground-mute);
+
+  .list-exercise__area {
+    color: $foreground-accent;
+    font-weight: $font-norm;
+  }
+
+  .list-exercise__type {
+    color: $foreground-mute;
+    font-weight: $font-slim;
   }
 }
