@@ -24,7 +24,7 @@ class SetsService {
    * @returns {Promise<[*,null]|[null,*]>}
    */
   removeSet(id, successFunc = null, failureFunc = null) {
-    return api.request(http.delete(`/sets/${id}`), successFunc, failureFunc);
+    return api.request(http.delete(`/sets?id=${id}`), successFunc, failureFunc);
   }
 }
 
