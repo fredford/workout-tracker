@@ -1,16 +1,9 @@
 .list-workouts {
+  @include gap-size;
   margin-bottom: 1rem;
 
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-@media screen and (max-width: 600px) {
-  .list-workouts {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 .list-workouts__workout {
@@ -24,18 +17,22 @@
   @include standard-image;
   z-index: 2;
   margin-right: 1rem;
-
-  :hover > & {
-    background-color: var(--foreground-prim) !important;
-  }
+  width: 45px !important;
 }
 
 .list-workouts__workout-card {
+  color: $foreground-text;
+  border: $border-bg-prim;
+  border-radius: $border-radius;
+  height: 100%;
   padding: 0.5rem;
 
   &:hover {
-    background-color: var(--background-prim);
-    color: var(--foreground-text);
+    border: $border-fg-prim;
+  }
+  &:active {
+    background-color: $foreground-primary;
+    color: $background-card !important;
   }
 }
 
@@ -47,7 +44,7 @@
 }
 
 .list-workouts__workout-text {
-  margin-top: 1rem;
+  width: 150px;
   h5 {
     color: inherit;
   }
@@ -55,4 +52,19 @@
     color: inherit;
     font-weight: $font-norm;
   }
+}
+
+.list-workouts__workout-stat {
+  color: $foreground-accent;
+  font-weight: $font-bold;
+
+  &:has(:active) {
+    color: inherit;
+  }
+}
+
+.list-workouts__workout-name {
+  display: flex;
+  justify-content: space-between;
+  font-weight: $font-slim;
 }

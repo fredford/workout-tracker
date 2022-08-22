@@ -30,9 +30,11 @@ const SectionExercises = () => {
   const [isAscending, setIsAscending] = React.useState(false);
   const [search, setSearch] = React.useState("");
   const [page, setPage] = React.useState(0);
+  const [numPages, setNumPages] = useState(0);
 
   useEffect(() => {
     setPage(0);
+    setNumPages(Math.floor(exercises.length / 10));
   }, [activities]);
 
   let displayList = [...exercises];
@@ -122,8 +124,12 @@ const SectionExercises = () => {
               )}
             </div>
             <div className="d-flex flex-row justify-content-center large-gap">
-              <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} />
-              <Button iconOnly Icon={FaArrowRight} onClick={increasePage} />
+              {page > 0 ? <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} /> : <></>}
+              {numPages > 0 ? (
+                <Button iconOnly Icon={FaArrowRight} onClick={increasePage} />
+              ) : (
+                <></>
+              )}
             </div>
           </Card.Body>
         </Card>

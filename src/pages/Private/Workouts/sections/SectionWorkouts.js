@@ -23,11 +23,16 @@ const SectionWorkouts = () => {
   // Component state
   const [page, setPage] = useState(0);
   const [workouts, setWorkouts] = useState([]);
+  const [numPages, setNumPages] = useState(0);
+
+  console.log(numPages);
 
   useEffect(() => {
     // Function to retrieve User Workouts from the server
     const retrieveAllWorkouts = async () => {
       await services.workouts.getAll(setWorkouts);
+
+      setNumPages(Math.floor(workouts.length / 10));
     };
 
     retrieveAllWorkouts();
@@ -70,11 +75,11 @@ const SectionWorkouts = () => {
               let date = new Date(workout.date);
               return (
                 <div className="list-workouts__workout" key={workout._id}>
-                  <Card
+                  <div
                     className="list-workouts__workout-card"
                     onClick={() => navigate(`/workouts/${workout._id}`)}
                   >
-                    <Card.Body className="list-workouts__workout-body">
+                    <div className="list-workouts__workout-body">
                       <img
                         className="list-workouts__workout-image"
                         src={workoutTypeImg[workout.type]}
@@ -82,10 +87,20 @@ const SectionWorkouts = () => {
                       />
                       <div className="list-workouts__workout-text">
                         <h5>{date.toDateString()}</h5>
-                        <h6>{workout.type}</h6>
+                        <p className="list-workouts__workout-name">
+                          <span className="d-flex flex-column">
+                            Reps <span className="list-workouts__workout-stat">{workout.Reps}</span>
+                          </span>
+                          <span className="d-flex flex-column">
+                            Sets <span className="list-workouts__workout-stat">{workout.Sets}</span>
+                          </span>
+                          <span className="d-flex flex-column">
+                            Avg <span className="list-workouts__workout-stat">{workout.Avg}</span>
+                          </span>
+                        </p>
                       </div>
-                    </Card.Body>
-                  </Card>
+                    </div>
+                  </div>
                 </div>
               );
             })
@@ -93,8 +108,12 @@ const SectionWorkouts = () => {
         </div>
 
         <div className="d-flex flex-row justify-content-center">
-          <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} className="me-3" />
-          <Button iconOnly Icon={FaArrowRight} onClick={increasePage} />
+          {page > 0 ? (
+            <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} className="me-3" />
+          ) : (
+            <></>
+          )}
+          {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
         </div>
       </Section.Body>
     </Section>
