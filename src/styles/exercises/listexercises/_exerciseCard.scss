@@ -46,4 +46,18 @@
     color: $foreground-mute;
     font-weight: $font-slim;
   }
+
+  &:active {
+    .list-exercise__name {
+      color: $background-card;
+    }
+
+    .list-exercise__area {
+      color: $background-card;
+    }
+
+    .list-exercise__type {
+      color: $background-card;
+    }
+  }
 }
