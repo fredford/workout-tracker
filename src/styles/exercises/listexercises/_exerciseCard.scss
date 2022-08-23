@@ -1,7 +1,11 @@
+.list-exercises {
+  //max-width: 508px;
+}
+
 .list-exercises__container {
   @include gap-size;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
   margin-bottom: 1rem;
 }
 

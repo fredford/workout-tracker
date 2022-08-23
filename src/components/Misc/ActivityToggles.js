@@ -74,8 +74,6 @@ export default function ActivityToggles() {
               id={types[type].id}
               active={types[type].checked}
               onChange={buttonChange}
-              src={types[type].src}
-              alt={types[type].alt}
               fill
             >
               {type}

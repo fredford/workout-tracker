@@ -2,49 +2,68 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// Local component imports
-import Card from "../../../../../components/Cards/Card";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
-// Utilities
-import services from "../../../../../services/services";
+// Local component imports
+import Card from "../Cards/Card";
+import Button from "../Buttons/Button";
 
 /**
  * Component that displays a list of the top exercises in the application
  *
  * Status: complete
  */
-const ListTopExercises = () => {
+const StatsListExercises = ({ stats, dateState, areaState, path, className }) => {
   // Library Hooks
   const navigate = useNavigate();
 
-  // State variables for current date and area range
-  const [stats, setStats] = useState([]);
-  const [date, setDate] = useState("week");
-  const [area, setArea] = useState("all");
+  const [page, setPage] = React.useState(0);
+  const [numPages, setNumPages] = useState(0);
 
-  // Handle data retrieved for the component state
   useEffect(() => {
-    // API GET call to retrieve the top exercises in the application
-    const retrieveData = async () => {
-      await services.stats.getTopExercises(area, date, 5, setStats);
-    };
-    retrieveData();
-  }, [area, date]);
+    setPage(0);
+    setNumPages(Math.ceil(stats.length / 5));
+  }, [stats]);
 
+  console.log(Math.ceil(6 / 5));
+
+  let displayList = [...stats];
+
+  // If there are more exercises than 10 divide into pages
+  if (displayList.length > 5) {
+    displayList = displayList.slice(page * 5, page * 5 + 5);
+  }
+
+  // Increase the current page number
+  const increasePage = () => {
+    var newPage = page;
+
+    if (stats.length > 5) {
+      setPage(++newPage);
+    }
+  };
+  // Decrease the current page number to a minimum of zero
+  const decreasePage = () => {
+    var newPage = page;
+
+    if (page > 0) {
+      setPage(--newPage);
+    }
+  };
   // Function to handle redirecting the user to the exercise they have clicked on
   const openExercise = (id) => {
-    navigate(`/exercises/${id}`);
+    navigate(`/${path}/${id}`);
   };
 
   return (
-    <Card className="w-100">
+    <Card className={className}>
       <Card.Header>Top Exercises</Card.Header>
       <Card.Body className="">
         <div className="dashboard__table-dropdown">
           <select
             className="dashboard__table-dropdown-menu"
-            onChange={(e) => setArea(e.target.value)}
-            value={area}
+            onChange={(e) => areaState[1](e.target.value)}
+            value={areaState[0]}
           >
             <option value="all">All</option>
             <option value="upper">Upper</option>
@@ -54,8 +73,10 @@ const ListTopExercises = () => {
           </select>
           <select
             className="dashboard__chart-dropdown-menu"
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
+            onChange={(e) => {
+              dateState[1](e.target.value);
+            }}
+            value={dateState[0]}
           >
             <option value="week">Week</option>
             <option value="month">Month</option>
@@ -74,7 +95,7 @@ const ListTopExercises = () => {
             </tr>
           </thead>
           <tbody>
-            {stats.map((stat) => {
+            {displayList.map((stat) => {
               return (
                 <tr
                   key={stat.name}
@@ -91,9 +112,13 @@ const ListTopExercises = () => {
             })}
           </tbody>
         </table>
+        <div className="d-flex flex-row justify-content-center large-gap">
+          {page > 0 ? <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} /> : <></>}
+          {numPages > 1 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
+        </div>
       </Card.Body>
     </Card>
   );
 };
 
-export default ListTopExercises;
+export default StatsListExercises;
