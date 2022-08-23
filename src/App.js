@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/styles.scss";
 
 // Utility components
-import Loading from "./pages/Utility/Loading";
+import Landing from "./pages/Utility/Landing";
 import PrivateRoute from "./pages/Utility/PrivateRoute";
 
 // Available routes
@@ -34,7 +34,7 @@ const App = () => {
   return (
     <div className="App" data-theme={user.theme}>
       <Routes>
-        <Route exact path="/" element={<Loading />} />
+        <Route exact path="/" element={<Landing />} />
         <Route element={<PrivateRoute />}>
           {privateRoutes.map((route, index) => {
             return <Route key={index} exact path={route.path} element={route.element} />;
