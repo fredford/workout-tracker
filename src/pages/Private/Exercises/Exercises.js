@@ -30,8 +30,6 @@ const Exercises = () => {
     retrieveAllStats();
   }, [date, area]);
 
-  console.log(stats);
-
   // Retrieve All Exercises using Redux reducer
   const retrieveAllExercises = async () => {
     try {
