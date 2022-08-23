@@ -25,8 +25,6 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
     setNumPages(Math.ceil(stats.length / 5));
   }, [stats]);
 
-  console.log(Math.ceil(6 / 5));
-
   let displayList = [...stats];
 
   // If there are more exercises than 10 divide into pages
