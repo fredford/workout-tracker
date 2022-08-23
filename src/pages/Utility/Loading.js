@@ -1,9 +1,5 @@
 // Library imports
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-// Utilities
-import { getAuth } from "../../utilities/utils";
+import React from "react";
 
 /**
  * Component to show a loading icon
@@ -12,26 +8,7 @@ import { getAuth } from "../../utilities/utils";
  *
  * Status: completed
  */
-const Loading = () => {
-  // React hooks
-  let navigate = useNavigate();
-  // Component state
-  // eslint-disable-next-line no-unused-vars
-  const [show, setShow] = useState(true);
-  // Retrieve auth token
-  let token = getAuth();
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShow(false);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timer);
-      token ? navigate("/dashboard") : navigate("/startup");
-    };
-  });
-
+const Loading = React.memo(() => {
   return (
     <div className="loading-container">
       <span className="loading-main">
@@ -39,6 +16,6 @@ const Loading = () => {
       </span>
     </div>
   );
-};
+});
 
 export default Loading;
