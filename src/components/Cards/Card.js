@@ -75,6 +75,14 @@ const Subtitle = (props) => {
 Subtitle.displayName = "Subtitle";
 Card.Subtitle = Subtitle;
 
+// Bar separator for separating different components in the Card
+const Bar = (props) => {
+  let className = "card__bar " + props.className;
+  return <hr className={className} />;
+};
+Bar.displayName = "Bar";
+Card.Bar = Bar;
+
 // Body container displaying the remaining components in the Card
 const Body = (props) => {
   let className = "card__body " + props.className;
@@ -90,13 +98,5 @@ const Text = (props) => {
 };
 Text.displayName = "Text";
 Card.Text = Text;
-
-// Bar separator for separating different components in the Card
-const Bar = (props) => {
-  let className = "card__bar " + props.className;
-  return <hr className={className} />;
-};
-Bar.displayName = "Bar";
-Card.Bar = Bar;
 
 export default Card;

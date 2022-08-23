@@ -13,8 +13,12 @@ class StatsService {
    * @param failureFunc function - Function to be executed upon failure
    * @returns {Promise<[*,null]|[null,*]>}
    */
-  getTopExercises(area, range, successFunc = null, failureFunc = null) {
-    return api.fetch(http.get(`/stats/topExercises?area=${area}&range=${range}`), successFunc, failureFunc);
+  getTopExercises(area, range, num = 5, successFunc = null, failureFunc = null) {
+    return api.fetch(
+      http.get(`/stats/topExercises?area=${area}&range=${range}&num=${num}`),
+      successFunc,
+      failureFunc
+    );
   }
 
   /**
@@ -34,7 +38,7 @@ class StatsService {
    * @param failureFunc - function to execute on failure
    * @returns {Promise<[*,null]|[null,any]>}
    */
-  getDashboardDataBasic(successFunc = null, failureFunc = null ) {
+  getDashboardDataBasic(successFunc = null, failureFunc = null) {
     return api.fetch(http.get(`/stats/dashboardData`), successFunc, failureFunc);
   }
 

@@ -13,7 +13,7 @@
 
   & > * {
     flex: 1 1 0px;
-    min-width: 115px;
+    min-width: 95px;
   }
 
   @media screen and (max-width: 769px) {
@@ -24,7 +24,7 @@
 
   @media screen and (max-width: 422px) {
     & > * {
-      flex-basis: 90px;
+      flex-basis: 120px;
     }
   }
 }
@@ -39,7 +39,7 @@
 }
 
 .activity__button-group p {
-  color: var(--foreground-text);
+  color: $foreground-accent;
   font-weight: bold;
 }
 

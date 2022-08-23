@@ -5,7 +5,6 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 // Local component imports
 import Card from "../../../../components/Cards/Card";
-import Section from "../../../../components/Misc/Section";
 import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
@@ -20,7 +19,7 @@ import { ActivityContext } from "../../../../contexts/activityContext";
  *
  * Status: complete
  */
-const SectionExercises = () => {
+const ListExercises = () => {
   // Redux State
   const exercises = useSelector((state) => state.exercises.exercises);
   // Context variables
@@ -97,45 +96,38 @@ const SectionExercises = () => {
   };
 
   return (
-    <Section>
-      <Section.Body>
-        <Card>
-          <Card.Body>
-            <ActivityToggles />
-            <ListExercisesUserOptions userClicked={userOnly} changeUserClicked={changeUserOnly} />
-            <ListExerciseSearchBar
-              isAscending={isAscending}
-              changeDirection={changeDirection}
-              search={search}
-              changeSearch={changeSearch}
-            />
-            <Card.Bar />
-            <div className="list-exercises__container">
-              {React.Children.toArray(
-                displayList.map((exercise) => {
-                  var area = exercise.area.toLowerCase();
-                  var isAllOff = Object.values(activities).every((x) => x[0] === false);
-                  if (isAllOff || activities[area][0]) {
-                    return <ListExercisesExercise exercise={exercise} />;
-                  } else {
-                    return <></>;
-                  }
-                })
-              )}
-            </div>
-            <div className="d-flex flex-row justify-content-center large-gap">
-              {page > 0 ? <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} /> : <></>}
-              {numPages > 0 ? (
-                <Button iconOnly Icon={FaArrowRight} onClick={increasePage} />
-              ) : (
-                <></>
-              )}
-            </div>
-          </Card.Body>
-        </Card>
-      </Section.Body>
-    </Section>
+    <Card className="list-exercises">
+      <Card.Header>Exercise List</Card.Header>
+      <Card.Body>
+        <ActivityToggles />
+        <ListExercisesUserOptions userClicked={userOnly} changeUserClicked={changeUserOnly} />
+        <ListExerciseSearchBar
+          isAscending={isAscending}
+          changeDirection={changeDirection}
+          search={search}
+          changeSearch={changeSearch}
+        />
+        <Card.Bar />
+        <div className="list-exercises__container">
+          {React.Children.toArray(
+            displayList.map((exercise) => {
+              var area = exercise.area.toLowerCase();
+              var isAllOff = Object.values(activities).every((x) => x[0] === false);
+              if (isAllOff || activities[area][0]) {
+                return <ListExercisesExercise exercise={exercise} />;
+              } else {
+                return <></>;
+              }
+            })
+          )}
+        </div>
+        <div className="d-flex flex-row justify-content-center large-gap">
+          {page > 0 ? <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} /> : <></>}
+          {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
+        </div>
+      </Card.Body>
+    </Card>
   );
 };
 
-export default SectionExercises;
+export default ListExercises;
