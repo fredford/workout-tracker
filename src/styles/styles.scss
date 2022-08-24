@@ -23,6 +23,7 @@
 @import "./utility/colors";
 @import "./utility/utility";
 @import "./utility/loading";
+@import "./utility/layout";
 
 @import "./components/cards";
 @import "./components/accordionCard";
@@ -53,6 +54,7 @@
 
 @import "./workouts/list-workouts";
 @import "./workouts/add-workout";
+@import "./workouts/workouts";
 
 @import "./workout/workout-info";
 @import "./workout/workout-exercises";

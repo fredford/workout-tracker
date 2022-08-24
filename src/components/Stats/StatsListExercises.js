@@ -13,7 +13,7 @@ import Button from "../Buttons/Button";
  *
  * Status: complete
  */
-const StatsListExercises = ({ stats, dateState, areaState, path, className }) => {
+const StatsListExercises = ({ stats, dateState = "all", areaState = "all", path, className }) => {
   // Library Hooks
   const navigate = useNavigate();
 
@@ -53,9 +53,13 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
     navigate(`/${path}/${id}`);
   };
 
+  console.log(displayList);
+
   return (
     <Card className={className}>
-      <Card.Header>Top Exercises</Card.Header>
+      <Card.Header>
+        Top <span className="text-capitalize">{path}</span>
+      </Card.Header>
       <Card.Body className="mt-3">
         <div className="dashboard__table-dropdown">
           <select
@@ -63,24 +67,28 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
             onChange={(e) => areaState[1](e.target.value)}
             value={areaState[0]}
           >
-            <option value="all">All</option>
-            <option value="upper">Upper</option>
-            <option value="lower">Lower</option>
-            <option value="core">Core</option>
-            <option value="cardio">Cardio</option>
+            {Object.keys(menus.areas[path]).map((key) => {
+              return (
+                <option key={key} value={key}>
+                  {menus.areas[path][key]}
+                </option>
+              );
+            })}
           </select>
-          <select
-            className="dashboard__chart-dropdown-menu"
-            onChange={(e) => {
-              dateState[1](e.target.value);
-            }}
-            value={dateState[0]}
-          >
-            <option value="week">Week</option>
-            <option value="month">Month</option>
-            <option value="year">Year</option>
-            <option value="alltime">All-Time</option>
-          </select>
+          {path === "exercises" && (
+            <select
+              className="dashboard__chart-dropdown-menu"
+              onChange={(e) => {
+                dateState[1](e.target.value);
+              }}
+              value={dateState[0]}
+            >
+              <option value="week">Week</option>
+              <option value="month">Month</option>
+              <option value="year">Year</option>
+              <option value="alltime">All-Time</option>
+            </select>
+          )}
         </div>
         <table className="top-exercises__container">
           <thead>
@@ -89,22 +97,24 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
               <th>Reps</th>
               <th>Sets</th>
               <th>Avg.</th>
-              <th>Max</th>
+              {path === "exercises" ? <th>Max</th> : <></>}
             </tr>
           </thead>
           <tbody>
             {displayList.map((stat) => {
+              let title = path === "exercises" ? stat.name : new Date(stat.date).toDateString();
+
               return (
                 <tr
-                  key={stat.name}
+                  key={title}
                   className="top-exercises__item"
                   onClick={() => openExercise(stat.exerciseId)}
                 >
-                  <td className="top-exercises__exercise">{stat.name}</td>
-                  <td>{stat.repCount}</td>
-                  <td>{stat.setCount}</td>
-                  <td>{stat.avgReps}</td>
-                  <td>{stat.maxReps}</td>
+                  <td className="top-exercises__exercise">{title}</td>
+                  <td>{stat.Reps}</td>
+                  <td>{stat.Sets}</td>
+                  <td>{stat.Avg}</td>
+                  {path === "exercises" ? <td>{stat.Max}</td> : <></>}
                 </tr>
               );
             })}
@@ -117,6 +127,23 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
       </Card.Body>
     </Card>
   );
+};
+
+const menus = {
+  areas: {
+    exercises: {
+      all: "All",
+      upper: "Upper",
+      lower: "Lower",
+      core: "Core",
+      cardio: "Cardio",
+    },
+    workouts: {
+      maintenance: "Maintenance",
+      progression: "Progression",
+      singleSet: "Single Set",
+    },
+  },
 };
 
 export default StatsListExercises;

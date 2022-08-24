@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 // Local component imports
 import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
+import Card from "../../../../components/Cards/Card";
 
 // Local services imports
 import services from "../../../../services/services";
@@ -43,9 +44,9 @@ const SectionAddWorkout = () => {
   };
 
   return (
-    <Section>
-      <Section.Header>Start New Workout</Section.Header>
-      <Section.Body>
+    <Card>
+      <Card.Header>Start New Workout</Card.Header>
+      <Card.Body className="mt-3">
         <div className="grid-3-item">
           {Object.entries(buttons).map(([name, src]) => {
             return (
@@ -55,8 +56,8 @@ const SectionAddWorkout = () => {
             );
           })}
         </div>
-      </Section.Body>
-    </Section>
+      </Card.Body>
+    </Card>
   );
 };
 

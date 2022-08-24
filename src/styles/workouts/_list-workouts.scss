@@ -1,6 +1,5 @@
 .list-workouts {
   @include gap-size;
-  margin-bottom: 1rem;
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -44,7 +43,9 @@
 }
 
 .list-workouts__workout-text {
-  width: 150px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   h5 {
     color: inherit;
   }
@@ -63,8 +64,16 @@
   }
 }
 
+.list-workouts__workout-stat-group {
+  @include gap-size;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
 .list-workouts__workout-name {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   font-weight: $font-slim;
 }

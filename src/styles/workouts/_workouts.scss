@@ -1,0 +1,47 @@
+.workouts-row {
+  @include gap-size;
+  display: flex;
+  flex-direction: row;
+
+  & > * {
+    width: 50%;
+  }
+}
+
+.workouts-col {
+  @include gap-size;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  & > * {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: $breakpoint-xx) {
+}
+
+@media screen and (max-width: $breakpoint-xl) {
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .workouts-row {
+    flex-direction: column;
+
+    & > * {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $breakpoint-md) {
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+}
