@@ -98,7 +98,7 @@ const ListExercises = () => {
   return (
     <Card className="list-exercises">
       <Card.Header>Exercise List</Card.Header>
-      <Card.Body>
+      <Card.Body className="mt-3">
         <ActivityToggles />
         <ListExercisesUserOptions userClicked={userOnly} changeUserClicked={changeUserOnly} />
         <ListExerciseSearchBar

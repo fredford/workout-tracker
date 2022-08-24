@@ -13,18 +13,24 @@
 
   & > * {
     flex: 1 1 0px;
-    min-width: 95px;
+    min-width: 79px;
   }
 
-  @media screen and (max-width: 769px) {
+  @media screen and (max-width: 1032px) {
     & > * {
-      flex-basis: 175px;
+      flex-basis: 125px;
     }
   }
 
-  @media screen and (max-width: 422px) {
+  @media screen and (max-width: 762px) {
     & > * {
-      flex-basis: 120px;
+      flex-basis: 79px;
+    }
+  }
+
+  @media screen and (max-width: 415px) {
+    & > * {
+      flex-basis: 125px;
     }
   }
 }
