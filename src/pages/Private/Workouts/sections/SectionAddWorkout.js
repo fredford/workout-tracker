@@ -46,7 +46,7 @@ const SectionAddWorkout = () => {
   return (
     <Card>
       <Card.Header>Start New Workout</Card.Header>
-      <Card.Body>
+      <Card.Body className="mt-3">
         <div className="grid-3-item">
           {Object.entries(buttons).map(([name, src]) => {
             return (

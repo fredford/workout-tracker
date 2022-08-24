@@ -8,33 +8,19 @@ import Card from "../../../../components/Cards/Card";
 import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
 
-// Local services
-import services from "../../../../services/services";
-
 /**
  * Section to display the Workout History in the form of a Card list
  * @returns {JSX.Element}
  * @constructor
  */
-const SectionWorkouts = () => {
+const SectionWorkouts = ({ workouts }) => {
   // React hooks
   const navigate = useNavigate();
 
   // Component state
   const [page, setPage] = useState(0);
-  const [workouts, setWorkouts] = useState([]);
-  const [numPages, setNumPages] = useState(0);
 
-  useEffect(() => {
-    // Function to retrieve User Workouts from the server
-    const retrieveAllWorkouts = async () => {
-      await services.workouts.getAll(setWorkouts);
-
-      setNumPages(Math.floor(workouts.length / 10));
-    };
-
-    retrieveAllWorkouts();
-  }, [JSON.stringify(workouts)]);
+  let numPages = Math.floor(workouts.length / 10);
 
   // Create a list that can be manipulated to display only specified Workouts
   let displayList = [...workouts];
@@ -66,7 +52,7 @@ const SectionWorkouts = () => {
   return (
     <Card>
       <Card.Header>Workout History</Card.Header>
-      <Card.Body>
+      <Card.Body className="mt-3">
         <div className="list-workouts">
           {React.Children.toArray(
             displayList.map((workout) => {
@@ -86,13 +72,13 @@ const SectionWorkouts = () => {
                       <div className="list-workouts__workout-text">
                         <h5>{date.toDateString()}</h5>
                         <p className="list-workouts__workout-name">
-                          <span className="d-flex flex-column">
-                            Reps <span className="list-workouts__workout-stat">{workout.Reps}</span>
+                          <span className="list-workouts__workout-stat-group">
+                            Reps<span className="list-workouts__workout-stat">{workout.Reps}</span>
                           </span>
-                          <span className="d-flex flex-column">
+                          <span className="list-workouts__workout-stat-group">
                             Sets <span className="list-workouts__workout-stat">{workout.Sets}</span>
                           </span>
-                          <span className="d-flex flex-column">
+                          <span className="list-workouts__workout-stat-group">
                             Avg <span className="list-workouts__workout-stat">{workout.Avg}</span>
                           </span>
                         </p>

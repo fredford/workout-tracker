@@ -67,8 +67,6 @@ const Exercises = () => {
     ],
   };
 
-  console.log(repsStats);
-
   return (
     <ActivityProvider>
       <Page navbar container>
