@@ -64,9 +64,9 @@ const SectionWorkouts = () => {
   };
 
   return (
-    <Section>
-      <Section.Header>Workout History</Section.Header>
-      <Section.Body>
+    <Card>
+      <Card.Header>Workout History</Card.Header>
+      <Card.Body>
         <div className="list-workouts">
           {React.Children.toArray(
             displayList.map((workout) => {
@@ -113,8 +113,8 @@ const SectionWorkouts = () => {
           )}
           {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
         </div>
-      </Section.Body>
-    </Section>
+      </Card.Body>
+    </Card>
   );
 };
 

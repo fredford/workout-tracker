@@ -13,7 +13,7 @@ import Button from "../Buttons/Button";
  *
  * Status: complete
  */
-const StatsListExercises = ({ stats, dateState, areaState, path, className }) => {
+const StatsListExercises = ({ stats, dateState, areaState, path, className, type }) => {
   // Library Hooks
   const navigate = useNavigate();
 
@@ -52,6 +52,7 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
   const openExercise = (id) => {
     navigate(`/${path}/${id}`);
   };
+  console.log(Object.keys(menus[type].areas));
 
   return (
     <Card className={className}>
@@ -63,11 +64,9 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
             onChange={(e) => areaState[1](e.target.value)}
             value={areaState[0]}
           >
-            <option value="all">All</option>
-            <option value="upper">Upper</option>
-            <option value="lower">Lower</option>
-            <option value="core">Core</option>
-            <option value="cardio">Cardio</option>
+            {Object.keys(menus[type].areas).map((key) => {
+              return <option value={key}>{menus[type].areas[key]}</option>;
+            })}
           </select>
           <select
             className="dashboard__chart-dropdown-menu"
@@ -117,6 +116,24 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
       </Card.Body>
     </Card>
   );
+};
+
+const menus = {
+  areas: {
+    exercises: {
+      all: "All",
+      upper: "Upper",
+      lower: "Lower",
+      core: "Core",
+      cardio: "Cardio",
+    },
+    workouts: {
+      maintenance: "Maintenance",
+      progression: "Progression",
+      singleSet: "Single Set",
+    },
+  },
+  workouts: {},
 };
 
 export default StatsListExercises;

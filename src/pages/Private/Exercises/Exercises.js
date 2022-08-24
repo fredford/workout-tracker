@@ -86,6 +86,7 @@ const Exercises = () => {
                   areaState={[area, setArea]}
                   path="exercises"
                   className="stats-list-exercises w-100"
+                  type="exercises"
                 />
               </div>
               <div className="stretch-card">

@@ -1,0 +1,9 @@
+.Row-50 {
+  @include gap-size;
+  display: flex;
+  flex-direction: row;
+
+  & > * {
+    width: 50%;
+  }
+}
