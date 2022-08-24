@@ -52,6 +52,10 @@ class StatsService {
   getExerciseData(id, successFunc = null, failureFunc = null) {
     return api.fetch(http.get(`/stats/exerciseData/${id}`), successFunc, failureFunc);
   }
+
+  getRepsByAreaStats(successFunc = null, failureFunc = null) {
+    return api.fetch(http.get("/stats/repsByArea"), successFunc, failureFunc);
+  }
 }
 
 export default new StatsService();

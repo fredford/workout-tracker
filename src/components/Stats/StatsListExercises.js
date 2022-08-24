@@ -56,7 +56,7 @@ const StatsListExercises = ({ stats, dateState, areaState, path, className }) =>
   return (
     <Card className={className}>
       <Card.Header>Top Exercises</Card.Header>
-      <Card.Body className="">
+      <Card.Body className="mt-3">
         <div className="dashboard__table-dropdown">
           <select
             className="dashboard__table-dropdown-menu"
