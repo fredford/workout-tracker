@@ -36,6 +36,8 @@ const ListTopExercises = () => {
     navigate(`/exercises/${id}`);
   };
 
+  console.log(stats)
+
   return (
     <Card className="w-100">
       <Card.Header>Top Exercises</Card.Header>
@@ -82,10 +84,10 @@ const ListTopExercises = () => {
                   onClick={() => openExercise(stat.exerciseId)}
                 >
                   <td className="top-exercises__exercise">{stat.name}</td>
-                  <td>{stat.repCount}</td>
-                  <td>{stat.setCount}</td>
-                  <td>{stat.avgReps}</td>
-                  <td>{stat.maxReps}</td>
+                  <td>{stat.Reps}</td>
+                  <td>{stat.Sets}</td>
+                  <td>{stat.Avg}</td>
+                  <td>{stat.Max}</td>
                 </tr>
               );
             })}
