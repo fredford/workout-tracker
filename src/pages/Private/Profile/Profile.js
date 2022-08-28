@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Accordion } from "react-bootstrap";
 // Components
+import { Weights } from "./../Weights";
 import ProfileWeight from "./components/ProfileWeight";
 import ProfileDistance from "./components/ProfileDistance";
 import ProfileTheme from "./components/ProfileTheme";
@@ -13,6 +14,7 @@ import ProfileLogout from "./components/ProfileLogout";
 
 import Page from "../../../components/Layout/Page/Page";
 import PageHeader from "../../../components/Layout/Page/PageHeader";
+import services from "../../../services/services";
 
 /**
  * Page for displaying the User Profile and managing settings
@@ -26,6 +28,7 @@ const Profile = () => {
   return (
     <Page navbar container>
       <PageHeader header={user.name} subheader={user.email} />
+      <Weights />
       <Accordion className="profile-accordion grid-margin">
         <Accordion.Item eventKey="0">
           <Accordion.Header>App Settings</Accordion.Header>

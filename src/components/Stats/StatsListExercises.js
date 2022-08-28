@@ -53,8 +53,6 @@ const StatsListExercises = ({ stats, dateState = "all", areaState = "all", path,
     navigate(`/${path}/${id}`);
   };
 
-  console.log(displayList);
-
   return (
     <Card className={className}>
       <Card.Header>
