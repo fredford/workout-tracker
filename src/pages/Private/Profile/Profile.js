@@ -1,20 +1,14 @@
 // Library imports
 import React from "react";
 import { useSelector } from "react-redux";
-import { Accordion } from "react-bootstrap";
 // Components
-import { Weights } from "./../Weights";
-import ProfileWeight from "./components/ProfileWeight";
-import ProfileDistance from "./components/ProfileDistance";
-import ProfileTheme from "./components/ProfileTheme";
-import ChangePassword from "./components/ChangePassword";
-import ChangeUsername from "./components/ChangeUsername";
-import DeleteAccount from "./components/DeleteAccount";
-import ProfileLogout from "./components/ProfileLogout";
-
 import Page from "../../../components/Layout/Page/Page";
 import PageHeader from "../../../components/Layout/Page/PageHeader";
-import services from "../../../services/services";
+import SectionAppSettings from "./AppSettings/SectionAppSettings";
+import SectionUserSettings from "./UserSettings/SectionUserSettings";
+import SectionSteps from "./Steps/SectionSteps";
+import SectionWeights from "./Weights/SectionWeights";
+import Card from "../../../components/Cards/Card";
 
 /**
  * Page for displaying the User Profile and managing settings
@@ -27,29 +21,17 @@ const Profile = () => {
 
   return (
     <Page navbar container>
-      <PageHeader header={user.name} subheader={user.email} />
-      <Weights />
-      <Accordion className="profile-accordion grid-margin">
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>App Settings</Accordion.Header>
-          <Accordion.Body className="grid-300">
-            <ProfileWeight />
-            <ProfileDistance />
-            <ProfileTheme />
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-      <Accordion className="profile-accordion">
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>User Settings</Accordion.Header>
-          <Accordion.Body className="grid-300">
-            <ChangeUsername />
-            <ChangePassword />
-            <DeleteAccount />
-            <ProfileLogout />
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+      <PageHeader header={"Profile"} />
+      <Card>
+        <Card.Body className="d-flex flex-column align-items-center">
+          <h1 className="text-normal">{user.name}</h1>
+          <h2 className="text-accent">{user.email}</h2>
+        </Card.Body>
+      </Card>
+      <SectionWeights />
+      <SectionSteps />
+      <SectionAppSettings />
+      <SectionUserSettings />
     </Page>
   );
 };
