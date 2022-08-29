@@ -36,8 +36,6 @@ const ListTopExercises = () => {
     navigate(`/exercises/${id}`);
   };
 
-  console.log(stats)
-
   return (
     <Card className="w-100">
       <Card.Header>Top Exercises</Card.Header>

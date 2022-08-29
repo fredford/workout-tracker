@@ -10,3 +10,7 @@
 .text-normal {
   color: var(--foreground-text);
 }
+
+.text-accent {
+  color: $foreground-accent;
+}
