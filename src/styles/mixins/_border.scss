@@ -1,6 +1,13 @@
+@mixin standard-border-radius {
+  border-radius: $large-gap;
+
+  @media (max-width: $breakpoint-lg) {
+    border-radius: $small-gap;
+  }
+}
+
 @mixin standard-border {
   border: $border;
-  border-radius: $border-radius;
 }
 
 @mixin standard-shadow {

@@ -1,0 +1,54 @@
+.basic-card {
+  @include standard-border-radius;
+  @include standard-border;
+  @include standard-padding;
+  @include gap-size;
+  display: flex;
+  flex-direction: column;
+  background-color: $background-card;
+}
+
+.basic-card__header {
+  display: flex;
+  flex-direction: column;
+}
+
+.basic-card__title {
+  font-weight: $font-bold;
+  color: $foreground-text;
+}
+.basic-card__subtitle {
+  font-weight: $font-norm;
+  color: $foreground-mute;
+}
+
+@media screen and (max-width: $breakpoint-xx) {
+}
+
+@media screen and (max-width: $breakpoint-xl) {
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+}
+
+@media screen and (max-width: $breakpoint-md) {
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+  .basic-card {
+  }
+  .basic-card__header {
+    flex-direction: row;
+  }
+
+  .basic-card__title {
+    font-size: 16px;
+    margin-right: 0.5rem;
+  }
+  .basic-card__subtitle {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: $breakpoint-xs) {
+}

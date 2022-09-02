@@ -1,6 +1,7 @@
 .navbar__container {
   @include standard-border;
   @include standard-shadow;
+  @include standard-border-radius;
 
   background-color: $background-card;
 
@@ -80,7 +81,10 @@
 
 @media screen and (max-width: $breakpoint-sm) {
   .navbar__container {
-    bottom: 1.5rem;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 1.5rem;
   }
   .navbar__logo {
     font-size: 1.5rem;

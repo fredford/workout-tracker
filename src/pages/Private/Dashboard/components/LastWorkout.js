@@ -6,6 +6,7 @@ import { RiArrowGoBackFill } from "react-icons/ri";
 // Local component imports
 import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
+import BasicCard from "../../../../components/Cards/BasicCard";
 
 // Utilities
 import Button from "../../../../components/Buttons/Button";
@@ -52,17 +53,15 @@ const LastWorkout = () => {
     );
   } else {
     return (
-      <Card className="w-100">
-        <Card.Header>Last Workout</Card.Header>
-        <Card.Subtitle>{lastWorkout.type}</Card.Subtitle>
-        <Card.Body className="section-quick-last__items">
-          <CardStats data={lastWorkout.sets} title="Sets" subtitle="Count" />
-          <CardStats data={lastWorkout.totalRepetitions} title="Total" subtitle="Repetitions" />
-          <Button Icon={RiArrowGoBackFill} iconSize={25} onClick={() => navigate(link)}>
+      <BasicCard title="Last Workout" subtitle={lastWorkout.type} className="w-100 h-100">
+        <div className="section-quick-last__items">
+          <CardStats data={lastWorkout.sets} title="Sets" />
+          <CardStats data={lastWorkout.totalRepetitions} title="Repetitions" />
+          <Button className="small-size" onClick={() => navigate(link)}>
             Open
           </Button>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     );
   }
 };

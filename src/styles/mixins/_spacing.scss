@@ -1,5 +1,9 @@
 @mixin standard-padding {
-  padding: 0.5rem;
+  padding: 1rem;
+
+  @media screen and (max-width: $breakpoint-lg) {
+    padding: 0.5rem;
+  }
 }
 
 @mixin gap-size {

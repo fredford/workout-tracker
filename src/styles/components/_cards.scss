@@ -1,12 +1,12 @@
 .card {
   @include standard-border;
+  @include standard-border-radius;
+  @include standard-padding;
   background-color: var(--background-card);
-  backdrop-filter: blur(10px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
-  padding: 1rem;
 
   hr {
     -moz-border-bottom-colors: none;
