@@ -7,6 +7,7 @@ import { RiFootprintFill } from "react-icons/ri";
 //Local component imports
 import Button from "../../../../components/Buttons/Button";
 import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 import AddExerciseModal from "../../../../components/Misc/AddExerciseModal";
 import SectionAddWorkout from "../../Workouts/sections/SectionAddWorkout";
 
@@ -31,10 +32,8 @@ const QuickActions = React.memo(function WrappedQuickActions() {
   const handleCloseSteps = () => setShowSteps(false);
 
   return (
-    <Card className="w-100">
-      <Card.Header>Quick Actions</Card.Header>
-      <Card.Subtitle>Make some progress</Card.Subtitle>
-      <Card.Body className="section-quick-last__items">
+    <BasicCard className="w-100 h-100" title="Quick Actions" subtitle="Make some progress">
+      <div className="section-quick-last__items">
         <>
           <Button Icon={FaRunning} iconSize={25} onClick={handleShowExercise}>
             Add Exercise
@@ -61,8 +60,8 @@ const QuickActions = React.memo(function WrappedQuickActions() {
             <div className="p-3">Feature in progress</div>
           </Modal>
         </>
-      </Card.Body>
-    </Card>
+      </div>
+    </BasicCard>
   );
 });
 

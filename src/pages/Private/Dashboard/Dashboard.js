@@ -17,6 +17,8 @@ import ListTopExercises from "./components/Charts/ListTopExercises";
 // Utilities
 import services from "../../../services/services";
 
+import ChartLifeTimeGoals from "./components/Charts/ChartLifeTimeGoals";
+
 /**
  * Page that displays the main dashboard for the application
  *
@@ -47,10 +49,15 @@ const Dashboard = () => {
   return (
     <Page navbar>
       <Intro currHr={currHr} />
+      <div className="dashboard__top-container">
+        <div className="dashboard__lifetime-container">
+          <ChartLifeTimeGoals stats={stats} />
+        </div>
 
-      <div className="dashboard__section-quick-last">
-        <LastWorkout />
-        <QuickActions />
+        <div className="dashboard__section-quick-last">
+          <LastWorkout />
+          <QuickActions />
+        </div>
       </div>
 
       <div className="dashboard__container">

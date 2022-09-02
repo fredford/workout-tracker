@@ -6,9 +6,10 @@
 }
 
 .stats-card {
+  @include standard-padding;
+  @include standard-border-radius;
   background-color: var(--background-acce) !important;
   border-radius: $border-radius;
-  padding: 1rem;
 
   // Title
   h5 {
@@ -16,11 +17,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
     color: var(--foreground-text);
+    font-size: 14px;
   }
   // Subtitle
   h6 {
     color: var(--foreground-mute);
     font-weight: $font-norm;
+    font-size: 14px;
   }
   // Data
   h1 {
