@@ -24,12 +24,7 @@ const StatsGroupBasic = React.memo(function WrappedStatsGroupBasic({ stats }) {
     <div className="stats-grid">
       {displayStats.map((stat, index) => {
         return (
-          <CardStats
-            key={index}
-            data={stat.data}
-            title={stat.title}
-            subtitle={stat.subtitle}
-          />
+          <CardStats key={index} data={stat.data} title={stat.title} subtitle={stat.subtitle} />
         );
       })}
     </div>

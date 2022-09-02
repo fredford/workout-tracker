@@ -1,0 +1,36 @@
+.stats-card {
+  @include standard-padding;
+  @include standard-border-radius;
+  background-color: var(--background-acce) !important;
+  border-radius: $border-radius;
+
+  // Title
+  h5 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--foreground-text);
+    font-size: 14px;
+  }
+  // Subtitle
+  h6 {
+    color: var(--foreground-mute);
+    font-weight: $font-norm;
+    font-size: 14px;
+  }
+  // Data
+  h1 {
+    color: var(--foreground-acce);
+    font-size: 26px;
+    font-weight: $font-bold;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .stats-card {
+    h1 {
+      font-weight: $font-norm;
+      font-size: x-large;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 // Local component imports
 import Card from "../../../../../components/Cards/Card";
+import BasicCard from "../../../../../components/Cards/BasicCard";
 
 // Utilities
 import services from "../../../../../services/services";
@@ -37,32 +38,8 @@ const ListTopExercises = () => {
   };
 
   return (
-    <Card className="w-100">
-      <Card.Header>Top Exercises</Card.Header>
-      <Card.Body className="">
-        <div className="dashboard__table-dropdown">
-          <select
-            className="dashboard__table-dropdown-menu"
-            onChange={(e) => setArea(e.target.value)}
-            value={area}
-          >
-            <option value="all">All</option>
-            <option value="upper">Upper</option>
-            <option value="lower">Lower</option>
-            <option value="core">Core</option>
-            <option value="cardio">Cardio</option>
-          </select>
-          <select
-            className="dashboard__chart-dropdown-menu"
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
-          >
-            <option value="week">Week</option>
-            <option value="month">Month</option>
-            <option value="year">Year</option>
-            <option value="alltime">All-Time</option>
-          </select>
-        </div>
+    <BasicCard title="Top Exercises" className="w-100">
+      <div className="dashboard__chart-container">
         <table className="top-exercises__container">
           <thead>
             <tr className="top-exercises__headers">
@@ -91,8 +68,31 @@ const ListTopExercises = () => {
             })}
           </tbody>
         </table>
-      </Card.Body>
-    </Card>
+        <div className="dashboard__table-dropdown">
+          <select
+            className="dashboard__table-dropdown-menu"
+            onChange={(e) => setArea(e.target.value)}
+            value={area}
+          >
+            <option value="all">All</option>
+            <option value="upper">Upper</option>
+            <option value="lower">Lower</option>
+            <option value="core">Core</option>
+            <option value="cardio">Cardio</option>
+          </select>
+          <select
+            className="dashboard__table-dropdown-menu"
+            onChange={(e) => setDate(e.target.value)}
+            value={date}
+          >
+            <option value="week">Week</option>
+            <option value="month">Month</option>
+            <option value="year">Year</option>
+            <option value="alltime">All-Time</option>
+          </select>
+        </div>
+      </div>
+    </BasicCard>
   );
 };
 

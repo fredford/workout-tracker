@@ -16,10 +16,12 @@
 .basic-card__title {
   font-weight: $font-bold;
   color: $foreground-text;
+  font-size: 20px;
 }
 .basic-card__subtitle {
   font-weight: $font-norm;
   color: $foreground-mute;
+  font-size: 18px;
 }
 
 @media screen and (max-width: $breakpoint-xx) {

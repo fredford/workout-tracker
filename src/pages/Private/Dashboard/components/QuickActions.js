@@ -6,7 +6,6 @@ import { RiFootprintFill } from "react-icons/ri";
 
 //Local component imports
 import Button from "../../../../components/Buttons/Button";
-import Card from "../../../../components/Cards/Card";
 import BasicCard from "../../../../components/Cards/BasicCard";
 import AddExerciseModal from "../../../../components/Misc/AddExerciseModal";
 import SectionAddWorkout from "../../Workouts/sections/SectionAddWorkout";
@@ -45,11 +44,7 @@ const QuickActions = React.memo(function WrappedQuickActions() {
             Add Workout
           </Button>
           <Modal show={showWorkout} onHide={handleCloseWorkout}>
-            <Card>
-              <Card.Body>
-                <SectionAddWorkout />
-              </Card.Body>
-            </Card>
+            <SectionAddWorkout />
           </Modal>
         </>
         <>
