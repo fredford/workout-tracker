@@ -8,7 +8,7 @@ import SectionAppSettings from "./AppSettings/SectionAppSettings";
 import SectionUserSettings from "./UserSettings/SectionUserSettings";
 import SectionSteps from "./Steps/SectionSteps";
 import SectionWeights from "./Weights/SectionWeights";
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 
 /**
  * Page for displaying the User Profile and managing settings
@@ -22,12 +22,12 @@ const Profile = () => {
   return (
     <Page navbar container>
       <PageHeader header={"Profile"} />
-      <Card>
-        <Card.Body className="d-flex flex-column align-items-center">
+      <BasicCard>
+        <div className="d-flex flex-column align-items-center">
           <h1 className="text-normal">{user.name}</h1>
           <h2 className="text-accent">{user.email}</h2>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
       <SectionWeights />
       <SectionSteps />
       <SectionAppSettings />

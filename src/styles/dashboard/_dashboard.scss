@@ -153,19 +153,23 @@
 //   }
 // }
 
-.dashboard__chart-dropdown {
-  position: absolute;
-  top: 2rem;
-  right: 1.5rem;
-  z-index: 2;
+.dashboard__chart-container {
+  display: block;
+  position: relative;
 }
 
 .dashboard__chart-dropdown-menu {
   @include button-border;
   @include card-base-color;
+  position: absolute;
+  top: -1.75rem;
+  right: 0;
+  z-index: 2;
+
   padding: 0.5rem 0.5rem;
 
   color: var(--foreground-text);
+  font-size: 14px;
 
   border-radius: $border-radius-button;
 
@@ -174,10 +178,17 @@
   }
 }
 
+@media screen and (max-width: $breakpoint-sm) {
+  .dashboard__chart-container {
+    margin-top: 1rem;
+  }
+}
+
 .dashboard__table-dropdown {
-  display: flex;
-  flex-direction: row;
-  justify-content: end;
+  position: absolute;
+  top: -1.75rem;
+  right: 0;
+  z-index: 2;
 }
 
 .dashboard__table-dropdown-menu {
@@ -188,6 +199,7 @@
   color: var(--foreground-text);
 
   border-radius: $border-radius-button;
+  font-size: 14px;
 
   &:not(:last-child) {
     margin-right: 0.5rem;

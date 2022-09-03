@@ -2,9 +2,22 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: row;
+}
+
+.profile-settings__button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-settings__form-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
 }
 
 .profile-accordion {

@@ -8,7 +8,7 @@ const StatsLineChart = ({ data, options, show }) => {
   return (
     <div className="chart-area">
       {show ? <></> : <NoStatsOverlay show={show} />}
-      <Line data={data ? data : tempData} options={optionsObj[options]} />
+      <Line className="h-100" data={data ? data : tempData} options={optionsObj[options]} />
     </div>
   );
 };
@@ -80,6 +80,64 @@ const optionsObj = {
         beginAtZero: true,
         ticks: {
           beginAtZero: true,
+        },
+      },
+    },
+  },
+  "no-aspect-no-zero": {
+    bezierCurve: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        display: true,
+        beginAtZero: false,
+        grid: {
+          display: false,
+        },
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+      x: {
+        display: false,
+        grid: {
+          display: false,
+        },
+      },
+    },
+  },
+  "no-aspect-zero": {
+    bezierCurve: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        display: true,
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+      x: {
+        display: false,
+        grid: {
+          display: false,
         },
       },
     },

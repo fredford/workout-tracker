@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 // Local component imports
-import Card from "../../../../../components/Cards/Card";
+import BasicCard from "../../../../../components/Cards/BasicCard";
 import StatsLineChart from "../../../../../components/Stats/StatsLineChart";
 
 // Utilities
@@ -47,25 +47,21 @@ const ChartRecentActivity = () => {
   };
 
   return (
-    <Card className="w-100">
-      <Card.Header>Recent Activity</Card.Header>
-      <Card.Subtitle className="text-muted">Repetitions Per Day</Card.Subtitle>
-      <Card.Body className="mt-3">
-        <div className="dashboard__chart-dropdown">
-          <select
-            className="dashboard__chart-dropdown-menu"
-            onChange={(e) => setDate(e.target.value)}
-            value={date}
-          >
-            <option value="week">Week</option>
-            <option value="month">Month</option>
-            <option value="year">Year</option>
-            <option value="alltime">All-Time</option>
-          </select>
-        </div>
+    <BasicCard title="Recent Activity" subtitle="Repetitions Per Day" className="w-100">
+      <div className="dashboard__chart-container">
         <StatsLineChart show data={chartData} options={"standard"} />
-      </Card.Body>
-    </Card>
+        <select
+          className="dashboard__chart-dropdown-menu"
+          onChange={(e) => setDate(e.target.value)}
+          value={date}
+        >
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+          <option value="year">Year</option>
+          <option value="alltime">All-Time</option>
+        </select>
+      </div>
+    </BasicCard>
   );
 };
 

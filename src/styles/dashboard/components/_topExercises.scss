@@ -1,12 +1,12 @@
 .top-exercises__container {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   width: 100%;
 }
 
 .top-exercises__headers {
   border-bottom: 1px solid var(--foreground-acce);
   th {
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     color: var(--foreground-acce);
   }
@@ -26,19 +26,19 @@
   td {
     padding: 0.5rem;
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: $font-norm;
   }
 
   h4 {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: $font-norm;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
   }
   h5 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: $font-norm;
   }
 }

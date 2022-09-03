@@ -1,8 +1,9 @@
 // Library imports
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { RiRulerLine } from "react-icons/ri";
 // Local component imports
-import Card from "../../../../components/Cards/Card";
+import IconCard from "../../../../components/Cards/IconCard";
 //Redux Store
 import { updateUser } from "../../../../redux/reducers/user";
 
@@ -30,27 +31,26 @@ const ProfileDistance = () => {
   };
 
   return (
-    <Card className="card-padding h-100">
-      <Card.ImageHeader path="./distance.png">
-        <Card.Title>Distance</Card.Title>
-        <Card.Text className="text-muted">Set the units for measuring distance</Card.Text>
-      </Card.ImageHeader>
-      <Card.Body className="pb-0 mt-3">
-        <div className="profile-settings-card">
-          <input
-            id="distance"
-            type="checkbox"
-            checked={user.distance !== "km"}
-            onChange={toggleChanger}
-          />
-          <label htmlFor="distance" className="label-theme">
-            <div className="theme-slider"></div>
-            <span className="slider-label-left mi-mode" />
-            <span className="slider-label-right km-mode" />
-          </label>
-        </div>
-      </Card.Body>
-    </Card>
+    <IconCard
+      className="h-100"
+      title="Distance"
+      subtitle="Set the units for measuring distance"
+      Icon={RiRulerLine}
+    >
+      <div className="profile-settings__button-container">
+        <input
+          id="distance"
+          type="checkbox"
+          checked={user.distance !== "km"}
+          onChange={toggleChanger}
+        />
+        <label htmlFor="distance" className="label-theme">
+          <div className="theme-slider"></div>
+          <span className="slider-label-left mi-mode" />
+          <span className="slider-label-right km-mode" />
+        </label>
+      </div>
+    </IconCard>
   );
 };
 

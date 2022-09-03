@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 // Local component imports
-import Card from "../Cards/Card";
+import BasicCard from "../Cards/BasicCard";
 import Button from "../Buttons/Button";
 
 /**
@@ -54,11 +54,8 @@ const StatsListExercises = ({ stats, dateState = "all", areaState = "all", path,
   };
 
   return (
-    <Card className={className}>
-      <Card.Header>
-        Top <span className="text-capitalize">{path}</span>
-      </Card.Header>
-      <Card.Body className="mt-3">
+    <BasicCard className={className} title={`Top ${path}`}>
+      <div className="relative-block">
         <div className="dashboard__table-dropdown">
           <select
             className="dashboard__table-dropdown-menu"
@@ -75,7 +72,7 @@ const StatsListExercises = ({ stats, dateState = "all", areaState = "all", path,
           </select>
           {path === "exercises" && (
             <select
-              className="dashboard__chart-dropdown-menu"
+              className="dashboard__table-dropdown-menu"
               onChange={(e) => {
                 dateState[1](e.target.value);
               }}
@@ -122,8 +119,8 @@ const StatsListExercises = ({ stats, dateState = "all", areaState = "all", path,
           {page > 0 ? <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} /> : <></>}
           {numPages > 1 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
         </div>
-      </Card.Body>
-    </Card>
+      </div>
+    </BasicCard>
   );
 };
 

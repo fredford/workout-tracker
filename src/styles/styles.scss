@@ -39,6 +39,8 @@
 @import "./components/buttons/basic-button";
 @import "./components/buttons/newButtons";
 @import "./components/cards/basicCard";
+@import "./components/cards/statsCard";
+@import "./components/cards/iconCard";
 
 @import "./components/layout/navbar";
 @import "./components/layout/page";
@@ -46,6 +48,7 @@
 
 @import "./profile/profile-hero";
 @import "./profile/profile";
+@import "./profile/weightSteps";
 
 @import "./exercises/exercises";
 @import "./exercises/statsListExercises";

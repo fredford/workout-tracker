@@ -5,3 +5,21 @@
 .button-image {
   @include button-image;
 }
+
+.icon-image {
+  border-radius: $border-radius-icon;
+  background-color: $background-prim;
+  color: $foreground-primary;
+  min-width: $line-height;
+  height: $line-height;
+  display: grid;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+  .icon-image {
+    min-width: 36px;
+    height: 36px;
+  }
+}

@@ -1,0 +1,10 @@
+.icon-card__body-container {
+  display: flex;
+  flex-direction: row;
+  @include gap-size;
+}
+
+.icon-card__header {
+  display: flex;
+  flex-direction: column;
+}

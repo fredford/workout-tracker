@@ -11,12 +11,7 @@ import React from "react";
  *
  * Status: completed
  */
-const CardStats = React.memo(function WrappedStatsCard({
-  data,
-  title,
-  subtitle,
-  className,
-}) {
+const CardStats = React.memo(function WrappedStatsCard({ data, title, subtitle, className }) {
   let statsCardClassName = `stats-card ${className}`;
   return (
     <div className={statsCardClassName}>
