@@ -1,6 +1,6 @@
 import React from "react";
 
-const BasicCard = ({ className, title, subtitle, children }) => {
+const IconCard = ({ className, title, subtitle, children, icon }) => {
   let cardClassName = "basic-card ";
   cardClassName += className ? className : "";
 
@@ -18,4 +18,4 @@ const BasicCard = ({ className, title, subtitle, children }) => {
     </div>
   );
 };
-export default BasicCard;
+export default IconCard;

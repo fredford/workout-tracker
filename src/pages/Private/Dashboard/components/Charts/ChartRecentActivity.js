@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 
 // Local component imports
-import Card from "../../../../../components/Cards/Card";
 import BasicCard from "../../../../../components/Cards/BasicCard";
 import StatsLineChart from "../../../../../components/Stats/StatsLineChart";
 

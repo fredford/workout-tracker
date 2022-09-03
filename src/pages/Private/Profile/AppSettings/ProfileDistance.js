@@ -1,8 +1,9 @@
 // Library imports
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { RiScales2Line } from "react-icons/ri";
 // Local component imports
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 //Redux Store
 import { updateUser } from "../../../../redux/reducers/user";
 
@@ -30,13 +31,12 @@ const ProfileDistance = () => {
   };
 
   return (
-    <Card className="card-padding h-100">
-      <Card.ImageHeader path="./distance.png">
-        <Card.Title>Distance</Card.Title>
-        <Card.Text className="text-muted">Set the units for measuring distance</Card.Text>
-      </Card.ImageHeader>
-      <Card.Body className="pb-0 mt-3">
-        <div className="profile-settings-card">
+    <BasicCard className="h-100" title="Distance" subtitle="Set the units for measuring distance">
+      <div className="profile-settings-card">
+        <div className="icon-image">
+          <RiScales2Line size={25} className="w-100" />
+        </div>
+        <div className="profile-settings__button-container">
           <input
             id="distance"
             type="checkbox"
@@ -49,8 +49,8 @@ const ProfileDistance = () => {
             <span className="slider-label-right km-mode" />
           </label>
         </div>
-      </Card.Body>
-    </Card>
+      </div>
+    </BasicCard>
   );
 };
 

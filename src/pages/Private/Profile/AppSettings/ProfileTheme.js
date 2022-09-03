@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 // Local component imports
 import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 //Redux Store
 import { updateUser } from "../../../../redux/reducers/user";
 
@@ -30,7 +31,7 @@ const ProfileTheme = () => {
   };
 
   return (
-    <Card className="card-padding h-100 ">
+    <BasicCard className="h-100">
       <Card.ImageHeader path="./mode.png">
         <Card.Title>Color Theme</Card.Title>
         <Card.Text className="text-muted">Set light or dark theme</Card.Text>
@@ -50,7 +51,7 @@ const ProfileTheme = () => {
           </label>
         </div>
       </Card.Body>
-    </Card>
+    </BasicCard>
   );
 };
 

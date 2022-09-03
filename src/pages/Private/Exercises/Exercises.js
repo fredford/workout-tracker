@@ -13,7 +13,7 @@ import { fetchExercises } from "../../../redux/reducers/exercises";
 // Utilities
 import services from "../../../services/services";
 import StatsBarChart from "../../../components/Stats/StatsBarChart";
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 
 /**
  * Page to display Exercises for the User, add new Exercises and see data on individual Exercise's
@@ -88,12 +88,9 @@ const Exercises = () => {
                 />
               </div>
               <div className="stretch-card">
-                <Card className="w-100">
-                  <Card.Header>Repetitions by Area</Card.Header>
-                  <Card.Body className="mt-3">
-                    <StatsBarChart data={chartData} options={"standard"} show={repsStats !== {}} />
-                  </Card.Body>
-                </Card>
+                <BasicCard className="w-100" title="Repetitions by Area">
+                  <StatsBarChart data={chartData} options={"standard"} show={repsStats !== {}} />
+                </BasicCard>
               </div>
             </div>
           </div>

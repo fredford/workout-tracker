@@ -5,3 +5,13 @@
 .button-image {
   @include button-image;
 }
+
+.icon-image {
+  @include standard-border-radius;
+  background-color: $background-prim;
+  color: $foreground-primary;
+  min-width: $line-height !important;
+  height: $line-height;
+  display: grid;
+  align-items: center;
+}

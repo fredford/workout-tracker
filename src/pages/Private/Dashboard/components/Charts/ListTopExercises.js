@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Local component imports
-import Card from "../../../../../components/Cards/Card";
 import BasicCard from "../../../../../components/Cards/BasicCard";
 
 // Utilities
