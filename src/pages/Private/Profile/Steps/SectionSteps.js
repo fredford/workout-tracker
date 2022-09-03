@@ -3,8 +3,7 @@ import StatsLineChart from "../../../../components/Stats/StatsLineChart";
 import ListSteps from "./ListSteps";
 
 import services from "../../../../services/services";
-import StepsService from "../../../../services/StepsService";
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 import Section from "../../../../components/Misc/Section";
 
 const SectionSteps = () => {
@@ -38,13 +37,13 @@ const SectionSteps = () => {
   return (
     <Section>
       <Section.Header>Steps</Section.Header>
-      <Section.Body className="d-flex flex-row large-gap">
-        <Card className="w-100">
-          <Card.Body className="w-100">
-            <StatsLineChart data={chartData} options={"standard"} show={data !== {}} />
-          </Card.Body>
-        </Card>
-        <ListSteps stepsList={stepsList} setStepsList={setStepsList} />
+      <Section.Body className="weight-steps__section">
+        <BasicCard className="weight-steps__chart">
+          <StatsLineChart data={chartData} options={"no-aspect-zero"} show={data !== {}} />
+        </BasicCard>
+        <div className="weight-steps__list-container">
+          <ListSteps stepsList={stepsList} setStepsList={setStepsList} />
+        </div>
       </Section.Body>
     </Section>
   );

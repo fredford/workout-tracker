@@ -4,7 +4,7 @@ import ListWeights from "./ListWeights";
 import services from "../../../../services/services";
 import Section from "../../../../components/Misc/Section";
 import StatsLineChart from "../../../../components/Stats/StatsLineChart";
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 
 const SectionWeights = () => {
   const [weights, setWeights] = useState([]);
@@ -38,13 +38,13 @@ const SectionWeights = () => {
   return (
     <Section>
       <Section.Header>Weights</Section.Header>
-      <Section.Body className="d-flex flex-row large-gap">
-        <ListWeights weights={weights} setWeights={setWeights} />
-        <Card className="w-100">
-          <Card.Body>
-            <StatsLineChart data={chartData} options={"standard"} show={data !== {}} />
-          </Card.Body>
-        </Card>
+      <Section.Body className="weight-steps__section">
+        <div className="weight-steps__list-container">
+          <ListWeights weights={weights} setWeights={setWeights} />
+        </div>
+        <BasicCard className="weight-steps__chart">
+          <StatsLineChart data={chartData} options={"no-aspect-no-zero"} show={data !== {}} />
+        </BasicCard>
       </Section.Body>
     </Section>
   );
