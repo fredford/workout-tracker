@@ -1,8 +1,9 @@
 // Library imports
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { RiScales2Line } from "react-icons/ri";
 // Local component imports
-import Card from "../../../../components/Cards/Card";
+import IconCard from "../../../../components/Cards/IconCard";
 //Redux Store
 import { updateUser } from "../../../../redux/reducers/user";
 
@@ -30,27 +31,26 @@ const ProfileWeight = () => {
   };
 
   return (
-    <Card className="card-padding h-100">
-      <Card.ImageHeader path="./scale.png">
-        <Card.Title>Weight</Card.Title>
-        <Card.Text className="text-muted">Set the units for measuring weight</Card.Text>
-      </Card.ImageHeader>
-      <Card.Body className="pb-0 mt-3">
-        <div className="profile-settings-card">
-          <input
-            id="weight"
-            type="checkbox"
-            checked={user.weight === "lbs" ? false : true}
-            onChange={toggleChanger}
-          />
-          <label htmlFor="weight" className="label-theme">
-            <div className="theme-slider"></div>
-            <span className="slider-label-left lbs-mode" />
-            <span className="slider-label-right kg-mode" />
-          </label>
-        </div>
-      </Card.Body>
-    </Card>
+    <IconCard
+      className="card-padding h-100"
+      title="Weight"
+      subtitle="Set the units for measuring weight"
+      Icon={RiScales2Line}
+    >
+      <div className="profile-settings__button-container">
+        <input
+          id="weight"
+          type="checkbox"
+          checked={user.weight === "lbs" ? false : true}
+          onChange={toggleChanger}
+        />
+        <label htmlFor="weight" className="label-theme">
+          <div className="theme-slider"></div>
+          <span className="slider-label-left lbs-mode" />
+          <span className="slider-label-right kg-mode" />
+        </label>
+      </div>
+    </IconCard>
   );
 };
 

@@ -2,10 +2,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { RiUserSettingsLine } from "react-icons/ri";
 
 // Local component imports
 import Button from "../../../../components/Buttons/Button";
-import Card from "../../../../components/Cards/Card";
+import IconCard from "../../../../components/Cards/IconCard";
 import Form from "../../../../components/Forms/Form";
 
 // Redux import
@@ -52,32 +53,31 @@ const ChangeUsername = () => {
   };
 
   return (
-    <Card className="h-100">
-      <Card.ImageHeader path="./displayname.png">
-        <Card.Title>Change Username</Card.Title>
-        <Card.Text className="text-muted">Set your new username</Card.Text>
-      </Card.ImageHeader>
-      <Card.Body className="pb-0 mt-3">
-        <div className="profile-settings-card">
-          <Form className="mb-3 w-100">
-            <Form.Label>New Username</Form.Label>
-            <Form.Input
-              type="text"
-              id="name"
-              placeholder={user.name}
-              value={name}
-              onChange={updateName}
-              autoComplete="off"
-              required
-            ></Form.Input>
-          </Form>
+    <IconCard
+      className="h-100"
+      Icon={RiUserSettingsLine}
+      title="Username"
+      subtitle="Set your new username"
+    >
+      <div className="profile-settings__form-container">
+        <Form className="mb-3 w-100">
+          <Form.Label>New Username</Form.Label>
+          <Form.Input
+            type="text"
+            id="name"
+            placeholder={user.name}
+            value={name}
+            onChange={updateName}
+            autoComplete="off"
+            required
+          ></Form.Input>
+        </Form>
 
-          <Button className="w-100" onClick={handleUpdateName} disabled={isDisabled}>
-            Update
-          </Button>
-        </div>
-      </Card.Body>
-    </Card>
+        <Button className="w-100" onClick={handleUpdateName} disabled={isDisabled}>
+          Update
+        </Button>
+      </div>
+    </IconCard>
   );
 };
 

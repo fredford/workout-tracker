@@ -1,9 +1,9 @@
 // Library imports
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { MdOutlineDarkMode } from "react-icons/md";
 // Local component imports
-import Card from "../../../../components/Cards/Card";
-import BasicCard from "../../../../components/Cards/BasicCard";
+import IconCard from "../../../../components/Cards/IconCard";
 //Redux Store
 import { updateUser } from "../../../../redux/reducers/user";
 
@@ -31,27 +31,26 @@ const ProfileTheme = () => {
   };
 
   return (
-    <BasicCard className="h-100">
-      <Card.ImageHeader path="./mode.png">
-        <Card.Title>Color Theme</Card.Title>
-        <Card.Text className="text-muted">Set light or dark theme</Card.Text>
-      </Card.ImageHeader>
-      <Card.Body className="pb-0 mt-3">
-        <div className="profile-settings-card">
-          <input
-            id="theme"
-            type="checkbox"
-            checked={user.theme !== "dark"}
-            onChange={toggleChanger}
-          />
-          <label htmlFor="theme" className="label-theme">
-            <div className="theme-slider"></div>
-            <span className="slider-label-left dark-mode" />
-            <span className="slider-label-right light-mode" />
-          </label>
-        </div>
-      </Card.Body>
-    </BasicCard>
+    <IconCard
+      className="h-100"
+      Icon={MdOutlineDarkMode}
+      title="Theme"
+      subtitle="Set light or dark theme"
+    >
+      <div className="profile-settings__button-container">
+        <input
+          id="theme"
+          type="checkbox"
+          checked={user.theme !== "dark"}
+          onChange={toggleChanger}
+        />
+        <label htmlFor="theme" className="label-theme">
+          <div className="theme-slider"></div>
+          <span className="slider-label-left dark-mode" />
+          <span className="slider-label-right light-mode" />
+        </label>
+      </div>
+    </IconCard>
   );
 };
 
