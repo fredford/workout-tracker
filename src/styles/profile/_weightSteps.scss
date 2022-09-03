@@ -52,3 +52,25 @@
   top: -2.5rem;
   right: 0;
 }
+
+@media screen and (max-width: $breakpoint-lg) {
+  .weight-steps__section {
+    flex-direction: column;
+
+    .weight-steps__chart {
+      width: 100%;
+    }
+
+    .weight-steps__list-container {
+      width: 100%;
+    }
+  }
+
+  .weight-steps__list {
+    margin-top: 1rem;
+  }
+
+  .weight-steps__add {
+    top: -2rem;
+  }
+}

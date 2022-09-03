@@ -106,7 +106,7 @@ const optionsObj = {
         },
       },
       x: {
-        display: true,
+        display: false,
         grid: {
           display: false,
         },
@@ -135,7 +135,7 @@ const optionsObj = {
         },
       },
       x: {
-        display: true,
+        display: false,
         grid: {
           display: false,
         },
