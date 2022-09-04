@@ -4,7 +4,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 // Local component imports
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 import Section from "../../../../components/Misc/Section";
 import Button from "../../../../components/Buttons/Button";
 
@@ -50,57 +50,54 @@ const SectionWorkouts = ({ workouts }) => {
   };
 
   return (
-    <Card>
-      <Card.Header>Workout History</Card.Header>
-      <Card.Body className="mt-3">
-        <div className="list-workouts">
-          {React.Children.toArray(
-            displayList.map((workout) => {
-              let date = new Date(workout.date);
-              return (
-                <div className="list-workouts__workout" key={workout._id}>
-                  <div
-                    className="list-workouts__workout-card"
-                    onClick={() => navigate(`/workouts/${workout._id}`)}
-                  >
-                    <div className="list-workouts__workout-body">
-                      <img
-                        className="list-workouts__workout-image"
-                        src={workoutTypeImg[workout.type]}
-                        alt=""
-                      />
-                      <div className="list-workouts__workout-text">
-                        <h5>{date.toDateString()}</h5>
-                        <p className="list-workouts__workout-name">
-                          <span className="list-workouts__workout-stat-group">
-                            Reps<span className="list-workouts__workout-stat">{workout.Reps}</span>
-                          </span>
-                          <span className="list-workouts__workout-stat-group">
-                            Sets <span className="list-workouts__workout-stat">{workout.Sets}</span>
-                          </span>
-                          <span className="list-workouts__workout-stat-group">
-                            Avg <span className="list-workouts__workout-stat">{workout.Avg}</span>
-                          </span>
-                        </p>
-                      </div>
+    <BasicCard title="Workout History">
+      <div className="list-workouts">
+        {React.Children.toArray(
+          displayList.map((workout) => {
+            let date = new Date(workout.date);
+            return (
+              <div className="list-workouts__workout" key={workout._id}>
+                <div
+                  className="list-workouts__workout-card"
+                  onClick={() => navigate(`/workouts/${workout._id}`)}
+                >
+                  <div className="list-workouts__workout-body">
+                    <img
+                      className="list-workouts__workout-image"
+                      src={workoutTypeImg[workout.type]}
+                      alt=""
+                    />
+                    <div className="list-workouts__workout-text">
+                      <h5>{date.toDateString()}</h5>
+                      <p className="list-workouts__workout-name">
+                        <span className="list-workouts__workout-stat-group">
+                          Reps<span className="list-workouts__workout-stat">{workout.Reps}</span>
+                        </span>
+                        <span className="list-workouts__workout-stat-group">
+                          Sets <span className="list-workouts__workout-stat">{workout.Sets}</span>
+                        </span>
+                        <span className="list-workouts__workout-stat-group">
+                          Avg <span className="list-workouts__workout-stat">{workout.Avg}</span>
+                        </span>
+                      </p>
                     </div>
                   </div>
                 </div>
-              );
-            })
-          )}
-        </div>
+              </div>
+            );
+          })
+        )}
+      </div>
 
-        <div className="d-flex flex-row justify-content-center">
-          {page > 0 ? (
-            <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} className="me-3" />
-          ) : (
-            <></>
-          )}
-          {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
-        </div>
-      </Card.Body>
-    </Card>
+      <div className="d-flex flex-row justify-content-center">
+        {page > 0 ? (
+          <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} className="me-3" />
+        ) : (
+          <></>
+        )}
+        {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
+      </div>
+    </BasicCard>
   );
 };
 
