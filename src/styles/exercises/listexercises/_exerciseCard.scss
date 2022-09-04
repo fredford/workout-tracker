@@ -10,6 +10,12 @@
   margin-bottom: 1rem;
 }
 
+@media screen and (max-width: $breakpoint-sm) {
+  .list-exercises__container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
 .list-exercise__card {
   @include default-button;
 
@@ -35,7 +41,7 @@
   .list-exercise__name {
     color: $foreground-primary;
     font-weight: $font-bold;
-    font-size: 15px;
+    font-size: 14px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -45,11 +51,13 @@
   .list-exercise__area {
     color: $foreground-accent;
     font-weight: $font-norm;
+    font-size: 13px;
   }
 
   .list-exercise__type {
     color: $foreground-mute;
     font-weight: $font-slim;
+    font-size: 13px;
   }
 
   &:active {
