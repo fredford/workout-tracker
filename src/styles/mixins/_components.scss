@@ -11,7 +11,7 @@
 
   color: var(--foreground-prim);
   border: 1px solid var(--background-prim);
-  background-color: inherit;
+  background-color: var(--background-card);
 
   &:hover:enabled {
     border: 1px solid var(--foreground-prim);

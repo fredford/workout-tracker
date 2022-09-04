@@ -44,7 +44,9 @@ const QuickActions = React.memo(function WrappedQuickActions() {
             Add Workout
           </Button>
           <Modal show={showWorkout} onHide={handleCloseWorkout}>
-            <SectionAddWorkout />
+            <BasicCard>
+              <SectionAddWorkout />
+            </BasicCard>
           </Modal>
         </>
         <>
