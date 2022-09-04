@@ -1,7 +1,7 @@
 // Library imports
 import React from "react";
 // Local component imports
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 
 /**
  * Component for displaying a list of exercises available to be started in the workout
@@ -10,31 +10,26 @@ import Card from "../../../../components/Cards/Card";
  * @returns {JSX.Element}
  * @constructor
  */
-const SectionAddExercise = ({exercises, setNewExercise}) => {
+const SectionAddExercise = ({ exercises, setNewExercise }) => {
   return (
-    <Card className="flex-grow-1">
-      <Card.Body>
-        <Card.Header>Exercise</Card.Header>
-        <Card.Subtitle className="text-muted">
-          Choose an exercise to add to the workout
-        </Card.Subtitle>
-        <div className="workout-exercises__group">
-          {React.Children.toArray(
-            exercises.map((exercise) => {
-              return (
-                <div
-                  className="workout-exercises__exercise"
-                  onClick={() => setNewExercise(exercise)}
-                >
-                  <h5>{exercise.name}</h5>
-                  <h6>{exercise.type}</h6>
-                </div>
-              );
-            })
-          )}
-        </div>
-      </Card.Body>
-    </Card>
+    <BasicCard
+      className="flex-grow-1"
+      title="Exercise"
+      subtitle="Choose an exercise to add to the workout"
+    >
+      <div className="workout-exercises__group">
+        {React.Children.toArray(
+          exercises.map((exercise) => {
+            return (
+              <div className="workout-exercises__exercise" onClick={() => setNewExercise(exercise)}>
+                <h5>{exercise.name}</h5>
+                <h6>{exercise.type}</h6>
+              </div>
+            );
+          })
+        )}
+      </div>
+    </BasicCard>
   );
 };
 

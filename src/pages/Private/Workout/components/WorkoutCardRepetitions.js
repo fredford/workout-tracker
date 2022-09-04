@@ -1,5 +1,6 @@
 // Library imports
 import React, { useContext, useState } from "react";
+import { Accordion } from "react-bootstrap";
 
 // Local component imports
 import Button from "../../../../components/Buttons/Button";
@@ -69,7 +70,7 @@ const WorkoutCardRepetitions = ({ exerciseObject }) => {
   };
 
   return (
-    <AccordionCard className="workout-sets__cards">
+    <AccordionCard className="profile-accordion card p-0">
       <AccordionCard.Header name={exercise.name} type={exercise.type} addSet={addSet} />
       <AccordionCard.Body className="workout-sets__body">
         <WorkoutExerciseAmount amount={amount} setAmount={setAmount} />

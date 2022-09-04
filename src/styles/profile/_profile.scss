@@ -25,6 +25,7 @@
 
   .accordion-button {
     @include button-border;
+    @include standard-border-radius;
     background-color: var(--background-body);
     font-size: 1.25rem;
     font-weight: $font-bold;
@@ -32,6 +33,7 @@
 
     &:focus {
       @include button-border;
+      @include standard-border-radius;
       box-shadow: none;
     }
 
@@ -42,12 +44,13 @@
 
     &:active {
       @include button-border;
+      @include standard-border-radius;
       color: $background-card;
       background-color: $foreground-primary;
     }
 
     &.collapsed {
-      border-radius: $border-radius !important;
+      @include standard-border-radius;
     }
 
     &:not(.collapsed) {
@@ -72,11 +75,11 @@
 
   .accordion-item {
     border: none;
-    border-radius: $border-radius;
+    @include standard-border-radius;
     background-color: inherit !important;
 
     &:first-of-type .accordion-button {
-      border-radius: $border-radius;
+      @include standard-border-radius;
     }
   }
 

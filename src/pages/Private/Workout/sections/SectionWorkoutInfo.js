@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 // Local component imports
 import Button from "../../../../components/Buttons/Button";
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 import CardStats from "../../../../components/Cards/CardStats";
 
 // Local services
@@ -33,25 +33,36 @@ const SectionWorkoutInfo = ({ workout, totalAmount, totalSets }) => {
   };
 
   return (
-    <Card className="p-0 no-background-border" noBorder>
-      <Card.Body className="p-0">
-        <Card.ImageHeader className="mb-3" path={`.././${workout.type.toLowerCase()}.png`}>
-          <Card.Header>{new Date(workout.date).toDateString()}</Card.Header>
-          <Card.Title>{workout.type}</Card.Title>
-        </Card.ImageHeader>
-        <div className="grid-4-item">
-          <CardStats data={totalAmount} title={"Total"} />
-          <CardStats data={totalSets} title={"Sets"} />
-          <Button Icon={MdOutlineModeEditOutline} iconSize={40} onClick={updateWorkout}>
-            Edit
-          </Button>
-          <Button danger Icon={MdDeleteOutline} iconSize={40} onClick={deleteWorkout}>
-            Delete
-          </Button>
+    <BasicCard className="p-0 no-background-border" noBorder>
+      <div className="p-0 icon-card__body-container">
+        <img
+          className="standard-image"
+          src={`.././${imgPath[workout.type.toLowerCase()]}`}
+          alt={workout.type.toLowerCase()}
+        />
+        <div className="icon-card__header">
+          <h3 className="basic-card__title">{new Date(workout.date).toDateString()}</h3>
+          <h3 className="basic-card__subtitle">{workout.type}</h3>
         </div>
-      </Card.Body>
-    </Card>
+      </div>
+      <div className="grid-4-item">
+        <CardStats data={totalAmount} title={"Total"} />
+        <CardStats data={totalSets} title={"Sets"} />
+        <Button Icon={MdOutlineModeEditOutline} iconSize={25} onClick={updateWorkout}>
+          Edit
+        </Button>
+        <Button danger Icon={MdDeleteOutline} iconSize={25} onClick={deleteWorkout}>
+          Delete
+        </Button>
+      </div>
+    </BasicCard>
   );
+};
+
+const imgPath = {
+  "single set max": "max.png",
+  progression: "progression.png",
+  maintenance: "maintenance.png",
 };
 
 export default SectionWorkoutInfo;

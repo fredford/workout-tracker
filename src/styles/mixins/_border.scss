@@ -21,8 +21,8 @@
 // }
 
 @mixin button-border {
+  @include standard-border-radius;
   border: $border-bg-prim;
-  border-radius: $border-radius;
 }
 
 @mixin basic-border {

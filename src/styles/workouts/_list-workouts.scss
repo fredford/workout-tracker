@@ -1,8 +1,7 @@
 .list-workouts {
-  @include gap-size;
-
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.5rem;
 }
 
 .list-workouts__workout {
@@ -17,6 +16,7 @@
   z-index: 2;
   margin-right: 1rem;
   width: 45px !important;
+  padding: 0.5rem;
 }
 
 .list-workouts__workout-card {
@@ -47,6 +47,7 @@
   flex-direction: column;
   width: 100%;
   h5 {
+    font-size: 14px;
     color: inherit;
   }
   h6 {

@@ -1,39 +1,70 @@
 .accordion-card {
+  border: none;
+
   .accordion {
   }
 
   .accordion-header {
+    @include button-border;
+    @include standard-border-radius;
   }
 
   .accordion-button {
     background-color: var(--background-card);
 
-    &.collapsed {
-      border-radius: $border-radius !important;
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+    &:hover {
       border: $border-fg-prim;
+      color: $foreground-primary;
+    }
+
+    &:active {
+      border: none;
+      color: $background-card;
+      background-color: $foreground-primary;
+    }
+
+    &.collapsed {
+      border: none;
     }
 
     &:not(.collapsed) {
       color: var(--foreground-text);
-      background-color: var(--background-card);
-      box-shadow: none;
+      background-color: var(--background-body);
+      box-shadow: none !important;
 
       &:hover {
-        background-color: var(--background-prim);
+        color: $foreground-primary;
         border: $border-fg-prim;
       }
+      &:active {
+        background-color: var(--foreground-prim);
+        color: $background-card;
+      }
+    }
+    &::after {
+      filter: var(--foreground-filter-arrow) !important;
+      border-radius: 0;
     }
   }
 
   .accordion-body {
+    @include standard-border-radius;
+    background-color: var(--background-body);
+    padding: $large-gap 0;
+    border: $border;
   }
 
   .accordion-item {
     @include standard-border;
+    @include standard-border-radius;
     background-color: var(--background-card);
 
     &:first-of-type .accordion-button {
-      border-radius: $border-radius;
+      @include standard-border-radius;
     }
   }
 }
