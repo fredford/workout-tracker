@@ -1,5 +1,4 @@
 .workout-exercises__group {
-  margin-top: 0.5rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 0.5rem;
@@ -14,11 +13,11 @@
   h5 {
     color: inherit;
     font-weight: $font-norm;
-    font-size: 15px;
+    font-size: 14px;
   }
   h6 {
     color: var(--foreground-mute);
-    font-weight: $font-norm;
+    font-weight: $font-slim;
     font-size: 13px;
   }
 }

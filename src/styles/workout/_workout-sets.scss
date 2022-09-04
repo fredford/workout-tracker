@@ -1,14 +1,14 @@
 .workout-sets__container {
+  @include gap-size;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
 }
 
 .workout-sets__cards {
 }
 
 .workout-sets__body {
-  padding-top: 0 !important;
+  @include standard-padding;
 }
 
 .workout-sets__header {
@@ -19,10 +19,12 @@
   .workout-sets__header-text {
   }
   .workout-sets__header-title {
+    font-size: 18px;
     color: var(--foreground-text);
   }
   .workout-sets__header-type {
-    font-weight: $font-norm;
+    font-size: 16px;
+    font-weight: $font-slim;
     color: var(--foreground-mute);
   }
 }

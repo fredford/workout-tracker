@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   @include gap-size;
+  color: $foreground-text;
 }
 
 .icon-card__header {
