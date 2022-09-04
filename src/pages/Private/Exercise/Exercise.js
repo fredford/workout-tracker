@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 // Local component imports
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 import Page from "../../../components/Layout/Page/Page";
 import ExerciseInfo from "./sections/ExerciseInfo";
 import Button from "../../../components/Buttons/Button";
@@ -92,7 +92,7 @@ const Exercise = () => {
         Back to Exercises
       </Button>
 
-      <div className="mb-3 mt-3">
+      <div className="mt-3">
         <ExerciseInfo exercise={exercise} stats={exerciseStats.stats} />
       </div>
       <div className="row">
@@ -121,14 +121,11 @@ const Exercise = () => {
           <ChallengesCard />
         </div>
         <div className="col-sm-12 col-md-6 col-xxl-4 card-margin">
-          <Card>
-            <Card.Header>Settings</Card.Header>
-            <Card.Body className="mt-3">
-              <Button fill onClick={deleteExercise} danger>
-                Delete
-              </Button>
-            </Card.Body>
-          </Card>
+          <BasicCard title="Settings">
+            <Button fill onClick={deleteExercise} danger>
+              Delete
+            </Button>
+          </BasicCard>
         </div>
       </div>
     </Page>
