@@ -52,6 +52,64 @@ const optionsObj = {
       },
     },
   },
+  "no-aspect-no-zero": {
+    bezierCurve: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        display: true,
+        beginAtZero: false,
+        grid: {
+          display: false,
+        },
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+      x: {
+        display: false,
+        grid: {
+          display: false,
+        },
+      },
+    },
+  },
+  "no-aspect-zero": {
+    bezierCurve: true,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        display: true,
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+      x: {
+        display: false,
+        grid: {
+          display: false,
+        },
+      },
+    },
+  },
 };
 
 export default StatsBarChart;

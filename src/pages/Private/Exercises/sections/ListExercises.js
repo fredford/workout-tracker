@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 // Local component imports
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 import ActivityToggles from "../../../../components/Misc/ActivityToggles";
 import ListExercisesUserOptions from "../components/ListExercisesUserOptions";
 import ListExerciseSearchBar from "../components/ListExercisesSearchBar";
@@ -96,37 +96,34 @@ const ListExercises = () => {
   };
 
   return (
-    <Card className="list-exercises">
-      <Card.Header>Exercise List</Card.Header>
-      <Card.Body className="mt-3">
-        <ActivityToggles />
-        <ListExercisesUserOptions userClicked={userOnly} changeUserClicked={changeUserOnly} />
-        <ListExerciseSearchBar
-          isAscending={isAscending}
-          changeDirection={changeDirection}
-          search={search}
-          changeSearch={changeSearch}
-        />
-        <Card.Bar />
-        <div className="list-exercises__container">
-          {React.Children.toArray(
-            displayList.map((exercise) => {
-              var area = exercise.area.toLowerCase();
-              var isAllOff = Object.values(activities).every((x) => x[0] === false);
-              if (isAllOff || activities[area][0]) {
-                return <ListExercisesExercise exercise={exercise} />;
-              } else {
-                return <></>;
-              }
-            })
-          )}
-        </div>
-        <div className="d-flex flex-row justify-content-center large-gap">
-          {page > 0 ? <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} /> : <></>}
-          {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
-        </div>
-      </Card.Body>
-    </Card>
+    <BasicCard className="list-exercises" title="All Exercises">
+      <ActivityToggles />
+      <ListExercisesUserOptions userClicked={userOnly} changeUserClicked={changeUserOnly} />
+      <ListExerciseSearchBar
+        isAscending={isAscending}
+        changeDirection={changeDirection}
+        search={search}
+        changeSearch={changeSearch}
+      />
+      <hr />
+      <div className="list-exercises__container">
+        {React.Children.toArray(
+          displayList.map((exercise) => {
+            var area = exercise.area.toLowerCase();
+            var isAllOff = Object.values(activities).every((x) => x[0] === false);
+            if (isAllOff || activities[area][0]) {
+              return <ListExercisesExercise exercise={exercise} />;
+            } else {
+              return <></>;
+            }
+          })
+        )}
+      </div>
+      <div className="d-flex flex-row justify-content-center large-gap">
+        {page > 0 ? <Button iconOnly Icon={FaArrowLeft} onClick={decreasePage} /> : <></>}
+        {numPages > 0 ? <Button iconOnly Icon={FaArrowRight} onClick={increasePage} /> : <></>}
+      </div>
+    </BasicCard>
   );
 };
 
