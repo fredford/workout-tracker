@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // Local component imports
 import Button from "../../../components/Buttons/Button";
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 import Form from "../../../components/Forms/Form";
 import Page from "../../../components/Layout/Page/Page";
 // Services
@@ -41,13 +41,13 @@ const ForgotPassword = () => {
 
   return (
     <Page center>
-      <Card>
-        <Card.Body>
+      <BasicCard>
+        <div className="d-flex flex-column align-items-center">
           <h1 className="startup-header text-center text-normal">Fitrak</h1>
-          <Card.Header className="text-center text-muted">Forgot Password</Card.Header>
-          <Card.Bar />
+          <h3 className="basic-card__title text-muted">Forgot Password</h3>
+          <hr className="basic-bar" />
           <p className="text-normal"></p>
-          <Form>
+          <Form className="w-100">
             <Form.Label for="forgot-email">Provide your account email to reset password</Form.Label>
             <Form.Input
               id="forgot-email"
@@ -60,8 +60,8 @@ const ForgotPassword = () => {
           <Button onClick={attemptRequest} disabled={!isValid} className=" mt-3 w-100">
             Reset Password
           </Button>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     </Page>
   );
 };

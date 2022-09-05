@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 
 /**
  * Component to display the current challenges in progress.
@@ -14,9 +14,8 @@ const Challenges = () => {
     { name: "10000 Squats", current: 900, goal: 10000 },
   ];
   return (
-    <Card className="dashboard__goals">
-      <Card.Header className="mb-3">Challenges</Card.Header>
-      <Card.Body>
+    <BasicCard className="dashboard__goals" title="Challenges">
+      <div>
         {challengesList.map((goal, index) => {
           let styleWidth = `${Math.round((goal.current / goal.goal) * 100)}%`;
 
@@ -44,8 +43,8 @@ const Challenges = () => {
             </div>
           );
         })}
-      </Card.Body>
-    </Card>
+      </div>
+    </BasicCard>
   );
 };
 

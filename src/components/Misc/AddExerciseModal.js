@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Modal } from "react-bootstrap";
 
 // Local components imports
-import Card from "../Cards/Card";
+import BasicCard from "../Cards/BasicCard";
 import Form from "../Forms/Form";
 import Button from "../Buttons/Button";
 
@@ -64,21 +64,21 @@ const AddExerciseModal = ({ show, handleClose }) => {
   };
 
   return (
-    <Modal show={show} onHide={handleClose}>
-      <Card>
-        <Card.Header bar>Add Exercise</Card.Header>
-        <Card.Body>
-          <Card.Title>Name</Card.Title>
-          <Card.Subtitle className="text-muted mb-2">
+    <Modal show={show} onHide={handleClose} className="no-border">
+      <BasicCard title="Add Exercise" className="no-gap">
+        <hr className="basic-bar" />
+        <div>
+          <h3 className="basic-card__section-title">Name</h3>
+          <h3 className="basic-card__section-subtitle">
             The name that will be used to represent the exercise
-          </Card.Subtitle>
+          </h3>
           <Form className="mb-3">
             <Form.Input id="add-name" type="text" value={name} onChange={(e) => setName(e)} />
           </Form>
-          <Card.Title>Area</Card.Title>
-          <Card.Subtitle className="text-muted mb-2">
+          <h3 className="basic-card__section-title">Area</h3>
+          <h3 className="basic-card__section-subtitle">
             The general area of the body being worked
-          </Card.Subtitle>
+          </h3>
           <div className="grid-4-item mb-3">
             {React.Children.toArray(
               areas.map((area) => {
@@ -98,10 +98,8 @@ const AddExerciseModal = ({ show, handleClose }) => {
               })
             )}
           </div>
-          <Card.Title>Type</Card.Title>
-          <Card.Subtitle className="text-muted mb-2">
-            The way the exercise is quantified
-          </Card.Subtitle>
+          <h3 className="basic-card__section-title">Type</h3>
+          <h3 className="basic-card__section-subtitle">The way the exercise is quantified</h3>
           <div className="d-flex flex-row mb-3">
             {React.Children.toArray(
               types.map((type) => {
@@ -132,8 +130,8 @@ const AddExerciseModal = ({ show, handleClose }) => {
               </Button>
             </div>
           </div>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     </Modal>
   );
 };

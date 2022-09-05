@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import Form from "../../../../components/Forms/Form";
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 import Button from "../../../../components/Buttons/Button";
 import { Modal } from "react-bootstrap";
 import services from "../../../../services/services";
@@ -19,16 +19,15 @@ const AddWeightModal = ({ weights, setWeights, show, handleClose }) => {
 
   return (
     <Modal show={show} onHide={handleClose}>
-      <Card className="w-100">
-        <Card.Header>Add Weight</Card.Header>
-        <Card.Body className="d-flex flex-column large-gap">
+      <BasicCard className="w-100" title="Add Weight">
+        <div className="d-flex flex-column large-gap">
           <Form>
             <Form.Label>Set Weight</Form.Label>
             <Form.Input
               type="number"
               placholder="Enter lbs/kg"
               value={weight}
-              onChange={(e) => setWeight(e)}
+              onChange={(e) => setWeight(Number(e))}
             />
           </Form>
           <Form>
@@ -38,8 +37,8 @@ const AddWeightModal = ({ weights, setWeights, show, handleClose }) => {
           <Button fill onClick={addWeight} disabled={weight === 0}>
             Add
           </Button>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     </Modal>
   );
 };

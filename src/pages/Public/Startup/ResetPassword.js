@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 // Local component imports
 import Button from "../../../components/Buttons/Button";
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 import Form from "../../../components/Forms/Form";
 import Page from "../../../components/Layout/Page/Page";
 // Services
@@ -50,13 +50,13 @@ const ResetPassword = () => {
 
   return (
     <Page center>
-      <Card>
-        <Card.Body>
+      <BasicCard>
+        <div className="d-flex flex-column align-items-center">
           <h1 className="startup-header text-center text-normal">Fitrak</h1>
-          <Card.Header className="text-center text-muted">Reset Password</Card.Header>
-          <Card.Bar />
+          <h3 className="text-center text-muted">Reset Password</h3>
+          <hr className="basic-bar" />
           <p className="text-normal"></p>
-          <Form>
+          <Form className="w-100">
             <Form.Label for="forgot-password1">Provide a new password</Form.Label>
             <Form.Input
               id="forgot-password1"
@@ -66,7 +66,7 @@ const ResetPassword = () => {
               onChange={updatePassword1}
             />
           </Form>
-          <Form className="mt-3">
+          <Form className="mt-3 w-100">
             <Form.Label for="forgot-password2">Confirm the new password</Form.Label>
             <Form.Input
               id="forgot-password2"
@@ -79,8 +79,8 @@ const ResetPassword = () => {
           <Button onClick={attemptRequest} disabled={!isValid} className="mt-3 w-100">
             Reset Password
           </Button>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     </Page>
   );
 };

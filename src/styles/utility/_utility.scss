@@ -8,7 +8,23 @@
   box-shadow: none !important;
 }
 
+.no-border {
+  border: none !important;
+}
+
 .relative-block {
   display: block;
   position: relative;
+}
+
+.basic-bar {
+  border: none;
+  width: 100%;
+  background-color: $foreground-primary;
+  opacity: 1;
+  height: 1px;
+}
+
+.modal-content {
+  border: none;
 }

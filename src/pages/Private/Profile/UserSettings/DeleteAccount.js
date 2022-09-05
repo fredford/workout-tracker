@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 // Local component imports
 import Button from "../../../../components/Buttons/Button";
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 import Form from "../../../../components/Forms/Form";
 
 // Local services imports
@@ -58,12 +58,8 @@ const DeleteAccount = () => {
         Delete Account
       </Button>
       <Modal show={show} onHide={handleClose}>
-        <Card>
-          <Card.Body>
-            <Card.Title>Delete Account</Card.Title>
-            <Card.Subtitle className="text-muted mb-2">
-              Enter your username to delete account
-            </Card.Subtitle>
+        <BasicCard title="Delete Account" subtitle="Enter your username to delete account">
+          <div>
             <Form className="mb-3">
               <Form.Label>
                 Your username is: <span className="fw-bold"> {user.name}</span>
@@ -86,8 +82,8 @@ const DeleteAccount = () => {
                 Cancel
               </Button>
             </div>
-          </Card.Body>
-        </Card>
+          </div>
+        </BasicCard>
       </Modal>
     </>
   );

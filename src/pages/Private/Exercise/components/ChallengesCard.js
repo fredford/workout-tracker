@@ -1,6 +1,6 @@
 import React from "react";
 
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 
 /**
  * Component to handle the Challenges available and active for the current Exercise
@@ -12,10 +12,9 @@ import Card from "../../../../components/Cards/Card";
  */
 const ChallengesCard = () => {
   return (
-    <Card>
-      <Card.Header>Challenges</Card.Header>
-      <Card.Body className="mt-3 text-normal">Feature in progress</Card.Body>
-    </Card>
+    <BasicCard title="Challenges">
+      <div className="mt-3 text-normal">Feature in progress</div>
+    </BasicCard>
   );
 };
 

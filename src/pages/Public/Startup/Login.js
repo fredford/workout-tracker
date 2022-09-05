@@ -5,7 +5,7 @@ import { MdLogin } from "react-icons/md";
 
 // Local component imports
 import Page from "../../../components/Layout/Page/Page";
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/Button";
 
@@ -65,16 +65,16 @@ const Login = () => {
 
   return (
     <Page center>
-      <Card>
-        <Card.Body>
+      <BasicCard>
+        <div className="d-flex flex-column align-items-center">
           <h1 className="startup-header text-center text-normal">Fitrak</h1>
-          <Card.Header className="text-center text-muted">Login</Card.Header>
-          <Card.Bar />
-          <Form className="mb-2">
+          <h3 className="basic-card__title text-muted">Login</h3>
+          <hr className="basic-bar" />
+          <Form className="mb-2 w-100">
             <Form.Label for="login-email">Email</Form.Label>
             <Form.Input id="login-email" type="email" value={email} onChange={updateEmail} />
           </Form>
-          <Form className="mb-3">
+          <Form className="mb-3 w-100">
             <Form.Label for="login-password">Password</Form.Label>
             <Form.Input
               id="login-password"
@@ -83,19 +83,19 @@ const Login = () => {
               onChange={updatePassword}
             />
           </Form>
-          <Card.Text className="text-error">{error}</Card.Text>
+          <p className="text-error">{error}</p>
           <Button Icon={MdLogin} iconSize={25} onClick={attemptLogin} disabled={isDisabled} fill>
             Login
           </Button>
-          <Card.Bar />
+          <hr className="basic-bar" />
           <div className="d-flex justify-content-between">
             <Link className="me-5" to={{ pathname: "/forgotpassword" }}>
               Forgot Password?
             </Link>
             <Link to={{ pathname: "/register" }}>Create an account</Link>
           </div>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     </Page>
   );
 };
