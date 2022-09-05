@@ -1,10 +1,8 @@
 // Library imports
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RiArrowGoBackFill } from "react-icons/ri";
 
 // Local component imports
-import Card from "../../../../components/Cards/Card";
 import CardStats from "../../../../components/Cards/CardStats";
 import BasicCard from "../../../../components/Cards/BasicCard";
 

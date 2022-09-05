@@ -5,7 +5,7 @@ import { MdCreate } from "react-icons/md";
 
 // Local component imports
 import Page from "../../../components/Layout/Page/Page";
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 import Form from "../../../components/Forms/Form";
 import Button from "../../../components/Buttons/Button";
 
@@ -110,15 +110,15 @@ const Register = () => {
 
   return (
     <Page center>
-      <Card className="startup-sizing">
-        <Card.Body className="text-normal">
+      <BasicCard className="startup-sizing">
+        <div className="d-flex flex-column align-items-center text-normal">
           <h1 className="startup-header text-center">Fitrak</h1>
-          <Card.Header className="text-center text-muted">Register</Card.Header>
-          <Card.Bar />
+          <h3 className="basic-card__title text-muted">Register</h3>
+          <hr className="basic-bar" />
 
           {items.map((item, index) => {
             return (
-              <Form key={index} className="mb-3">
+              <Form key={index} className="mb-3 w-100">
                 <Form.Label>{item.label}</Form.Label>
                 <Form.Input
                   type={item.type}
@@ -131,7 +131,7 @@ const Register = () => {
               </Form>
             );
           })}
-          <Card.Text className="text-error">{error}</Card.Text>
+          <p className="text-error">{error}</p>
           <Button
             Icon={MdCreate}
             iconSize={25}
@@ -141,13 +141,12 @@ const Register = () => {
           >
             Register
           </Button>
-          <Card.Bar />
-
-          <p>
+          <hr className="basic-bar" />
+          <p className="text-normal">
             Already registered? <Link to={{ pathname: "/login" }}> Sign in</Link>
           </p>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     </Page>
   );
 };

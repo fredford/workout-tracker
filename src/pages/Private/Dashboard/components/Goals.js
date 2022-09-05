@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../../../components/Cards/Card";
+import BasicCard from "../../../../components/Cards/BasicCard";
 
 /**
  * Component to display the current goals in progress.
@@ -16,9 +16,8 @@ const Goals = () => {
     { name: "Total Distance", current: 20000, goal: 20000 },
   ];
   return (
-    <Card className="dashboard__goals">
-      <Card.Header className="mb-3">Goals</Card.Header>
-      <Card.Body>
+    <BasicCard className="dashboard__goals" title="Goals">
+      <div>
         {goalsList.map((goal, index) => {
           let styleWidth = `${Math.round((goal.current / goal.goal) * 100)}%`;
 
@@ -46,8 +45,8 @@ const Goals = () => {
             </div>
           );
         })}
-      </Card.Body>
-    </Card>
+      </div>
+    </BasicCard>
   );
 };
 

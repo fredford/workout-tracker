@@ -5,7 +5,7 @@ import { MdLogin, MdOutlineCreate } from "react-icons/md";
 // Local component imports
 import Page from "../../../components/Layout/Page/Page";
 import Button from "../../../components/Buttons/Button";
-import Card from "../../../components/Cards/Card";
+import BasicCard from "../../../components/Cards/BasicCard";
 
 /**
  * Component that displays the landing page of the application
@@ -15,12 +15,12 @@ import Card from "../../../components/Cards/Card";
 export default function Startup() {
   return (
     <Page center>
-      <Card className="startup-sizing">
-        <Card.Body className="text-normal">
+      <BasicCard className="startup-sizing">
+        <div className="d-flex flex-column align-items-center">
           <h1 className="text-center startup-header">Fitrak</h1>
-          <Card.Header className="text-muted text-center">Welcome</Card.Header>
-          <Card.Bar />
-          <div className="d-flex flex-column large-gap">
+          <h3 className="basic-card__title text-muted">Welcome</h3>
+          <hr className="basic-bar" />
+          <div className="d-flex flex-column large-gap w-100">
             <Button Icon={MdLogin} iconSize={25} path="/login">
               Login
             </Button>
@@ -28,8 +28,8 @@ export default function Startup() {
               Register
             </Button>
           </div>
-        </Card.Body>
-      </Card>
+        </div>
+      </BasicCard>
     </Page>
   );
 }

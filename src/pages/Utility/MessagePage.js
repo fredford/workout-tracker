@@ -5,7 +5,7 @@ import { BsFillCheckCircleFill, BsFillXCircleFill } from "react-icons/bs";
 
 // Local component imports
 import Page from "../../components/Layout/Page/Page";
-import Card from "../../components/Cards/Card";
+import BasicCard from "../../components/Cards/BasicCard";
 import Button from "../../components/Buttons/Button";
 import { getAuth } from "../../utilities/utils";
 
@@ -29,17 +29,15 @@ const MessagePage = () => {
 
   return (
     <Page navbar={token} center>
-      <Card>
-        <Card.Body>
-          <div className="d-flex flex-column align-items-center text-normal">
-            <Card.Text>{messageHandler[message].message}</Card.Text>
-            <div className="mt-2 mb-3">{messageHandler[message].icon}</div>
-            <Button fill path={messageHandler[message].button}>
-              Continue
-            </Button>
-          </div>
-        </Card.Body>
-      </Card>
+      <BasicCard>
+        <div className="d-flex flex-column align-items-center text-normal">
+          <p className="text-normal">{messageHandler[message].message}</p>
+          <div className="mt-2 mb-3">{messageHandler[message].icon}</div>
+          <Button fill path={messageHandler[message].button}>
+            Continue
+          </Button>
+        </div>
+      </BasicCard>
     </Page>
   );
 };

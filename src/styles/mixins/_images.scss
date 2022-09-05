@@ -1,6 +1,6 @@
 @mixin standard-image {
   @include standard-padding;
-  border-radius: $border-radius;
+  @include standard-border-radius;
   width: $image-width;
 
   background-color: var(--background-prim) !important;
@@ -12,7 +12,7 @@
 
 @mixin button-image {
   @include standard-padding;
-  border-radius: $border-radius;
+  @include standard-border-radius;
   width: $image-width;
 
   @media screen and (max-width: 500px) {
