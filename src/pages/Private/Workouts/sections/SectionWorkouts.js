@@ -20,19 +20,19 @@ const SectionWorkouts = ({ workouts }) => {
   // Component state
   const [page, setPage] = useState(0);
 
-  let numPages = Math.floor(workouts.length / 10);
+  let numPages = Math.floor(workouts.length / 5);
 
   // Create a list that can be manipulated to display only specified Workouts
   let displayList = [...workouts];
-  // Only display 10 Workouts at a time on the current page
-  if (displayList.length > 10) {
-    displayList = displayList.slice(page * 10, page * 10 + 10);
+  // Only display 5 Workouts at a time on the current page
+  if (displayList.length > 5) {
+    displayList = displayList.slice(page * 5, page * 5 + 5);
   }
   // Function to increment the page number if more pages are available
   const increasePage = () => {
     let newPage = page;
 
-    let maxPage = Math.floor(workouts.length / 10);
+    let maxPage = Math.floor(workouts.length / 5);
 
     // If the current page is less than the max number of pages computed
     if (workouts.length > 10 && maxPage > page) {
