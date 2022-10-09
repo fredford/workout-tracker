@@ -12,7 +12,13 @@ const AddStepsModal = ({ stepsList, setStepsList, show, handleClose }) => {
 
   const addSteps = async () => {
     let newList = [...stepsList];
-    const newSteps = { date, amount: steps };
+
+    let dateLocal = new Date(date);
+    let dateUTC = new Date(
+      dateLocal.getTime() + dateLocal.getTimezoneOffset() * 60000
+    ).toUTCString();
+
+    const newSteps = { date: dateUTC, amount: steps };
     const [result] = await services.steps.createSteps(newSteps);
 
     newList.push(result);

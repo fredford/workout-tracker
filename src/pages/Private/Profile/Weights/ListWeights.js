@@ -26,6 +26,8 @@ const ListWeights = ({ weights, setWeights }) => {
 
   let displayList = [...weights];
 
+  displayList.sort((a, b) => new Date(b.date) - new Date(a.date));
+
   if (displayList.length > 7) {
     displayList = displayList.slice(page * 7, page * 7 + 7);
   }
@@ -48,7 +50,7 @@ const ListWeights = ({ weights, setWeights }) => {
   };
 
   return (
-    <BasicCard className="w-100" title="History">
+    <BasicCard className="w-100 h-100" title="History">
       <div className="weight-steps__card-container">
         <div className="weight-steps__list">
           {displayList.map((weight, index) => {

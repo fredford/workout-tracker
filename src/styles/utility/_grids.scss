@@ -79,6 +79,13 @@
   }
 }
 
+@media screen and (min-width: $breakpoint-lg) and (max-width: $breakpoint-xx) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
 /* @media screen and (min-width: 300px){
   .stats-grid {
     grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
