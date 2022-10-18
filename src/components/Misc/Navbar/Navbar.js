@@ -1,11 +1,8 @@
 // Library imports
 import React from "react";
 import { useDispatch } from "react-redux";
-import DashboardTwoToneIcon from "@mui/icons-material/Dashboard";
-import DirectionsRunIcon from "@mui/icons-material/DirectionsRun";
-import AssignmentOutlinedIcon from "@mui/icons-material/AssignmentOutlined";
-import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
-import { MdLogout } from "react-icons/md";
+import { MdLogout, MdDashboard } from "react-icons/md";
+import { FaUser, FaRunning, FaClipboardList } from "react-icons/fa";
 
 // Local component imports
 import NavbarItem from "./NavbarItem";
@@ -32,10 +29,10 @@ const Navbar = () => {
     <div className="navbar__container">
       <h1 className="navbar__logo">Fitrak</h1>
       <div className="navbar__items">
-        <NavbarItem name="Dashboard" icon={DashboardTwoToneIcon} />
-        <NavbarItem name="Profile" icon={PermIdentityOutlinedIcon} />
-        <NavbarItem name="Exercises" icon={DirectionsRunIcon} />
-        <NavbarItem name="Workouts" icon={AssignmentOutlinedIcon} />
+        <NavbarItem name="Dashboard" icon={MdDashboard} />
+        <NavbarItem name="Profile" icon={FaUser} />
+        <NavbarItem name="Exercises" icon={FaRunning} />
+        <NavbarItem name="Workouts" icon={FaClipboardList} />
       </div>
       <Button path="/startup" Icon={MdLogout} className="navbar__logout" onClick={handleLogout}>
         Logout
